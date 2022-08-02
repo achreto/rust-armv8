@@ -1,0 +1,15 @@
+[package]
+name = "armv8"
+version = "0.0.1"
+authors = [
+  "Reto Achermann <achreto@gmail.com>"
+]
+
+description = "A library to program armv8-a (aarch64/aarch32) hardware. Contains armv8-a specific data structure definitions, data-tables, and functions to access architectural registers. "
+
+homepage = "https://github.com/achreto/rust-armv8"
+repository = "https://github.com/achreto/rust-armv8"
+readme = "README.md"
+keywords = ["arm", "armv8", "aarch64", "aarch32", "cortext"]
+license = "MIT"
+edition = '2018'
