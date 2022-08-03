@@ -20,5 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#![cfg(any(target_arch = "aarch32", target_arch = "aarch64"))]
+#![no_std]
+
 pub mod aarch32;
 pub mod aarch64;
