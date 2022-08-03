@@ -20,25 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-mod consts;
-mod ioaddr;
-mod ipaddr;
-mod paddr;
-mod tables;
-mod vaddr;
+use super::consts::*;
 
-pub use consts::*;
-pub use ioaddr::IOAddr;
-pub use ipaddr::IPAddr;
-pub use paddr::PAddr;
-pub use tables::{L0Table, L0TableEntry};
-pub use vaddr::VAddr;
+/// A L0 Table Entry consists of an address and a flags.
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct L0TableEntry(pub u64);
 
-/// A type wrapping a base page with a 4 KiB buffer.
-pub struct Page([u8; BASE_PAGE_SIZE]);
-
-/// A type wrapping a large page with a 2 MiB buffer.
-pub struct LargePage([u8; LARGE_PAGE_SIZE]);
-
-/// A type wrapping a huge page with a 1 GiB buffer.
-pub struct HugePage([u8; HUGE_PAGE_SIZE]);
+pub type L0Table = [L0TableEntry; L0_TABLE_ENTRIES];
