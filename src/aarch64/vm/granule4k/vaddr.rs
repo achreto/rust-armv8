@@ -27,6 +27,7 @@ use core::marker::Copy;
 use core::ops;
 
 use super::consts::{BASE_PAGE_SIZE, HUGE_PAGE_SIZE, LARGE_PAGE_SIZE};
+use crate::aarch64::vm::granule4k::VADDR_MAX;
 use crate::aarch64::vm::{align_down, align_up};
 
 /// A wrapper for a virtual address.
@@ -35,16 +36,6 @@ use crate::aarch64::vm::{align_down, align_up};
 pub struct VAddr(pub u64);
 
 impl VAddr {
-    /// Convert from `u64`
-    pub const fn from_u64(v: u64) -> Self {
-        VAddr(v)
-    }
-
-    /// Convert from `usize`
-    pub const fn from_usize(v: usize) -> Self {
-        VAddr(v as u64)
-    }
-
     /// Convert to `u64`
     pub const fn as_u64(self) -> u64 {
         self.0
@@ -167,13 +158,13 @@ impl VAddr {
 
 impl From<u64> for VAddr {
     fn from(num: u64) -> Self {
-        VAddr(num)
+        VAddr(num & VADDR_MAX)
     }
 }
 
 impl From<i32> for VAddr {
     fn from(num: i32) -> Self {
-        VAddr(num as u64)
+        VAddr(num as u64 & VADDR_MAX)
     }
 }
 
@@ -186,7 +177,7 @@ impl Into<u64> for VAddr {
 
 impl From<usize> for VAddr {
     fn from(num: usize) -> Self {
-        VAddr(num as u64)
+        VAddr::from(num as u64)
     }
 }
 
@@ -201,7 +192,7 @@ impl ops::Add for VAddr {
     type Output = VAddr;
 
     fn add(self, rhs: VAddr) -> Self::Output {
-        VAddr(self.0 + rhs.0)
+        VAddr::from(self.0 + rhs.0)
     }
 }
 
@@ -209,7 +200,7 @@ impl ops::Add<u64> for VAddr {
     type Output = VAddr;
 
     fn add(self, rhs: u64) -> Self::Output {
-        VAddr(self.0 + rhs)
+        VAddr::from(self.0 + rhs)
     }
 }
 
@@ -267,7 +258,7 @@ impl ops::Rem for VAddr {
     type Output = VAddr;
 
     fn rem(self, rhs: VAddr) -> Self::Output {
-        VAddr(self.0 % rhs.0)
+        VAddr::from(self.0 % rhs.0)
     }
 }
 
@@ -291,7 +282,7 @@ impl ops::BitAnd for VAddr {
     type Output = Self;
 
     fn bitand(self, rhs: Self) -> Self::Output {
-        VAddr(self.0 & rhs.0)
+        VAddr::from(self.0 & rhs.0)
     }
 }
 
@@ -299,7 +290,7 @@ impl ops::BitAnd<u64> for VAddr {
     type Output = VAddr;
 
     fn bitand(self, rhs: u64) -> Self::Output {
-        VAddr(self.0 & rhs)
+        VAddr::from(self.0 & rhs)
     }
 }
 
@@ -307,7 +298,7 @@ impl ops::BitAnd<usize> for VAddr {
     type Output = VAddr;
 
     fn bitand(self, rhs: usize) -> Self::Output {
-        VAddr(self.0 & rhs as u64)
+        VAddr::from(self.0 & rhs as u64)
     }
 }
 
@@ -315,7 +306,7 @@ impl ops::BitAnd<i32> for VAddr {
     type Output = VAddr;
 
     fn bitand(self, rhs: i32) -> Self::Output {
-        VAddr(self.0 & rhs as u64)
+        VAddr::from(self.0 & rhs as u64)
     }
 }
 
@@ -323,7 +314,7 @@ impl ops::BitOr for VAddr {
     type Output = VAddr;
 
     fn bitor(self, rhs: VAddr) -> VAddr {
-        VAddr(self.0 | rhs.0)
+        VAddr::from(self.0 | rhs.0)
     }
 }
 
@@ -331,7 +322,7 @@ impl ops::BitOr<u64> for VAddr {
     type Output = VAddr;
 
     fn bitor(self, rhs: u64) -> Self::Output {
-        VAddr(self.0 | rhs)
+        VAddr::from(self.0 | rhs)
     }
 }
 
@@ -339,7 +330,7 @@ impl ops::BitOr<usize> for VAddr {
     type Output = VAddr;
 
     fn bitor(self, rhs: usize) -> Self::Output {
-        VAddr(self.0 | rhs as u64)
+        VAddr::from(self.0 | rhs as u64)
     }
 }
 

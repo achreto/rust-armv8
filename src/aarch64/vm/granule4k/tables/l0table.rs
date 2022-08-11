@@ -20,33 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-mod descriptor_attributes;
-pub mod granule16k;
-pub mod granule4k;
-pub mod granule64k;
+use bit_field::BitField;
 
-/// the kernel offset
-static KERNEL_OFFSET: u64 = 0xFFFF_0000_0000_0000;
+use crate::aarch64::vm::descriptor_attributes::*;
+use crate::aarch64::vm::granule4k::consts::*;
+use crate::next_level_attributes_impl;
 
-/// Align address downwards.
-///
-/// Returns the greatest x with alignment `align` so that x <= addr.
-/// The alignment must be a power of 2.
-#[inline(always)]
-pub fn align_down(addr: u64, align: u64) -> u64 {
-    addr & !(align - 1)
-}
+/// A L0 Table Entry consists of an address and a flags.
+#[repr(transparent)]
+#[derive(Clone, Copy)]
+pub struct L0TableEntry(pub u64);
 
-/// Align address upwards.
-///
-/// Returns the smallest x with alignment `align` so that x >= addr.
-/// The alignment must be a power of 2.
-#[inline(always)]
-pub fn align_up(addr: u64, align: u64) -> u64 {
-    let align_mask = align - 1;
-    if addr & align_mask == 0 {
-        addr
-    } else {
-        (addr | align_mask) + 1
-    }
-}
+next_level_attributes_impl!(L0TableEntry);
+
+pub type L0Table = [L0TableEntry; L0_TABLE_ENTRIES];

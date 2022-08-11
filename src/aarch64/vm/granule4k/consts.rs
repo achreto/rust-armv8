@@ -20,6 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/// the number of bits of the physical address
+pub const PADDR_MAX_BITS: usize = 48;
+
+/// the maximum physical address
+pub const PADDR_MAX: u64 = (1 << PADDR_MAX_BITS) - 1;
+
+/// the number of bits of the virtual address
+pub const VADDR_MAX_BITS: usize = 48;
+
+/// the maximum virtual address
+pub const VADDR_MAX: u64 = (1 << VADDR_MAX_BITS) - 1;
+
 /// Log2 of base page size (12 bits)
 pub const BASE_PAGE_SHIFT: usize = 12;
 

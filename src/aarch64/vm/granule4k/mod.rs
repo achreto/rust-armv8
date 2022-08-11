@@ -31,7 +31,9 @@ pub use consts::*;
 pub use ioaddr::IOAddr;
 pub use ipaddr::IPAddr;
 pub use paddr::PAddr;
-pub use tables::{L0Table, L0TableEntry};
+pub use tables::{
+    L0Table, L0TableEntry, L1Table, L1TableEntry, L2Table, L2TableEntry, L3Table, L3TableEntry,
+};
 pub use vaddr::VAddr;
 
 /// A type wrapping a base page with a 4 KiB buffer.

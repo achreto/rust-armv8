@@ -20,33 +20,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-mod descriptor_attributes;
-pub mod granule16k;
-pub mod granule4k;
-pub mod granule64k;
+mod l0table;
+mod l1table;
+mod l2table;
+mod l3table;
 
-/// the kernel offset
-static KERNEL_OFFSET: u64 = 0xFFFF_0000_0000_0000;
+// In the case of a 4kB granule, the hardware can use a 4-level look up process. The 48-bit address
+// has nine address bits for each level translated (that is, 512 entries each), with the final 12 bits
+// selecting a byte within the 4kB coming directly from the original address.
 
-/// Align address downwards.
-///
-/// Returns the greatest x with alignment `align` so that x <= addr.
-/// The alignment must be a power of 2.
-#[inline(always)]
-pub fn align_down(addr: u64, align: u64) -> u64 {
-    addr & !(align - 1)
-}
-
-/// Align address upwards.
-///
-/// Returns the smallest x with alignment `align` so that x >= addr.
-/// The alignment must be a power of 2.
-#[inline(always)]
-pub fn align_up(addr: u64, align: u64) -> u64 {
-    let align_mask = align - 1;
-    if addr & align_mask == 0 {
-        addr
-    } else {
-        (addr | align_mask) + 1
-    }
-}
+pub use l0table::{L0Table, L0TableEntry};
+pub use l1table::{L1Table, L1TableEntry};
+pub use l2table::{L2Table, L2TableEntry};
+pub use l3table::{L3Table, L3TableEntry};

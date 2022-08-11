@@ -26,7 +26,9 @@ use core::hash::{Hash, Hasher};
 use core::marker::Copy;
 use core::ops;
 
-use super::consts::{BASE_PAGE_SIZE, HUGE_PAGE_SIZE, LARGE_PAGE_SIZE};
+use super::consts::{BASE_PAGE_SIZE, HUGE_PAGE_SIZE, LARGE_PAGE_SIZE, PADDR_MAX};
+use crate::aarch64::vm::granule4k::VAddr;
+use crate::aarch64::vm::KERNEL_OFFSET;
 use crate::aarch64::vm::{align_down, align_up};
 
 /// A wrapper for a physical address.
@@ -152,19 +154,25 @@ impl PAddr {
 
 impl From<u64> for PAddr {
     fn from(num: u64) -> Self {
-        PAddr(num)
+        PAddr(num & PADDR_MAX)
     }
 }
 
 impl From<usize> for PAddr {
     fn from(num: usize) -> Self {
-        PAddr(num as u64)
+        PAddr(num as u64 & PADDR_MAX)
     }
 }
 
 impl From<i32> for PAddr {
     fn from(num: i32) -> Self {
         PAddr(num as u64)
+    }
+}
+
+impl From<VAddr> for PAddr {
+    fn from(num: VAddr) -> Self {
+        PAddr(num.as_u64() - KERNEL_OFFSET)
     }
 }
 
@@ -186,7 +194,7 @@ impl ops::Add for PAddr {
     type Output = PAddr;
 
     fn add(self, rhs: PAddr) -> Self::Output {
-        PAddr(self.0 + rhs.0)
+        PAddr::from(self.0 + rhs.0)
     }
 }
 
@@ -246,7 +254,7 @@ impl ops::Rem for PAddr {
     type Output = PAddr;
 
     fn rem(self, rhs: PAddr) -> Self::Output {
-        PAddr(self.0 % rhs.0)
+        PAddr::from(self.0 % rhs.0)
     }
 }
 
@@ -270,7 +278,7 @@ impl ops::BitAnd for PAddr {
     type Output = Self;
 
     fn bitand(self, rhs: Self) -> Self {
-        PAddr(self.0 & rhs.0)
+        PAddr::from(self.0 & rhs.0)
     }
 }
 
@@ -286,7 +294,7 @@ impl ops::BitOr for PAddr {
     type Output = PAddr;
 
     fn bitor(self, rhs: PAddr) -> Self::Output {
-        PAddr(self.0 | rhs.0)
+        PAddr::from(self.0 | rhs.0)
     }
 }
 
