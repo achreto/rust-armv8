@@ -44,7 +44,7 @@ use crate::{
 /// A L2 Table Descriptor
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L2DescriptorTable(pub u64);
+pub struct L2DescriptorTable(u64);
 
 impl L2DescriptorTable {
     /// creates a new L2DescriptorTable
@@ -88,7 +88,7 @@ impl L2DescriptorTable {
     /// obtains the physical address of the entry
     pub fn get_paddr(&self) -> Option<PAddr> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(21..48) << LARGE_PAGE_SHIFT))
+            Some(PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT))
         } else {
             None
         }
@@ -113,7 +113,7 @@ impl Default for L2DescriptorTable {
 /// A L2 Block Descriptor
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L2DescriptorBlock(pub u64);
+pub struct L2DescriptorBlock(u64);
 
 impl L2DescriptorBlock {
     /// creates a new L2DescriptorBlock
@@ -180,7 +180,7 @@ impl Default for L2DescriptorBlock {
 /// A L2 Descriptor consists of an address and a attributes.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L2Descriptor(pub u64);
+pub struct L2Descriptor(u64);
 
 impl L2Descriptor {
     /// creates a new L2Descriptor

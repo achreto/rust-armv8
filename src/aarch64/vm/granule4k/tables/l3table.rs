@@ -32,7 +32,7 @@ use crate::{page_block_lower_attributes_impl, page_block_upper_attributes_impl};
 /// A L3 Table Entry consists of an address and attributes in a 64-bit word.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L3Descriptor(pub u64);
+pub struct L3Descriptor(u64);
 
 impl L3Descriptor {
     /// creates a new L3Descriptor
