@@ -29,9 +29,7 @@ use crate::aarch64::vm::granule4k::VAddr;
 use crate::aarch64::vm::descriptor_attributes::*;
 use crate::{lower_attributes_impl, upper_attributes_impl};
 
-const L3_ADDRESS_MASK: u64 = 0xFFFF_FFFF_F000;
-
-/// A L3 Table Entry consists of an address and a flags.
+/// A L3 Table Entry consists of an address and attributes in a 64-bit word.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
 pub struct L3TableEntry(pub u64);
@@ -47,56 +45,51 @@ impl L3TableEntry {
         // assert!(pt_val == pt.into());
         // assert!(pt % BASE_PAGE_SIZE == 0);
         let mut entry = L3TableEntry::new();
-        entry.set_address(frame);
+        entry.frame_address(frame);
         entry
     }
 
-    /// invalidates the entry
-    pub fn set_invalid(&mut self) -> &mut Self {
-        self.0.set_bit(0, false);
-        self
-    }
-
-    /// makes the entry valid
-    pub fn set_valid(&mut self) -> &mut Self {
-        self.0.set_bit(0, true);
+    /// clears the entry
+    pub fn clear(&mut self) -> &mut Self {
+        self.0 = 0;
         self
     }
 
     /// checks whether the entry is valid
-    pub fn valid(&self) -> bool {
-        (self.0 & 0x1) == 0
+    pub fn is_valid(&self) -> bool {
+        self.0.get_bit(0)
     }
 
-    pub fn address(&self) -> PAddr {
-        PAddr::from(self.0 & L3_ADDRESS_MASK)
+    /// sets the entry to be valid
+    pub fn valid(&mut self) -> &mut Self {
+        self.0.set_bit(0, true);
+        // bit 1 must always be set
+        self.0.set_bit(1, true);
+        self
+    }
+
+    /// marks the entry as invalid
+    pub fn invalid(&mut self) -> &mut Self {
+        self.0.set_bit(0, false);
+        // also clear bit 1 otherwise we're in the reserved state
+        self.0.set_bit(1, false);
+        self
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_paddr(&self) -> PAddr {
+        PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT)
     }
 
     // sets the address
-    pub fn set_address(&mut self, frame: PAddr) -> &mut Self {
+    pub fn frame_address(&mut self, frame: PAddr) -> &mut Self {
         assert!(frame % BASE_PAGE_SIZE == 0);
-        self.0 &= !L3_ADDRESS_MASK;
-        self.0 |= frame.as_u64() & L3_ADDRESS_MASK;
+        self.0.set_bits(12..48, frame.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
-
-    pub fn set_writable(self) -> Self {
-        self
-    }
-
-    pub fn set_readonly(self) -> Self {
-        self
-    }
-
-    pub fn set_executable(self) -> Self {
-        self
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Lower Attributes
-    ////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
+// attribute implementation
 lower_attributes_impl!(L3TableEntry);
 upper_attributes_impl!(L3TableEntry);
 
@@ -112,8 +105,24 @@ impl Default for L3TableEntry {
 pub struct L3Table([L3TableEntry; L3_TABLE_ENTRIES]);
 
 impl L3Table {
+    /// obtains the table as a slice of entries
+    pub fn as_slice(&self) -> &[L3TableEntry] {
+        &self.0
+    }
+
+    /// obtains the table as a slice of entries
+    pub fn as_slice_mut(&mut self) -> &mut [L3TableEntry] {
+        &mut self.0
+    }
+
+    /// obtains a reference to the entry
     pub fn entry(&self, idx: usize) -> &L3TableEntry {
         &self.0[idx]
+    }
+
+    /// obtains a reference to the entry
+    pub fn entry_mut(&mut self, idx: usize) -> &mut L3TableEntry {
+        &mut self.0[idx]
     }
 }
 
