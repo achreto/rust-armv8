@@ -522,7 +522,7 @@ pub trait TableDescriptorNextLevelAttributes {
 }
 
 #[macro_export]
-macro_rules! lower_attributes_impl {
+macro_rules! page_block_lower_attributes_impl {
     ($t:ty) => {
         impl BlockPageDescriptorLowerAttributes for $t {
             #[inline]
@@ -611,12 +611,12 @@ macro_rules! lower_attributes_impl {
 
             #[inline]
             fn is_inner_shareable(&self) -> bool {
-                self.0.get_bits(8..9) == SHAREABILITY_NONE
+                self.0.get_bits(8..9) == SHAREABILITY_INNER
             }
 
             #[inline]
             fn inner_shareable(&mut self) -> &mut Self {
-                self.0.set_bits(8..9, SHAREABILITY_NONE);
+                self.0.set_bits(8..9, SHAREABILITY_INNER);
                 self
             }
 
@@ -675,7 +675,7 @@ macro_rules! lower_attributes_impl {
 }
 
 #[macro_export]
-macro_rules! upper_attributes_impl {
+macro_rules! page_block_upper_attributes_impl {
     ($t:ty) => {
         impl BlockPageDescriptorUpperAttributes for $t {
             #[inline]
@@ -772,7 +772,7 @@ macro_rules! upper_attributes_impl {
 }
 
 #[macro_export]
-macro_rules! next_level_attributes_impl {
+macro_rules! table_next_level_attributes_impl {
     ($t:ty) => {
         impl TableDescriptorNextLevelAttributes for $t {
             #[inline]

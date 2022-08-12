@@ -29,7 +29,7 @@ mod l3table;
 // has nine address bits for each level translated (that is, 512 entries each), with the final 12 bits
 // selecting a byte within the 4kB coming directly from the original address.
 
-pub use l0table::{L0Table, L0TableEntry};
-pub use l1table::{L1Table, L1TableEntry};
-pub use l2table::{L2Table, L2TableEntry};
-pub use l3table::{L3Table, L3TableEntry};
+pub use l0table::{L0Descriptor, L0Table};
+pub use l1table::{L1Descriptor, L1Table};
+pub use l2table::{L2Descriptor, L2Table};
+pub use l3table::{L3Descriptor, L3Table};

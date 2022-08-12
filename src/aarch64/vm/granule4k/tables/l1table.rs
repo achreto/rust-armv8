@@ -25,6 +25,6 @@ use crate::aarch64::vm::granule4k::consts::*;
 /// A L0 Table Entry consists of an address and a flags.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L1TableEntry(pub u64);
+pub struct L1Descriptor(pub u64);
 
-pub type L1Table = [L1TableEntry; L1_TABLE_ENTRIES];
+pub type L1Table = [L1Descriptor; L1_TABLE_ENTRIES];

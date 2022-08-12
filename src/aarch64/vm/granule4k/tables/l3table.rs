@@ -27,25 +27,25 @@ use crate::aarch64::vm::granule4k::PAddr;
 use crate::aarch64::vm::granule4k::VAddr;
 
 use crate::aarch64::vm::descriptor_attributes::*;
-use crate::{lower_attributes_impl, upper_attributes_impl};
+use crate::{page_block_lower_attributes_impl, page_block_upper_attributes_impl};
 
 /// A L3 Table Entry consists of an address and attributes in a 64-bit word.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L3TableEntry(pub u64);
+pub struct L3Descriptor(pub u64);
 
-impl L3TableEntry {
-    /// creates a new L3TableEntry
+impl L3Descriptor {
+    /// creates a new L3Descriptor
     pub fn new() -> Self {
-        L3TableEntry(0)
+        L3Descriptor(0)
     }
 
     /// creates a new L3Table Entry with the given address and flags
-    pub fn with_frame(frame: PAddr, flags: u64) -> L3TableEntry {
+    pub fn with_frame(frame: PAddr) -> L3Descriptor {
         // assert!(pt_val == pt.into());
         // assert!(pt % BASE_PAGE_SIZE == 0);
-        let mut entry = L3TableEntry::new();
-        entry.frame_address(frame);
+        let mut entry = L3Descriptor::new();
+        entry.frame(frame);
         entry
     }
 
@@ -77,12 +77,16 @@ impl L3TableEntry {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> PAddr {
-        PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT)
+    pub fn get_paddr(&self) -> Option<PAddr> {
+        if self.is_valid() {
+            Some(PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT))
+        } else {
+            None
+        }
     }
 
-    // sets the address
-    pub fn frame_address(&mut self, frame: PAddr) -> &mut Self {
+    // sets the frame address of the entry
+    pub fn frame(&mut self, frame: PAddr) -> &mut Self {
         assert!(frame % BASE_PAGE_SIZE == 0);
         self.0.set_bits(12..48, frame.as_u64() >> BASE_PAGE_SHIFT);
         self
@@ -90,38 +94,38 @@ impl L3TableEntry {
 }
 
 // attribute implementation
-lower_attributes_impl!(L3TableEntry);
-upper_attributes_impl!(L3TableEntry);
+page_block_lower_attributes_impl!(L3Descriptor);
+page_block_upper_attributes_impl!(L3Descriptor);
 
-impl Default for L3TableEntry {
+impl Default for L3Descriptor {
     fn default() -> Self {
-        L3TableEntry::new()
+        L3Descriptor::new()
     }
 }
 
 // #[repr(transparent)]
 #[repr(align(4096))]
 #[derive(Clone)]
-pub struct L3Table([L3TableEntry; L3_TABLE_ENTRIES]);
+pub struct L3Table([L3Descriptor; L3_TABLE_ENTRIES]);
 
 impl L3Table {
     /// obtains the table as a slice of entries
-    pub fn as_slice(&self) -> &[L3TableEntry] {
+    pub fn as_slice(&self) -> &[L3Descriptor] {
         &self.0
     }
 
     /// obtains the table as a slice of entries
-    pub fn as_slice_mut(&mut self) -> &mut [L3TableEntry] {
+    pub fn as_slice_mut(&mut self) -> &mut [L3Descriptor] {
         &mut self.0
     }
 
     /// obtains a reference to the entry
-    pub fn entry(&self, idx: usize) -> &L3TableEntry {
+    pub fn entry(&self, idx: usize) -> &L3Descriptor {
         &self.0[idx]
     }
 
     /// obtains a reference to the entry
-    pub fn entry_mut(&mut self, idx: usize) -> &mut L3TableEntry {
+    pub fn entry_mut(&mut self, idx: usize) -> &mut L3Descriptor {
         &mut self.0[idx]
     }
 }

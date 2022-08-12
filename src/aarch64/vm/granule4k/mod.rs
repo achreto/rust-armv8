@@ -32,7 +32,7 @@ pub use ioaddr::IOAddr;
 pub use ipaddr::IPAddr;
 pub use paddr::PAddr;
 pub use tables::{
-    L0Table, L0TableEntry, L1Table, L1TableEntry, L2Table, L2TableEntry, L3Table, L3TableEntry,
+    L0Descriptor, L0Table, L1Descriptor, L1Table, L2Descriptor, L2Table, L3Descriptor, L3Table,
 };
 pub use vaddr::VAddr;
 

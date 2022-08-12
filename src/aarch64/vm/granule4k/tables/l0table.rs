@@ -24,13 +24,13 @@ use bit_field::BitField;
 
 use crate::aarch64::vm::descriptor_attributes::*;
 use crate::aarch64::vm::granule4k::consts::*;
-use crate::next_level_attributes_impl;
+use crate::table_next_level_attributes_impl;
 
 /// A L0 Table Entry consists of an address and a flags.
 #[repr(transparent)]
 #[derive(Clone, Copy)]
-pub struct L0TableEntry(pub u64);
+pub struct L0Descriptor(pub u64);
 
-next_level_attributes_impl!(L0TableEntry);
+table_next_level_attributes_impl!(L0Descriptor);
 
-pub type L0Table = [L0TableEntry; L0_TABLE_ENTRIES];
+pub type L0Table = [L0Descriptor; L0_TABLE_ENTRIES];
