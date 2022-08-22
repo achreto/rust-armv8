@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.089378
+ * Generated on: 2022-08-22T16:35:53.070539
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the current register value and extract field `phypartid7` from it
-    pub fn phypartid7_read(&mut self) -> u64 {
+    pub fn phypartid7_read() -> u64 {
         Self::with_reg_val().phypartid7_extract()
     }
 
@@ -165,7 +165,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the register, updates the `phypartid7` field, and writes the updated value
-    pub fn phypartid7_write(&mut self, val: u64) {
+    pub fn phypartid7_write(val: u64) {
         Self::with_reg_val().phypartid7_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the current register value and extract field `phypartid6` from it
-    pub fn phypartid6_read(&mut self) -> u64 {
+    pub fn phypartid6_read() -> u64 {
         Self::with_reg_val().phypartid6_extract()
     }
 
@@ -194,7 +194,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the register, updates the `phypartid6` field, and writes the updated value
-    pub fn phypartid6_write(&mut self, val: u64) {
+    pub fn phypartid6_write(val: u64) {
         Self::with_reg_val().phypartid6_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the current register value and extract field `phypartid5` from it
-    pub fn phypartid5_read(&mut self) -> u64 {
+    pub fn phypartid5_read() -> u64 {
         Self::with_reg_val().phypartid5_extract()
     }
 
@@ -223,7 +223,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the register, updates the `phypartid5` field, and writes the updated value
-    pub fn phypartid5_write(&mut self, val: u64) {
+    pub fn phypartid5_write(val: u64) {
         Self::with_reg_val().phypartid5_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the current register value and extract field `phypartid4` from it
-    pub fn phypartid4_read(&mut self) -> u64 {
+    pub fn phypartid4_read() -> u64 {
         Self::with_reg_val().phypartid4_extract()
     }
 
@@ -252,7 +252,7 @@ impl Mpamvpm1El2 {
     }
 
     /// reads the register, updates the `phypartid4` field, and writes the updated value
-    pub fn phypartid4_write(&mut self, val: u64) {
+    pub fn phypartid4_write(val: u64) {
         Self::with_reg_val().phypartid4_insert(val).write();
     }
 

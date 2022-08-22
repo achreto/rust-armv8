@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.084267
+ * Generated on: 2022-08-22T16:35:53.065522
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `ecv` from it
-    pub fn ecv_read(&mut self) -> u64 {
+    pub fn ecv_read() -> u64 {
         Self::with_reg_val().ecv_extract()
     }
 // no insert() method for field ecv
@@ -155,7 +155,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `fgt` from it
-    pub fn fgt_read(&mut self) -> u64 {
+    pub fn fgt_read() -> u64 {
         Self::with_reg_val().fgt_extract()
     }
 // no insert() method for field fgt
@@ -172,7 +172,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `exs` from it
-    pub fn exs_read(&mut self) -> u64 {
+    pub fn exs_read() -> u64 {
         Self::with_reg_val().exs_extract()
     }
 // no insert() method for field exs
@@ -189,7 +189,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran4_2` from it
-    pub fn tgran4_2_read(&mut self) -> u64 {
+    pub fn tgran4_2_read() -> u64 {
         Self::with_reg_val().tgran4_2_extract()
     }
 // no insert() method for field tgran4_2
@@ -206,7 +206,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran64_2` from it
-    pub fn tgran64_2_read(&mut self) -> u64 {
+    pub fn tgran64_2_read() -> u64 {
         Self::with_reg_val().tgran64_2_extract()
     }
 // no insert() method for field tgran64_2
@@ -223,7 +223,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran16_2` from it
-    pub fn tgran16_2_read(&mut self) -> u64 {
+    pub fn tgran16_2_read() -> u64 {
         Self::with_reg_val().tgran16_2_extract()
     }
 // no insert() method for field tgran16_2
@@ -240,7 +240,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran4` from it
-    pub fn tgran4_read(&mut self) -> u64 {
+    pub fn tgran4_read() -> u64 {
         Self::with_reg_val().tgran4_extract()
     }
 // no insert() method for field tgran4
@@ -257,7 +257,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran64` from it
-    pub fn tgran64_read(&mut self) -> u64 {
+    pub fn tgran64_read() -> u64 {
         Self::with_reg_val().tgran64_extract()
     }
 // no insert() method for field tgran64
@@ -274,7 +274,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `tgran16` from it
-    pub fn tgran16_read(&mut self) -> u64 {
+    pub fn tgran16_read() -> u64 {
         Self::with_reg_val().tgran16_extract()
     }
 // no insert() method for field tgran16
@@ -291,7 +291,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `bigendel0` from it
-    pub fn bigendel0_read(&mut self) -> u64 {
+    pub fn bigendel0_read() -> u64 {
         Self::with_reg_val().bigendel0_extract()
     }
 // no insert() method for field bigendel0
@@ -308,7 +308,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `snsmem` from it
-    pub fn snsmem_read(&mut self) -> u64 {
+    pub fn snsmem_read() -> u64 {
         Self::with_reg_val().snsmem_extract()
     }
 // no insert() method for field snsmem
@@ -325,7 +325,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `bigend` from it
-    pub fn bigend_read(&mut self) -> u64 {
+    pub fn bigend_read() -> u64 {
         Self::with_reg_val().bigend_extract()
     }
 // no insert() method for field bigend
@@ -342,7 +342,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `asidbits` from it
-    pub fn asidbits_read(&mut self) -> u64 {
+    pub fn asidbits_read() -> u64 {
         Self::with_reg_val().asidbits_extract()
     }
 // no insert() method for field asidbits
@@ -359,7 +359,7 @@ impl IdAa64mmfr0El1 {
     }
 
     /// reads the current register value and extract field `parange` from it
-    pub fn parange_read(&mut self) -> u64 {
+    pub fn parange_read() -> u64 {
         Self::with_reg_val().parange_extract()
     }
 // no insert() method for field parange

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.082099
+ * Generated on: 2022-08-22T16:35:53.063422
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vpmr` from it
-    pub fn vpmr_read(&mut self) -> u64 {
+    pub fn vpmr_read() -> u64 {
         Self::with_reg_val().vpmr_extract()
     }
 
@@ -165,7 +165,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vpmr` field, and writes the updated value
-    pub fn vpmr_write(&mut self, val: u64) {
+    pub fn vpmr_write(val: u64) {
         Self::with_reg_val().vpmr_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vbpr0` from it
-    pub fn vbpr0_read(&mut self) -> u64 {
+    pub fn vbpr0_read() -> u64 {
         Self::with_reg_val().vbpr0_extract()
     }
 
@@ -194,7 +194,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vbpr0` field, and writes the updated value
-    pub fn vbpr0_write(&mut self, val: u64) {
+    pub fn vbpr0_write(val: u64) {
         Self::with_reg_val().vbpr0_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vbpr1` from it
-    pub fn vbpr1_read(&mut self) -> u64 {
+    pub fn vbpr1_read() -> u64 {
         Self::with_reg_val().vbpr1_extract()
     }
 
@@ -223,7 +223,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vbpr1` field, and writes the updated value
-    pub fn vbpr1_write(&mut self, val: u64) {
+    pub fn vbpr1_write(val: u64) {
         Self::with_reg_val().vbpr1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `veoim` from it
-    pub fn veoim_read(&mut self) -> u64 {
+    pub fn veoim_read() -> u64 {
         Self::with_reg_val().veoim_extract()
     }
 
@@ -252,7 +252,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `veoim` field, and writes the updated value
-    pub fn veoim_write(&mut self, val: u64) {
+    pub fn veoim_write(val: u64) {
         Self::with_reg_val().veoim_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vcbpr` from it
-    pub fn vcbpr_read(&mut self) -> u64 {
+    pub fn vcbpr_read() -> u64 {
         Self::with_reg_val().vcbpr_extract()
     }
 
@@ -281,7 +281,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vcbpr` field, and writes the updated value
-    pub fn vcbpr_write(&mut self, val: u64) {
+    pub fn vcbpr_write(val: u64) {
         Self::with_reg_val().vcbpr_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vfiqen` from it
-    pub fn vfiqen_read(&mut self) -> u64 {
+    pub fn vfiqen_read() -> u64 {
         Self::with_reg_val().vfiqen_extract()
     }
 
@@ -310,7 +310,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vfiqen` field, and writes the updated value
-    pub fn vfiqen_write(&mut self, val: u64) {
+    pub fn vfiqen_write(val: u64) {
         Self::with_reg_val().vfiqen_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `vackctl` from it
-    pub fn vackctl_read(&mut self) -> u64 {
+    pub fn vackctl_read() -> u64 {
         Self::with_reg_val().vackctl_extract()
     }
 
@@ -339,7 +339,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `vackctl` field, and writes the updated value
-    pub fn vackctl_write(&mut self, val: u64) {
+    pub fn vackctl_write(val: u64) {
         Self::with_reg_val().vackctl_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `veng1` from it
-    pub fn veng1_read(&mut self) -> u64 {
+    pub fn veng1_read() -> u64 {
         Self::with_reg_val().veng1_extract()
     }
 
@@ -368,7 +368,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `veng1` field, and writes the updated value
-    pub fn veng1_write(&mut self, val: u64) {
+    pub fn veng1_write(val: u64) {
         Self::with_reg_val().veng1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the current register value and extract field `veng0` from it
-    pub fn veng0_read(&mut self) -> u64 {
+    pub fn veng0_read() -> u64 {
         Self::with_reg_val().veng0_extract()
     }
 
@@ -397,7 +397,7 @@ impl IchVmcrEl2 {
     }
 
     /// reads the register, updates the `veng0` field, and writes the updated value
-    pub fn veng0_write(&mut self, val: u64) {
+    pub fn veng0_write(val: u64) {
         Self::with_reg_val().veng0_insert(val).write();
     }
 

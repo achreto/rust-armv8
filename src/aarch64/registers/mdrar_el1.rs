@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.088209
+ * Generated on: 2022-08-22T16:35:53.069449
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl MdrarEl1 {
     }
 
     /// reads the current register value and extract field `romaddr` from it
-    pub fn romaddr_read(&mut self) -> u64 {
+    pub fn romaddr_read() -> u64 {
         Self::with_reg_val().romaddr_extract()
     }
 // no insert() method for field romaddr
@@ -155,7 +155,7 @@ impl MdrarEl1 {
     }
 
     /// reads the current register value and extract field `valid` from it
-    pub fn valid_read(&mut self) -> u64 {
+    pub fn valid_read() -> u64 {
         Self::with_reg_val().valid_extract()
     }
 // no insert() method for field valid

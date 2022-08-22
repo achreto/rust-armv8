@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085052
+ * Generated on: 2022-08-22T16:35:53.066267
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `tracefilt` from it
-    pub fn tracefilt_read(&mut self) -> u64 {
+    pub fn tracefilt_read() -> u64 {
         Self::with_reg_val().tracefilt_extract()
     }
 // no insert() method for field tracefilt
@@ -155,7 +155,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `perfmon` from it
-    pub fn perfmon_read(&mut self) -> u64 {
+    pub fn perfmon_read() -> u64 {
         Self::with_reg_val().perfmon_extract()
     }
 // no insert() method for field perfmon
@@ -172,7 +172,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `mprofdbg` from it
-    pub fn mprofdbg_read(&mut self) -> u64 {
+    pub fn mprofdbg_read() -> u64 {
         Self::with_reg_val().mprofdbg_extract()
     }
 // no insert() method for field mprofdbg
@@ -189,7 +189,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `mmaptrc` from it
-    pub fn mmaptrc_read(&mut self) -> u64 {
+    pub fn mmaptrc_read() -> u64 {
         Self::with_reg_val().mmaptrc_extract()
     }
 // no insert() method for field mmaptrc
@@ -206,7 +206,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `coptrc` from it
-    pub fn coptrc_read(&mut self) -> u64 {
+    pub fn coptrc_read() -> u64 {
         Self::with_reg_val().coptrc_extract()
     }
 // no insert() method for field coptrc
@@ -223,7 +223,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `mmapdbg` from it
-    pub fn mmapdbg_read(&mut self) -> u64 {
+    pub fn mmapdbg_read() -> u64 {
         Self::with_reg_val().mmapdbg_extract()
     }
 // no insert() method for field mmapdbg
@@ -240,7 +240,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `copsdbg` from it
-    pub fn copsdbg_read(&mut self) -> u64 {
+    pub fn copsdbg_read() -> u64 {
         Self::with_reg_val().copsdbg_extract()
     }
 // no insert() method for field copsdbg
@@ -257,7 +257,7 @@ impl IdDfr0El1 {
     }
 
     /// reads the current register value and extract field `copdbg` from it
-    pub fn copdbg_read(&mut self) -> u64 {
+    pub fn copdbg_read() -> u64 {
         Self::with_reg_val().copdbg_extract()
     }
 // no insert() method for field copdbg

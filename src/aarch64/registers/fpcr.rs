@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.075798
+ * Generated on: 2022-08-22T16:35:53.057340
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ahp` from it
-    pub fn ahp_read(&mut self) -> u64 {
+    pub fn ahp_read() -> u64 {
         Self::with_reg_val().ahp_extract()
     }
 
@@ -165,7 +165,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ahp` field, and writes the updated value
-    pub fn ahp_write(&mut self, val: u64) {
+    pub fn ahp_write(val: u64) {
         Self::with_reg_val().ahp_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `dn` from it
-    pub fn dn_read(&mut self) -> u64 {
+    pub fn dn_read() -> u64 {
         Self::with_reg_val().dn_extract()
     }
 
@@ -194,7 +194,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `dn` field, and writes the updated value
-    pub fn dn_write(&mut self, val: u64) {
+    pub fn dn_write(val: u64) {
         Self::with_reg_val().dn_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `fz` from it
-    pub fn fz_read(&mut self) -> u64 {
+    pub fn fz_read() -> u64 {
         Self::with_reg_val().fz_extract()
     }
 
@@ -223,7 +223,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `fz` field, and writes the updated value
-    pub fn fz_write(&mut self, val: u64) {
+    pub fn fz_write(val: u64) {
         Self::with_reg_val().fz_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `rmode` from it
-    pub fn rmode_read(&mut self) -> u64 {
+    pub fn rmode_read() -> u64 {
         Self::with_reg_val().rmode_extract()
     }
 
@@ -252,7 +252,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `rmode` field, and writes the updated value
-    pub fn rmode_write(&mut self, val: u64) {
+    pub fn rmode_write(val: u64) {
         Self::with_reg_val().rmode_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `stride` from it
-    pub fn stride_read(&mut self) -> u64 {
+    pub fn stride_read() -> u64 {
         Self::with_reg_val().stride_extract()
     }
 
@@ -281,7 +281,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `stride` field, and writes the updated value
-    pub fn stride_write(&mut self, val: u64) {
+    pub fn stride_write(val: u64) {
         Self::with_reg_val().stride_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `fz16_1` from it
-    pub fn fz16_1_read(&mut self) -> u64 {
+    pub fn fz16_1_read() -> u64 {
         Self::with_reg_val().fz16_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `fz16_1` field, and writes the updated value
-    pub fn fz16_1_write(&mut self, val: u64) {
+    pub fn fz16_1_write(val: u64) {
         Self::with_reg_val().fz16_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `len` from it
-    pub fn len_read(&mut self) -> u64 {
+    pub fn len_read() -> u64 {
         Self::with_reg_val().len_extract()
     }
 
@@ -339,7 +339,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `len` field, and writes the updated value
-    pub fn len_write(&mut self, val: u64) {
+    pub fn len_write(val: u64) {
         Self::with_reg_val().len_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ide` from it
-    pub fn ide_read(&mut self) -> u64 {
+    pub fn ide_read() -> u64 {
         Self::with_reg_val().ide_extract()
     }
 
@@ -368,7 +368,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ide` field, and writes the updated value
-    pub fn ide_write(&mut self, val: u64) {
+    pub fn ide_write(val: u64) {
         Self::with_reg_val().ide_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ixe` from it
-    pub fn ixe_read(&mut self) -> u64 {
+    pub fn ixe_read() -> u64 {
         Self::with_reg_val().ixe_extract()
     }
 
@@ -397,7 +397,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ixe` field, and writes the updated value
-    pub fn ixe_write(&mut self, val: u64) {
+    pub fn ixe_write(val: u64) {
         Self::with_reg_val().ixe_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ufe` from it
-    pub fn ufe_read(&mut self) -> u64 {
+    pub fn ufe_read() -> u64 {
         Self::with_reg_val().ufe_extract()
     }
 
@@ -426,7 +426,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ufe` field, and writes the updated value
-    pub fn ufe_write(&mut self, val: u64) {
+    pub fn ufe_write(val: u64) {
         Self::with_reg_val().ufe_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ofe` from it
-    pub fn ofe_read(&mut self) -> u64 {
+    pub fn ofe_read() -> u64 {
         Self::with_reg_val().ofe_extract()
     }
 
@@ -455,7 +455,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ofe` field, and writes the updated value
-    pub fn ofe_write(&mut self, val: u64) {
+    pub fn ofe_write(val: u64) {
         Self::with_reg_val().ofe_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `dze` from it
-    pub fn dze_read(&mut self) -> u64 {
+    pub fn dze_read() -> u64 {
         Self::with_reg_val().dze_extract()
     }
 
@@ -484,7 +484,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `dze` field, and writes the updated value
-    pub fn dze_write(&mut self, val: u64) {
+    pub fn dze_write(val: u64) {
         Self::with_reg_val().dze_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ioe` from it
-    pub fn ioe_read(&mut self) -> u64 {
+    pub fn ioe_read() -> u64 {
         Self::with_reg_val().ioe_extract()
     }
 
@@ -513,7 +513,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ioe` field, and writes the updated value
-    pub fn ioe_write(&mut self, val: u64) {
+    pub fn ioe_write(val: u64) {
         Self::with_reg_val().ioe_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `nep_1` from it
-    pub fn nep_1_read(&mut self) -> u64 {
+    pub fn nep_1_read() -> u64 {
         Self::with_reg_val().nep_1_extract()
     }
 
@@ -542,7 +542,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `nep_1` field, and writes the updated value
-    pub fn nep_1_write(&mut self, val: u64) {
+    pub fn nep_1_write(val: u64) {
         Self::with_reg_val().nep_1_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `ah_1` from it
-    pub fn ah_1_read(&mut self) -> u64 {
+    pub fn ah_1_read() -> u64 {
         Self::with_reg_val().ah_1_extract()
     }
 
@@ -571,7 +571,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `ah_1` field, and writes the updated value
-    pub fn ah_1_write(&mut self, val: u64) {
+    pub fn ah_1_write(val: u64) {
         Self::with_reg_val().ah_1_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl Fpcr {
     }
 
     /// reads the current register value and extract field `fiz_1` from it
-    pub fn fiz_1_read(&mut self) -> u64 {
+    pub fn fiz_1_read() -> u64 {
         Self::with_reg_val().fiz_1_extract()
     }
 
@@ -600,7 +600,7 @@ impl Fpcr {
     }
 
     /// reads the register, updates the `fiz_1` field, and writes the updated value
-    pub fn fiz_1_write(&mut self, val: u64) {
+    pub fn fiz_1_write(val: u64) {
         Self::with_reg_val().fiz_1_insert(val).write();
     }
 

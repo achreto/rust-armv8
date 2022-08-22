@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.073334
+ * Generated on: 2022-08-22T16:35:53.054714
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nsf` from it
-    pub fn nsf_read(&mut self) -> u64 {
+    pub fn nsf_read() -> u64 {
         Self::with_reg_val().nsf_extract()
     }
 
@@ -165,7 +165,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nsf` field, and writes the updated value
-    pub fn nsf_write(&mut self, val: u64) {
+    pub fn nsf_write(val: u64) {
         Self::with_reg_val().nsf_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nsi` from it
-    pub fn nsi_read(&mut self) -> u64 {
+    pub fn nsi_read() -> u64 {
         Self::with_reg_val().nsi_extract()
     }
 
@@ -194,7 +194,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nsi` field, and writes the updated value
-    pub fn nsi_write(&mut self, val: u64) {
+    pub fn nsi_write(val: u64) {
         Self::with_reg_val().nsi_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nsd` from it
-    pub fn nsd_read(&mut self) -> u64 {
+    pub fn nsd_read() -> u64 {
         Self::with_reg_val().nsd_extract()
     }
 
@@ -223,7 +223,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nsd` field, and writes the updated value
-    pub fn nsd_write(&mut self, val: u64) {
+    pub fn nsd_write(val: u64) {
         Self::with_reg_val().nsd_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nsp` from it
-    pub fn nsp_read(&mut self) -> u64 {
+    pub fn nsp_read() -> u64 {
         Self::with_reg_val().nsp_extract()
     }
 
@@ -252,7 +252,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nsp` field, and writes the updated value
-    pub fn nsp_write(&mut self, val: u64) {
+    pub fn nsp_write(val: u64) {
         Self::with_reg_val().nsp_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nss` from it
-    pub fn nss_read(&mut self) -> u64 {
+    pub fn nss_read() -> u64 {
         Self::with_reg_val().nss_extract()
     }
 
@@ -281,7 +281,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nss` field, and writes the updated value
-    pub fn nss_write(&mut self, val: u64) {
+    pub fn nss_write(val: u64) {
         Self::with_reg_val().nss_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `nsu` from it
-    pub fn nsu_read(&mut self) -> u64 {
+    pub fn nsu_read() -> u64 {
         Self::with_reg_val().nsu_extract()
     }
 
@@ -310,7 +310,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `nsu` field, and writes the updated value
-    pub fn nsu_write(&mut self, val: u64) {
+    pub fn nsu_write(val: u64) {
         Self::with_reg_val().nsu_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `sf` from it
-    pub fn sf_read(&mut self) -> u64 {
+    pub fn sf_read() -> u64 {
         Self::with_reg_val().sf_extract()
     }
 
@@ -339,7 +339,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `sf` field, and writes the updated value
-    pub fn sf_write(&mut self, val: u64) {
+    pub fn sf_write(val: u64) {
         Self::with_reg_val().sf_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `si` from it
-    pub fn si_read(&mut self) -> u64 {
+    pub fn si_read() -> u64 {
         Self::with_reg_val().si_extract()
     }
 
@@ -368,7 +368,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `si` field, and writes the updated value
-    pub fn si_write(&mut self, val: u64) {
+    pub fn si_write(val: u64) {
         Self::with_reg_val().si_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `sd` from it
-    pub fn sd_read(&mut self) -> u64 {
+    pub fn sd_read() -> u64 {
         Self::with_reg_val().sd_extract()
     }
 
@@ -397,7 +397,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `sd` field, and writes the updated value
-    pub fn sd_write(&mut self, val: u64) {
+    pub fn sd_write(val: u64) {
         Self::with_reg_val().sd_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `sp` from it
-    pub fn sp_read(&mut self) -> u64 {
+    pub fn sp_read() -> u64 {
         Self::with_reg_val().sp_extract()
     }
 
@@ -426,7 +426,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `sp` field, and writes the updated value
-    pub fn sp_write(&mut self, val: u64) {
+    pub fn sp_write(val: u64) {
         Self::with_reg_val().sp_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `ss` from it
-    pub fn ss_read(&mut self) -> u64 {
+    pub fn ss_read() -> u64 {
         Self::with_reg_val().ss_extract()
     }
 
@@ -455,7 +455,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `ss` field, and writes the updated value
-    pub fn ss_write(&mut self, val: u64) {
+    pub fn ss_write(val: u64) {
         Self::with_reg_val().ss_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the current register value and extract field `su` from it
-    pub fn su_read(&mut self) -> u64 {
+    pub fn su_read() -> u64 {
         Self::with_reg_val().su_extract()
     }
 
@@ -484,7 +484,7 @@ impl Dbgvcr32El2 {
     }
 
     /// reads the register, updates the `su` field, and writes the updated value
-    pub fn su_write(&mut self, val: u64) {
+    pub fn su_write(val: u64) {
         Self::with_reg_val().su_insert(val).write();
     }
 

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.072276
+ * Generated on: 2022-08-22T16:35:53.053626
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `tminline_1` from it
-    pub fn tminline_1_read(&mut self) -> u64 {
+    pub fn tminline_1_read() -> u64 {
         Self::with_reg_val().tminline_1_extract()
     }
 // no insert() method for field tminline_1
@@ -155,7 +155,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `dic` from it
-    pub fn dic_read(&mut self) -> u64 {
+    pub fn dic_read() -> u64 {
         Self::with_reg_val().dic_extract()
     }
 // no insert() method for field dic
@@ -172,7 +172,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `idc` from it
-    pub fn idc_read(&mut self) -> u64 {
+    pub fn idc_read() -> u64 {
         Self::with_reg_val().idc_extract()
     }
 // no insert() method for field idc
@@ -189,7 +189,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `cwg` from it
-    pub fn cwg_read(&mut self) -> u64 {
+    pub fn cwg_read() -> u64 {
         Self::with_reg_val().cwg_extract()
     }
 // no insert() method for field cwg
@@ -206,7 +206,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `erg` from it
-    pub fn erg_read(&mut self) -> u64 {
+    pub fn erg_read() -> u64 {
         Self::with_reg_val().erg_extract()
     }
 // no insert() method for field erg
@@ -223,7 +223,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `dminline` from it
-    pub fn dminline_read(&mut self) -> u64 {
+    pub fn dminline_read() -> u64 {
         Self::with_reg_val().dminline_extract()
     }
 // no insert() method for field dminline
@@ -240,7 +240,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `l1ip` from it
-    pub fn l1ip_read(&mut self) -> u64 {
+    pub fn l1ip_read() -> u64 {
         Self::with_reg_val().l1ip_extract()
     }
 // no insert() method for field l1ip
@@ -257,7 +257,7 @@ impl CtrEl0 {
     }
 
     /// reads the current register value and extract field `iminline` from it
-    pub fn iminline_read(&mut self) -> u64 {
+    pub fn iminline_read() -> u64 {
         Self::with_reg_val().iminline_extract()
     }
 // no insert() method for field iminline

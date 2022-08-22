@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.078037
+ * Generated on: 2022-08-22T16:35:53.059759
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccvac` from it
-    pub fn dccvac_read(&mut self) -> u64 {
+    pub fn dccvac_read() -> u64 {
         Self::with_reg_val().dccvac_extract()
     }
 
@@ -165,7 +165,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccvac` field, and writes the updated value
-    pub fn dccvac_write(&mut self, val: u64) {
+    pub fn dccvac_write(val: u64) {
         Self::with_reg_val().dccvac_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `svc_el1` from it
-    pub fn svc_el1_read(&mut self) -> u64 {
+    pub fn svc_el1_read() -> u64 {
         Self::with_reg_val().svc_el1_extract()
     }
 
@@ -194,7 +194,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `svc_el1` field, and writes the updated value
-    pub fn svc_el1_write(&mut self, val: u64) {
+    pub fn svc_el1_write(val: u64) {
         Self::with_reg_val().svc_el1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `svc_el0` from it
-    pub fn svc_el0_read(&mut self) -> u64 {
+    pub fn svc_el0_read() -> u64 {
         Self::with_reg_val().svc_el0_extract()
     }
 
@@ -223,7 +223,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `svc_el0` field, and writes the updated value
-    pub fn svc_el0_write(&mut self, val: u64) {
+    pub fn svc_el0_write(val: u64) {
         Self::with_reg_val().svc_el0_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `eret` from it
-    pub fn eret_read(&mut self) -> u64 {
+    pub fn eret_read() -> u64 {
         Self::with_reg_val().eret_extract()
     }
 
@@ -252,7 +252,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `eret` field, and writes the updated value
-    pub fn eret_write(&mut self, val: u64) {
+    pub fn eret_write(val: u64) {
         Self::with_reg_val().eret_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `cpprctx_1` from it
-    pub fn cpprctx_1_read(&mut self) -> u64 {
+    pub fn cpprctx_1_read() -> u64 {
         Self::with_reg_val().cpprctx_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `cpprctx_1` field, and writes the updated value
-    pub fn cpprctx_1_write(&mut self, val: u64) {
+    pub fn cpprctx_1_write(val: u64) {
         Self::with_reg_val().cpprctx_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dvprctx_1` from it
-    pub fn dvprctx_1_read(&mut self) -> u64 {
+    pub fn dvprctx_1_read() -> u64 {
         Self::with_reg_val().dvprctx_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dvprctx_1` field, and writes the updated value
-    pub fn dvprctx_1_write(&mut self, val: u64) {
+    pub fn dvprctx_1_write(val: u64) {
         Self::with_reg_val().dvprctx_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `cfprctx_1` from it
-    pub fn cfprctx_1_read(&mut self) -> u64 {
+    pub fn cfprctx_1_read() -> u64 {
         Self::with_reg_val().cfprctx_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `cfprctx_1` field, and writes the updated value
-    pub fn cfprctx_1_write(&mut self, val: u64) {
+    pub fn cfprctx_1_write(val: u64) {
         Self::with_reg_val().cfprctx_1_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaale1` from it
-    pub fn tlbivaale1_read(&mut self) -> u64 {
+    pub fn tlbivaale1_read() -> u64 {
         Self::with_reg_val().tlbivaale1_extract()
     }
 
@@ -368,7 +368,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaale1` field, and writes the updated value
-    pub fn tlbivaale1_write(&mut self, val: u64) {
+    pub fn tlbivaale1_write(val: u64) {
         Self::with_reg_val().tlbivaale1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivale1` from it
-    pub fn tlbivale1_read(&mut self) -> u64 {
+    pub fn tlbivale1_read() -> u64 {
         Self::with_reg_val().tlbivale1_extract()
     }
 
@@ -397,7 +397,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivale1` field, and writes the updated value
-    pub fn tlbivale1_write(&mut self, val: u64) {
+    pub fn tlbivale1_write(val: u64) {
         Self::with_reg_val().tlbivale1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaae1` from it
-    pub fn tlbivaae1_read(&mut self) -> u64 {
+    pub fn tlbivaae1_read() -> u64 {
         Self::with_reg_val().tlbivaae1_extract()
     }
 
@@ -426,7 +426,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaae1` field, and writes the updated value
-    pub fn tlbivaae1_write(&mut self, val: u64) {
+    pub fn tlbivaae1_write(val: u64) {
         Self::with_reg_val().tlbivaae1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbiaside1` from it
-    pub fn tlbiaside1_read(&mut self) -> u64 {
+    pub fn tlbiaside1_read() -> u64 {
         Self::with_reg_val().tlbiaside1_extract()
     }
 
@@ -455,7 +455,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbiaside1` field, and writes the updated value
-    pub fn tlbiaside1_write(&mut self, val: u64) {
+    pub fn tlbiaside1_write(val: u64) {
         Self::with_reg_val().tlbiaside1_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivae1` from it
-    pub fn tlbivae1_read(&mut self) -> u64 {
+    pub fn tlbivae1_read() -> u64 {
         Self::with_reg_val().tlbivae1_extract()
     }
 
@@ -484,7 +484,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivae1` field, and writes the updated value
-    pub fn tlbivae1_write(&mut self, val: u64) {
+    pub fn tlbivae1_write(val: u64) {
         Self::with_reg_val().tlbivae1_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivmalle1` from it
-    pub fn tlbivmalle1_read(&mut self) -> u64 {
+    pub fn tlbivmalle1_read() -> u64 {
         Self::with_reg_val().tlbivmalle1_extract()
     }
 
@@ -513,7 +513,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivmalle1` field, and writes the updated value
-    pub fn tlbivmalle1_write(&mut self, val: u64) {
+    pub fn tlbivmalle1_write(val: u64) {
         Self::with_reg_val().tlbivmalle1_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaale1_1` from it
-    pub fn tlbirvaale1_1_read(&mut self) -> u64 {
+    pub fn tlbirvaale1_1_read() -> u64 {
         Self::with_reg_val().tlbirvaale1_1_extract()
     }
 
@@ -542,7 +542,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaale1_1` field, and writes the updated value
-    pub fn tlbirvaale1_1_write(&mut self, val: u64) {
+    pub fn tlbirvaale1_1_write(val: u64) {
         Self::with_reg_val().tlbirvaale1_1_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvale1_1` from it
-    pub fn tlbirvale1_1_read(&mut self) -> u64 {
+    pub fn tlbirvale1_1_read() -> u64 {
         Self::with_reg_val().tlbirvale1_1_extract()
     }
 
@@ -571,7 +571,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvale1_1` field, and writes the updated value
-    pub fn tlbirvale1_1_write(&mut self, val: u64) {
+    pub fn tlbirvale1_1_write(val: u64) {
         Self::with_reg_val().tlbirvale1_1_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaae1_1` from it
-    pub fn tlbirvaae1_1_read(&mut self) -> u64 {
+    pub fn tlbirvaae1_1_read() -> u64 {
         Self::with_reg_val().tlbirvaae1_1_extract()
     }
 
@@ -600,7 +600,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaae1_1` field, and writes the updated value
-    pub fn tlbirvaae1_1_write(&mut self, val: u64) {
+    pub fn tlbirvaae1_1_write(val: u64) {
         Self::with_reg_val().tlbirvaae1_1_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvae1_1` from it
-    pub fn tlbirvae1_1_read(&mut self) -> u64 {
+    pub fn tlbirvae1_1_read() -> u64 {
         Self::with_reg_val().tlbirvae1_1_extract()
     }
 
@@ -629,7 +629,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvae1_1` field, and writes the updated value
-    pub fn tlbirvae1_1_write(&mut self, val: u64) {
+    pub fn tlbirvae1_1_write(val: u64) {
         Self::with_reg_val().tlbirvae1_1_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaale1is_1` from it
-    pub fn tlbirvaale1is_1_read(&mut self) -> u64 {
+    pub fn tlbirvaale1is_1_read() -> u64 {
         Self::with_reg_val().tlbirvaale1is_1_extract()
     }
 
@@ -658,7 +658,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaale1is_1` field, and writes the updated value
-    pub fn tlbirvaale1is_1_write(&mut self, val: u64) {
+    pub fn tlbirvaale1is_1_write(val: u64) {
         Self::with_reg_val().tlbirvaale1is_1_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvale1is_1` from it
-    pub fn tlbirvale1is_1_read(&mut self) -> u64 {
+    pub fn tlbirvale1is_1_read() -> u64 {
         Self::with_reg_val().tlbirvale1is_1_extract()
     }
 
@@ -687,7 +687,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvale1is_1` field, and writes the updated value
-    pub fn tlbirvale1is_1_write(&mut self, val: u64) {
+    pub fn tlbirvale1is_1_write(val: u64) {
         Self::with_reg_val().tlbirvale1is_1_insert(val).write();
     }
 
@@ -704,7 +704,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaae1is_1` from it
-    pub fn tlbirvaae1is_1_read(&mut self) -> u64 {
+    pub fn tlbirvaae1is_1_read() -> u64 {
         Self::with_reg_val().tlbirvaae1is_1_extract()
     }
 
@@ -716,7 +716,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaae1is_1` field, and writes the updated value
-    pub fn tlbirvaae1is_1_write(&mut self, val: u64) {
+    pub fn tlbirvaae1is_1_write(val: u64) {
         Self::with_reg_val().tlbirvaae1is_1_insert(val).write();
     }
 
@@ -733,7 +733,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvae1is_1` from it
-    pub fn tlbirvae1is_1_read(&mut self) -> u64 {
+    pub fn tlbirvae1is_1_read() -> u64 {
         Self::with_reg_val().tlbirvae1is_1_extract()
     }
 
@@ -745,7 +745,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvae1is_1` field, and writes the updated value
-    pub fn tlbirvae1is_1_write(&mut self, val: u64) {
+    pub fn tlbirvae1is_1_write(val: u64) {
         Self::with_reg_val().tlbirvae1is_1_insert(val).write();
     }
 
@@ -762,7 +762,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaale1is` from it
-    pub fn tlbivaale1is_read(&mut self) -> u64 {
+    pub fn tlbivaale1is_read() -> u64 {
         Self::with_reg_val().tlbivaale1is_extract()
     }
 
@@ -774,7 +774,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaale1is` field, and writes the updated value
-    pub fn tlbivaale1is_write(&mut self, val: u64) {
+    pub fn tlbivaale1is_write(val: u64) {
         Self::with_reg_val().tlbivaale1is_insert(val).write();
     }
 
@@ -791,7 +791,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivale1is` from it
-    pub fn tlbivale1is_read(&mut self) -> u64 {
+    pub fn tlbivale1is_read() -> u64 {
         Self::with_reg_val().tlbivale1is_extract()
     }
 
@@ -803,7 +803,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivale1is` field, and writes the updated value
-    pub fn tlbivale1is_write(&mut self, val: u64) {
+    pub fn tlbivale1is_write(val: u64) {
         Self::with_reg_val().tlbivale1is_insert(val).write();
     }
 
@@ -820,7 +820,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaae1is` from it
-    pub fn tlbivaae1is_read(&mut self) -> u64 {
+    pub fn tlbivaae1is_read() -> u64 {
         Self::with_reg_val().tlbivaae1is_extract()
     }
 
@@ -832,7 +832,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaae1is` field, and writes the updated value
-    pub fn tlbivaae1is_write(&mut self, val: u64) {
+    pub fn tlbivaae1is_write(val: u64) {
         Self::with_reg_val().tlbivaae1is_insert(val).write();
     }
 
@@ -849,7 +849,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbiaside1is` from it
-    pub fn tlbiaside1is_read(&mut self) -> u64 {
+    pub fn tlbiaside1is_read() -> u64 {
         Self::with_reg_val().tlbiaside1is_extract()
     }
 
@@ -861,7 +861,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbiaside1is` field, and writes the updated value
-    pub fn tlbiaside1is_write(&mut self, val: u64) {
+    pub fn tlbiaside1is_write(val: u64) {
         Self::with_reg_val().tlbiaside1is_insert(val).write();
     }
 
@@ -878,7 +878,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivae1is` from it
-    pub fn tlbivae1is_read(&mut self) -> u64 {
+    pub fn tlbivae1is_read() -> u64 {
         Self::with_reg_val().tlbivae1is_extract()
     }
 
@@ -890,7 +890,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivae1is` field, and writes the updated value
-    pub fn tlbivae1is_write(&mut self, val: u64) {
+    pub fn tlbivae1is_write(val: u64) {
         Self::with_reg_val().tlbivae1is_insert(val).write();
     }
 
@@ -907,7 +907,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivmalle1is` from it
-    pub fn tlbivmalle1is_read(&mut self) -> u64 {
+    pub fn tlbivmalle1is_read() -> u64 {
         Self::with_reg_val().tlbivmalle1is_extract()
     }
 
@@ -919,7 +919,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivmalle1is` field, and writes the updated value
-    pub fn tlbivmalle1is_write(&mut self, val: u64) {
+    pub fn tlbivmalle1is_write(val: u64) {
         Self::with_reg_val().tlbivmalle1is_insert(val).write();
     }
 
@@ -936,7 +936,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaale1os_1` from it
-    pub fn tlbirvaale1os_1_read(&mut self) -> u64 {
+    pub fn tlbirvaale1os_1_read() -> u64 {
         Self::with_reg_val().tlbirvaale1os_1_extract()
     }
 
@@ -948,7 +948,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaale1os_1` field, and writes the updated value
-    pub fn tlbirvaale1os_1_write(&mut self, val: u64) {
+    pub fn tlbirvaale1os_1_write(val: u64) {
         Self::with_reg_val().tlbirvaale1os_1_insert(val).write();
     }
 
@@ -965,7 +965,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvale1os_1` from it
-    pub fn tlbirvale1os_1_read(&mut self) -> u64 {
+    pub fn tlbirvale1os_1_read() -> u64 {
         Self::with_reg_val().tlbirvale1os_1_extract()
     }
 
@@ -977,7 +977,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvale1os_1` field, and writes the updated value
-    pub fn tlbirvale1os_1_write(&mut self, val: u64) {
+    pub fn tlbirvale1os_1_write(val: u64) {
         Self::with_reg_val().tlbirvale1os_1_insert(val).write();
     }
 
@@ -994,7 +994,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvaae1os_1` from it
-    pub fn tlbirvaae1os_1_read(&mut self) -> u64 {
+    pub fn tlbirvaae1os_1_read() -> u64 {
         Self::with_reg_val().tlbirvaae1os_1_extract()
     }
 
@@ -1006,7 +1006,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvaae1os_1` field, and writes the updated value
-    pub fn tlbirvaae1os_1_write(&mut self, val: u64) {
+    pub fn tlbirvaae1os_1_write(val: u64) {
         Self::with_reg_val().tlbirvaae1os_1_insert(val).write();
     }
 
@@ -1023,7 +1023,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbirvae1os_1` from it
-    pub fn tlbirvae1os_1_read(&mut self) -> u64 {
+    pub fn tlbirvae1os_1_read() -> u64 {
         Self::with_reg_val().tlbirvae1os_1_extract()
     }
 
@@ -1035,7 +1035,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbirvae1os_1` field, and writes the updated value
-    pub fn tlbirvae1os_1_write(&mut self, val: u64) {
+    pub fn tlbirvae1os_1_write(val: u64) {
         Self::with_reg_val().tlbirvae1os_1_insert(val).write();
     }
 
@@ -1052,7 +1052,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaale1os_1` from it
-    pub fn tlbivaale1os_1_read(&mut self) -> u64 {
+    pub fn tlbivaale1os_1_read() -> u64 {
         Self::with_reg_val().tlbivaale1os_1_extract()
     }
 
@@ -1064,7 +1064,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaale1os_1` field, and writes the updated value
-    pub fn tlbivaale1os_1_write(&mut self, val: u64) {
+    pub fn tlbivaale1os_1_write(val: u64) {
         Self::with_reg_val().tlbivaale1os_1_insert(val).write();
     }
 
@@ -1081,7 +1081,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivale1os_1` from it
-    pub fn tlbivale1os_1_read(&mut self) -> u64 {
+    pub fn tlbivale1os_1_read() -> u64 {
         Self::with_reg_val().tlbivale1os_1_extract()
     }
 
@@ -1093,7 +1093,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivale1os_1` field, and writes the updated value
-    pub fn tlbivale1os_1_write(&mut self, val: u64) {
+    pub fn tlbivale1os_1_write(val: u64) {
         Self::with_reg_val().tlbivale1os_1_insert(val).write();
     }
 
@@ -1110,7 +1110,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivaae1os_1` from it
-    pub fn tlbivaae1os_1_read(&mut self) -> u64 {
+    pub fn tlbivaae1os_1_read() -> u64 {
         Self::with_reg_val().tlbivaae1os_1_extract()
     }
 
@@ -1122,7 +1122,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivaae1os_1` field, and writes the updated value
-    pub fn tlbivaae1os_1_write(&mut self, val: u64) {
+    pub fn tlbivaae1os_1_write(val: u64) {
         Self::with_reg_val().tlbivaae1os_1_insert(val).write();
     }
 
@@ -1139,7 +1139,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbiaside1os_1` from it
-    pub fn tlbiaside1os_1_read(&mut self) -> u64 {
+    pub fn tlbiaside1os_1_read() -> u64 {
         Self::with_reg_val().tlbiaside1os_1_extract()
     }
 
@@ -1151,7 +1151,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbiaside1os_1` field, and writes the updated value
-    pub fn tlbiaside1os_1_write(&mut self, val: u64) {
+    pub fn tlbiaside1os_1_write(val: u64) {
         Self::with_reg_val().tlbiaside1os_1_insert(val).write();
     }
 
@@ -1168,7 +1168,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivae1os_1` from it
-    pub fn tlbivae1os_1_read(&mut self) -> u64 {
+    pub fn tlbivae1os_1_read() -> u64 {
         Self::with_reg_val().tlbivae1os_1_extract()
     }
 
@@ -1180,7 +1180,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivae1os_1` field, and writes the updated value
-    pub fn tlbivae1os_1_write(&mut self, val: u64) {
+    pub fn tlbivae1os_1_write(val: u64) {
         Self::with_reg_val().tlbivae1os_1_insert(val).write();
     }
 
@@ -1197,7 +1197,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `tlbivmalle1os_1` from it
-    pub fn tlbivmalle1os_1_read(&mut self) -> u64 {
+    pub fn tlbivmalle1os_1_read() -> u64 {
         Self::with_reg_val().tlbivmalle1os_1_extract()
     }
 
@@ -1209,7 +1209,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `tlbivmalle1os_1` field, and writes the updated value
-    pub fn tlbivmalle1os_1_write(&mut self, val: u64) {
+    pub fn tlbivmalle1os_1_write(val: u64) {
         Self::with_reg_val().tlbivmalle1os_1_insert(val).write();
     }
 
@@ -1226,7 +1226,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e1wp_1` from it
-    pub fn ats1e1wp_1_read(&mut self) -> u64 {
+    pub fn ats1e1wp_1_read() -> u64 {
         Self::with_reg_val().ats1e1wp_1_extract()
     }
 
@@ -1238,7 +1238,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e1wp_1` field, and writes the updated value
-    pub fn ats1e1wp_1_write(&mut self, val: u64) {
+    pub fn ats1e1wp_1_write(val: u64) {
         Self::with_reg_val().ats1e1wp_1_insert(val).write();
     }
 
@@ -1255,7 +1255,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e1rp_1` from it
-    pub fn ats1e1rp_1_read(&mut self) -> u64 {
+    pub fn ats1e1rp_1_read() -> u64 {
         Self::with_reg_val().ats1e1rp_1_extract()
     }
 
@@ -1267,7 +1267,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e1rp_1` field, and writes the updated value
-    pub fn ats1e1rp_1_write(&mut self, val: u64) {
+    pub fn ats1e1rp_1_write(val: u64) {
         Self::with_reg_val().ats1e1rp_1_insert(val).write();
     }
 
@@ -1284,7 +1284,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e0w` from it
-    pub fn ats1e0w_read(&mut self) -> u64 {
+    pub fn ats1e0w_read() -> u64 {
         Self::with_reg_val().ats1e0w_extract()
     }
 
@@ -1296,7 +1296,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e0w` field, and writes the updated value
-    pub fn ats1e0w_write(&mut self, val: u64) {
+    pub fn ats1e0w_write(val: u64) {
         Self::with_reg_val().ats1e0w_insert(val).write();
     }
 
@@ -1313,7 +1313,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e0r` from it
-    pub fn ats1e0r_read(&mut self) -> u64 {
+    pub fn ats1e0r_read() -> u64 {
         Self::with_reg_val().ats1e0r_extract()
     }
 
@@ -1325,7 +1325,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e0r` field, and writes the updated value
-    pub fn ats1e0r_write(&mut self, val: u64) {
+    pub fn ats1e0r_write(val: u64) {
         Self::with_reg_val().ats1e0r_insert(val).write();
     }
 
@@ -1342,7 +1342,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e1w` from it
-    pub fn ats1e1w_read(&mut self) -> u64 {
+    pub fn ats1e1w_read() -> u64 {
         Self::with_reg_val().ats1e1w_extract()
     }
 
@@ -1354,7 +1354,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e1w` field, and writes the updated value
-    pub fn ats1e1w_write(&mut self, val: u64) {
+    pub fn ats1e1w_write(val: u64) {
         Self::with_reg_val().ats1e1w_insert(val).write();
     }
 
@@ -1371,7 +1371,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `ats1e1r` from it
-    pub fn ats1e1r_read(&mut self) -> u64 {
+    pub fn ats1e1r_read() -> u64 {
         Self::with_reg_val().ats1e1r_extract()
     }
 
@@ -1383,7 +1383,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `ats1e1r` field, and writes the updated value
-    pub fn ats1e1r_write(&mut self, val: u64) {
+    pub fn ats1e1r_write(val: u64) {
         Self::with_reg_val().ats1e1r_insert(val).write();
     }
 
@@ -1400,7 +1400,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dczva` from it
-    pub fn dczva_read(&mut self) -> u64 {
+    pub fn dczva_read() -> u64 {
         Self::with_reg_val().dczva_extract()
     }
 
@@ -1412,7 +1412,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dczva` field, and writes the updated value
-    pub fn dczva_write(&mut self, val: u64) {
+    pub fn dczva_write(val: u64) {
         Self::with_reg_val().dczva_insert(val).write();
     }
 
@@ -1429,7 +1429,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccivac` from it
-    pub fn dccivac_read(&mut self) -> u64 {
+    pub fn dccivac_read() -> u64 {
         Self::with_reg_val().dccivac_extract()
     }
 
@@ -1441,7 +1441,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccivac` field, and writes the updated value
-    pub fn dccivac_write(&mut self, val: u64) {
+    pub fn dccivac_write(val: u64) {
         Self::with_reg_val().dccivac_insert(val).write();
     }
 
@@ -1458,7 +1458,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccvadp_1` from it
-    pub fn dccvadp_1_read(&mut self) -> u64 {
+    pub fn dccvadp_1_read() -> u64 {
         Self::with_reg_val().dccvadp_1_extract()
     }
 
@@ -1470,7 +1470,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccvadp_1` field, and writes the updated value
-    pub fn dccvadp_1_write(&mut self, val: u64) {
+    pub fn dccvadp_1_write(val: u64) {
         Self::with_reg_val().dccvadp_1_insert(val).write();
     }
 
@@ -1487,7 +1487,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccvap` from it
-    pub fn dccvap_read(&mut self) -> u64 {
+    pub fn dccvap_read() -> u64 {
         Self::with_reg_val().dccvap_extract()
     }
 
@@ -1499,7 +1499,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccvap` field, and writes the updated value
-    pub fn dccvap_write(&mut self, val: u64) {
+    pub fn dccvap_write(val: u64) {
         Self::with_reg_val().dccvap_insert(val).write();
     }
 
@@ -1516,7 +1516,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccvau` from it
-    pub fn dccvau_read(&mut self) -> u64 {
+    pub fn dccvau_read() -> u64 {
         Self::with_reg_val().dccvau_extract()
     }
 
@@ -1528,7 +1528,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccvau` field, and writes the updated value
-    pub fn dccvau_write(&mut self, val: u64) {
+    pub fn dccvau_write(val: u64) {
         Self::with_reg_val().dccvau_insert(val).write();
     }
 
@@ -1545,7 +1545,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccisw` from it
-    pub fn dccisw_read(&mut self) -> u64 {
+    pub fn dccisw_read() -> u64 {
         Self::with_reg_val().dccisw_extract()
     }
 
@@ -1557,7 +1557,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccisw` field, and writes the updated value
-    pub fn dccisw_write(&mut self, val: u64) {
+    pub fn dccisw_write(val: u64) {
         Self::with_reg_val().dccisw_insert(val).write();
     }
 
@@ -1574,7 +1574,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dccsw` from it
-    pub fn dccsw_read(&mut self) -> u64 {
+    pub fn dccsw_read() -> u64 {
         Self::with_reg_val().dccsw_extract()
     }
 
@@ -1586,7 +1586,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dccsw` field, and writes the updated value
-    pub fn dccsw_write(&mut self, val: u64) {
+    pub fn dccsw_write(val: u64) {
         Self::with_reg_val().dccsw_insert(val).write();
     }
 
@@ -1603,7 +1603,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dcisw` from it
-    pub fn dcisw_read(&mut self) -> u64 {
+    pub fn dcisw_read() -> u64 {
         Self::with_reg_val().dcisw_extract()
     }
 
@@ -1615,7 +1615,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dcisw` field, and writes the updated value
-    pub fn dcisw_write(&mut self, val: u64) {
+    pub fn dcisw_write(val: u64) {
         Self::with_reg_val().dcisw_insert(val).write();
     }
 
@@ -1632,7 +1632,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `dcivac` from it
-    pub fn dcivac_read(&mut self) -> u64 {
+    pub fn dcivac_read() -> u64 {
         Self::with_reg_val().dcivac_extract()
     }
 
@@ -1644,7 +1644,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `dcivac` field, and writes the updated value
-    pub fn dcivac_write(&mut self, val: u64) {
+    pub fn dcivac_write(val: u64) {
         Self::with_reg_val().dcivac_insert(val).write();
     }
 
@@ -1661,7 +1661,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `icivau` from it
-    pub fn icivau_read(&mut self) -> u64 {
+    pub fn icivau_read() -> u64 {
         Self::with_reg_val().icivau_extract()
     }
 
@@ -1673,7 +1673,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `icivau` field, and writes the updated value
-    pub fn icivau_write(&mut self, val: u64) {
+    pub fn icivau_write(val: u64) {
         Self::with_reg_val().icivau_insert(val).write();
     }
 
@@ -1690,7 +1690,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `iciallu` from it
-    pub fn iciallu_read(&mut self) -> u64 {
+    pub fn iciallu_read() -> u64 {
         Self::with_reg_val().iciallu_extract()
     }
 
@@ -1702,7 +1702,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `iciallu` field, and writes the updated value
-    pub fn iciallu_write(&mut self, val: u64) {
+    pub fn iciallu_write(val: u64) {
         Self::with_reg_val().iciallu_insert(val).write();
     }
 
@@ -1719,7 +1719,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the current register value and extract field `icialluis` from it
-    pub fn icialluis_read(&mut self) -> u64 {
+    pub fn icialluis_read() -> u64 {
         Self::with_reg_val().icialluis_extract()
     }
 
@@ -1731,7 +1731,7 @@ impl HfgitrEl2 {
     }
 
     /// reads the register, updates the `icialluis` field, and writes the updated value
-    pub fn icialluis_write(&mut self, val: u64) {
+    pub fn icialluis_write(val: u64) {
         Self::with_reg_val().icialluis_insert(val).write();
     }
 

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.069142
+ * Generated on: 2022-08-22T16:35:53.050242
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl CcsidrEl1 {
     }
 
     /// reads the current register value and extract field `numsets` from it
-    pub fn numsets_read(&mut self) -> u64 {
+    pub fn numsets_read() -> u64 {
         Self::with_reg_val().numsets_extract()
     }
 // no insert() method for field numsets
@@ -155,7 +155,7 @@ impl CcsidrEl1 {
     }
 
     /// reads the current register value and extract field `associativity` from it
-    pub fn associativity_read(&mut self) -> u64 {
+    pub fn associativity_read() -> u64 {
         Self::with_reg_val().associativity_extract()
     }
 // no insert() method for field associativity
@@ -172,7 +172,7 @@ impl CcsidrEl1 {
     }
 
     /// reads the current register value and extract field `linesize` from it
-    pub fn linesize_read(&mut self) -> u64 {
+    pub fn linesize_read() -> u64 {
         Self::with_reg_val().linesize_extract()
     }
 // no insert() method for field linesize

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.093719
+ * Generated on: 2022-08-22T16:35:53.075316
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `format_1` from it
-    pub fn format_1_read(&mut self) -> u64 {
+    pub fn format_1_read() -> u64 {
         Self::with_reg_val().format_1_extract()
     }
 // no insert() method for field format_1
@@ -155,7 +155,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `countsize` from it
-    pub fn countsize_read(&mut self) -> u64 {
+    pub fn countsize_read() -> u64 {
         Self::with_reg_val().countsize_extract()
     }
 // no insert() method for field countsize
@@ -172,7 +172,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `maxsize` from it
-    pub fn maxsize_read(&mut self) -> u64 {
+    pub fn maxsize_read() -> u64 {
         Self::with_reg_val().maxsize_extract()
     }
 // no insert() method for field maxsize
@@ -189,7 +189,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `interval` from it
-    pub fn interval_read(&mut self) -> u64 {
+    pub fn interval_read() -> u64 {
         Self::with_reg_val().interval_extract()
     }
 // no insert() method for field interval
@@ -206,7 +206,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `fne` from it
-    pub fn fne_read(&mut self) -> u64 {
+    pub fn fne_read() -> u64 {
         Self::with_reg_val().fne_extract()
     }
 // no insert() method for field fne
@@ -223,7 +223,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `ernd` from it
-    pub fn ernd_read(&mut self) -> u64 {
+    pub fn ernd_read() -> u64 {
         Self::with_reg_val().ernd_extract()
     }
 // no insert() method for field ernd
@@ -240,7 +240,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `lds` from it
-    pub fn lds_read(&mut self) -> u64 {
+    pub fn lds_read() -> u64 {
         Self::with_reg_val().lds_extract()
     }
 // no insert() method for field lds
@@ -257,7 +257,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `archinst` from it
-    pub fn archinst_read(&mut self) -> u64 {
+    pub fn archinst_read() -> u64 {
         Self::with_reg_val().archinst_extract()
     }
 // no insert() method for field archinst
@@ -274,7 +274,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `fl` from it
-    pub fn fl_read(&mut self) -> u64 {
+    pub fn fl_read() -> u64 {
         Self::with_reg_val().fl_extract()
     }
 // no insert() method for field fl
@@ -291,7 +291,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `ft` from it
-    pub fn ft_read(&mut self) -> u64 {
+    pub fn ft_read() -> u64 {
         Self::with_reg_val().ft_extract()
     }
 // no insert() method for field ft
@@ -308,7 +308,7 @@ impl PmsidrEl1 {
     }
 
     /// reads the current register value and extract field `fe` from it
-    pub fn fe_read(&mut self) -> u64 {
+    pub fn fe_read() -> u64 {
         Self::with_reg_val().fe_extract()
     }
 // no insert() method for field fe

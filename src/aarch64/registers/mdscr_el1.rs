@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.088290
+ * Generated on: 2022-08-22T16:35:53.069530
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `tfo_1` from it
-    pub fn tfo_1_read(&mut self) -> u64 {
+    pub fn tfo_1_read() -> u64 {
         Self::with_reg_val().tfo_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `tfo_1` field, and writes the updated value
-    pub fn tfo_1_write(&mut self, val: u64) {
+    pub fn tfo_1_write(val: u64) {
         Self::with_reg_val().tfo_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `rxfull` from it
-    pub fn rxfull_read(&mut self) -> u64 {
+    pub fn rxfull_read() -> u64 {
         Self::with_reg_val().rxfull_extract()
     }
 
@@ -194,7 +194,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `rxfull` field, and writes the updated value
-    pub fn rxfull_write(&mut self, val: u64) {
+    pub fn rxfull_write(val: u64) {
         Self::with_reg_val().rxfull_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `txfull` from it
-    pub fn txfull_read(&mut self) -> u64 {
+    pub fn txfull_read() -> u64 {
         Self::with_reg_val().txfull_extract()
     }
 
@@ -223,7 +223,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `txfull` field, and writes the updated value
-    pub fn txfull_write(&mut self, val: u64) {
+    pub fn txfull_write(val: u64) {
         Self::with_reg_val().txfull_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `rxo` from it
-    pub fn rxo_read(&mut self) -> u64 {
+    pub fn rxo_read() -> u64 {
         Self::with_reg_val().rxo_extract()
     }
 
@@ -252,7 +252,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `rxo` field, and writes the updated value
-    pub fn rxo_write(&mut self, val: u64) {
+    pub fn rxo_write(val: u64) {
         Self::with_reg_val().rxo_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `txu` from it
-    pub fn txu_read(&mut self) -> u64 {
+    pub fn txu_read() -> u64 {
         Self::with_reg_val().txu_extract()
     }
 
@@ -281,7 +281,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `txu` field, and writes the updated value
-    pub fn txu_write(&mut self, val: u64) {
+    pub fn txu_write(val: u64) {
         Self::with_reg_val().txu_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `intdis` from it
-    pub fn intdis_read(&mut self) -> u64 {
+    pub fn intdis_read() -> u64 {
         Self::with_reg_val().intdis_extract()
     }
 
@@ -310,7 +310,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `intdis` field, and writes the updated value
-    pub fn intdis_write(&mut self, val: u64) {
+    pub fn intdis_write(val: u64) {
         Self::with_reg_val().intdis_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `tda` from it
-    pub fn tda_read(&mut self) -> u64 {
+    pub fn tda_read() -> u64 {
         Self::with_reg_val().tda_extract()
     }
 
@@ -339,7 +339,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `tda` field, and writes the updated value
-    pub fn tda_write(&mut self, val: u64) {
+    pub fn tda_write(val: u64) {
         Self::with_reg_val().tda_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `sc2_1` from it
-    pub fn sc2_1_read(&mut self) -> u64 {
+    pub fn sc2_1_read() -> u64 {
         Self::with_reg_val().sc2_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `sc2_1` field, and writes the updated value
-    pub fn sc2_1_write(&mut self, val: u64) {
+    pub fn sc2_1_write(val: u64) {
         Self::with_reg_val().sc2_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `mde` from it
-    pub fn mde_read(&mut self) -> u64 {
+    pub fn mde_read() -> u64 {
         Self::with_reg_val().mde_extract()
     }
 
@@ -397,7 +397,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `mde` field, and writes the updated value
-    pub fn mde_write(&mut self, val: u64) {
+    pub fn mde_write(val: u64) {
         Self::with_reg_val().mde_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `hde` from it
-    pub fn hde_read(&mut self) -> u64 {
+    pub fn hde_read() -> u64 {
         Self::with_reg_val().hde_extract()
     }
 
@@ -426,7 +426,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `hde` field, and writes the updated value
-    pub fn hde_write(&mut self, val: u64) {
+    pub fn hde_write(val: u64) {
         Self::with_reg_val().hde_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `kde` from it
-    pub fn kde_read(&mut self) -> u64 {
+    pub fn kde_read() -> u64 {
         Self::with_reg_val().kde_extract()
     }
 
@@ -455,7 +455,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `kde` field, and writes the updated value
-    pub fn kde_write(&mut self, val: u64) {
+    pub fn kde_write(val: u64) {
         Self::with_reg_val().kde_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `tdcc` from it
-    pub fn tdcc_read(&mut self) -> u64 {
+    pub fn tdcc_read() -> u64 {
         Self::with_reg_val().tdcc_extract()
     }
 
@@ -484,7 +484,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `tdcc` field, and writes the updated value
-    pub fn tdcc_write(&mut self, val: u64) {
+    pub fn tdcc_write(val: u64) {
         Self::with_reg_val().tdcc_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `err` from it
-    pub fn err_read(&mut self) -> u64 {
+    pub fn err_read() -> u64 {
         Self::with_reg_val().err_extract()
     }
 
@@ -513,7 +513,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `err` field, and writes the updated value
-    pub fn err_write(&mut self, val: u64) {
+    pub fn err_write(val: u64) {
         Self::with_reg_val().err_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl MdscrEl1 {
     }
 
     /// reads the current register value and extract field `ss` from it
-    pub fn ss_read(&mut self) -> u64 {
+    pub fn ss_read() -> u64 {
         Self::with_reg_val().ss_extract()
     }
 
@@ -542,7 +542,7 @@ impl MdscrEl1 {
     }
 
     /// reads the register, updates the `ss` field, and writes the updated value
-    pub fn ss_write(&mut self, val: u64) {
+    pub fn ss_write(val: u64) {
         Self::with_reg_val().ss_insert(val).write();
     }
 

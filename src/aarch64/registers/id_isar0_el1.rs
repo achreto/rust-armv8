@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085240
+ * Generated on: 2022-08-22T16:35:53.066444
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `divide` from it
-    pub fn divide_read(&mut self) -> u64 {
+    pub fn divide_read() -> u64 {
         Self::with_reg_val().divide_extract()
     }
 // no insert() method for field divide
@@ -155,7 +155,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `debug` from it
-    pub fn debug_read(&mut self) -> u64 {
+    pub fn debug_read() -> u64 {
         Self::with_reg_val().debug_extract()
     }
 // no insert() method for field debug
@@ -172,7 +172,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `coproc` from it
-    pub fn coproc_read(&mut self) -> u64 {
+    pub fn coproc_read() -> u64 {
         Self::with_reg_val().coproc_extract()
     }
 // no insert() method for field coproc
@@ -189,7 +189,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `cmpbranch` from it
-    pub fn cmpbranch_read(&mut self) -> u64 {
+    pub fn cmpbranch_read() -> u64 {
         Self::with_reg_val().cmpbranch_extract()
     }
 // no insert() method for field cmpbranch
@@ -206,7 +206,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `bitfield` from it
-    pub fn bitfield_read(&mut self) -> u64 {
+    pub fn bitfield_read() -> u64 {
         Self::with_reg_val().bitfield_extract()
     }
 // no insert() method for field bitfield
@@ -223,7 +223,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `bitcount` from it
-    pub fn bitcount_read(&mut self) -> u64 {
+    pub fn bitcount_read() -> u64 {
         Self::with_reg_val().bitcount_extract()
     }
 // no insert() method for field bitcount
@@ -240,7 +240,7 @@ impl IdIsar0El1 {
     }
 
     /// reads the current register value and extract field `swap` from it
-    pub fn swap_read(&mut self) -> u64 {
+    pub fn swap_read() -> u64 {
         Self::with_reg_val().swap_extract()
     }
 // no insert() method for field swap

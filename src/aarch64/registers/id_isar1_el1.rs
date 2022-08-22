@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085339
+ * Generated on: 2022-08-22T16:35:53.066557
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `jazelle` from it
-    pub fn jazelle_read(&mut self) -> u64 {
+    pub fn jazelle_read() -> u64 {
         Self::with_reg_val().jazelle_extract()
     }
 // no insert() method for field jazelle
@@ -155,7 +155,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `interwork` from it
-    pub fn interwork_read(&mut self) -> u64 {
+    pub fn interwork_read() -> u64 {
         Self::with_reg_val().interwork_extract()
     }
 // no insert() method for field interwork
@@ -172,7 +172,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `immediate` from it
-    pub fn immediate_read(&mut self) -> u64 {
+    pub fn immediate_read() -> u64 {
         Self::with_reg_val().immediate_extract()
     }
 // no insert() method for field immediate
@@ -189,7 +189,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `ifthen` from it
-    pub fn ifthen_read(&mut self) -> u64 {
+    pub fn ifthen_read() -> u64 {
         Self::with_reg_val().ifthen_extract()
     }
 // no insert() method for field ifthen
@@ -206,7 +206,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `extend` from it
-    pub fn extend_read(&mut self) -> u64 {
+    pub fn extend_read() -> u64 {
         Self::with_reg_val().extend_extract()
     }
 // no insert() method for field extend
@@ -223,7 +223,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `except_ar` from it
-    pub fn except_ar_read(&mut self) -> u64 {
+    pub fn except_ar_read() -> u64 {
         Self::with_reg_val().except_ar_extract()
     }
 // no insert() method for field except_ar
@@ -240,7 +240,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `except` from it
-    pub fn except_read(&mut self) -> u64 {
+    pub fn except_read() -> u64 {
         Self::with_reg_val().except_extract()
     }
 // no insert() method for field except
@@ -257,7 +257,7 @@ impl IdIsar1El1 {
     }
 
     /// reads the current register value and extract field `endian` from it
-    pub fn endian_read(&mut self) -> u64 {
+    pub fn endian_read() -> u64 {
         Self::with_reg_val().endian_extract()
     }
 // no insert() method for field endian

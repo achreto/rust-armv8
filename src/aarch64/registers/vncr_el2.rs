@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.101818
+ * Generated on: 2022-08-22T16:35:53.083355
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl VncrEl2 {
     }
 
     /// reads the current register value and extract field `baddr` from it
-    pub fn baddr_read(&mut self) -> u64 {
+    pub fn baddr_read() -> u64 {
         Self::with_reg_val().baddr_extract()
     }
 
@@ -165,7 +165,7 @@ impl VncrEl2 {
     }
 
     /// reads the register, updates the `baddr` field, and writes the updated value
-    pub fn baddr_write(&mut self, val: u64) {
+    pub fn baddr_write(val: u64) {
         Self::with_reg_val().baddr_insert(val).write();
     }
 

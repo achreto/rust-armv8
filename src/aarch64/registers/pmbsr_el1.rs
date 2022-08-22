@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091667
+ * Generated on: 2022-08-22T16:35:53.073197
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `ec` from it
-    pub fn ec_read(&mut self) -> u64 {
+    pub fn ec_read() -> u64 {
         Self::with_reg_val().ec_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `ec` field, and writes the updated value
-    pub fn ec_write(&mut self, val: u64) {
+    pub fn ec_write(val: u64) {
         Self::with_reg_val().ec_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `dl` from it
-    pub fn dl_read(&mut self) -> u64 {
+    pub fn dl_read() -> u64 {
         Self::with_reg_val().dl_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `dl` field, and writes the updated value
-    pub fn dl_write(&mut self, val: u64) {
+    pub fn dl_write(val: u64) {
         Self::with_reg_val().dl_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `ea` from it
-    pub fn ea_read(&mut self) -> u64 {
+    pub fn ea_read() -> u64 {
         Self::with_reg_val().ea_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `ea` field, and writes the updated value
-    pub fn ea_write(&mut self, val: u64) {
+    pub fn ea_write(val: u64) {
         Self::with_reg_val().ea_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `s` from it
-    pub fn s_read(&mut self) -> u64 {
+    pub fn s_read() -> u64 {
         Self::with_reg_val().s_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `s` field, and writes the updated value
-    pub fn s_write(&mut self, val: u64) {
+    pub fn s_write(val: u64) {
         Self::with_reg_val().s_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `coll` from it
-    pub fn coll_read(&mut self) -> u64 {
+    pub fn coll_read() -> u64 {
         Self::with_reg_val().coll_extract()
     }
 
@@ -281,7 +281,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `coll` field, and writes the updated value
-    pub fn coll_write(&mut self, val: u64) {
+    pub fn coll_write(val: u64) {
         Self::with_reg_val().coll_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the current register value and extract field `mss` from it
-    pub fn mss_read(&mut self) -> u64 {
+    pub fn mss_read() -> u64 {
         Self::with_reg_val().mss_extract()
     }
 
@@ -310,7 +310,7 @@ impl PmbsrEl1 {
     }
 
     /// reads the register, updates the `mss` field, and writes the updated value
-    pub fn mss_write(&mut self, val: u64) {
+    pub fn mss_write(val: u64) {
         Self::with_reg_val().mss_insert(val).write();
     }
 

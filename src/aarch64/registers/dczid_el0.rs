@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.073483
+ * Generated on: 2022-08-22T16:35:53.054876
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl DczidEl0 {
     }
 
     /// reads the current register value and extract field `dzp` from it
-    pub fn dzp_read(&mut self) -> u64 {
+    pub fn dzp_read() -> u64 {
         Self::with_reg_val().dzp_extract()
     }
 // no insert() method for field dzp
@@ -155,7 +155,7 @@ impl DczidEl0 {
     }
 
     /// reads the current register value and extract field `bs` from it
-    pub fn bs_read(&mut self) -> u64 {
+    pub fn bs_read() -> u64 {
         Self::with_reg_val().bs_extract()
     }
 // no insert() method for field bs

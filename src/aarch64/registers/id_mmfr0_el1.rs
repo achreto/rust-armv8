@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085961
+ * Generated on: 2022-08-22T16:35:53.067183
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `innershr` from it
-    pub fn innershr_read(&mut self) -> u64 {
+    pub fn innershr_read() -> u64 {
         Self::with_reg_val().innershr_extract()
     }
 // no insert() method for field innershr
@@ -155,7 +155,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `fcse` from it
-    pub fn fcse_read(&mut self) -> u64 {
+    pub fn fcse_read() -> u64 {
         Self::with_reg_val().fcse_extract()
     }
 // no insert() method for field fcse
@@ -172,7 +172,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `auxreg` from it
-    pub fn auxreg_read(&mut self) -> u64 {
+    pub fn auxreg_read() -> u64 {
         Self::with_reg_val().auxreg_extract()
     }
 // no insert() method for field auxreg
@@ -189,7 +189,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `tcm` from it
-    pub fn tcm_read(&mut self) -> u64 {
+    pub fn tcm_read() -> u64 {
         Self::with_reg_val().tcm_extract()
     }
 // no insert() method for field tcm
@@ -206,7 +206,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `sharelvl` from it
-    pub fn sharelvl_read(&mut self) -> u64 {
+    pub fn sharelvl_read() -> u64 {
         Self::with_reg_val().sharelvl_extract()
     }
 // no insert() method for field sharelvl
@@ -223,7 +223,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `outershr` from it
-    pub fn outershr_read(&mut self) -> u64 {
+    pub fn outershr_read() -> u64 {
         Self::with_reg_val().outershr_extract()
     }
 // no insert() method for field outershr
@@ -240,7 +240,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `pmsa` from it
-    pub fn pmsa_read(&mut self) -> u64 {
+    pub fn pmsa_read() -> u64 {
         Self::with_reg_val().pmsa_extract()
     }
 // no insert() method for field pmsa
@@ -257,7 +257,7 @@ impl IdMmfr0El1 {
     }
 
     /// reads the current register value and extract field `vmsa` from it
-    pub fn vmsa_read(&mut self) -> u64 {
+    pub fn vmsa_read() -> u64 {
         Self::with_reg_val().vmsa_extract()
     }
 // no insert() method for field vmsa

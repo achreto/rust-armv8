@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.094014
+ * Generated on: 2022-08-22T16:35:53.075609
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `ex` from it
-    pub fn ex_read(&mut self) -> u64 {
+    pub fn ex_read() -> u64 {
         Self::with_reg_val().ex_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `ex` field, and writes the updated value
-    pub fn ex_write(&mut self, val: u64) {
+    pub fn ex_write(val: u64) {
         Self::with_reg_val().ex_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e63_63_63` from it
-    pub fn e63_63_63_read(&mut self) -> u64 {
+    pub fn e63_63_63_read() -> u64 {
         Self::with_reg_val().e63_63_63_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e63_63_63` field, and writes the updated value
-    pub fn e63_63_63_write(&mut self, val: u64) {
+    pub fn e63_63_63_write(val: u64) {
         Self::with_reg_val().e63_63_63_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e62_62_62` from it
-    pub fn e62_62_62_read(&mut self) -> u64 {
+    pub fn e62_62_62_read() -> u64 {
         Self::with_reg_val().e62_62_62_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e62_62_62` field, and writes the updated value
-    pub fn e62_62_62_write(&mut self, val: u64) {
+    pub fn e62_62_62_write(val: u64) {
         Self::with_reg_val().e62_62_62_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e61_61_61` from it
-    pub fn e61_61_61_read(&mut self) -> u64 {
+    pub fn e61_61_61_read() -> u64 {
         Self::with_reg_val().e61_61_61_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e61_61_61` field, and writes the updated value
-    pub fn e61_61_61_write(&mut self, val: u64) {
+    pub fn e61_61_61_write(val: u64) {
         Self::with_reg_val().e61_61_61_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e60_60_60` from it
-    pub fn e60_60_60_read(&mut self) -> u64 {
+    pub fn e60_60_60_read() -> u64 {
         Self::with_reg_val().e60_60_60_extract()
     }
 
@@ -281,7 +281,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e60_60_60` field, and writes the updated value
-    pub fn e60_60_60_write(&mut self, val: u64) {
+    pub fn e60_60_60_write(val: u64) {
         Self::with_reg_val().e60_60_60_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e59_59_59` from it
-    pub fn e59_59_59_read(&mut self) -> u64 {
+    pub fn e59_59_59_read() -> u64 {
         Self::with_reg_val().e59_59_59_extract()
     }
 
@@ -310,7 +310,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e59_59_59` field, and writes the updated value
-    pub fn e59_59_59_write(&mut self, val: u64) {
+    pub fn e59_59_59_write(val: u64) {
         Self::with_reg_val().e59_59_59_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e58_58_58` from it
-    pub fn e58_58_58_read(&mut self) -> u64 {
+    pub fn e58_58_58_read() -> u64 {
         Self::with_reg_val().e58_58_58_extract()
     }
 
@@ -339,7 +339,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e58_58_58` field, and writes the updated value
-    pub fn e58_58_58_write(&mut self, val: u64) {
+    pub fn e58_58_58_write(val: u64) {
         Self::with_reg_val().e58_58_58_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e57_57_57` from it
-    pub fn e57_57_57_read(&mut self) -> u64 {
+    pub fn e57_57_57_read() -> u64 {
         Self::with_reg_val().e57_57_57_extract()
     }
 
@@ -368,7 +368,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e57_57_57` field, and writes the updated value
-    pub fn e57_57_57_write(&mut self, val: u64) {
+    pub fn e57_57_57_write(val: u64) {
         Self::with_reg_val().e57_57_57_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e56_56_56` from it
-    pub fn e56_56_56_read(&mut self) -> u64 {
+    pub fn e56_56_56_read() -> u64 {
         Self::with_reg_val().e56_56_56_extract()
     }
 
@@ -397,7 +397,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e56_56_56` field, and writes the updated value
-    pub fn e56_56_56_write(&mut self, val: u64) {
+    pub fn e56_56_56_write(val: u64) {
         Self::with_reg_val().e56_56_56_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e55_55_55` from it
-    pub fn e55_55_55_read(&mut self) -> u64 {
+    pub fn e55_55_55_read() -> u64 {
         Self::with_reg_val().e55_55_55_extract()
     }
 
@@ -426,7 +426,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e55_55_55` field, and writes the updated value
-    pub fn e55_55_55_write(&mut self, val: u64) {
+    pub fn e55_55_55_write(val: u64) {
         Self::with_reg_val().e55_55_55_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e54_54_54` from it
-    pub fn e54_54_54_read(&mut self) -> u64 {
+    pub fn e54_54_54_read() -> u64 {
         Self::with_reg_val().e54_54_54_extract()
     }
 
@@ -455,7 +455,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e54_54_54` field, and writes the updated value
-    pub fn e54_54_54_write(&mut self, val: u64) {
+    pub fn e54_54_54_write(val: u64) {
         Self::with_reg_val().e54_54_54_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e53_53_53` from it
-    pub fn e53_53_53_read(&mut self) -> u64 {
+    pub fn e53_53_53_read() -> u64 {
         Self::with_reg_val().e53_53_53_extract()
     }
 
@@ -484,7 +484,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e53_53_53` field, and writes the updated value
-    pub fn e53_53_53_write(&mut self, val: u64) {
+    pub fn e53_53_53_write(val: u64) {
         Self::with_reg_val().e53_53_53_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e52_52_52` from it
-    pub fn e52_52_52_read(&mut self) -> u64 {
+    pub fn e52_52_52_read() -> u64 {
         Self::with_reg_val().e52_52_52_extract()
     }
 
@@ -513,7 +513,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e52_52_52` field, and writes the updated value
-    pub fn e52_52_52_write(&mut self, val: u64) {
+    pub fn e52_52_52_write(val: u64) {
         Self::with_reg_val().e52_52_52_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e51_51_51` from it
-    pub fn e51_51_51_read(&mut self) -> u64 {
+    pub fn e51_51_51_read() -> u64 {
         Self::with_reg_val().e51_51_51_extract()
     }
 
@@ -542,7 +542,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e51_51_51` field, and writes the updated value
-    pub fn e51_51_51_write(&mut self, val: u64) {
+    pub fn e51_51_51_write(val: u64) {
         Self::with_reg_val().e51_51_51_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e50_50_50` from it
-    pub fn e50_50_50_read(&mut self) -> u64 {
+    pub fn e50_50_50_read() -> u64 {
         Self::with_reg_val().e50_50_50_extract()
     }
 
@@ -571,7 +571,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e50_50_50` field, and writes the updated value
-    pub fn e50_50_50_write(&mut self, val: u64) {
+    pub fn e50_50_50_write(val: u64) {
         Self::with_reg_val().e50_50_50_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e49_49_49` from it
-    pub fn e49_49_49_read(&mut self) -> u64 {
+    pub fn e49_49_49_read() -> u64 {
         Self::with_reg_val().e49_49_49_extract()
     }
 
@@ -600,7 +600,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e49_49_49` field, and writes the updated value
-    pub fn e49_49_49_write(&mut self, val: u64) {
+    pub fn e49_49_49_write(val: u64) {
         Self::with_reg_val().e49_49_49_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e48_48_48` from it
-    pub fn e48_48_48_read(&mut self) -> u64 {
+    pub fn e48_48_48_read() -> u64 {
         Self::with_reg_val().e48_48_48_extract()
     }
 
@@ -629,7 +629,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e48_48_48` field, and writes the updated value
-    pub fn e48_48_48_write(&mut self, val: u64) {
+    pub fn e48_48_48_write(val: u64) {
         Self::with_reg_val().e48_48_48_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e31_31_31` from it
-    pub fn e31_31_31_read(&mut self) -> u64 {
+    pub fn e31_31_31_read() -> u64 {
         Self::with_reg_val().e31_31_31_extract()
     }
 
@@ -658,7 +658,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e31_31_31` field, and writes the updated value
-    pub fn e31_31_31_write(&mut self, val: u64) {
+    pub fn e31_31_31_write(val: u64) {
         Self::with_reg_val().e31_31_31_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e30_30_30` from it
-    pub fn e30_30_30_read(&mut self) -> u64 {
+    pub fn e30_30_30_read() -> u64 {
         Self::with_reg_val().e30_30_30_extract()
     }
 
@@ -687,7 +687,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e30_30_30` field, and writes the updated value
-    pub fn e30_30_30_write(&mut self, val: u64) {
+    pub fn e30_30_30_write(val: u64) {
         Self::with_reg_val().e30_30_30_insert(val).write();
     }
 
@@ -704,7 +704,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e29_29_29` from it
-    pub fn e29_29_29_read(&mut self) -> u64 {
+    pub fn e29_29_29_read() -> u64 {
         Self::with_reg_val().e29_29_29_extract()
     }
 
@@ -716,7 +716,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e29_29_29` field, and writes the updated value
-    pub fn e29_29_29_write(&mut self, val: u64) {
+    pub fn e29_29_29_write(val: u64) {
         Self::with_reg_val().e29_29_29_insert(val).write();
     }
 
@@ -733,7 +733,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e28_28_28` from it
-    pub fn e28_28_28_read(&mut self) -> u64 {
+    pub fn e28_28_28_read() -> u64 {
         Self::with_reg_val().e28_28_28_extract()
     }
 
@@ -745,7 +745,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e28_28_28` field, and writes the updated value
-    pub fn e28_28_28_write(&mut self, val: u64) {
+    pub fn e28_28_28_write(val: u64) {
         Self::with_reg_val().e28_28_28_insert(val).write();
     }
 
@@ -762,7 +762,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e27_27_27` from it
-    pub fn e27_27_27_read(&mut self) -> u64 {
+    pub fn e27_27_27_read() -> u64 {
         Self::with_reg_val().e27_27_27_extract()
     }
 
@@ -774,7 +774,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e27_27_27` field, and writes the updated value
-    pub fn e27_27_27_write(&mut self, val: u64) {
+    pub fn e27_27_27_write(val: u64) {
         Self::with_reg_val().e27_27_27_insert(val).write();
     }
 
@@ -791,7 +791,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e26_26_26` from it
-    pub fn e26_26_26_read(&mut self) -> u64 {
+    pub fn e26_26_26_read() -> u64 {
         Self::with_reg_val().e26_26_26_extract()
     }
 
@@ -803,7 +803,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e26_26_26` field, and writes the updated value
-    pub fn e26_26_26_write(&mut self, val: u64) {
+    pub fn e26_26_26_write(val: u64) {
         Self::with_reg_val().e26_26_26_insert(val).write();
     }
 
@@ -820,7 +820,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e25_25_25` from it
-    pub fn e25_25_25_read(&mut self) -> u64 {
+    pub fn e25_25_25_read() -> u64 {
         Self::with_reg_val().e25_25_25_extract()
     }
 
@@ -832,7 +832,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e25_25_25` field, and writes the updated value
-    pub fn e25_25_25_write(&mut self, val: u64) {
+    pub fn e25_25_25_write(val: u64) {
         Self::with_reg_val().e25_25_25_insert(val).write();
     }
 
@@ -849,7 +849,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e24_24_24` from it
-    pub fn e24_24_24_read(&mut self) -> u64 {
+    pub fn e24_24_24_read() -> u64 {
         Self::with_reg_val().e24_24_24_extract()
     }
 
@@ -861,7 +861,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e24_24_24` field, and writes the updated value
-    pub fn e24_24_24_write(&mut self, val: u64) {
+    pub fn e24_24_24_write(val: u64) {
         Self::with_reg_val().e24_24_24_insert(val).write();
     }
 
@@ -878,7 +878,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e18_1` from it
-    pub fn e18_1_read(&mut self) -> u64 {
+    pub fn e18_1_read() -> u64 {
         Self::with_reg_val().e18_1_extract()
     }
 
@@ -890,7 +890,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e18_1` field, and writes the updated value
-    pub fn e18_1_write(&mut self, val: u64) {
+    pub fn e18_1_write(val: u64) {
         Self::with_reg_val().e18_1_insert(val).write();
     }
 
@@ -907,7 +907,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e17_1` from it
-    pub fn e17_1_read(&mut self) -> u64 {
+    pub fn e17_1_read() -> u64 {
         Self::with_reg_val().e17_1_extract()
     }
 
@@ -919,7 +919,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e17_1` field, and writes the updated value
-    pub fn e17_1_write(&mut self, val: u64) {
+    pub fn e17_1_write(val: u64) {
         Self::with_reg_val().e17_1_insert(val).write();
     }
 
@@ -936,7 +936,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e15_15_15` from it
-    pub fn e15_15_15_read(&mut self) -> u64 {
+    pub fn e15_15_15_read() -> u64 {
         Self::with_reg_val().e15_15_15_extract()
     }
 
@@ -948,7 +948,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e15_15_15` field, and writes the updated value
-    pub fn e15_15_15_write(&mut self, val: u64) {
+    pub fn e15_15_15_write(val: u64) {
         Self::with_reg_val().e15_15_15_insert(val).write();
     }
 
@@ -965,7 +965,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e14_14_14` from it
-    pub fn e14_14_14_read(&mut self) -> u64 {
+    pub fn e14_14_14_read() -> u64 {
         Self::with_reg_val().e14_14_14_extract()
     }
 
@@ -977,7 +977,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e14_14_14` field, and writes the updated value
-    pub fn e14_14_14_write(&mut self, val: u64) {
+    pub fn e14_14_14_write(val: u64) {
         Self::with_reg_val().e14_14_14_insert(val).write();
     }
 
@@ -994,7 +994,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e13_13_13` from it
-    pub fn e13_13_13_read(&mut self) -> u64 {
+    pub fn e13_13_13_read() -> u64 {
         Self::with_reg_val().e13_13_13_extract()
     }
 
@@ -1006,7 +1006,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e13_13_13` field, and writes the updated value
-    pub fn e13_13_13_write(&mut self, val: u64) {
+    pub fn e13_13_13_write(val: u64) {
         Self::with_reg_val().e13_13_13_insert(val).write();
     }
 
@@ -1023,7 +1023,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e12_12_12` from it
-    pub fn e12_12_12_read(&mut self) -> u64 {
+    pub fn e12_12_12_read() -> u64 {
         Self::with_reg_val().e12_12_12_extract()
     }
 
@@ -1035,7 +1035,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e12_12_12` field, and writes the updated value
-    pub fn e12_12_12_write(&mut self, val: u64) {
+    pub fn e12_12_12_write(val: u64) {
         Self::with_reg_val().e12_12_12_insert(val).write();
     }
 
@@ -1052,7 +1052,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e11_1` from it
-    pub fn e11_1_read(&mut self) -> u64 {
+    pub fn e11_1_read() -> u64 {
         Self::with_reg_val().e11_1_extract()
     }
 
@@ -1064,7 +1064,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e11_1` field, and writes the updated value
-    pub fn e11_1_write(&mut self, val: u64) {
+    pub fn e11_1_write(val: u64) {
         Self::with_reg_val().e11_1_insert(val).write();
     }
 
@@ -1081,7 +1081,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e7` from it
-    pub fn e7_read(&mut self) -> u64 {
+    pub fn e7_read() -> u64 {
         Self::with_reg_val().e7_extract()
     }
 
@@ -1093,7 +1093,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e7` field, and writes the updated value
-    pub fn e7_write(&mut self, val: u64) {
+    pub fn e7_write(val: u64) {
         Self::with_reg_val().e7_insert(val).write();
     }
 
@@ -1110,7 +1110,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e6` from it
-    pub fn e6_read(&mut self) -> u64 {
+    pub fn e6_read() -> u64 {
         Self::with_reg_val().e6_extract()
     }
 
@@ -1122,7 +1122,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e6` field, and writes the updated value
-    pub fn e6_write(&mut self, val: u64) {
+    pub fn e6_write(val: u64) {
         Self::with_reg_val().e6_insert(val).write();
     }
 
@@ -1139,7 +1139,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e5` from it
-    pub fn e5_read(&mut self) -> u64 {
+    pub fn e5_read() -> u64 {
         Self::with_reg_val().e5_extract()
     }
 
@@ -1151,7 +1151,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e5` field, and writes the updated value
-    pub fn e5_write(&mut self, val: u64) {
+    pub fn e5_write(val: u64) {
         Self::with_reg_val().e5_insert(val).write();
     }
 
@@ -1168,7 +1168,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e3` from it
-    pub fn e3_read(&mut self) -> u64 {
+    pub fn e3_read() -> u64 {
         Self::with_reg_val().e3_extract()
     }
 
@@ -1180,7 +1180,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e3` field, and writes the updated value
-    pub fn e3_write(&mut self, val: u64) {
+    pub fn e3_write(val: u64) {
         Self::with_reg_val().e3_insert(val).write();
     }
 
@@ -1197,7 +1197,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the current register value and extract field `e1` from it
-    pub fn e1_read(&mut self) -> u64 {
+    pub fn e1_read() -> u64 {
         Self::with_reg_val().e1_extract()
     }
 
@@ -1209,7 +1209,7 @@ impl PmsnevfrEl1 {
     }
 
     /// reads the register, updates the `e1` field, and writes the updated value
-    pub fn e1_write(&mut self, val: u64) {
+    pub fn e1_write(val: u64) {
         Self::with_reg_val().e1_insert(val).write();
     }
 

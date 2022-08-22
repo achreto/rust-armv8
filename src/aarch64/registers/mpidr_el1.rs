@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.090172
+ * Generated on: 2022-08-22T16:35:53.071320
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `aff3` from it
-    pub fn aff3_read(&mut self) -> u64 {
+    pub fn aff3_read() -> u64 {
         Self::with_reg_val().aff3_extract()
     }
 // no insert() method for field aff3
@@ -155,7 +155,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `u` from it
-    pub fn u_read(&mut self) -> u64 {
+    pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
 // no insert() method for field u
@@ -172,7 +172,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `mt` from it
-    pub fn mt_read(&mut self) -> u64 {
+    pub fn mt_read() -> u64 {
         Self::with_reg_val().mt_extract()
     }
 // no insert() method for field mt
@@ -189,7 +189,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `aff2` from it
-    pub fn aff2_read(&mut self) -> u64 {
+    pub fn aff2_read() -> u64 {
         Self::with_reg_val().aff2_extract()
     }
 // no insert() method for field aff2
@@ -206,7 +206,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `aff1` from it
-    pub fn aff1_read(&mut self) -> u64 {
+    pub fn aff1_read() -> u64 {
         Self::with_reg_val().aff1_extract()
     }
 // no insert() method for field aff1
@@ -223,7 +223,7 @@ impl MpidrEl1 {
     }
 
     /// reads the current register value and extract field `aff0` from it
-    pub fn aff0_read(&mut self) -> u64 {
+    pub fn aff0_read() -> u64 {
         Self::with_reg_val().aff0_extract()
     }
 // no insert() method for field aff0

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085760
+ * Generated on: 2022-08-22T16:35:53.066986
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `vcma` from it
-    pub fn vcma_read(&mut self) -> u64 {
+    pub fn vcma_read() -> u64 {
         Self::with_reg_val().vcma_extract()
     }
 // no insert() method for field vcma
@@ -155,7 +155,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `rdm` from it
-    pub fn rdm_read(&mut self) -> u64 {
+    pub fn rdm_read() -> u64 {
         Self::with_reg_val().rdm_extract()
     }
 // no insert() method for field rdm
@@ -172,7 +172,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `crc32` from it
-    pub fn crc32_read(&mut self) -> u64 {
+    pub fn crc32_read() -> u64 {
         Self::with_reg_val().crc32_extract()
     }
 // no insert() method for field crc32
@@ -189,7 +189,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `sha2` from it
-    pub fn sha2_read(&mut self) -> u64 {
+    pub fn sha2_read() -> u64 {
         Self::with_reg_val().sha2_extract()
     }
 // no insert() method for field sha2
@@ -206,7 +206,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `sha1` from it
-    pub fn sha1_read(&mut self) -> u64 {
+    pub fn sha1_read() -> u64 {
         Self::with_reg_val().sha1_extract()
     }
 // no insert() method for field sha1
@@ -223,7 +223,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `aes` from it
-    pub fn aes_read(&mut self) -> u64 {
+    pub fn aes_read() -> u64 {
         Self::with_reg_val().aes_extract()
     }
 // no insert() method for field aes
@@ -240,7 +240,7 @@ impl IdIsar5El1 {
     }
 
     /// reads the current register value and extract field `sevl` from it
-    pub fn sevl_read(&mut self) -> u64 {
+    pub fn sevl_read() -> u64 {
         Self::with_reg_val().sevl_extract()
     }
 // no insert() method for field sevl

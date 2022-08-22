@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091262
+ * Generated on: 2022-08-22T16:35:53.072403
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_63_56` from it
-    pub fn implementation_defined_63_56_read(&mut self) -> u64 {
+    pub fn implementation_defined_63_56_read() -> u64 {
         Self::with_reg_val().implementation_defined_63_56_extract()
     }
 
@@ -165,7 +165,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `implementation_defined_63_56` field, and writes the updated value
-    pub fn implementation_defined_63_56_write(&mut self, val: u64) {
+    pub fn implementation_defined_63_56_write(val: u64) {
         Self::with_reg_val().implementation_defined_63_56_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_55_52` from it
-    pub fn implementation_defined_55_52_read(&mut self) -> u64 {
+    pub fn implementation_defined_55_52_read() -> u64 {
         Self::with_reg_val().implementation_defined_55_52_extract()
     }
 
@@ -194,7 +194,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `implementation_defined_55_52` field, and writes the updated value
-    pub fn implementation_defined_55_52_write(&mut self, val: u64) {
+    pub fn implementation_defined_55_52_write(val: u64) {
         Self::with_reg_val().implementation_defined_55_52_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_51_48` from it
-    pub fn implementation_defined_51_48_read(&mut self) -> u64 {
+    pub fn implementation_defined_51_48_read() -> u64 {
         Self::with_reg_val().implementation_defined_51_48_extract()
     }
 
@@ -223,7 +223,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `implementation_defined_51_48` field, and writes the updated value
-    pub fn implementation_defined_51_48_write(&mut self, val: u64) {
+    pub fn implementation_defined_51_48_write(val: u64) {
         Self::with_reg_val().implementation_defined_51_48_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `s` from it
-    pub fn s_read(&mut self) -> u64 {
+    pub fn s_read() -> u64 {
         Self::with_reg_val().s_extract()
     }
 
@@ -252,7 +252,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `s` field, and writes the updated value
-    pub fn s_write(&mut self, val: u64) {
+    pub fn s_write(val: u64) {
         Self::with_reg_val().s_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `ptw` from it
-    pub fn ptw_read(&mut self) -> u64 {
+    pub fn ptw_read() -> u64 {
         Self::with_reg_val().ptw_extract()
     }
 
@@ -281,7 +281,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `ptw` field, and writes the updated value
-    pub fn ptw_write(&mut self, val: u64) {
+    pub fn ptw_write(val: u64) {
         Self::with_reg_val().ptw_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `fst` from it
-    pub fn fst_read(&mut self) -> u64 {
+    pub fn fst_read() -> u64 {
         Self::with_reg_val().fst_extract()
     }
 
@@ -310,7 +310,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `fst` field, and writes the updated value
-    pub fn fst_write(&mut self, val: u64) {
+    pub fn fst_write(val: u64) {
         Self::with_reg_val().fst_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl ParEl1 {
     }
 
     /// reads the current register value and extract field `f` from it
-    pub fn f_read(&mut self) -> u64 {
+    pub fn f_read() -> u64 {
         Self::with_reg_val().f_extract()
     }
 
@@ -339,7 +339,7 @@ impl ParEl1 {
     }
 
     /// reads the register, updates the `f` field, and writes the updated value
-    pub fn f_write(&mut self, val: u64) {
+    pub fn f_write(val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
 

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.080546
+ * Generated on: 2022-08-22T16:35:53.062289
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl IccIgrpen1El3 {
     }
 
     /// reads the current register value and extract field `enablegrp1s` from it
-    pub fn enablegrp1s_read(&mut self) -> u64 {
+    pub fn enablegrp1s_read() -> u64 {
         Self::with_reg_val().enablegrp1s_extract()
     }
 
@@ -165,7 +165,7 @@ impl IccIgrpen1El3 {
     }
 
     /// reads the register, updates the `enablegrp1s` field, and writes the updated value
-    pub fn enablegrp1s_write(&mut self, val: u64) {
+    pub fn enablegrp1s_write(val: u64) {
         Self::with_reg_val().enablegrp1s_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl IccIgrpen1El3 {
     }
 
     /// reads the current register value and extract field `enablegrp1ns` from it
-    pub fn enablegrp1ns_read(&mut self) -> u64 {
+    pub fn enablegrp1ns_read() -> u64 {
         Self::with_reg_val().enablegrp1ns_extract()
     }
 
@@ -194,7 +194,7 @@ impl IccIgrpen1El3 {
     }
 
     /// reads the register, updates the `enablegrp1ns` field, and writes the updated value
-    pub fn enablegrp1ns_write(&mut self, val: u64) {
+    pub fn enablegrp1ns_write(val: u64) {
         Self::with_reg_val().enablegrp1ns_insert(val).write();
     }
 

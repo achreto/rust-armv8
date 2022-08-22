@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086063
+ * Generated on: 2022-08-22T16:35:53.067287
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `bpred` from it
-    pub fn bpred_read(&mut self) -> u64 {
+    pub fn bpred_read() -> u64 {
         Self::with_reg_val().bpred_extract()
     }
 // no insert() method for field bpred
@@ -155,7 +155,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1tstcln` from it
-    pub fn l1tstcln_read(&mut self) -> u64 {
+    pub fn l1tstcln_read() -> u64 {
         Self::with_reg_val().l1tstcln_extract()
     }
 // no insert() method for field l1tstcln
@@ -172,7 +172,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1uni` from it
-    pub fn l1uni_read(&mut self) -> u64 {
+    pub fn l1uni_read() -> u64 {
         Self::with_reg_val().l1uni_extract()
     }
 // no insert() method for field l1uni
@@ -189,7 +189,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1hvd` from it
-    pub fn l1hvd_read(&mut self) -> u64 {
+    pub fn l1hvd_read() -> u64 {
         Self::with_reg_val().l1hvd_extract()
     }
 // no insert() method for field l1hvd
@@ -206,7 +206,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1unisw` from it
-    pub fn l1unisw_read(&mut self) -> u64 {
+    pub fn l1unisw_read() -> u64 {
         Self::with_reg_val().l1unisw_extract()
     }
 // no insert() method for field l1unisw
@@ -223,7 +223,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1hvdsw` from it
-    pub fn l1hvdsw_read(&mut self) -> u64 {
+    pub fn l1hvdsw_read() -> u64 {
         Self::with_reg_val().l1hvdsw_extract()
     }
 // no insert() method for field l1hvdsw
@@ -240,7 +240,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1univa` from it
-    pub fn l1univa_read(&mut self) -> u64 {
+    pub fn l1univa_read() -> u64 {
         Self::with_reg_val().l1univa_extract()
     }
 // no insert() method for field l1univa
@@ -257,7 +257,7 @@ impl IdMmfr1El1 {
     }
 
     /// reads the current register value and extract field `l1hvdva` from it
-    pub fn l1hvdva_read(&mut self) -> u64 {
+    pub fn l1hvdva_read() -> u64 {
         Self::with_reg_val().l1hvdva_extract()
     }
 // no insert() method for field l1hvdva

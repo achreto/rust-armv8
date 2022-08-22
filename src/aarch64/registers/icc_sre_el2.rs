@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.081467
+ * Generated on: 2022-08-22T16:35:53.062822
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl IccSreEl2 {
     }
 
     /// reads the current register value and extract field `enable` from it
-    pub fn enable_read(&mut self) -> u64 {
+    pub fn enable_read() -> u64 {
         Self::with_reg_val().enable_extract()
     }
 
@@ -165,7 +165,7 @@ impl IccSreEl2 {
     }
 
     /// reads the register, updates the `enable` field, and writes the updated value
-    pub fn enable_write(&mut self, val: u64) {
+    pub fn enable_write(val: u64) {
         Self::with_reg_val().enable_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl IccSreEl2 {
     }
 
     /// reads the current register value and extract field `dib` from it
-    pub fn dib_read(&mut self) -> u64 {
+    pub fn dib_read() -> u64 {
         Self::with_reg_val().dib_extract()
     }
 
@@ -194,7 +194,7 @@ impl IccSreEl2 {
     }
 
     /// reads the register, updates the `dib` field, and writes the updated value
-    pub fn dib_write(&mut self, val: u64) {
+    pub fn dib_write(val: u64) {
         Self::with_reg_val().dib_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl IccSreEl2 {
     }
 
     /// reads the current register value and extract field `dfb` from it
-    pub fn dfb_read(&mut self) -> u64 {
+    pub fn dfb_read() -> u64 {
         Self::with_reg_val().dfb_extract()
     }
 
@@ -223,7 +223,7 @@ impl IccSreEl2 {
     }
 
     /// reads the register, updates the `dfb` field, and writes the updated value
-    pub fn dfb_write(&mut self, val: u64) {
+    pub fn dfb_write(val: u64) {
         Self::with_reg_val().dfb_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl IccSreEl2 {
     }
 
     /// reads the current register value and extract field `sre` from it
-    pub fn sre_read(&mut self) -> u64 {
+    pub fn sre_read() -> u64 {
         Self::with_reg_val().sre_extract()
     }
 
@@ -252,7 +252,7 @@ impl IccSreEl2 {
     }
 
     /// reads the register, updates the `sre` field, and writes the updated value
-    pub fn sre_write(&mut self, val: u64) {
+    pub fn sre_write(val: u64) {
         Self::with_reg_val().sre_insert(val).write();
     }
 

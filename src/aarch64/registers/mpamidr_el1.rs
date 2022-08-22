@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.089162
+ * Generated on: 2022-08-22T16:35:53.070342
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `has_sdeflt` from it
-    pub fn has_sdeflt_read(&mut self) -> u64 {
+    pub fn has_sdeflt_read() -> u64 {
         Self::with_reg_val().has_sdeflt_extract()
     }
 // no insert() method for field has_sdeflt
@@ -155,7 +155,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `has_force_ns` from it
-    pub fn has_force_ns_read(&mut self) -> u64 {
+    pub fn has_force_ns_read() -> u64 {
         Self::with_reg_val().has_force_ns_extract()
     }
 // no insert() method for field has_force_ns
@@ -172,7 +172,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `has_tidr` from it
-    pub fn has_tidr_read(&mut self) -> u64 {
+    pub fn has_tidr_read() -> u64 {
         Self::with_reg_val().has_tidr_extract()
     }
 // no insert() method for field has_tidr
@@ -189,7 +189,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `pmg_max` from it
-    pub fn pmg_max_read(&mut self) -> u64 {
+    pub fn pmg_max_read() -> u64 {
         Self::with_reg_val().pmg_max_extract()
     }
 // no insert() method for field pmg_max
@@ -206,7 +206,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `vpmr_max_1` from it
-    pub fn vpmr_max_1_read(&mut self) -> u64 {
+    pub fn vpmr_max_1_read() -> u64 {
         Self::with_reg_val().vpmr_max_1_extract()
     }
 // no insert() method for field vpmr_max_1
@@ -223,7 +223,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `has_hcr` from it
-    pub fn has_hcr_read(&mut self) -> u64 {
+    pub fn has_hcr_read() -> u64 {
         Self::with_reg_val().has_hcr_extract()
     }
 // no insert() method for field has_hcr
@@ -240,7 +240,7 @@ impl MpamidrEl1 {
     }
 
     /// reads the current register value and extract field `partid_max` from it
-    pub fn partid_max_read(&mut self) -> u64 {
+    pub fn partid_max_read() -> u64 {
         Self::with_reg_val().partid_max_extract()
     }
 // no insert() method for field partid_max

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.079178
+ * Generated on: 2022-08-22T16:35:53.060927
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `tn` from it
-    pub fn tn_read(&mut self) -> u64 {
+    pub fn tn_read() -> u64 {
         Self::with_reg_val().tn_extract()
     }
 
@@ -165,7 +165,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `tn` field, and writes the updated value
-    pub fn tn_write(&mut self, val: u64) {
+    pub fn tn_write(val: u64) {
         Self::with_reg_val().tn_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t15_15_15` from it
-    pub fn t15_15_15_read(&mut self) -> u64 {
+    pub fn t15_15_15_read() -> u64 {
         Self::with_reg_val().t15_15_15_extract()
     }
 
@@ -194,7 +194,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t15_15_15` field, and writes the updated value
-    pub fn t15_15_15_write(&mut self, val: u64) {
+    pub fn t15_15_15_write(val: u64) {
         Self::with_reg_val().t15_15_15_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t13_13_13` from it
-    pub fn t13_13_13_read(&mut self) -> u64 {
+    pub fn t13_13_13_read() -> u64 {
         Self::with_reg_val().t13_13_13_extract()
     }
 
@@ -223,7 +223,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t13_13_13` field, and writes the updated value
-    pub fn t13_13_13_write(&mut self, val: u64) {
+    pub fn t13_13_13_write(val: u64) {
         Self::with_reg_val().t13_13_13_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t12_12_12` from it
-    pub fn t12_12_12_read(&mut self) -> u64 {
+    pub fn t12_12_12_read() -> u64 {
         Self::with_reg_val().t12_12_12_extract()
     }
 
@@ -252,7 +252,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t12_12_12` field, and writes the updated value
-    pub fn t12_12_12_write(&mut self, val: u64) {
+    pub fn t12_12_12_write(val: u64) {
         Self::with_reg_val().t12_12_12_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t11_11_11` from it
-    pub fn t11_11_11_read(&mut self) -> u64 {
+    pub fn t11_11_11_read() -> u64 {
         Self::with_reg_val().t11_11_11_extract()
     }
 
@@ -281,7 +281,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t11_11_11` field, and writes the updated value
-    pub fn t11_11_11_write(&mut self, val: u64) {
+    pub fn t11_11_11_write(val: u64) {
         Self::with_reg_val().t11_11_11_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t10_10_10` from it
-    pub fn t10_10_10_read(&mut self) -> u64 {
+    pub fn t10_10_10_read() -> u64 {
         Self::with_reg_val().t10_10_10_extract()
     }
 
@@ -310,7 +310,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t10_10_10` field, and writes the updated value
-    pub fn t10_10_10_write(&mut self, val: u64) {
+    pub fn t10_10_10_write(val: u64) {
         Self::with_reg_val().t10_10_10_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t9_9_9` from it
-    pub fn t9_9_9_read(&mut self) -> u64 {
+    pub fn t9_9_9_read() -> u64 {
         Self::with_reg_val().t9_9_9_extract()
     }
 
@@ -339,7 +339,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t9_9_9` field, and writes the updated value
-    pub fn t9_9_9_write(&mut self, val: u64) {
+    pub fn t9_9_9_write(val: u64) {
         Self::with_reg_val().t9_9_9_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t8_8_8` from it
-    pub fn t8_8_8_read(&mut self) -> u64 {
+    pub fn t8_8_8_read() -> u64 {
         Self::with_reg_val().t8_8_8_extract()
     }
 
@@ -368,7 +368,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t8_8_8` field, and writes the updated value
-    pub fn t8_8_8_write(&mut self, val: u64) {
+    pub fn t8_8_8_write(val: u64) {
         Self::with_reg_val().t8_8_8_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t7_7_7` from it
-    pub fn t7_7_7_read(&mut self) -> u64 {
+    pub fn t7_7_7_read() -> u64 {
         Self::with_reg_val().t7_7_7_extract()
     }
 
@@ -397,7 +397,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t7_7_7` field, and writes the updated value
-    pub fn t7_7_7_write(&mut self, val: u64) {
+    pub fn t7_7_7_write(val: u64) {
         Self::with_reg_val().t7_7_7_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t6_6_6` from it
-    pub fn t6_6_6_read(&mut self) -> u64 {
+    pub fn t6_6_6_read() -> u64 {
         Self::with_reg_val().t6_6_6_extract()
     }
 
@@ -426,7 +426,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t6_6_6` field, and writes the updated value
-    pub fn t6_6_6_write(&mut self, val: u64) {
+    pub fn t6_6_6_write(val: u64) {
         Self::with_reg_val().t6_6_6_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t5_5_5` from it
-    pub fn t5_5_5_read(&mut self) -> u64 {
+    pub fn t5_5_5_read() -> u64 {
         Self::with_reg_val().t5_5_5_extract()
     }
 
@@ -455,7 +455,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t5_5_5` field, and writes the updated value
-    pub fn t5_5_5_write(&mut self, val: u64) {
+    pub fn t5_5_5_write(val: u64) {
         Self::with_reg_val().t5_5_5_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t3_3_3` from it
-    pub fn t3_3_3_read(&mut self) -> u64 {
+    pub fn t3_3_3_read() -> u64 {
         Self::with_reg_val().t3_3_3_extract()
     }
 
@@ -484,7 +484,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t3_3_3` field, and writes the updated value
-    pub fn t3_3_3_write(&mut self, val: u64) {
+    pub fn t3_3_3_write(val: u64) {
         Self::with_reg_val().t3_3_3_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t2_2_2` from it
-    pub fn t2_2_2_read(&mut self) -> u64 {
+    pub fn t2_2_2_read() -> u64 {
         Self::with_reg_val().t2_2_2_extract()
     }
 
@@ -513,7 +513,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t2_2_2` field, and writes the updated value
-    pub fn t2_2_2_write(&mut self, val: u64) {
+    pub fn t2_2_2_write(val: u64) {
         Self::with_reg_val().t2_2_2_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t1_1_1` from it
-    pub fn t1_1_1_read(&mut self) -> u64 {
+    pub fn t1_1_1_read() -> u64 {
         Self::with_reg_val().t1_1_1_extract()
     }
 
@@ -542,7 +542,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t1_1_1` field, and writes the updated value
-    pub fn t1_1_1_write(&mut self, val: u64) {
+    pub fn t1_1_1_write(val: u64) {
         Self::with_reg_val().t1_1_1_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl HstrEl2 {
     }
 
     /// reads the current register value and extract field `t0_0_0` from it
-    pub fn t0_0_0_read(&mut self) -> u64 {
+    pub fn t0_0_0_read() -> u64 {
         Self::with_reg_val().t0_0_0_extract()
     }
 
@@ -571,7 +571,7 @@ impl HstrEl2 {
     }
 
     /// reads the register, updates the `t0_0_0` field, and writes the updated value
-    pub fn t0_0_0_write(&mut self, val: u64) {
+    pub fn t0_0_0_write(val: u64) {
         Self::with_reg_val().t0_0_0_insert(val).write();
     }
 

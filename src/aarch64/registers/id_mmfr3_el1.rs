@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086268
+ * Generated on: 2022-08-22T16:35:53.067503
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `supersec` from it
-    pub fn supersec_read(&mut self) -> u64 {
+    pub fn supersec_read() -> u64 {
         Self::with_reg_val().supersec_extract()
     }
 // no insert() method for field supersec
@@ -155,7 +155,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `cmemsz` from it
-    pub fn cmemsz_read(&mut self) -> u64 {
+    pub fn cmemsz_read() -> u64 {
         Self::with_reg_val().cmemsz_extract()
     }
 // no insert() method for field cmemsz
@@ -172,7 +172,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `cohwalk` from it
-    pub fn cohwalk_read(&mut self) -> u64 {
+    pub fn cohwalk_read() -> u64 {
         Self::with_reg_val().cohwalk_extract()
     }
 // no insert() method for field cohwalk
@@ -189,7 +189,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `pan` from it
-    pub fn pan_read(&mut self) -> u64 {
+    pub fn pan_read() -> u64 {
         Self::with_reg_val().pan_extract()
     }
 // no insert() method for field pan
@@ -206,7 +206,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `maintbcst` from it
-    pub fn maintbcst_read(&mut self) -> u64 {
+    pub fn maintbcst_read() -> u64 {
         Self::with_reg_val().maintbcst_extract()
     }
 // no insert() method for field maintbcst
@@ -223,7 +223,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `bpmaint` from it
-    pub fn bpmaint_read(&mut self) -> u64 {
+    pub fn bpmaint_read() -> u64 {
         Self::with_reg_val().bpmaint_extract()
     }
 // no insert() method for field bpmaint
@@ -240,7 +240,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `cmaintsw` from it
-    pub fn cmaintsw_read(&mut self) -> u64 {
+    pub fn cmaintsw_read() -> u64 {
         Self::with_reg_val().cmaintsw_extract()
     }
 // no insert() method for field cmaintsw
@@ -257,7 +257,7 @@ impl IdMmfr3El1 {
     }
 
     /// reads the current register value and extract field `cmaintva` from it
-    pub fn cmaintva_read(&mut self) -> u64 {
+    pub fn cmaintva_read() -> u64 {
         Self::with_reg_val().cmaintva_extract()
     }
 // no insert() method for field cmaintva

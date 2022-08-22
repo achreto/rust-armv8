@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.075962
+ * Generated on: 2022-08-22T16:35:53.057520
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `ex` from it
-    pub fn ex_read(&mut self) -> u64 {
+    pub fn ex_read() -> u64 {
         Self::with_reg_val().ex_extract()
     }
 
@@ -165,7 +165,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `ex` field, and writes the updated value
-    pub fn ex_write(&mut self, val: u64) {
+    pub fn ex_write(val: u64) {
         Self::with_reg_val().ex_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `en` from it
-    pub fn en_read(&mut self) -> u64 {
+    pub fn en_read() -> u64 {
         Self::with_reg_val().en_extract()
     }
 
@@ -194,7 +194,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `en` field, and writes the updated value
-    pub fn en_write(&mut self, val: u64) {
+    pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `dex` from it
-    pub fn dex_read(&mut self) -> u64 {
+    pub fn dex_read() -> u64 {
         Self::with_reg_val().dex_extract()
     }
 
@@ -223,7 +223,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `dex` field, and writes the updated value
-    pub fn dex_write(&mut self, val: u64) {
+    pub fn dex_write(val: u64) {
         Self::with_reg_val().dex_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `fp2v` from it
-    pub fn fp2v_read(&mut self) -> u64 {
+    pub fn fp2v_read() -> u64 {
         Self::with_reg_val().fp2v_extract()
     }
 
@@ -252,7 +252,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `fp2v` field, and writes the updated value
-    pub fn fp2v_write(&mut self, val: u64) {
+    pub fn fp2v_write(val: u64) {
         Self::with_reg_val().fp2v_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `vv` from it
-    pub fn vv_read(&mut self) -> u64 {
+    pub fn vv_read() -> u64 {
         Self::with_reg_val().vv_extract()
     }
 
@@ -281,7 +281,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `vv` field, and writes the updated value
-    pub fn vv_write(&mut self, val: u64) {
+    pub fn vv_write(val: u64) {
         Self::with_reg_val().vv_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `tfv` from it
-    pub fn tfv_read(&mut self) -> u64 {
+    pub fn tfv_read() -> u64 {
         Self::with_reg_val().tfv_extract()
     }
 
@@ -310,7 +310,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `tfv` field, and writes the updated value
-    pub fn tfv_write(&mut self, val: u64) {
+    pub fn tfv_write(val: u64) {
         Self::with_reg_val().tfv_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `vecitr` from it
-    pub fn vecitr_read(&mut self) -> u64 {
+    pub fn vecitr_read() -> u64 {
         Self::with_reg_val().vecitr_extract()
     }
 
@@ -339,7 +339,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `vecitr` field, and writes the updated value
-    pub fn vecitr_write(&mut self, val: u64) {
+    pub fn vecitr_write(val: u64) {
         Self::with_reg_val().vecitr_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `idf` from it
-    pub fn idf_read(&mut self) -> u64 {
+    pub fn idf_read() -> u64 {
         Self::with_reg_val().idf_extract()
     }
 
@@ -368,7 +368,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `idf` field, and writes the updated value
-    pub fn idf_write(&mut self, val: u64) {
+    pub fn idf_write(val: u64) {
         Self::with_reg_val().idf_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `ixf` from it
-    pub fn ixf_read(&mut self) -> u64 {
+    pub fn ixf_read() -> u64 {
         Self::with_reg_val().ixf_extract()
     }
 
@@ -397,7 +397,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `ixf` field, and writes the updated value
-    pub fn ixf_write(&mut self, val: u64) {
+    pub fn ixf_write(val: u64) {
         Self::with_reg_val().ixf_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `uff` from it
-    pub fn uff_read(&mut self) -> u64 {
+    pub fn uff_read() -> u64 {
         Self::with_reg_val().uff_extract()
     }
 
@@ -426,7 +426,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `uff` field, and writes the updated value
-    pub fn uff_write(&mut self, val: u64) {
+    pub fn uff_write(val: u64) {
         Self::with_reg_val().uff_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `off` from it
-    pub fn off_read(&mut self) -> u64 {
+    pub fn off_read() -> u64 {
         Self::with_reg_val().off_extract()
     }
 
@@ -455,7 +455,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `off` field, and writes the updated value
-    pub fn off_write(&mut self, val: u64) {
+    pub fn off_write(val: u64) {
         Self::with_reg_val().off_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `dzf` from it
-    pub fn dzf_read(&mut self) -> u64 {
+    pub fn dzf_read() -> u64 {
         Self::with_reg_val().dzf_extract()
     }
 
@@ -484,7 +484,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `dzf` field, and writes the updated value
-    pub fn dzf_write(&mut self, val: u64) {
+    pub fn dzf_write(val: u64) {
         Self::with_reg_val().dzf_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the current register value and extract field `iof` from it
-    pub fn iof_read(&mut self) -> u64 {
+    pub fn iof_read() -> u64 {
         Self::with_reg_val().iof_extract()
     }
 
@@ -513,7 +513,7 @@ impl Fpexc32El2 {
     }
 
     /// reads the register, updates the `iof` field, and writes the updated value
-    pub fn iof_write(&mut self, val: u64) {
+    pub fn iof_write(val: u64) {
         Self::with_reg_val().iof_insert(val).write();
     }
 

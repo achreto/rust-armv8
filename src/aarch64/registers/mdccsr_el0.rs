@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.087739
+ * Generated on: 2022-08-22T16:35:53.068977
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl MdccsrEl0 {
     }
 
     /// reads the current register value and extract field `rxfull` from it
-    pub fn rxfull_read(&mut self) -> u64 {
+    pub fn rxfull_read() -> u64 {
         Self::with_reg_val().rxfull_extract()
     }
 // no insert() method for field rxfull
@@ -155,7 +155,7 @@ impl MdccsrEl0 {
     }
 
     /// reads the current register value and extract field `txfull` from it
-    pub fn txfull_read(&mut self) -> u64 {
+    pub fn txfull_read() -> u64 {
         Self::with_reg_val().txfull_extract()
     }
 // no insert() method for field txfull

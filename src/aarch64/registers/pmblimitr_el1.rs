@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091476
+ * Generated on: 2022-08-22T16:35:53.072619
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the current register value and extract field `limit` from it
-    pub fn limit_read(&mut self) -> u64 {
+    pub fn limit_read() -> u64 {
         Self::with_reg_val().limit_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the register, updates the `limit` field, and writes the updated value
-    pub fn limit_write(&mut self, val: u64) {
+    pub fn limit_write(val: u64) {
         Self::with_reg_val().limit_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the current register value and extract field `pmfz_1` from it
-    pub fn pmfz_1_read(&mut self) -> u64 {
+    pub fn pmfz_1_read() -> u64 {
         Self::with_reg_val().pmfz_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the register, updates the `pmfz_1` field, and writes the updated value
-    pub fn pmfz_1_write(&mut self, val: u64) {
+    pub fn pmfz_1_write(val: u64) {
         Self::with_reg_val().pmfz_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the current register value and extract field `fm` from it
-    pub fn fm_read(&mut self) -> u64 {
+    pub fn fm_read() -> u64 {
         Self::with_reg_val().fm_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the register, updates the `fm` field, and writes the updated value
-    pub fn fm_write(&mut self, val: u64) {
+    pub fn fm_write(val: u64) {
         Self::with_reg_val().fm_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the current register value and extract field `e` from it
-    pub fn e_read(&mut self) -> u64 {
+    pub fn e_read() -> u64 {
         Self::with_reg_val().e_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmblimitrEl1 {
     }
 
     /// reads the register, updates the `e` field, and writes the updated value
-    pub fn e_write(&mut self, val: u64) {
+    pub fn e_write(val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
 

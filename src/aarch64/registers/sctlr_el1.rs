@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.095687
+ * Generated on: 2022-08-22T16:35:53.077296
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `epan_1` from it
-    pub fn epan_1_read(&mut self) -> u64 {
+    pub fn epan_1_read() -> u64 {
         Self::with_reg_val().epan_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `epan_1` field, and writes the updated value
-    pub fn epan_1_write(&mut self, val: u64) {
+    pub fn epan_1_write(val: u64) {
         Self::with_reg_val().epan_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enals_1` from it
-    pub fn enals_1_read(&mut self) -> u64 {
+    pub fn enals_1_read() -> u64 {
         Self::with_reg_val().enals_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enals_1` field, and writes the updated value
-    pub fn enals_1_write(&mut self, val: u64) {
+    pub fn enals_1_write(val: u64) {
         Self::with_reg_val().enals_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enas0_1` from it
-    pub fn enas0_1_read(&mut self) -> u64 {
+    pub fn enas0_1_read() -> u64 {
         Self::with_reg_val().enas0_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enas0_1` field, and writes the updated value
-    pub fn enas0_1_write(&mut self, val: u64) {
+    pub fn enas0_1_write(val: u64) {
         Self::with_reg_val().enas0_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enasr_1` from it
-    pub fn enasr_1_read(&mut self) -> u64 {
+    pub fn enasr_1_read() -> u64 {
         Self::with_reg_val().enasr_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enasr_1` field, and writes the updated value
-    pub fn enasr_1_write(&mut self, val: u64) {
+    pub fn enasr_1_write(val: u64) {
         Self::with_reg_val().enasr_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `twedel_1` from it
-    pub fn twedel_1_read(&mut self) -> u64 {
+    pub fn twedel_1_read() -> u64 {
         Self::with_reg_val().twedel_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `twedel_1` field, and writes the updated value
-    pub fn twedel_1_write(&mut self, val: u64) {
+    pub fn twedel_1_write(val: u64) {
         Self::with_reg_val().twedel_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `tweden_1` from it
-    pub fn tweden_1_read(&mut self) -> u64 {
+    pub fn tweden_1_read() -> u64 {
         Self::with_reg_val().tweden_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `tweden_1` field, and writes the updated value
-    pub fn tweden_1_write(&mut self, val: u64) {
+    pub fn tweden_1_write(val: u64) {
         Self::with_reg_val().tweden_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `dssbs_1` from it
-    pub fn dssbs_1_read(&mut self) -> u64 {
+    pub fn dssbs_1_read() -> u64 {
         Self::with_reg_val().dssbs_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `dssbs_1` field, and writes the updated value
-    pub fn dssbs_1_write(&mut self, val: u64) {
+    pub fn dssbs_1_write(val: u64) {
         Self::with_reg_val().dssbs_1_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ata_1` from it
-    pub fn ata_1_read(&mut self) -> u64 {
+    pub fn ata_1_read() -> u64 {
         Self::with_reg_val().ata_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ata_1` field, and writes the updated value
-    pub fn ata_1_write(&mut self, val: u64) {
+    pub fn ata_1_write(val: u64) {
         Self::with_reg_val().ata_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ata0_1` from it
-    pub fn ata0_1_read(&mut self) -> u64 {
+    pub fn ata0_1_read() -> u64 {
         Self::with_reg_val().ata0_1_extract()
     }
 
@@ -397,7 +397,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ata0_1` field, and writes the updated value
-    pub fn ata0_1_write(&mut self, val: u64) {
+    pub fn ata0_1_write(val: u64) {
         Self::with_reg_val().ata0_1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `tcf_1` from it
-    pub fn tcf_1_read(&mut self) -> u64 {
+    pub fn tcf_1_read() -> u64 {
         Self::with_reg_val().tcf_1_extract()
     }
 
@@ -426,7 +426,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `tcf_1` field, and writes the updated value
-    pub fn tcf_1_write(&mut self, val: u64) {
+    pub fn tcf_1_write(val: u64) {
         Self::with_reg_val().tcf_1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `tcf0_1` from it
-    pub fn tcf0_1_read(&mut self) -> u64 {
+    pub fn tcf0_1_read() -> u64 {
         Self::with_reg_val().tcf0_1_extract()
     }
 
@@ -455,7 +455,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `tcf0_1` field, and writes the updated value
-    pub fn tcf0_1_write(&mut self, val: u64) {
+    pub fn tcf0_1_write(val: u64) {
         Self::with_reg_val().tcf0_1_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `itfsb_1` from it
-    pub fn itfsb_1_read(&mut self) -> u64 {
+    pub fn itfsb_1_read() -> u64 {
         Self::with_reg_val().itfsb_1_extract()
     }
 
@@ -484,7 +484,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `itfsb_1` field, and writes the updated value
-    pub fn itfsb_1_write(&mut self, val: u64) {
+    pub fn itfsb_1_write(val: u64) {
         Self::with_reg_val().itfsb_1_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `bt1_1` from it
-    pub fn bt1_1_read(&mut self) -> u64 {
+    pub fn bt1_1_read() -> u64 {
         Self::with_reg_val().bt1_1_extract()
     }
 
@@ -513,7 +513,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `bt1_1` field, and writes the updated value
-    pub fn bt1_1_write(&mut self, val: u64) {
+    pub fn bt1_1_write(val: u64) {
         Self::with_reg_val().bt1_1_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `bt0_1` from it
-    pub fn bt0_1_read(&mut self) -> u64 {
+    pub fn bt0_1_read() -> u64 {
         Self::with_reg_val().bt0_1_extract()
     }
 
@@ -542,7 +542,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `bt0_1` field, and writes the updated value
-    pub fn bt0_1_write(&mut self, val: u64) {
+    pub fn bt0_1_write(val: u64) {
         Self::with_reg_val().bt0_1_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enia_1` from it
-    pub fn enia_1_read(&mut self) -> u64 {
+    pub fn enia_1_read() -> u64 {
         Self::with_reg_val().enia_1_extract()
     }
 
@@ -571,7 +571,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enia_1` field, and writes the updated value
-    pub fn enia_1_write(&mut self, val: u64) {
+    pub fn enia_1_write(val: u64) {
         Self::with_reg_val().enia_1_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enib_1` from it
-    pub fn enib_1_read(&mut self) -> u64 {
+    pub fn enib_1_read() -> u64 {
         Self::with_reg_val().enib_1_extract()
     }
 
@@ -600,7 +600,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enib_1` field, and writes the updated value
-    pub fn enib_1_write(&mut self, val: u64) {
+    pub fn enib_1_write(val: u64) {
         Self::with_reg_val().enib_1_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `lsmaoe_1` from it
-    pub fn lsmaoe_1_read(&mut self) -> u64 {
+    pub fn lsmaoe_1_read() -> u64 {
         Self::with_reg_val().lsmaoe_1_extract()
     }
 
@@ -629,7 +629,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `lsmaoe_1` field, and writes the updated value
-    pub fn lsmaoe_1_write(&mut self, val: u64) {
+    pub fn lsmaoe_1_write(val: u64) {
         Self::with_reg_val().lsmaoe_1_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ntlsmd_1` from it
-    pub fn ntlsmd_1_read(&mut self) -> u64 {
+    pub fn ntlsmd_1_read() -> u64 {
         Self::with_reg_val().ntlsmd_1_extract()
     }
 
@@ -658,7 +658,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ntlsmd_1` field, and writes the updated value
-    pub fn ntlsmd_1_write(&mut self, val: u64) {
+    pub fn ntlsmd_1_write(val: u64) {
         Self::with_reg_val().ntlsmd_1_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enda_1` from it
-    pub fn enda_1_read(&mut self) -> u64 {
+    pub fn enda_1_read() -> u64 {
         Self::with_reg_val().enda_1_extract()
     }
 
@@ -687,7 +687,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enda_1` field, and writes the updated value
-    pub fn enda_1_write(&mut self, val: u64) {
+    pub fn enda_1_write(val: u64) {
         Self::with_reg_val().enda_1_insert(val).write();
     }
 
@@ -704,7 +704,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `uci` from it
-    pub fn uci_read(&mut self) -> u64 {
+    pub fn uci_read() -> u64 {
         Self::with_reg_val().uci_extract()
     }
 
@@ -716,7 +716,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `uci` field, and writes the updated value
-    pub fn uci_write(&mut self, val: u64) {
+    pub fn uci_write(val: u64) {
         Self::with_reg_val().uci_insert(val).write();
     }
 
@@ -733,7 +733,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ee` from it
-    pub fn ee_read(&mut self) -> u64 {
+    pub fn ee_read() -> u64 {
         Self::with_reg_val().ee_extract()
     }
 
@@ -745,7 +745,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ee` field, and writes the updated value
-    pub fn ee_write(&mut self, val: u64) {
+    pub fn ee_write(val: u64) {
         Self::with_reg_val().ee_insert(val).write();
     }
 
@@ -762,7 +762,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `e0e` from it
-    pub fn e0e_read(&mut self) -> u64 {
+    pub fn e0e_read() -> u64 {
         Self::with_reg_val().e0e_extract()
     }
 
@@ -774,7 +774,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `e0e` field, and writes the updated value
-    pub fn e0e_write(&mut self, val: u64) {
+    pub fn e0e_write(val: u64) {
         Self::with_reg_val().e0e_insert(val).write();
     }
 
@@ -791,7 +791,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `span_1` from it
-    pub fn span_1_read(&mut self) -> u64 {
+    pub fn span_1_read() -> u64 {
         Self::with_reg_val().span_1_extract()
     }
 
@@ -803,7 +803,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `span_1` field, and writes the updated value
-    pub fn span_1_write(&mut self, val: u64) {
+    pub fn span_1_write(val: u64) {
         Self::with_reg_val().span_1_insert(val).write();
     }
 
@@ -820,7 +820,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `eis_1` from it
-    pub fn eis_1_read(&mut self) -> u64 {
+    pub fn eis_1_read() -> u64 {
         Self::with_reg_val().eis_1_extract()
     }
 
@@ -832,7 +832,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `eis_1` field, and writes the updated value
-    pub fn eis_1_write(&mut self, val: u64) {
+    pub fn eis_1_write(val: u64) {
         Self::with_reg_val().eis_1_insert(val).write();
     }
 
@@ -849,7 +849,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `iesb_1` from it
-    pub fn iesb_1_read(&mut self) -> u64 {
+    pub fn iesb_1_read() -> u64 {
         Self::with_reg_val().iesb_1_extract()
     }
 
@@ -861,7 +861,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `iesb_1` field, and writes the updated value
-    pub fn iesb_1_write(&mut self, val: u64) {
+    pub fn iesb_1_write(val: u64) {
         Self::with_reg_val().iesb_1_insert(val).write();
     }
 
@@ -878,7 +878,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `tscxt_1` from it
-    pub fn tscxt_1_read(&mut self) -> u64 {
+    pub fn tscxt_1_read() -> u64 {
         Self::with_reg_val().tscxt_1_extract()
     }
 
@@ -890,7 +890,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `tscxt_1` field, and writes the updated value
-    pub fn tscxt_1_write(&mut self, val: u64) {
+    pub fn tscxt_1_write(val: u64) {
         Self::with_reg_val().tscxt_1_insert(val).write();
     }
 
@@ -907,7 +907,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `wxn` from it
-    pub fn wxn_read(&mut self) -> u64 {
+    pub fn wxn_read() -> u64 {
         Self::with_reg_val().wxn_extract()
     }
 
@@ -919,7 +919,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `wxn` field, and writes the updated value
-    pub fn wxn_write(&mut self, val: u64) {
+    pub fn wxn_write(val: u64) {
         Self::with_reg_val().wxn_insert(val).write();
     }
 
@@ -936,7 +936,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ntwe` from it
-    pub fn ntwe_read(&mut self) -> u64 {
+    pub fn ntwe_read() -> u64 {
         Self::with_reg_val().ntwe_extract()
     }
 
@@ -948,7 +948,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ntwe` field, and writes the updated value
-    pub fn ntwe_write(&mut self, val: u64) {
+    pub fn ntwe_write(val: u64) {
         Self::with_reg_val().ntwe_insert(val).write();
     }
 
@@ -965,7 +965,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `ntwi` from it
-    pub fn ntwi_read(&mut self) -> u64 {
+    pub fn ntwi_read() -> u64 {
         Self::with_reg_val().ntwi_extract()
     }
 
@@ -977,7 +977,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `ntwi` field, and writes the updated value
-    pub fn ntwi_write(&mut self, val: u64) {
+    pub fn ntwi_write(val: u64) {
         Self::with_reg_val().ntwi_insert(val).write();
     }
 
@@ -994,7 +994,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `uct` from it
-    pub fn uct_read(&mut self) -> u64 {
+    pub fn uct_read() -> u64 {
         Self::with_reg_val().uct_extract()
     }
 
@@ -1006,7 +1006,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `uct` field, and writes the updated value
-    pub fn uct_write(&mut self, val: u64) {
+    pub fn uct_write(val: u64) {
         Self::with_reg_val().uct_insert(val).write();
     }
 
@@ -1023,7 +1023,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `dze` from it
-    pub fn dze_read(&mut self) -> u64 {
+    pub fn dze_read() -> u64 {
         Self::with_reg_val().dze_extract()
     }
 
@@ -1035,7 +1035,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `dze` field, and writes the updated value
-    pub fn dze_write(&mut self, val: u64) {
+    pub fn dze_write(val: u64) {
         Self::with_reg_val().dze_insert(val).write();
     }
 
@@ -1052,7 +1052,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `endb_1` from it
-    pub fn endb_1_read(&mut self) -> u64 {
+    pub fn endb_1_read() -> u64 {
         Self::with_reg_val().endb_1_extract()
     }
 
@@ -1064,7 +1064,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `endb_1` field, and writes the updated value
-    pub fn endb_1_write(&mut self, val: u64) {
+    pub fn endb_1_write(val: u64) {
         Self::with_reg_val().endb_1_insert(val).write();
     }
 
@@ -1081,7 +1081,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `i` from it
-    pub fn i_read(&mut self) -> u64 {
+    pub fn i_read() -> u64 {
         Self::with_reg_val().i_extract()
     }
 
@@ -1093,7 +1093,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `i` field, and writes the updated value
-    pub fn i_write(&mut self, val: u64) {
+    pub fn i_write(val: u64) {
         Self::with_reg_val().i_insert(val).write();
     }
 
@@ -1110,7 +1110,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `eos_1` from it
-    pub fn eos_1_read(&mut self) -> u64 {
+    pub fn eos_1_read() -> u64 {
         Self::with_reg_val().eos_1_extract()
     }
 
@@ -1122,7 +1122,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `eos_1` field, and writes the updated value
-    pub fn eos_1_write(&mut self, val: u64) {
+    pub fn eos_1_write(val: u64) {
         Self::with_reg_val().eos_1_insert(val).write();
     }
 
@@ -1139,7 +1139,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `enrctx_1` from it
-    pub fn enrctx_1_read(&mut self) -> u64 {
+    pub fn enrctx_1_read() -> u64 {
         Self::with_reg_val().enrctx_1_extract()
     }
 
@@ -1151,7 +1151,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `enrctx_1` field, and writes the updated value
-    pub fn enrctx_1_write(&mut self, val: u64) {
+    pub fn enrctx_1_write(val: u64) {
         Self::with_reg_val().enrctx_1_insert(val).write();
     }
 
@@ -1168,7 +1168,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `uma` from it
-    pub fn uma_read(&mut self) -> u64 {
+    pub fn uma_read() -> u64 {
         Self::with_reg_val().uma_extract()
     }
 
@@ -1180,7 +1180,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `uma` field, and writes the updated value
-    pub fn uma_write(&mut self, val: u64) {
+    pub fn uma_write(val: u64) {
         Self::with_reg_val().uma_insert(val).write();
     }
 
@@ -1197,7 +1197,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `sed_1` from it
-    pub fn sed_1_read(&mut self) -> u64 {
+    pub fn sed_1_read() -> u64 {
         Self::with_reg_val().sed_1_extract()
     }
 
@@ -1209,7 +1209,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `sed_1` field, and writes the updated value
-    pub fn sed_1_write(&mut self, val: u64) {
+    pub fn sed_1_write(val: u64) {
         Self::with_reg_val().sed_1_insert(val).write();
     }
 
@@ -1226,7 +1226,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `itd_1` from it
-    pub fn itd_1_read(&mut self) -> u64 {
+    pub fn itd_1_read() -> u64 {
         Self::with_reg_val().itd_1_extract()
     }
 
@@ -1238,7 +1238,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `itd_1` field, and writes the updated value
-    pub fn itd_1_write(&mut self, val: u64) {
+    pub fn itd_1_write(val: u64) {
         Self::with_reg_val().itd_1_insert(val).write();
     }
 
@@ -1255,7 +1255,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `naa_1` from it
-    pub fn naa_1_read(&mut self) -> u64 {
+    pub fn naa_1_read() -> u64 {
         Self::with_reg_val().naa_1_extract()
     }
 
@@ -1267,7 +1267,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `naa_1` field, and writes the updated value
-    pub fn naa_1_write(&mut self, val: u64) {
+    pub fn naa_1_write(val: u64) {
         Self::with_reg_val().naa_1_insert(val).write();
     }
 
@@ -1284,7 +1284,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `cp15ben_1` from it
-    pub fn cp15ben_1_read(&mut self) -> u64 {
+    pub fn cp15ben_1_read() -> u64 {
         Self::with_reg_val().cp15ben_1_extract()
     }
 
@@ -1296,7 +1296,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `cp15ben_1` field, and writes the updated value
-    pub fn cp15ben_1_write(&mut self, val: u64) {
+    pub fn cp15ben_1_write(val: u64) {
         Self::with_reg_val().cp15ben_1_insert(val).write();
     }
 
@@ -1313,7 +1313,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `sa0` from it
-    pub fn sa0_read(&mut self) -> u64 {
+    pub fn sa0_read() -> u64 {
         Self::with_reg_val().sa0_extract()
     }
 
@@ -1325,7 +1325,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `sa0` field, and writes the updated value
-    pub fn sa0_write(&mut self, val: u64) {
+    pub fn sa0_write(val: u64) {
         Self::with_reg_val().sa0_insert(val).write();
     }
 
@@ -1342,7 +1342,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `sa` from it
-    pub fn sa_read(&mut self) -> u64 {
+    pub fn sa_read() -> u64 {
         Self::with_reg_val().sa_extract()
     }
 
@@ -1354,7 +1354,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `sa` field, and writes the updated value
-    pub fn sa_write(&mut self, val: u64) {
+    pub fn sa_write(val: u64) {
         Self::with_reg_val().sa_insert(val).write();
     }
 
@@ -1371,7 +1371,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `c` from it
-    pub fn c_read(&mut self) -> u64 {
+    pub fn c_read() -> u64 {
         Self::with_reg_val().c_extract()
     }
 
@@ -1383,7 +1383,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `c` field, and writes the updated value
-    pub fn c_write(&mut self, val: u64) {
+    pub fn c_write(val: u64) {
         Self::with_reg_val().c_insert(val).write();
     }
 
@@ -1400,7 +1400,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `a` from it
-    pub fn a_read(&mut self) -> u64 {
+    pub fn a_read() -> u64 {
         Self::with_reg_val().a_extract()
     }
 
@@ -1412,7 +1412,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `a` field, and writes the updated value
-    pub fn a_write(&mut self, val: u64) {
+    pub fn a_write(val: u64) {
         Self::with_reg_val().a_insert(val).write();
     }
 
@@ -1429,7 +1429,7 @@ impl SctlrEl1 {
     }
 
     /// reads the current register value and extract field `m` from it
-    pub fn m_read(&mut self) -> u64 {
+    pub fn m_read() -> u64 {
         Self::with_reg_val().m_extract()
     }
 
@@ -1441,7 +1441,7 @@ impl SctlrEl1 {
     }
 
     /// reads the register, updates the `m` field, and writes the updated value
-    pub fn m_write(&mut self, val: u64) {
+    pub fn m_write(val: u64) {
         Self::with_reg_val().m_insert(val).write();
     }
 

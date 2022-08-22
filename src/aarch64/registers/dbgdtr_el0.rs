@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.073025
+ * Generated on: 2022-08-22T16:35:53.054391
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl DbgdtrEl0 {
     }
 
     /// reads the current register value and extract field `highword` from it
-    pub fn highword_read(&mut self) -> u64 {
+    pub fn highword_read() -> u64 {
         Self::with_reg_val().highword_extract()
     }
 
@@ -165,7 +165,7 @@ impl DbgdtrEl0 {
     }
 
     /// reads the register, updates the `highword` field, and writes the updated value
-    pub fn highword_write(&mut self, val: u64) {
+    pub fn highword_write(val: u64) {
         Self::with_reg_val().highword_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl DbgdtrEl0 {
     }
 
     /// reads the current register value and extract field `lowword` from it
-    pub fn lowword_read(&mut self) -> u64 {
+    pub fn lowword_read() -> u64 {
         Self::with_reg_val().lowword_extract()
     }
 
@@ -194,7 +194,7 @@ impl DbgdtrEl0 {
     }
 
     /// reads the register, updates the `lowword` field, and writes the updated value
-    pub fn lowword_write(&mut self, val: u64) {
+    pub fn lowword_write(val: u64) {
         Self::with_reg_val().lowword_insert(val).write();
     }
 

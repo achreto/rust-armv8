@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.072518
+ * Generated on: 2022-08-22T16:35:53.053877
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Daif {
     }
 
     /// reads the current register value and extract field `d` from it
-    pub fn d_read(&mut self) -> u64 {
+    pub fn d_read() -> u64 {
         Self::with_reg_val().d_extract()
     }
 
@@ -165,7 +165,7 @@ impl Daif {
     }
 
     /// reads the register, updates the `d` field, and writes the updated value
-    pub fn d_write(&mut self, val: u64) {
+    pub fn d_write(val: u64) {
         Self::with_reg_val().d_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Daif {
     }
 
     /// reads the current register value and extract field `a` from it
-    pub fn a_read(&mut self) -> u64 {
+    pub fn a_read() -> u64 {
         Self::with_reg_val().a_extract()
     }
 
@@ -194,7 +194,7 @@ impl Daif {
     }
 
     /// reads the register, updates the `a` field, and writes the updated value
-    pub fn a_write(&mut self, val: u64) {
+    pub fn a_write(val: u64) {
         Self::with_reg_val().a_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Daif {
     }
 
     /// reads the current register value and extract field `i` from it
-    pub fn i_read(&mut self) -> u64 {
+    pub fn i_read() -> u64 {
         Self::with_reg_val().i_extract()
     }
 
@@ -223,7 +223,7 @@ impl Daif {
     }
 
     /// reads the register, updates the `i` field, and writes the updated value
-    pub fn i_write(&mut self, val: u64) {
+    pub fn i_write(val: u64) {
         Self::with_reg_val().i_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Daif {
     }
 
     /// reads the current register value and extract field `f` from it
-    pub fn f_read(&mut self) -> u64 {
+    pub fn f_read() -> u64 {
         Self::with_reg_val().f_extract()
     }
 
@@ -252,7 +252,7 @@ impl Daif {
     }
 
     /// reads the register, updates the `f` field, and writes the updated value
-    pub fn f_write(&mut self, val: u64) {
+    pub fn f_write(val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
 

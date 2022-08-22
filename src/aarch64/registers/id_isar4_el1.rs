@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085656
+ * Generated on: 2022-08-22T16:35:53.066870
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `swp_frac` from it
-    pub fn swp_frac_read(&mut self) -> u64 {
+    pub fn swp_frac_read() -> u64 {
         Self::with_reg_val().swp_frac_extract()
     }
 // no insert() method for field swp_frac
@@ -155,7 +155,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `psr_m` from it
-    pub fn psr_m_read(&mut self) -> u64 {
+    pub fn psr_m_read() -> u64 {
         Self::with_reg_val().psr_m_extract()
     }
 // no insert() method for field psr_m
@@ -172,7 +172,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `synchprim_frac` from it
-    pub fn synchprim_frac_read(&mut self) -> u64 {
+    pub fn synchprim_frac_read() -> u64 {
         Self::with_reg_val().synchprim_frac_extract()
     }
 // no insert() method for field synchprim_frac
@@ -189,7 +189,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `barrier` from it
-    pub fn barrier_read(&mut self) -> u64 {
+    pub fn barrier_read() -> u64 {
         Self::with_reg_val().barrier_extract()
     }
 // no insert() method for field barrier
@@ -206,7 +206,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `smc` from it
-    pub fn smc_read(&mut self) -> u64 {
+    pub fn smc_read() -> u64 {
         Self::with_reg_val().smc_extract()
     }
 // no insert() method for field smc
@@ -223,7 +223,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `writeback` from it
-    pub fn writeback_read(&mut self) -> u64 {
+    pub fn writeback_read() -> u64 {
         Self::with_reg_val().writeback_extract()
     }
 // no insert() method for field writeback
@@ -240,7 +240,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `withshifts` from it
-    pub fn withshifts_read(&mut self) -> u64 {
+    pub fn withshifts_read() -> u64 {
         Self::with_reg_val().withshifts_extract()
     }
 // no insert() method for field withshifts
@@ -257,7 +257,7 @@ impl IdIsar4El1 {
     }
 
     /// reads the current register value and extract field `unpriv` from it
-    pub fn unpriv_read(&mut self) -> u64 {
+    pub fn unpriv_read() -> u64 {
         Self::with_reg_val().unpriv_extract()
     }
 // no insert() method for field unpriv

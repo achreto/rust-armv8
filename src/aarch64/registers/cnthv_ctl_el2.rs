@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.070038
+ * Generated on: 2022-08-22T16:35:53.051204
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the current register value and extract field `istatus` from it
-    pub fn istatus_read(&mut self) -> u64 {
+    pub fn istatus_read() -> u64 {
         Self::with_reg_val().istatus_extract()
     }
 
@@ -165,7 +165,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the register, updates the `istatus` field, and writes the updated value
-    pub fn istatus_write(&mut self, val: u64) {
+    pub fn istatus_write(val: u64) {
         Self::with_reg_val().istatus_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the current register value and extract field `imask` from it
-    pub fn imask_read(&mut self) -> u64 {
+    pub fn imask_read() -> u64 {
         Self::with_reg_val().imask_extract()
     }
 
@@ -194,7 +194,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the register, updates the `imask` field, and writes the updated value
-    pub fn imask_write(&mut self, val: u64) {
+    pub fn imask_write(val: u64) {
         Self::with_reg_val().imask_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the current register value and extract field `enable` from it
-    pub fn enable_read(&mut self) -> u64 {
+    pub fn enable_read() -> u64 {
         Self::with_reg_val().enable_extract()
     }
 
@@ -223,7 +223,7 @@ impl CnthvCtlEl2 {
     }
 
     /// reads the register, updates the `enable` field, and writes the updated value
-    pub fn enable_write(&mut self, val: u64) {
+    pub fn enable_write(val: u64) {
         Self::with_reg_val().enable_insert(val).write();
     }
 

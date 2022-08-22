@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091783
+ * Generated on: 2022-08-22T16:35:53.073322
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `p` from it
-    pub fn p_read(&mut self) -> u64 {
+    pub fn p_read() -> u64 {
         Self::with_reg_val().p_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `p` field, and writes the updated value
-    pub fn p_write(&mut self, val: u64) {
+    pub fn p_write(val: u64) {
         Self::with_reg_val().p_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `u` from it
-    pub fn u_read(&mut self) -> u64 {
+    pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `u` field, and writes the updated value
-    pub fn u_write(&mut self, val: u64) {
+    pub fn u_write(val: u64) {
         Self::with_reg_val().u_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `nsk_1` from it
-    pub fn nsk_1_read(&mut self) -> u64 {
+    pub fn nsk_1_read() -> u64 {
         Self::with_reg_val().nsk_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `nsk_1` field, and writes the updated value
-    pub fn nsk_1_write(&mut self, val: u64) {
+    pub fn nsk_1_write(val: u64) {
         Self::with_reg_val().nsk_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `nsu_1` from it
-    pub fn nsu_1_read(&mut self) -> u64 {
+    pub fn nsu_1_read() -> u64 {
         Self::with_reg_val().nsu_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `nsu_1` field, and writes the updated value
-    pub fn nsu_1_write(&mut self, val: u64) {
+    pub fn nsu_1_write(val: u64) {
         Self::with_reg_val().nsu_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `nsh_1` from it
-    pub fn nsh_1_read(&mut self) -> u64 {
+    pub fn nsh_1_read() -> u64 {
         Self::with_reg_val().nsh_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `nsh_1` field, and writes the updated value
-    pub fn nsh_1_write(&mut self, val: u64) {
+    pub fn nsh_1_write(val: u64) {
         Self::with_reg_val().nsh_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `m_1` from it
-    pub fn m_1_read(&mut self) -> u64 {
+    pub fn m_1_read() -> u64 {
         Self::with_reg_val().m_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `m_1` field, and writes the updated value
-    pub fn m_1_write(&mut self, val: u64) {
+    pub fn m_1_write(val: u64) {
         Self::with_reg_val().m_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the current register value and extract field `sh_1` from it
-    pub fn sh_1_read(&mut self) -> u64 {
+    pub fn sh_1_read() -> u64 {
         Self::with_reg_val().sh_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl PmccfiltrEl0 {
     }
 
     /// reads the register, updates the `sh_1` field, and writes the updated value
-    pub fn sh_1_write(&mut self, val: u64) {
+    pub fn sh_1_write(val: u64) {
         Self::with_reg_val().sh_1_insert(val).write();
     }
 

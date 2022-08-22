@@ -266,7 +266,7 @@ RS_EXTRACT_FIELD="""
 
 RS_READ_FIELD="""
     /// reads the current register value and extract field `{field}` from it
-    pub fn {field}_read(&mut self) -> u{length} {{
+    pub fn {field}_read() -> u{length} {{
         Self::with_reg_val().{field}_extract()
     }}
 """
@@ -282,7 +282,7 @@ RS_INSERT_FIELD="""
 
 RS_WRITE_FIELD="""
     /// reads the register, updates the `{field}` field, and writes the updated value
-    pub fn {field}_write(&mut self, val: u{length}) {{
+    pub fn {field}_write(val: u{length}) {{
         Self::with_reg_val().{field}_insert(val).write();
     }}
 """

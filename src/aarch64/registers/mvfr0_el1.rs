@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.090264
+ * Generated on: 2022-08-22T16:35:53.071411
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpround` from it
-    pub fn fpround_read(&mut self) -> u64 {
+    pub fn fpround_read() -> u64 {
         Self::with_reg_val().fpround_extract()
     }
 // no insert() method for field fpround
@@ -155,7 +155,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpshvec` from it
-    pub fn fpshvec_read(&mut self) -> u64 {
+    pub fn fpshvec_read() -> u64 {
         Self::with_reg_val().fpshvec_extract()
     }
 // no insert() method for field fpshvec
@@ -172,7 +172,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpsqrt` from it
-    pub fn fpsqrt_read(&mut self) -> u64 {
+    pub fn fpsqrt_read() -> u64 {
         Self::with_reg_val().fpsqrt_extract()
     }
 // no insert() method for field fpsqrt
@@ -189,7 +189,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpdivide` from it
-    pub fn fpdivide_read(&mut self) -> u64 {
+    pub fn fpdivide_read() -> u64 {
         Self::with_reg_val().fpdivide_extract()
     }
 // no insert() method for field fpdivide
@@ -206,7 +206,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fptrap` from it
-    pub fn fptrap_read(&mut self) -> u64 {
+    pub fn fptrap_read() -> u64 {
         Self::with_reg_val().fptrap_extract()
     }
 // no insert() method for field fptrap
@@ -223,7 +223,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpdp` from it
-    pub fn fpdp_read(&mut self) -> u64 {
+    pub fn fpdp_read() -> u64 {
         Self::with_reg_val().fpdp_extract()
     }
 // no insert() method for field fpdp
@@ -240,7 +240,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `fpsp` from it
-    pub fn fpsp_read(&mut self) -> u64 {
+    pub fn fpsp_read() -> u64 {
         Self::with_reg_val().fpsp_extract()
     }
 // no insert() method for field fpsp
@@ -257,7 +257,7 @@ impl Mvfr0El1 {
     }
 
     /// reads the current register value and extract field `simdreg` from it
-    pub fn simdreg_read(&mut self) -> u64 {
+    pub fn simdreg_read() -> u64 {
         Self::with_reg_val().simdreg_extract()
     }
 // no insert() method for field simdreg

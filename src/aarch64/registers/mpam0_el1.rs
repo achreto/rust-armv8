@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.088534
+ * Generated on: 2022-08-22T16:35:53.069775
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Mpam0El1 {
     }
 
     /// reads the current register value and extract field `pmg_d` from it
-    pub fn pmg_d_read(&mut self) -> u64 {
+    pub fn pmg_d_read() -> u64 {
         Self::with_reg_val().pmg_d_extract()
     }
 
@@ -165,7 +165,7 @@ impl Mpam0El1 {
     }
 
     /// reads the register, updates the `pmg_d` field, and writes the updated value
-    pub fn pmg_d_write(&mut self, val: u64) {
+    pub fn pmg_d_write(val: u64) {
         Self::with_reg_val().pmg_d_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Mpam0El1 {
     }
 
     /// reads the current register value and extract field `pmg_i` from it
-    pub fn pmg_i_read(&mut self) -> u64 {
+    pub fn pmg_i_read() -> u64 {
         Self::with_reg_val().pmg_i_extract()
     }
 
@@ -194,7 +194,7 @@ impl Mpam0El1 {
     }
 
     /// reads the register, updates the `pmg_i` field, and writes the updated value
-    pub fn pmg_i_write(&mut self, val: u64) {
+    pub fn pmg_i_write(val: u64) {
         Self::with_reg_val().pmg_i_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Mpam0El1 {
     }
 
     /// reads the current register value and extract field `partid_d` from it
-    pub fn partid_d_read(&mut self) -> u64 {
+    pub fn partid_d_read() -> u64 {
         Self::with_reg_val().partid_d_extract()
     }
 
@@ -223,7 +223,7 @@ impl Mpam0El1 {
     }
 
     /// reads the register, updates the `partid_d` field, and writes the updated value
-    pub fn partid_d_write(&mut self, val: u64) {
+    pub fn partid_d_write(val: u64) {
         Self::with_reg_val().partid_d_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Mpam0El1 {
     }
 
     /// reads the current register value and extract field `partid_i` from it
-    pub fn partid_i_read(&mut self) -> u64 {
+    pub fn partid_i_read() -> u64 {
         Self::with_reg_val().partid_i_extract()
     }
 
@@ -252,7 +252,7 @@ impl Mpam0El1 {
     }
 
     /// reads the register, updates the `partid_i` field, and writes the updated value
-    pub fn partid_i_write(&mut self, val: u64) {
+    pub fn partid_i_write(val: u64) {
         Self::with_reg_val().partid_i_insert(val).write();
     }
 

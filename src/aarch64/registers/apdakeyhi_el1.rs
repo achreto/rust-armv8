@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.068336
+ * Generated on: 2022-08-22T16:35:53.049277
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl ApdakeyhiEl1 {
     }
 
     /// reads the current register value and extract field `val` from it
-    pub fn val_read(&mut self) -> u64 {
+    pub fn val_read() -> u64 {
         Self::with_reg_val().val_extract()
     }
 
@@ -165,7 +165,7 @@ impl ApdakeyhiEl1 {
     }
 
     /// reads the register, updates the `val` field, and writes the updated value
-    pub fn val_write(&mut self, val: u64) {
+    pub fn val_write(val: u64) {
         Self::with_reg_val().val_insert(val).write();
     }
 

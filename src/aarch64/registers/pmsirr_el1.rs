@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.093835
+ * Generated on: 2022-08-22T16:35:53.075434
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmsirrEl1 {
     }
 
     /// reads the current register value and extract field `interval` from it
-    pub fn interval_read(&mut self) -> u64 {
+    pub fn interval_read() -> u64 {
         Self::with_reg_val().interval_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmsirrEl1 {
     }
 
     /// reads the register, updates the `interval` field, and writes the updated value
-    pub fn interval_write(&mut self, val: u64) {
+    pub fn interval_write(val: u64) {
         Self::with_reg_val().interval_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmsirrEl1 {
     }
 
     /// reads the current register value and extract field `rnd` from it
-    pub fn rnd_read(&mut self) -> u64 {
+    pub fn rnd_read() -> u64 {
         Self::with_reg_val().rnd_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmsirrEl1 {
     }
 
     /// reads the register, updates the `rnd` field, and writes the updated value
-    pub fn rnd_write(&mut self, val: u64) {
+    pub fn rnd_write(val: u64) {
         Self::with_reg_val().rnd_insert(val).write();
     }
 

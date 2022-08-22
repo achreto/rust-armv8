@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085552
+ * Generated on: 2022-08-22T16:35:53.066771
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `t32ee` from it
-    pub fn t32ee_read(&mut self) -> u64 {
+    pub fn t32ee_read() -> u64 {
         Self::with_reg_val().t32ee_extract()
     }
 // no insert() method for field t32ee
@@ -155,7 +155,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `truenop` from it
-    pub fn truenop_read(&mut self) -> u64 {
+    pub fn truenop_read() -> u64 {
         Self::with_reg_val().truenop_extract()
     }
 // no insert() method for field truenop
@@ -172,7 +172,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `t32copy` from it
-    pub fn t32copy_read(&mut self) -> u64 {
+    pub fn t32copy_read() -> u64 {
         Self::with_reg_val().t32copy_extract()
     }
 // no insert() method for field t32copy
@@ -189,7 +189,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `tabbranch` from it
-    pub fn tabbranch_read(&mut self) -> u64 {
+    pub fn tabbranch_read() -> u64 {
         Self::with_reg_val().tabbranch_extract()
     }
 // no insert() method for field tabbranch
@@ -206,7 +206,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `synchprim` from it
-    pub fn synchprim_read(&mut self) -> u64 {
+    pub fn synchprim_read() -> u64 {
         Self::with_reg_val().synchprim_extract()
     }
 // no insert() method for field synchprim
@@ -223,7 +223,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `svc` from it
-    pub fn svc_read(&mut self) -> u64 {
+    pub fn svc_read() -> u64 {
         Self::with_reg_val().svc_extract()
     }
 // no insert() method for field svc
@@ -240,7 +240,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `simd` from it
-    pub fn simd_read(&mut self) -> u64 {
+    pub fn simd_read() -> u64 {
         Self::with_reg_val().simd_extract()
     }
 // no insert() method for field simd
@@ -257,7 +257,7 @@ impl IdIsar3El1 {
     }
 
     /// reads the current register value and extract field `saturate` from it
-    pub fn saturate_read(&mut self) -> u64 {
+    pub fn saturate_read() -> u64 {
         Self::with_reg_val().saturate_extract()
     }
 // no insert() method for field saturate

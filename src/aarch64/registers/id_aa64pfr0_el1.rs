@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.084627
+ * Generated on: 2022-08-22T16:35:53.065879
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `csv3` from it
-    pub fn csv3_read(&mut self) -> u64 {
+    pub fn csv3_read() -> u64 {
         Self::with_reg_val().csv3_extract()
     }
 // no insert() method for field csv3
@@ -155,7 +155,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `csv2` from it
-    pub fn csv2_read(&mut self) -> u64 {
+    pub fn csv2_read() -> u64 {
         Self::with_reg_val().csv2_extract()
     }
 // no insert() method for field csv2
@@ -172,7 +172,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `dit` from it
-    pub fn dit_read(&mut self) -> u64 {
+    pub fn dit_read() -> u64 {
         Self::with_reg_val().dit_extract()
     }
 // no insert() method for field dit
@@ -189,7 +189,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `amu` from it
-    pub fn amu_read(&mut self) -> u64 {
+    pub fn amu_read() -> u64 {
         Self::with_reg_val().amu_extract()
     }
 // no insert() method for field amu
@@ -206,7 +206,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `mpam` from it
-    pub fn mpam_read(&mut self) -> u64 {
+    pub fn mpam_read() -> u64 {
         Self::with_reg_val().mpam_extract()
     }
 // no insert() method for field mpam
@@ -223,7 +223,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `sel2` from it
-    pub fn sel2_read(&mut self) -> u64 {
+    pub fn sel2_read() -> u64 {
         Self::with_reg_val().sel2_extract()
     }
 // no insert() method for field sel2
@@ -240,7 +240,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `sve` from it
-    pub fn sve_read(&mut self) -> u64 {
+    pub fn sve_read() -> u64 {
         Self::with_reg_val().sve_extract()
     }
 // no insert() method for field sve
@@ -257,7 +257,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `ras` from it
-    pub fn ras_read(&mut self) -> u64 {
+    pub fn ras_read() -> u64 {
         Self::with_reg_val().ras_extract()
     }
 // no insert() method for field ras
@@ -274,7 +274,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `gic` from it
-    pub fn gic_read(&mut self) -> u64 {
+    pub fn gic_read() -> u64 {
         Self::with_reg_val().gic_extract()
     }
 // no insert() method for field gic
@@ -291,7 +291,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `advsimd` from it
-    pub fn advsimd_read(&mut self) -> u64 {
+    pub fn advsimd_read() -> u64 {
         Self::with_reg_val().advsimd_extract()
     }
 // no insert() method for field advsimd
@@ -308,7 +308,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `fp` from it
-    pub fn fp_read(&mut self) -> u64 {
+    pub fn fp_read() -> u64 {
         Self::with_reg_val().fp_extract()
     }
 // no insert() method for field fp
@@ -325,7 +325,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `el3` from it
-    pub fn el3_read(&mut self) -> u64 {
+    pub fn el3_read() -> u64 {
         Self::with_reg_val().el3_extract()
     }
 // no insert() method for field el3
@@ -342,7 +342,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `el2` from it
-    pub fn el2_read(&mut self) -> u64 {
+    pub fn el2_read() -> u64 {
         Self::with_reg_val().el2_extract()
     }
 // no insert() method for field el2
@@ -359,7 +359,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `el1` from it
-    pub fn el1_read(&mut self) -> u64 {
+    pub fn el1_read() -> u64 {
         Self::with_reg_val().el1_extract()
     }
 // no insert() method for field el1
@@ -376,7 +376,7 @@ impl IdAa64pfr0El1 {
     }
 
     /// reads the current register value and extract field `el0` from it
-    pub fn el0_read(&mut self) -> u64 {
+    pub fn el0_read() -> u64 {
         Self::with_reg_val().el0_extract()
     }
 // no insert() method for field el0

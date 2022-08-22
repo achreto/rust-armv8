@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.090364
+ * Generated on: 2022-08-22T16:35:53.071507
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `simdfmac` from it
-    pub fn simdfmac_read(&mut self) -> u64 {
+    pub fn simdfmac_read() -> u64 {
         Self::with_reg_val().simdfmac_extract()
     }
 // no insert() method for field simdfmac
@@ -155,7 +155,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `fphp` from it
-    pub fn fphp_read(&mut self) -> u64 {
+    pub fn fphp_read() -> u64 {
         Self::with_reg_val().fphp_extract()
     }
 // no insert() method for field fphp
@@ -172,7 +172,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `simdhp` from it
-    pub fn simdhp_read(&mut self) -> u64 {
+    pub fn simdhp_read() -> u64 {
         Self::with_reg_val().simdhp_extract()
     }
 // no insert() method for field simdhp
@@ -189,7 +189,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `simdsp` from it
-    pub fn simdsp_read(&mut self) -> u64 {
+    pub fn simdsp_read() -> u64 {
         Self::with_reg_val().simdsp_extract()
     }
 // no insert() method for field simdsp
@@ -206,7 +206,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `simdint` from it
-    pub fn simdint_read(&mut self) -> u64 {
+    pub fn simdint_read() -> u64 {
         Self::with_reg_val().simdint_extract()
     }
 // no insert() method for field simdint
@@ -223,7 +223,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `simdls` from it
-    pub fn simdls_read(&mut self) -> u64 {
+    pub fn simdls_read() -> u64 {
         Self::with_reg_val().simdls_extract()
     }
 // no insert() method for field simdls
@@ -240,7 +240,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `fpdnan` from it
-    pub fn fpdnan_read(&mut self) -> u64 {
+    pub fn fpdnan_read() -> u64 {
         Self::with_reg_val().fpdnan_extract()
     }
 // no insert() method for field fpdnan
@@ -257,7 +257,7 @@ impl Mvfr1El1 {
     }
 
     /// reads the current register value and extract field `fpftz` from it
-    pub fn fpftz_read(&mut self) -> u64 {
+    pub fn fpftz_read() -> u64 {
         Self::with_reg_val().fpftz_extract()
     }
 // no insert() method for field fpftz

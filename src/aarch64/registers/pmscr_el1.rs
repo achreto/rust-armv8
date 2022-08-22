@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.092896
+ * Generated on: 2022-08-22T16:35:53.074481
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `pct_1` from it
-    pub fn pct_1_read(&mut self) -> u64 {
+    pub fn pct_1_read() -> u64 {
         Self::with_reg_val().pct_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `pct_1` field, and writes the updated value
-    pub fn pct_1_write(&mut self, val: u64) {
+    pub fn pct_1_write(val: u64) {
         Self::with_reg_val().pct_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `pct_2` from it
-    pub fn pct_2_read(&mut self) -> u64 {
+    pub fn pct_2_read() -> u64 {
         Self::with_reg_val().pct_2_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `pct_2` field, and writes the updated value
-    pub fn pct_2_write(&mut self, val: u64) {
+    pub fn pct_2_write(val: u64) {
         Self::with_reg_val().pct_2_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `ts` from it
-    pub fn ts_read(&mut self) -> u64 {
+    pub fn ts_read() -> u64 {
         Self::with_reg_val().ts_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `ts` field, and writes the updated value
-    pub fn ts_write(&mut self, val: u64) {
+    pub fn ts_write(val: u64) {
         Self::with_reg_val().ts_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `pa` from it
-    pub fn pa_read(&mut self) -> u64 {
+    pub fn pa_read() -> u64 {
         Self::with_reg_val().pa_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `pa` field, and writes the updated value
-    pub fn pa_write(&mut self, val: u64) {
+    pub fn pa_write(val: u64) {
         Self::with_reg_val().pa_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `cx` from it
-    pub fn cx_read(&mut self) -> u64 {
+    pub fn cx_read() -> u64 {
         Self::with_reg_val().cx_extract()
     }
 
@@ -281,7 +281,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `cx` field, and writes the updated value
-    pub fn cx_write(&mut self, val: u64) {
+    pub fn cx_write(val: u64) {
         Self::with_reg_val().cx_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `e1spe` from it
-    pub fn e1spe_read(&mut self) -> u64 {
+    pub fn e1spe_read() -> u64 {
         Self::with_reg_val().e1spe_extract()
     }
 
@@ -310,7 +310,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `e1spe` field, and writes the updated value
-    pub fn e1spe_write(&mut self, val: u64) {
+    pub fn e1spe_write(val: u64) {
         Self::with_reg_val().e1spe_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl PmscrEl1 {
     }
 
     /// reads the current register value and extract field `e0spe` from it
-    pub fn e0spe_read(&mut self) -> u64 {
+    pub fn e0spe_read() -> u64 {
         Self::with_reg_val().e0spe_extract()
     }
 
@@ -339,7 +339,7 @@ impl PmscrEl1 {
     }
 
     /// reads the register, updates the `e0spe` field, and writes the updated value
-    pub fn e0spe_write(&mut self, val: u64) {
+    pub fn e0spe_write(val: u64) {
         Self::with_reg_val().e0spe_insert(val).write();
     }
 

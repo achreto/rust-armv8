@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.079087
+ * Generated on: 2022-08-22T16:35:53.060835
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl HpfarEl2 {
     }
 
     /// reads the current register value and extract field `ns_1` from it
-    pub fn ns_1_read(&mut self) -> u64 {
+    pub fn ns_1_read() -> u64 {
         Self::with_reg_val().ns_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl HpfarEl2 {
     }
 
     /// reads the register, updates the `ns_1` field, and writes the updated value
-    pub fn ns_1_write(&mut self, val: u64) {
+    pub fn ns_1_write(val: u64) {
         Self::with_reg_val().ns_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl HpfarEl2 {
     }
 
     /// reads the current register value and extract field `fipa` from it
-    pub fn fipa_read(&mut self) -> u64 {
+    pub fn fipa_read() -> u64 {
         Self::with_reg_val().fipa_extract()
     }
 
@@ -194,7 +194,7 @@ impl HpfarEl2 {
     }
 
     /// reads the register, updates the `fipa` field, and writes the updated value
-    pub fn fipa_write(&mut self, val: u64) {
+    pub fn fipa_write(val: u64) {
         Self::with_reg_val().fipa_insert(val).write();
     }
 

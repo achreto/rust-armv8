@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.087001
+ * Generated on: 2022-08-22T16:35:53.068232
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl LorcEl1 {
     }
 
     /// reads the current register value and extract field `ds` from it
-    pub fn ds_read(&mut self) -> u64 {
+    pub fn ds_read() -> u64 {
         Self::with_reg_val().ds_extract()
     }
 
@@ -165,7 +165,7 @@ impl LorcEl1 {
     }
 
     /// reads the register, updates the `ds` field, and writes the updated value
-    pub fn ds_write(&mut self, val: u64) {
+    pub fn ds_write(val: u64) {
         Self::with_reg_val().ds_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl LorcEl1 {
     }
 
     /// reads the current register value and extract field `en` from it
-    pub fn en_read(&mut self) -> u64 {
+    pub fn en_read() -> u64 {
         Self::with_reg_val().en_extract()
     }
 
@@ -194,7 +194,7 @@ impl LorcEl1 {
     }
 
     /// reads the register, updates the `en` field, and writes the updated value
-    pub fn en_write(&mut self, val: u64) {
+    pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
 

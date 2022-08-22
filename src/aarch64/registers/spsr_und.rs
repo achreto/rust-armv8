@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.098516
+ * Generated on: 2022-08-22T16:35:53.080073
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `n` from it
-    pub fn n_read(&mut self) -> u64 {
+    pub fn n_read() -> u64 {
         Self::with_reg_val().n_extract()
     }
 
@@ -165,7 +165,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `n` field, and writes the updated value
-    pub fn n_write(&mut self, val: u64) {
+    pub fn n_write(val: u64) {
         Self::with_reg_val().n_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `z` from it
-    pub fn z_read(&mut self) -> u64 {
+    pub fn z_read() -> u64 {
         Self::with_reg_val().z_extract()
     }
 
@@ -194,7 +194,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `z` field, and writes the updated value
-    pub fn z_write(&mut self, val: u64) {
+    pub fn z_write(val: u64) {
         Self::with_reg_val().z_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `c` from it
-    pub fn c_read(&mut self) -> u64 {
+    pub fn c_read() -> u64 {
         Self::with_reg_val().c_extract()
     }
 
@@ -223,7 +223,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `c` field, and writes the updated value
-    pub fn c_write(&mut self, val: u64) {
+    pub fn c_write(val: u64) {
         Self::with_reg_val().c_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `v` from it
-    pub fn v_read(&mut self) -> u64 {
+    pub fn v_read() -> u64 {
         Self::with_reg_val().v_extract()
     }
 
@@ -252,7 +252,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `v` field, and writes the updated value
-    pub fn v_write(&mut self, val: u64) {
+    pub fn v_write(val: u64) {
         Self::with_reg_val().v_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `q` from it
-    pub fn q_read(&mut self) -> u64 {
+    pub fn q_read() -> u64 {
         Self::with_reg_val().q_extract()
     }
 
@@ -281,7 +281,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `q` field, and writes the updated value
-    pub fn q_write(&mut self, val: u64) {
+    pub fn q_write(val: u64) {
         Self::with_reg_val().q_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `it10` from it
-    pub fn it10_read(&mut self) -> u64 {
+    pub fn it10_read() -> u64 {
         Self::with_reg_val().it10_extract()
     }
 
@@ -310,7 +310,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `it10` field, and writes the updated value
-    pub fn it10_write(&mut self, val: u64) {
+    pub fn it10_write(val: u64) {
         Self::with_reg_val().it10_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `j` from it
-    pub fn j_read(&mut self) -> u64 {
+    pub fn j_read() -> u64 {
         Self::with_reg_val().j_extract()
     }
 
@@ -339,7 +339,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `j` field, and writes the updated value
-    pub fn j_write(&mut self, val: u64) {
+    pub fn j_write(val: u64) {
         Self::with_reg_val().j_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `ssbs_1` from it
-    pub fn ssbs_1_read(&mut self) -> u64 {
+    pub fn ssbs_1_read() -> u64 {
         Self::with_reg_val().ssbs_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `ssbs_1` field, and writes the updated value
-    pub fn ssbs_1_write(&mut self, val: u64) {
+    pub fn ssbs_1_write(val: u64) {
         Self::with_reg_val().ssbs_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `pan_1` from it
-    pub fn pan_1_read(&mut self) -> u64 {
+    pub fn pan_1_read() -> u64 {
         Self::with_reg_val().pan_1_extract()
     }
 
@@ -397,7 +397,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `pan_1` field, and writes the updated value
-    pub fn pan_1_write(&mut self, val: u64) {
+    pub fn pan_1_write(val: u64) {
         Self::with_reg_val().pan_1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `dit_1` from it
-    pub fn dit_1_read(&mut self) -> u64 {
+    pub fn dit_1_read() -> u64 {
         Self::with_reg_val().dit_1_extract()
     }
 
@@ -426,7 +426,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `dit_1` field, and writes the updated value
-    pub fn dit_1_write(&mut self, val: u64) {
+    pub fn dit_1_write(val: u64) {
         Self::with_reg_val().dit_1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `il` from it
-    pub fn il_read(&mut self) -> u64 {
+    pub fn il_read() -> u64 {
         Self::with_reg_val().il_extract()
     }
 
@@ -455,7 +455,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `il` field, and writes the updated value
-    pub fn il_write(&mut self, val: u64) {
+    pub fn il_write(val: u64) {
         Self::with_reg_val().il_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `ge` from it
-    pub fn ge_read(&mut self) -> u64 {
+    pub fn ge_read() -> u64 {
         Self::with_reg_val().ge_extract()
     }
 
@@ -484,7 +484,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `ge` field, and writes the updated value
-    pub fn ge_write(&mut self, val: u64) {
+    pub fn ge_write(val: u64) {
         Self::with_reg_val().ge_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `it72` from it
-    pub fn it72_read(&mut self) -> u64 {
+    pub fn it72_read() -> u64 {
         Self::with_reg_val().it72_extract()
     }
 
@@ -513,7 +513,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `it72` field, and writes the updated value
-    pub fn it72_write(&mut self, val: u64) {
+    pub fn it72_write(val: u64) {
         Self::with_reg_val().it72_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `e` from it
-    pub fn e_read(&mut self) -> u64 {
+    pub fn e_read() -> u64 {
         Self::with_reg_val().e_extract()
     }
 
@@ -542,7 +542,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `e` field, and writes the updated value
-    pub fn e_write(&mut self, val: u64) {
+    pub fn e_write(val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `a` from it
-    pub fn a_read(&mut self) -> u64 {
+    pub fn a_read() -> u64 {
         Self::with_reg_val().a_extract()
     }
 
@@ -571,7 +571,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `a` field, and writes the updated value
-    pub fn a_write(&mut self, val: u64) {
+    pub fn a_write(val: u64) {
         Self::with_reg_val().a_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `i` from it
-    pub fn i_read(&mut self) -> u64 {
+    pub fn i_read() -> u64 {
         Self::with_reg_val().i_extract()
     }
 
@@ -600,7 +600,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `i` field, and writes the updated value
-    pub fn i_write(&mut self, val: u64) {
+    pub fn i_write(val: u64) {
         Self::with_reg_val().i_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `f` from it
-    pub fn f_read(&mut self) -> u64 {
+    pub fn f_read() -> u64 {
         Self::with_reg_val().f_extract()
     }
 
@@ -629,7 +629,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `f` field, and writes the updated value
-    pub fn f_write(&mut self, val: u64) {
+    pub fn f_write(val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `t` from it
-    pub fn t_read(&mut self) -> u64 {
+    pub fn t_read() -> u64 {
         Self::with_reg_val().t_extract()
     }
 
@@ -658,7 +658,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `t` field, and writes the updated value
-    pub fn t_write(&mut self, val: u64) {
+    pub fn t_write(val: u64) {
         Self::with_reg_val().t_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl SpsrUnd {
     }
 
     /// reads the current register value and extract field `m40` from it
-    pub fn m40_read(&mut self) -> u64 {
+    pub fn m40_read() -> u64 {
         Self::with_reg_val().m40_extract()
     }
 
@@ -687,7 +687,7 @@ impl SpsrUnd {
     }
 
     /// reads the register, updates the `m40` field, and writes the updated value
-    pub fn m40_write(&mut self, val: u64) {
+    pub fn m40_write(val: u64) {
         Self::with_reg_val().m40_insert(val).write();
     }
 

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.084777
+ * Generated on: 2022-08-22T16:35:53.066002
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64pfr1El1 {
     }
 
     /// reads the current register value and extract field `mpam_frac` from it
-    pub fn mpam_frac_read(&mut self) -> u64 {
+    pub fn mpam_frac_read() -> u64 {
         Self::with_reg_val().mpam_frac_extract()
     }
 // no insert() method for field mpam_frac
@@ -155,7 +155,7 @@ impl IdAa64pfr1El1 {
     }
 
     /// reads the current register value and extract field `ras_frac` from it
-    pub fn ras_frac_read(&mut self) -> u64 {
+    pub fn ras_frac_read() -> u64 {
         Self::with_reg_val().ras_frac_extract()
     }
 // no insert() method for field ras_frac
@@ -172,7 +172,7 @@ impl IdAa64pfr1El1 {
     }
 
     /// reads the current register value and extract field `mte` from it
-    pub fn mte_read(&mut self) -> u64 {
+    pub fn mte_read() -> u64 {
         Self::with_reg_val().mte_extract()
     }
 // no insert() method for field mte
@@ -189,7 +189,7 @@ impl IdAa64pfr1El1 {
     }
 
     /// reads the current register value and extract field `ssbs` from it
-    pub fn ssbs_read(&mut self) -> u64 {
+    pub fn ssbs_read() -> u64 {
         Self::with_reg_val().ssbs_extract()
     }
 // no insert() method for field ssbs
@@ -206,7 +206,7 @@ impl IdAa64pfr1El1 {
     }
 
     /// reads the current register value and extract field `bt` from it
-    pub fn bt_read(&mut self) -> u64 {
+    pub fn bt_read() -> u64 {
         Self::with_reg_val().bt_extract()
     }
 // no insert() method for field bt

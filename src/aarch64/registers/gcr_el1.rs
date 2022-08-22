@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.076245
+ * Generated on: 2022-08-22T16:35:53.057827
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl GcrEl1 {
     }
 
     /// reads the current register value and extract field `rrnd` from it
-    pub fn rrnd_read(&mut self) -> u64 {
+    pub fn rrnd_read() -> u64 {
         Self::with_reg_val().rrnd_extract()
     }
 
@@ -165,7 +165,7 @@ impl GcrEl1 {
     }
 
     /// reads the register, updates the `rrnd` field, and writes the updated value
-    pub fn rrnd_write(&mut self, val: u64) {
+    pub fn rrnd_write(val: u64) {
         Self::with_reg_val().rrnd_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl GcrEl1 {
     }
 
     /// reads the current register value and extract field `exclude` from it
-    pub fn exclude_read(&mut self) -> u64 {
+    pub fn exclude_read() -> u64 {
         Self::with_reg_val().exclude_extract()
     }
 
@@ -194,7 +194,7 @@ impl GcrEl1 {
     }
 
     /// reads the register, updates the `exclude` field, and writes the updated value
-    pub fn exclude_write(&mut self, val: u64) {
+    pub fn exclude_write(val: u64) {
         Self::with_reg_val().exclude_insert(val).write();
     }
 

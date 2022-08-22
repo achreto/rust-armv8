@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086369
+ * Generated on: 2022-08-22T16:35:53.067603
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `evt` from it
-    pub fn evt_read(&mut self) -> u64 {
+    pub fn evt_read() -> u64 {
         Self::with_reg_val().evt_extract()
     }
 // no insert() method for field evt
@@ -155,7 +155,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `ccidx` from it
-    pub fn ccidx_read(&mut self) -> u64 {
+    pub fn ccidx_read() -> u64 {
         Self::with_reg_val().ccidx_extract()
     }
 // no insert() method for field ccidx
@@ -172,7 +172,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `lsm` from it
-    pub fn lsm_read(&mut self) -> u64 {
+    pub fn lsm_read() -> u64 {
         Self::with_reg_val().lsm_extract()
     }
 // no insert() method for field lsm
@@ -189,7 +189,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `hpds` from it
-    pub fn hpds_read(&mut self) -> u64 {
+    pub fn hpds_read() -> u64 {
         Self::with_reg_val().hpds_extract()
     }
 // no insert() method for field hpds
@@ -206,7 +206,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `cnp` from it
-    pub fn cnp_read(&mut self) -> u64 {
+    pub fn cnp_read() -> u64 {
         Self::with_reg_val().cnp_extract()
     }
 // no insert() method for field cnp
@@ -223,7 +223,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `xnx` from it
-    pub fn xnx_read(&mut self) -> u64 {
+    pub fn xnx_read() -> u64 {
         Self::with_reg_val().xnx_extract()
     }
 // no insert() method for field xnx
@@ -240,7 +240,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `ac2` from it
-    pub fn ac2_read(&mut self) -> u64 {
+    pub fn ac2_read() -> u64 {
         Self::with_reg_val().ac2_extract()
     }
 // no insert() method for field ac2
@@ -257,7 +257,7 @@ impl IdMmfr4El1 {
     }
 
     /// reads the current register value and extract field `specsei` from it
-    pub fn specsei_read(&mut self) -> u64 {
+    pub fn specsei_read() -> u64 {
         Self::with_reg_val().specsei_extract()
     }
 // no insert() method for field specsei

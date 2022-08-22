@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.081996
+ * Generated on: 2022-08-22T16:35:53.063323
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp1d` from it
-    pub fn vgrp1d_read(&mut self) -> u64 {
+    pub fn vgrp1d_read() -> u64 {
         Self::with_reg_val().vgrp1d_extract()
     }
 // no insert() method for field vgrp1d
@@ -155,7 +155,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp1e` from it
-    pub fn vgrp1e_read(&mut self) -> u64 {
+    pub fn vgrp1e_read() -> u64 {
         Self::with_reg_val().vgrp1e_extract()
     }
 // no insert() method for field vgrp1e
@@ -172,7 +172,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp0d` from it
-    pub fn vgrp0d_read(&mut self) -> u64 {
+    pub fn vgrp0d_read() -> u64 {
         Self::with_reg_val().vgrp0d_extract()
     }
 // no insert() method for field vgrp0d
@@ -189,7 +189,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp0e` from it
-    pub fn vgrp0e_read(&mut self) -> u64 {
+    pub fn vgrp0e_read() -> u64 {
         Self::with_reg_val().vgrp0e_extract()
     }
 // no insert() method for field vgrp0e
@@ -206,7 +206,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `np` from it
-    pub fn np_read(&mut self) -> u64 {
+    pub fn np_read() -> u64 {
         Self::with_reg_val().np_extract()
     }
 // no insert() method for field np
@@ -223,7 +223,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `lrenp` from it
-    pub fn lrenp_read(&mut self) -> u64 {
+    pub fn lrenp_read() -> u64 {
         Self::with_reg_val().lrenp_extract()
     }
 // no insert() method for field lrenp
@@ -240,7 +240,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `u` from it
-    pub fn u_read(&mut self) -> u64 {
+    pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
 // no insert() method for field u
@@ -257,7 +257,7 @@ impl IchMisrEl2 {
     }
 
     /// reads the current register value and extract field `eoi` from it
-    pub fn eoi_read(&mut self) -> u64 {
+    pub fn eoi_read() -> u64 {
         Self::with_reg_val().eoi_extract()
     }
 // no insert() method for field eoi

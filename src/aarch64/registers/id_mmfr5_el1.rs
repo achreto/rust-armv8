@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086466
+ * Generated on: 2022-08-22T16:35:53.067702
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr5El1 {
     }
 
     /// reads the current register value and extract field `ets` from it
-    pub fn ets_read(&mut self) -> u64 {
+    pub fn ets_read() -> u64 {
         Self::with_reg_val().ets_extract()
     }
 // no insert() method for field ets

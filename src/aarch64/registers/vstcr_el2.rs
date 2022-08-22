@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.102105
+ * Generated on: 2022-08-22T16:35:53.083643
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `sl2_1` from it
-    pub fn sl2_1_read(&mut self) -> u64 {
+    pub fn sl2_1_read() -> u64 {
         Self::with_reg_val().sl2_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `sl2_1` field, and writes the updated value
-    pub fn sl2_1_write(&mut self, val: u64) {
+    pub fn sl2_1_write(val: u64) {
         Self::with_reg_val().sl2_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `sa` from it
-    pub fn sa_read(&mut self) -> u64 {
+    pub fn sa_read() -> u64 {
         Self::with_reg_val().sa_extract()
     }
 
@@ -194,7 +194,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `sa` field, and writes the updated value
-    pub fn sa_write(&mut self, val: u64) {
+    pub fn sa_write(val: u64) {
         Self::with_reg_val().sa_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `sw` from it
-    pub fn sw_read(&mut self) -> u64 {
+    pub fn sw_read() -> u64 {
         Self::with_reg_val().sw_extract()
     }
 
@@ -223,7 +223,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `sw` field, and writes the updated value
-    pub fn sw_write(&mut self, val: u64) {
+    pub fn sw_write(val: u64) {
         Self::with_reg_val().sw_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `tg0` from it
-    pub fn tg0_read(&mut self) -> u64 {
+    pub fn tg0_read() -> u64 {
         Self::with_reg_val().tg0_extract()
     }
 
@@ -252,7 +252,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `tg0` field, and writes the updated value
-    pub fn tg0_write(&mut self, val: u64) {
+    pub fn tg0_write(val: u64) {
         Self::with_reg_val().tg0_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `sl0_1` from it
-    pub fn sl0_1_read(&mut self) -> u64 {
+    pub fn sl0_1_read() -> u64 {
         Self::with_reg_val().sl0_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `sl0_1` field, and writes the updated value
-    pub fn sl0_1_write(&mut self, val: u64) {
+    pub fn sl0_1_write(val: u64) {
         Self::with_reg_val().sl0_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `sl0_2` from it
-    pub fn sl0_2_read(&mut self) -> u64 {
+    pub fn sl0_2_read() -> u64 {
         Self::with_reg_val().sl0_2_extract()
     }
 
@@ -310,7 +310,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `sl0_2` field, and writes the updated value
-    pub fn sl0_2_write(&mut self, val: u64) {
+    pub fn sl0_2_write(val: u64) {
         Self::with_reg_val().sl0_2_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl VstcrEl2 {
     }
 
     /// reads the current register value and extract field `t0sz` from it
-    pub fn t0sz_read(&mut self) -> u64 {
+    pub fn t0sz_read() -> u64 {
         Self::with_reg_val().t0sz_extract()
     }
 
@@ -339,7 +339,7 @@ impl VstcrEl2 {
     }
 
     /// reads the register, updates the `t0sz` field, and writes the updated value
-    pub fn t0sz_write(&mut self, val: u64) {
+    pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
 

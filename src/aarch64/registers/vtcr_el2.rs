@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.102321
+ * Generated on: 2022-08-22T16:35:53.083861
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `sl2_1` from it
-    pub fn sl2_1_read(&mut self) -> u64 {
+    pub fn sl2_1_read() -> u64 {
         Self::with_reg_val().sl2_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `sl2_1` field, and writes the updated value
-    pub fn sl2_1_write(&mut self, val: u64) {
+    pub fn sl2_1_write(val: u64) {
         Self::with_reg_val().sl2_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `ds_1` from it
-    pub fn ds_1_read(&mut self) -> u64 {
+    pub fn ds_1_read() -> u64 {
         Self::with_reg_val().ds_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `ds_1` field, and writes the updated value
-    pub fn ds_1_write(&mut self, val: u64) {
+    pub fn ds_1_write(val: u64) {
         Self::with_reg_val().ds_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `nsa_1` from it
-    pub fn nsa_1_read(&mut self) -> u64 {
+    pub fn nsa_1_read() -> u64 {
         Self::with_reg_val().nsa_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `nsa_1` field, and writes the updated value
-    pub fn nsa_1_write(&mut self, val: u64) {
+    pub fn nsa_1_write(val: u64) {
         Self::with_reg_val().nsa_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `nsw_1` from it
-    pub fn nsw_1_read(&mut self) -> u64 {
+    pub fn nsw_1_read() -> u64 {
         Self::with_reg_val().nsw_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `nsw_1` field, and writes the updated value
-    pub fn nsw_1_write(&mut self, val: u64) {
+    pub fn nsw_1_write(val: u64) {
         Self::with_reg_val().nsw_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `hwu62_1` from it
-    pub fn hwu62_1_read(&mut self) -> u64 {
+    pub fn hwu62_1_read() -> u64 {
         Self::with_reg_val().hwu62_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `hwu62_1` field, and writes the updated value
-    pub fn hwu62_1_write(&mut self, val: u64) {
+    pub fn hwu62_1_write(val: u64) {
         Self::with_reg_val().hwu62_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `hwu61_1` from it
-    pub fn hwu61_1_read(&mut self) -> u64 {
+    pub fn hwu61_1_read() -> u64 {
         Self::with_reg_val().hwu61_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `hwu61_1` field, and writes the updated value
-    pub fn hwu61_1_write(&mut self, val: u64) {
+    pub fn hwu61_1_write(val: u64) {
         Self::with_reg_val().hwu61_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `hwu60_1` from it
-    pub fn hwu60_1_read(&mut self) -> u64 {
+    pub fn hwu60_1_read() -> u64 {
         Self::with_reg_val().hwu60_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `hwu60_1` field, and writes the updated value
-    pub fn hwu60_1_write(&mut self, val: u64) {
+    pub fn hwu60_1_write(val: u64) {
         Self::with_reg_val().hwu60_1_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `hwu59_1` from it
-    pub fn hwu59_1_read(&mut self) -> u64 {
+    pub fn hwu59_1_read() -> u64 {
         Self::with_reg_val().hwu59_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `hwu59_1` field, and writes the updated value
-    pub fn hwu59_1_write(&mut self, val: u64) {
+    pub fn hwu59_1_write(val: u64) {
         Self::with_reg_val().hwu59_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `hd_1` from it
-    pub fn hd_1_read(&mut self) -> u64 {
+    pub fn hd_1_read() -> u64 {
         Self::with_reg_val().hd_1_extract()
     }
 
@@ -397,7 +397,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `hd_1` field, and writes the updated value
-    pub fn hd_1_write(&mut self, val: u64) {
+    pub fn hd_1_write(val: u64) {
         Self::with_reg_val().hd_1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `ha_1` from it
-    pub fn ha_1_read(&mut self) -> u64 {
+    pub fn ha_1_read() -> u64 {
         Self::with_reg_val().ha_1_extract()
     }
 
@@ -426,7 +426,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `ha_1` field, and writes the updated value
-    pub fn ha_1_write(&mut self, val: u64) {
+    pub fn ha_1_write(val: u64) {
         Self::with_reg_val().ha_1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `vs_1` from it
-    pub fn vs_1_read(&mut self) -> u64 {
+    pub fn vs_1_read() -> u64 {
         Self::with_reg_val().vs_1_extract()
     }
 
@@ -455,7 +455,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `vs_1` field, and writes the updated value
-    pub fn vs_1_write(&mut self, val: u64) {
+    pub fn vs_1_write(val: u64) {
         Self::with_reg_val().vs_1_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `ps` from it
-    pub fn ps_read(&mut self) -> u64 {
+    pub fn ps_read() -> u64 {
         Self::with_reg_val().ps_extract()
     }
 
@@ -484,7 +484,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `ps` field, and writes the updated value
-    pub fn ps_write(&mut self, val: u64) {
+    pub fn ps_write(val: u64) {
         Self::with_reg_val().ps_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `tg0` from it
-    pub fn tg0_read(&mut self) -> u64 {
+    pub fn tg0_read() -> u64 {
         Self::with_reg_val().tg0_extract()
     }
 
@@ -513,7 +513,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `tg0` field, and writes the updated value
-    pub fn tg0_write(&mut self, val: u64) {
+    pub fn tg0_write(val: u64) {
         Self::with_reg_val().tg0_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `sh0` from it
-    pub fn sh0_read(&mut self) -> u64 {
+    pub fn sh0_read() -> u64 {
         Self::with_reg_val().sh0_extract()
     }
 
@@ -542,7 +542,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `sh0` field, and writes the updated value
-    pub fn sh0_write(&mut self, val: u64) {
+    pub fn sh0_write(val: u64) {
         Self::with_reg_val().sh0_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `orgn0` from it
-    pub fn orgn0_read(&mut self) -> u64 {
+    pub fn orgn0_read() -> u64 {
         Self::with_reg_val().orgn0_extract()
     }
 
@@ -571,7 +571,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `orgn0` field, and writes the updated value
-    pub fn orgn0_write(&mut self, val: u64) {
+    pub fn orgn0_write(val: u64) {
         Self::with_reg_val().orgn0_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `irgn0` from it
-    pub fn irgn0_read(&mut self) -> u64 {
+    pub fn irgn0_read() -> u64 {
         Self::with_reg_val().irgn0_extract()
     }
 
@@ -600,7 +600,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `irgn0` field, and writes the updated value
-    pub fn irgn0_write(&mut self, val: u64) {
+    pub fn irgn0_write(val: u64) {
         Self::with_reg_val().irgn0_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `sl0_1` from it
-    pub fn sl0_1_read(&mut self) -> u64 {
+    pub fn sl0_1_read() -> u64 {
         Self::with_reg_val().sl0_1_extract()
     }
 
@@ -629,7 +629,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `sl0_1` field, and writes the updated value
-    pub fn sl0_1_write(&mut self, val: u64) {
+    pub fn sl0_1_write(val: u64) {
         Self::with_reg_val().sl0_1_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `sl0_2` from it
-    pub fn sl0_2_read(&mut self) -> u64 {
+    pub fn sl0_2_read() -> u64 {
         Self::with_reg_val().sl0_2_extract()
     }
 
@@ -658,7 +658,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `sl0_2` field, and writes the updated value
-    pub fn sl0_2_write(&mut self, val: u64) {
+    pub fn sl0_2_write(val: u64) {
         Self::with_reg_val().sl0_2_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl VtcrEl2 {
     }
 
     /// reads the current register value and extract field `t0sz` from it
-    pub fn t0sz_read(&mut self) -> u64 {
+    pub fn t0sz_read() -> u64 {
         Self::with_reg_val().t0sz_extract()
     }
 
@@ -687,7 +687,7 @@ impl VtcrEl2 {
     }
 
     /// reads the register, updates the `t0sz` field, and writes the updated value
-    pub fn t0sz_write(&mut self, val: u64) {
+    pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
 

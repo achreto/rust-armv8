@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.073252
+ * Generated on: 2022-08-22T16:35:53.054628
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl DbgprcrEl1 {
     }
 
     /// reads the current register value and extract field `corenpdrq_1` from it
-    pub fn corenpdrq_1_read(&mut self) -> u64 {
+    pub fn corenpdrq_1_read() -> u64 {
         Self::with_reg_val().corenpdrq_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl DbgprcrEl1 {
     }
 
     /// reads the register, updates the `corenpdrq_1` field, and writes the updated value
-    pub fn corenpdrq_1_write(&mut self, val: u64) {
+    pub fn corenpdrq_1_write(val: u64) {
         Self::with_reg_val().corenpdrq_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl DbgprcrEl1 {
     }
 
     /// reads the current register value and extract field `corenpdrq_2` from it
-    pub fn corenpdrq_2_read(&mut self) -> u64 {
+    pub fn corenpdrq_2_read() -> u64 {
         Self::with_reg_val().corenpdrq_2_extract()
     }
 
@@ -194,7 +194,7 @@ impl DbgprcrEl1 {
     }
 
     /// reads the register, updates the `corenpdrq_2` field, and writes the updated value
-    pub fn corenpdrq_2_write(&mut self, val: u64) {
+    pub fn corenpdrq_2_write(val: u64) {
         Self::with_reg_val().corenpdrq_2_insert(val).write();
     }
 

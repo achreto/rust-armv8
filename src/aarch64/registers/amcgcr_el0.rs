@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.067793
+ * Generated on: 2022-08-22T16:35:53.048418
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl AmcgcrEl0 {
     }
 
     /// reads the current register value and extract field `cg1nc` from it
-    pub fn cg1nc_read(&mut self) -> u64 {
+    pub fn cg1nc_read() -> u64 {
         Self::with_reg_val().cg1nc_extract()
     }
 // no insert() method for field cg1nc
@@ -155,7 +155,7 @@ impl AmcgcrEl0 {
     }
 
     /// reads the current register value and extract field `cg0nc` from it
-    pub fn cg0nc_read(&mut self) -> u64 {
+    pub fn cg0nc_read() -> u64 {
         Self::with_reg_val().cg0nc_extract()
     }
 // no insert() method for field cg0nc

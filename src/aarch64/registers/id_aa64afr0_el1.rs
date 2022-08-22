@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.083536
+ * Generated on: 2022-08-22T16:35:53.064796
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_31_28` from it
-    pub fn implementation_defined_31_28_read(&mut self) -> u64 {
+    pub fn implementation_defined_31_28_read() -> u64 {
         Self::with_reg_val().implementation_defined_31_28_extract()
     }
 // no insert() method for field implementation_defined_31_28
@@ -155,7 +155,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_27_24` from it
-    pub fn implementation_defined_27_24_read(&mut self) -> u64 {
+    pub fn implementation_defined_27_24_read() -> u64 {
         Self::with_reg_val().implementation_defined_27_24_extract()
     }
 // no insert() method for field implementation_defined_27_24
@@ -172,7 +172,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_23_20` from it
-    pub fn implementation_defined_23_20_read(&mut self) -> u64 {
+    pub fn implementation_defined_23_20_read() -> u64 {
         Self::with_reg_val().implementation_defined_23_20_extract()
     }
 // no insert() method for field implementation_defined_23_20
@@ -189,7 +189,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_19_16` from it
-    pub fn implementation_defined_19_16_read(&mut self) -> u64 {
+    pub fn implementation_defined_19_16_read() -> u64 {
         Self::with_reg_val().implementation_defined_19_16_extract()
     }
 // no insert() method for field implementation_defined_19_16
@@ -206,7 +206,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_15_12` from it
-    pub fn implementation_defined_15_12_read(&mut self) -> u64 {
+    pub fn implementation_defined_15_12_read() -> u64 {
         Self::with_reg_val().implementation_defined_15_12_extract()
     }
 // no insert() method for field implementation_defined_15_12
@@ -223,7 +223,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_11_8` from it
-    pub fn implementation_defined_11_8_read(&mut self) -> u64 {
+    pub fn implementation_defined_11_8_read() -> u64 {
         Self::with_reg_val().implementation_defined_11_8_extract()
     }
 // no insert() method for field implementation_defined_11_8
@@ -240,7 +240,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_7_4` from it
-    pub fn implementation_defined_7_4_read(&mut self) -> u64 {
+    pub fn implementation_defined_7_4_read() -> u64 {
         Self::with_reg_val().implementation_defined_7_4_extract()
     }
 // no insert() method for field implementation_defined_7_4
@@ -257,7 +257,7 @@ impl IdAa64afr0El1 {
     }
 
     /// reads the current register value and extract field `implementation_defined_3_0` from it
-    pub fn implementation_defined_3_0_read(&mut self) -> u64 {
+    pub fn implementation_defined_3_0_read() -> u64 {
         Self::with_reg_val().implementation_defined_3_0_extract()
     }
 // no insert() method for field implementation_defined_3_0

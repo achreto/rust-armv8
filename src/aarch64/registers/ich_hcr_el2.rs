@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.081823
+ * Generated on: 2022-08-22T16:35:53.063156
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `eoicount` from it
-    pub fn eoicount_read(&mut self) -> u64 {
+    pub fn eoicount_read() -> u64 {
         Self::with_reg_val().eoicount_extract()
     }
 
@@ -165,7 +165,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `eoicount` field, and writes the updated value
-    pub fn eoicount_write(&mut self, val: u64) {
+    pub fn eoicount_write(val: u64) {
         Self::with_reg_val().eoicount_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `dvim_1` from it
-    pub fn dvim_1_read(&mut self) -> u64 {
+    pub fn dvim_1_read() -> u64 {
         Self::with_reg_val().dvim_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `dvim_1` field, and writes the updated value
-    pub fn dvim_1_write(&mut self, val: u64) {
+    pub fn dvim_1_write(val: u64) {
         Self::with_reg_val().dvim_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `tdir` from it
-    pub fn tdir_read(&mut self) -> u64 {
+    pub fn tdir_read() -> u64 {
         Self::with_reg_val().tdir_extract()
     }
 
@@ -223,7 +223,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `tdir` field, and writes the updated value
-    pub fn tdir_write(&mut self, val: u64) {
+    pub fn tdir_write(val: u64) {
         Self::with_reg_val().tdir_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `tsei` from it
-    pub fn tsei_read(&mut self) -> u64 {
+    pub fn tsei_read() -> u64 {
         Self::with_reg_val().tsei_extract()
     }
 
@@ -252,7 +252,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `tsei` field, and writes the updated value
-    pub fn tsei_write(&mut self, val: u64) {
+    pub fn tsei_write(val: u64) {
         Self::with_reg_val().tsei_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `tall1` from it
-    pub fn tall1_read(&mut self) -> u64 {
+    pub fn tall1_read() -> u64 {
         Self::with_reg_val().tall1_extract()
     }
 
@@ -281,7 +281,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `tall1` field, and writes the updated value
-    pub fn tall1_write(&mut self, val: u64) {
+    pub fn tall1_write(val: u64) {
         Self::with_reg_val().tall1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `tall0` from it
-    pub fn tall0_read(&mut self) -> u64 {
+    pub fn tall0_read() -> u64 {
         Self::with_reg_val().tall0_extract()
     }
 
@@ -310,7 +310,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `tall0` field, and writes the updated value
-    pub fn tall0_write(&mut self, val: u64) {
+    pub fn tall0_write(val: u64) {
         Self::with_reg_val().tall0_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `tc` from it
-    pub fn tc_read(&mut self) -> u64 {
+    pub fn tc_read() -> u64 {
         Self::with_reg_val().tc_extract()
     }
 
@@ -339,7 +339,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `tc` field, and writes the updated value
-    pub fn tc_write(&mut self, val: u64) {
+    pub fn tc_write(val: u64) {
         Self::with_reg_val().tc_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `vsgieoicount_1` from it
-    pub fn vsgieoicount_1_read(&mut self) -> u64 {
+    pub fn vsgieoicount_1_read() -> u64 {
         Self::with_reg_val().vsgieoicount_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `vsgieoicount_1` field, and writes the updated value
-    pub fn vsgieoicount_1_write(&mut self, val: u64) {
+    pub fn vsgieoicount_1_write(val: u64) {
         Self::with_reg_val().vsgieoicount_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp1die` from it
-    pub fn vgrp1die_read(&mut self) -> u64 {
+    pub fn vgrp1die_read() -> u64 {
         Self::with_reg_val().vgrp1die_extract()
     }
 
@@ -397,7 +397,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `vgrp1die` field, and writes the updated value
-    pub fn vgrp1die_write(&mut self, val: u64) {
+    pub fn vgrp1die_write(val: u64) {
         Self::with_reg_val().vgrp1die_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp1eie` from it
-    pub fn vgrp1eie_read(&mut self) -> u64 {
+    pub fn vgrp1eie_read() -> u64 {
         Self::with_reg_val().vgrp1eie_extract()
     }
 
@@ -426,7 +426,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `vgrp1eie` field, and writes the updated value
-    pub fn vgrp1eie_write(&mut self, val: u64) {
+    pub fn vgrp1eie_write(val: u64) {
         Self::with_reg_val().vgrp1eie_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp0die` from it
-    pub fn vgrp0die_read(&mut self) -> u64 {
+    pub fn vgrp0die_read() -> u64 {
         Self::with_reg_val().vgrp0die_extract()
     }
 
@@ -455,7 +455,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `vgrp0die` field, and writes the updated value
-    pub fn vgrp0die_write(&mut self, val: u64) {
+    pub fn vgrp0die_write(val: u64) {
         Self::with_reg_val().vgrp0die_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `vgrp0eie` from it
-    pub fn vgrp0eie_read(&mut self) -> u64 {
+    pub fn vgrp0eie_read() -> u64 {
         Self::with_reg_val().vgrp0eie_extract()
     }
 
@@ -484,7 +484,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `vgrp0eie` field, and writes the updated value
-    pub fn vgrp0eie_write(&mut self, val: u64) {
+    pub fn vgrp0eie_write(val: u64) {
         Self::with_reg_val().vgrp0eie_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `npie` from it
-    pub fn npie_read(&mut self) -> u64 {
+    pub fn npie_read() -> u64 {
         Self::with_reg_val().npie_extract()
     }
 
@@ -513,7 +513,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `npie` field, and writes the updated value
-    pub fn npie_write(&mut self, val: u64) {
+    pub fn npie_write(val: u64) {
         Self::with_reg_val().npie_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `lrenpie` from it
-    pub fn lrenpie_read(&mut self) -> u64 {
+    pub fn lrenpie_read() -> u64 {
         Self::with_reg_val().lrenpie_extract()
     }
 
@@ -542,7 +542,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `lrenpie` field, and writes the updated value
-    pub fn lrenpie_write(&mut self, val: u64) {
+    pub fn lrenpie_write(val: u64) {
         Self::with_reg_val().lrenpie_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `uie` from it
-    pub fn uie_read(&mut self) -> u64 {
+    pub fn uie_read() -> u64 {
         Self::with_reg_val().uie_extract()
     }
 
@@ -571,7 +571,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `uie` field, and writes the updated value
-    pub fn uie_write(&mut self, val: u64) {
+    pub fn uie_write(val: u64) {
         Self::with_reg_val().uie_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the current register value and extract field `en` from it
-    pub fn en_read(&mut self) -> u64 {
+    pub fn en_read() -> u64 {
         Self::with_reg_val().en_extract()
     }
 
@@ -600,7 +600,7 @@ impl IchHcrEl2 {
     }
 
     /// reads the register, updates the `en` field, and writes the updated value
-    pub fn en_write(&mut self, val: u64) {
+    pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
 

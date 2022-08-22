@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.087657
+ * Generated on: 2022-08-22T16:35:53.068895
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl MdccintEl1 {
     }
 
     /// reads the current register value and extract field `rx` from it
-    pub fn rx_read(&mut self) -> u64 {
+    pub fn rx_read() -> u64 {
         Self::with_reg_val().rx_extract()
     }
 
@@ -165,7 +165,7 @@ impl MdccintEl1 {
     }
 
     /// reads the register, updates the `rx` field, and writes the updated value
-    pub fn rx_write(&mut self, val: u64) {
+    pub fn rx_write(val: u64) {
         Self::with_reg_val().rx_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl MdccintEl1 {
     }
 
     /// reads the current register value and extract field `tx` from it
-    pub fn tx_read(&mut self) -> u64 {
+    pub fn tx_read() -> u64 {
         Self::with_reg_val().tx_extract()
     }
 
@@ -194,7 +194,7 @@ impl MdccintEl1 {
     }
 
     /// reads the register, updates the `tx` field, and writes the updated value
-    pub fn tx_write(&mut self, val: u64) {
+    pub fn tx_write(val: u64) {
         Self::with_reg_val().tx_insert(val).write();
     }
 

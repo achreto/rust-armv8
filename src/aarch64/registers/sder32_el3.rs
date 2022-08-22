@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.096882
+ * Generated on: 2022-08-22T16:35:53.078465
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Sder32El3 {
     }
 
     /// reads the current register value and extract field `suniden` from it
-    pub fn suniden_read(&mut self) -> u64 {
+    pub fn suniden_read() -> u64 {
         Self::with_reg_val().suniden_extract()
     }
 
@@ -165,7 +165,7 @@ impl Sder32El3 {
     }
 
     /// reads the register, updates the `suniden` field, and writes the updated value
-    pub fn suniden_write(&mut self, val: u64) {
+    pub fn suniden_write(val: u64) {
         Self::with_reg_val().suniden_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Sder32El3 {
     }
 
     /// reads the current register value and extract field `suiden` from it
-    pub fn suiden_read(&mut self) -> u64 {
+    pub fn suiden_read() -> u64 {
         Self::with_reg_val().suiden_extract()
     }
 
@@ -194,7 +194,7 @@ impl Sder32El3 {
     }
 
     /// reads the register, updates the `suiden` field, and writes the updated value
-    pub fn suiden_write(&mut self, val: u64) {
+    pub fn suiden_write(val: u64) {
         Self::with_reg_val().suiden_insert(val).write();
     }
 

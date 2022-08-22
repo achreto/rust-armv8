@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.084869
+ * Generated on: 2022-08-22T16:35:53.066091
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64zfr0El1 {
     }
 
     /// reads the current register value and extract field `f64mm` from it
-    pub fn f64mm_read(&mut self) -> u64 {
+    pub fn f64mm_read() -> u64 {
         Self::with_reg_val().f64mm_extract()
     }
 // no insert() method for field f64mm
@@ -155,7 +155,7 @@ impl IdAa64zfr0El1 {
     }
 
     /// reads the current register value and extract field `f32mm` from it
-    pub fn f32mm_read(&mut self) -> u64 {
+    pub fn f32mm_read() -> u64 {
         Self::with_reg_val().f32mm_extract()
     }
 // no insert() method for field f32mm
@@ -172,7 +172,7 @@ impl IdAa64zfr0El1 {
     }
 
     /// reads the current register value and extract field `i8mm` from it
-    pub fn i8mm_read(&mut self) -> u64 {
+    pub fn i8mm_read() -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
 // no insert() method for field i8mm
@@ -189,7 +189,7 @@ impl IdAa64zfr0El1 {
     }
 
     /// reads the current register value and extract field `bf16` from it
-    pub fn bf16_read(&mut self) -> u64 {
+    pub fn bf16_read() -> u64 {
         Self::with_reg_val().bf16_extract()
     }
 // no insert() method for field bf16
@@ -206,7 +206,7 @@ impl IdAa64zfr0El1 {
     }
 
     /// reads the current register value and extract field `svever` from it
-    pub fn svever_read(&mut self) -> u64 {
+    pub fn svever_read() -> u64 {
         Self::with_reg_val().svever_extract()
     }
 // no insert() method for field svever

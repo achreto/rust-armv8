@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.083940
+ * Generated on: 2022-08-22T16:35:53.065193
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `rndr` from it
-    pub fn rndr_read(&mut self) -> u64 {
+    pub fn rndr_read() -> u64 {
         Self::with_reg_val().rndr_extract()
     }
 // no insert() method for field rndr
@@ -155,7 +155,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `tlb` from it
-    pub fn tlb_read(&mut self) -> u64 {
+    pub fn tlb_read() -> u64 {
         Self::with_reg_val().tlb_extract()
     }
 // no insert() method for field tlb
@@ -172,7 +172,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `ts` from it
-    pub fn ts_read(&mut self) -> u64 {
+    pub fn ts_read() -> u64 {
         Self::with_reg_val().ts_extract()
     }
 // no insert() method for field ts
@@ -189,7 +189,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `fhm` from it
-    pub fn fhm_read(&mut self) -> u64 {
+    pub fn fhm_read() -> u64 {
         Self::with_reg_val().fhm_extract()
     }
 // no insert() method for field fhm
@@ -206,7 +206,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `dp` from it
-    pub fn dp_read(&mut self) -> u64 {
+    pub fn dp_read() -> u64 {
         Self::with_reg_val().dp_extract()
     }
 // no insert() method for field dp
@@ -223,7 +223,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `sm4` from it
-    pub fn sm4_read(&mut self) -> u64 {
+    pub fn sm4_read() -> u64 {
         Self::with_reg_val().sm4_extract()
     }
 // no insert() method for field sm4
@@ -240,7 +240,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `sm3` from it
-    pub fn sm3_read(&mut self) -> u64 {
+    pub fn sm3_read() -> u64 {
         Self::with_reg_val().sm3_extract()
     }
 // no insert() method for field sm3
@@ -257,7 +257,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `sha3` from it
-    pub fn sha3_read(&mut self) -> u64 {
+    pub fn sha3_read() -> u64 {
         Self::with_reg_val().sha3_extract()
     }
 // no insert() method for field sha3
@@ -274,7 +274,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `rdm` from it
-    pub fn rdm_read(&mut self) -> u64 {
+    pub fn rdm_read() -> u64 {
         Self::with_reg_val().rdm_extract()
     }
 // no insert() method for field rdm
@@ -291,7 +291,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `atomic` from it
-    pub fn atomic_read(&mut self) -> u64 {
+    pub fn atomic_read() -> u64 {
         Self::with_reg_val().atomic_extract()
     }
 // no insert() method for field atomic
@@ -308,7 +308,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `crc32` from it
-    pub fn crc32_read(&mut self) -> u64 {
+    pub fn crc32_read() -> u64 {
         Self::with_reg_val().crc32_extract()
     }
 // no insert() method for field crc32
@@ -325,7 +325,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `sha2` from it
-    pub fn sha2_read(&mut self) -> u64 {
+    pub fn sha2_read() -> u64 {
         Self::with_reg_val().sha2_extract()
     }
 // no insert() method for field sha2
@@ -342,7 +342,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `sha1` from it
-    pub fn sha1_read(&mut self) -> u64 {
+    pub fn sha1_read() -> u64 {
         Self::with_reg_val().sha1_extract()
     }
 // no insert() method for field sha1
@@ -359,7 +359,7 @@ impl IdAa64isar0El1 {
     }
 
     /// reads the current register value and extract field `aes` from it
-    pub fn aes_read(&mut self) -> u64 {
+    pub fn aes_read() -> u64 {
         Self::with_reg_val().aes_extract()
     }
 // no insert() method for field aes

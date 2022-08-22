@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.089051
+ * Generated on: 2022-08-22T16:35:53.070242
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the current register value and extract field `trap_mpamidr_el1` from it
-    pub fn trap_mpamidr_el1_read(&mut self) -> u64 {
+    pub fn trap_mpamidr_el1_read() -> u64 {
         Self::with_reg_val().trap_mpamidr_el1_extract()
     }
 
@@ -165,7 +165,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the register, updates the `trap_mpamidr_el1` field, and writes the updated value
-    pub fn trap_mpamidr_el1_write(&mut self, val: u64) {
+    pub fn trap_mpamidr_el1_write(val: u64) {
         Self::with_reg_val().trap_mpamidr_el1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the current register value and extract field `gstapp_plk` from it
-    pub fn gstapp_plk_read(&mut self) -> u64 {
+    pub fn gstapp_plk_read() -> u64 {
         Self::with_reg_val().gstapp_plk_extract()
     }
 
@@ -194,7 +194,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the register, updates the `gstapp_plk` field, and writes the updated value
-    pub fn gstapp_plk_write(&mut self, val: u64) {
+    pub fn gstapp_plk_write(val: u64) {
         Self::with_reg_val().gstapp_plk_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the current register value and extract field `el1_vpmen` from it
-    pub fn el1_vpmen_read(&mut self) -> u64 {
+    pub fn el1_vpmen_read() -> u64 {
         Self::with_reg_val().el1_vpmen_extract()
     }
 
@@ -223,7 +223,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the register, updates the `el1_vpmen` field, and writes the updated value
-    pub fn el1_vpmen_write(&mut self, val: u64) {
+    pub fn el1_vpmen_write(val: u64) {
         Self::with_reg_val().el1_vpmen_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the current register value and extract field `el0_vpmen` from it
-    pub fn el0_vpmen_read(&mut self) -> u64 {
+    pub fn el0_vpmen_read() -> u64 {
         Self::with_reg_val().el0_vpmen_extract()
     }
 
@@ -252,7 +252,7 @@ impl MpamhcrEl2 {
     }
 
     /// reads the register, updates the `el0_vpmen` field, and writes the updated value
-    pub fn el0_vpmen_write(&mut self, val: u64) {
+    pub fn el0_vpmen_write(val: u64) {
         Self::with_reg_val().el0_vpmen_insert(val).write();
     }
 

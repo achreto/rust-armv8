@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.069219
+ * Generated on: 2022-08-22T16:35:53.050325
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `ttypen_1` from it
-    pub fn ttypen_1_read(&mut self) -> u64 {
+    pub fn ttypen_1_read() -> u64 {
         Self::with_reg_val().ttypen_1_extract()
     }
 // no insert() method for field ttypen_1
@@ -155,7 +155,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `icb` from it
-    pub fn icb_read(&mut self) -> u64 {
+    pub fn icb_read() -> u64 {
         Self::with_reg_val().icb_extract()
     }
 // no insert() method for field icb
@@ -172,7 +172,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `louu` from it
-    pub fn louu_read(&mut self) -> u64 {
+    pub fn louu_read() -> u64 {
         Self::with_reg_val().louu_extract()
     }
 // no insert() method for field louu
@@ -189,7 +189,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `loc` from it
-    pub fn loc_read(&mut self) -> u64 {
+    pub fn loc_read() -> u64 {
         Self::with_reg_val().loc_extract()
     }
 // no insert() method for field loc
@@ -206,7 +206,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `louis` from it
-    pub fn louis_read(&mut self) -> u64 {
+    pub fn louis_read() -> u64 {
         Self::with_reg_val().louis_extract()
     }
 // no insert() method for field louis
@@ -223,7 +223,7 @@ impl ClidrEl1 {
     }
 
     /// reads the current register value and extract field `ctypen` from it
-    pub fn ctypen_read(&mut self) -> u64 {
+    pub fn ctypen_read() -> u64 {
         Self::with_reg_val().ctypen_extract()
     }
 // no insert() method for field ctypen

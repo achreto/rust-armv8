@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.071901
+ * Generated on: 2022-08-22T16:35:53.053229
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl CpacrEl1 {
     }
 
     /// reads the current register value and extract field `tta` from it
-    pub fn tta_read(&mut self) -> u64 {
+    pub fn tta_read() -> u64 {
         Self::with_reg_val().tta_extract()
     }
 
@@ -165,7 +165,7 @@ impl CpacrEl1 {
     }
 
     /// reads the register, updates the `tta` field, and writes the updated value
-    pub fn tta_write(&mut self, val: u64) {
+    pub fn tta_write(val: u64) {
         Self::with_reg_val().tta_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl CpacrEl1 {
     }
 
     /// reads the current register value and extract field `fpen` from it
-    pub fn fpen_read(&mut self) -> u64 {
+    pub fn fpen_read() -> u64 {
         Self::with_reg_val().fpen_extract()
     }
 
@@ -194,7 +194,7 @@ impl CpacrEl1 {
     }
 
     /// reads the register, updates the `fpen` field, and writes the updated value
-    pub fn fpen_write(&mut self, val: u64) {
+    pub fn fpen_write(val: u64) {
         Self::with_reg_val().fpen_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl CpacrEl1 {
     }
 
     /// reads the current register value and extract field `zen_1` from it
-    pub fn zen_1_read(&mut self) -> u64 {
+    pub fn zen_1_read() -> u64 {
         Self::with_reg_val().zen_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl CpacrEl1 {
     }
 
     /// reads the register, updates the `zen_1` field, and writes the updated value
-    pub fn zen_1_write(&mut self, val: u64) {
+    pub fn zen_1_write(val: u64) {
         Self::with_reg_val().zen_1_insert(val).write();
     }
 

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.076108
+ * Generated on: 2022-08-22T16:35:53.057680
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `n_1` from it
-    pub fn n_1_read(&mut self) -> u64 {
+    pub fn n_1_read() -> u64 {
         Self::with_reg_val().n_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `n_1` field, and writes the updated value
-    pub fn n_1_write(&mut self, val: u64) {
+    pub fn n_1_write(val: u64) {
         Self::with_reg_val().n_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `z_1` from it
-    pub fn z_1_read(&mut self) -> u64 {
+    pub fn z_1_read() -> u64 {
         Self::with_reg_val().z_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `z_1` field, and writes the updated value
-    pub fn z_1_write(&mut self, val: u64) {
+    pub fn z_1_write(val: u64) {
         Self::with_reg_val().z_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `c_1` from it
-    pub fn c_1_read(&mut self) -> u64 {
+    pub fn c_1_read() -> u64 {
         Self::with_reg_val().c_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `c_1` field, and writes the updated value
-    pub fn c_1_write(&mut self, val: u64) {
+    pub fn c_1_write(val: u64) {
         Self::with_reg_val().c_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `v_1` from it
-    pub fn v_1_read(&mut self) -> u64 {
+    pub fn v_1_read() -> u64 {
         Self::with_reg_val().v_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `v_1` field, and writes the updated value
-    pub fn v_1_write(&mut self, val: u64) {
+    pub fn v_1_write(val: u64) {
         Self::with_reg_val().v_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `qc` from it
-    pub fn qc_read(&mut self) -> u64 {
+    pub fn qc_read() -> u64 {
         Self::with_reg_val().qc_extract()
     }
 
@@ -281,7 +281,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `qc` field, and writes the updated value
-    pub fn qc_write(&mut self, val: u64) {
+    pub fn qc_write(val: u64) {
         Self::with_reg_val().qc_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `idc` from it
-    pub fn idc_read(&mut self) -> u64 {
+    pub fn idc_read() -> u64 {
         Self::with_reg_val().idc_extract()
     }
 
@@ -310,7 +310,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `idc` field, and writes the updated value
-    pub fn idc_write(&mut self, val: u64) {
+    pub fn idc_write(val: u64) {
         Self::with_reg_val().idc_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `ixc` from it
-    pub fn ixc_read(&mut self) -> u64 {
+    pub fn ixc_read() -> u64 {
         Self::with_reg_val().ixc_extract()
     }
 
@@ -339,7 +339,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `ixc` field, and writes the updated value
-    pub fn ixc_write(&mut self, val: u64) {
+    pub fn ixc_write(val: u64) {
         Self::with_reg_val().ixc_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `ufc` from it
-    pub fn ufc_read(&mut self) -> u64 {
+    pub fn ufc_read() -> u64 {
         Self::with_reg_val().ufc_extract()
     }
 
@@ -368,7 +368,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `ufc` field, and writes the updated value
-    pub fn ufc_write(&mut self, val: u64) {
+    pub fn ufc_write(val: u64) {
         Self::with_reg_val().ufc_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `ofc` from it
-    pub fn ofc_read(&mut self) -> u64 {
+    pub fn ofc_read() -> u64 {
         Self::with_reg_val().ofc_extract()
     }
 
@@ -397,7 +397,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `ofc` field, and writes the updated value
-    pub fn ofc_write(&mut self, val: u64) {
+    pub fn ofc_write(val: u64) {
         Self::with_reg_val().ofc_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `dzc` from it
-    pub fn dzc_read(&mut self) -> u64 {
+    pub fn dzc_read() -> u64 {
         Self::with_reg_val().dzc_extract()
     }
 
@@ -426,7 +426,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `dzc` field, and writes the updated value
-    pub fn dzc_write(&mut self, val: u64) {
+    pub fn dzc_write(val: u64) {
         Self::with_reg_val().dzc_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl Fpsr {
     }
 
     /// reads the current register value and extract field `ioc` from it
-    pub fn ioc_read(&mut self) -> u64 {
+    pub fn ioc_read() -> u64 {
         Self::with_reg_val().ioc_extract()
     }
 
@@ -455,7 +455,7 @@ impl Fpsr {
     }
 
     /// reads the register, updates the `ioc` field, and writes the updated value
-    pub fn ioc_write(&mut self, val: u64) {
+    pub fn ioc_write(val: u64) {
         Self::with_reg_val().ioc_insert(val).write();
     }
 

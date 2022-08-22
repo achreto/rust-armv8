@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.077366
+ * Generated on: 2022-08-22T16:35:53.059032
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `npmsnevfr_el1_1` from it
-    pub fn npmsnevfr_el1_1_read(&mut self) -> u64 {
+    pub fn npmsnevfr_el1_1_read() -> u64 {
         Self::with_reg_val().npmsnevfr_el1_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `npmsnevfr_el1_1` field, and writes the updated value
-    pub fn npmsnevfr_el1_1_write(&mut self, val: u64) {
+    pub fn npmsnevfr_el1_1_write(val: u64) {
         Self::with_reg_val().npmsnevfr_el1_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmceidn_el0_1` from it
-    pub fn pmceidn_el0_1_read(&mut self) -> u64 {
+    pub fn pmceidn_el0_1_read() -> u64 {
         Self::with_reg_val().pmceidn_el0_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmceidn_el0_1` field, and writes the updated value
-    pub fn pmceidn_el0_1_write(&mut self, val: u64) {
+    pub fn pmceidn_el0_1_write(val: u64) {
         Self::with_reg_val().pmceidn_el0_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmuserenr_el0_1` from it
-    pub fn pmuserenr_el0_1_read(&mut self) -> u64 {
+    pub fn pmuserenr_el0_1_read() -> u64 {
         Self::with_reg_val().pmuserenr_el0_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmuserenr_el0_1` field, and writes the updated value
-    pub fn pmuserenr_el0_1_write(&mut self, val: u64) {
+    pub fn pmuserenr_el0_1_write(val: u64) {
         Self::with_reg_val().pmuserenr_el0_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcvictlr_1` from it
-    pub fn trcvictlr_1_read(&mut self) -> u64 {
+    pub fn trcvictlr_1_read() -> u64 {
         Self::with_reg_val().trcvictlr_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcvictlr_1` field, and writes the updated value
-    pub fn trcvictlr_1_write(&mut self, val: u64) {
+    pub fn trcvictlr_1_write(val: u64) {
         Self::with_reg_val().trcvictlr_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcstatr_1` from it
-    pub fn trcstatr_1_read(&mut self) -> u64 {
+    pub fn trcstatr_1_read() -> u64 {
         Self::with_reg_val().trcstatr_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcstatr_1` field, and writes the updated value
-    pub fn trcstatr_1_write(&mut self, val: u64) {
+    pub fn trcstatr_1_write(val: u64) {
         Self::with_reg_val().trcstatr_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcsscsrn_1` from it
-    pub fn trcsscsrn_1_read(&mut self) -> u64 {
+    pub fn trcsscsrn_1_read() -> u64 {
         Self::with_reg_val().trcsscsrn_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcsscsrn_1` field, and writes the updated value
-    pub fn trcsscsrn_1_write(&mut self, val: u64) {
+    pub fn trcsscsrn_1_write(val: u64) {
         Self::with_reg_val().trcsscsrn_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcseqstr_1` from it
-    pub fn trcseqstr_1_read(&mut self) -> u64 {
+    pub fn trcseqstr_1_read() -> u64 {
         Self::with_reg_val().trcseqstr_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcseqstr_1` field, and writes the updated value
-    pub fn trcseqstr_1_write(&mut self, val: u64) {
+    pub fn trcseqstr_1_write(val: u64) {
         Self::with_reg_val().trcseqstr_1_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcprgctlr_1` from it
-    pub fn trcprgctlr_1_read(&mut self) -> u64 {
+    pub fn trcprgctlr_1_read() -> u64 {
         Self::with_reg_val().trcprgctlr_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcprgctlr_1` field, and writes the updated value
-    pub fn trcprgctlr_1_write(&mut self, val: u64) {
+    pub fn trcprgctlr_1_write(val: u64) {
         Self::with_reg_val().trcprgctlr_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcoslsr_1` from it
-    pub fn trcoslsr_1_read(&mut self) -> u64 {
+    pub fn trcoslsr_1_read() -> u64 {
         Self::with_reg_val().trcoslsr_1_extract()
     }
 
@@ -397,7 +397,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcoslsr_1` field, and writes the updated value
-    pub fn trcoslsr_1_write(&mut self, val: u64) {
+    pub fn trcoslsr_1_write(val: u64) {
         Self::with_reg_val().trcoslsr_1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcimspecn_1` from it
-    pub fn trcimspecn_1_read(&mut self) -> u64 {
+    pub fn trcimspecn_1_read() -> u64 {
         Self::with_reg_val().trcimspecn_1_extract()
     }
 
@@ -426,7 +426,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcimspecn_1` field, and writes the updated value
-    pub fn trcimspecn_1_write(&mut self, val: u64) {
+    pub fn trcimspecn_1_write(val: u64) {
         Self::with_reg_val().trcimspecn_1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcid_1` from it
-    pub fn trcid_1_read(&mut self) -> u64 {
+    pub fn trcid_1_read() -> u64 {
         Self::with_reg_val().trcid_1_extract()
     }
 
@@ -455,7 +455,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcid_1` field, and writes the updated value
-    pub fn trcid_1_write(&mut self, val: u64) {
+    pub fn trcid_1_write(val: u64) {
         Self::with_reg_val().trcid_1_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trccntvrn_1` from it
-    pub fn trccntvrn_1_read(&mut self) -> u64 {
+    pub fn trccntvrn_1_read() -> u64 {
         Self::with_reg_val().trccntvrn_1_extract()
     }
 
@@ -484,7 +484,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trccntvrn_1` field, and writes the updated value
-    pub fn trccntvrn_1_write(&mut self, val: u64) {
+    pub fn trccntvrn_1_write(val: u64) {
         Self::with_reg_val().trccntvrn_1_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcclaim_1` from it
-    pub fn trcclaim_1_read(&mut self) -> u64 {
+    pub fn trcclaim_1_read() -> u64 {
         Self::with_reg_val().trcclaim_1_extract()
     }
 
@@ -513,7 +513,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcclaim_1` field, and writes the updated value
-    pub fn trcclaim_1_write(&mut self, val: u64) {
+    pub fn trcclaim_1_write(val: u64) {
         Self::with_reg_val().trcclaim_1_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcauxctlr_1` from it
-    pub fn trcauxctlr_1_read(&mut self) -> u64 {
+    pub fn trcauxctlr_1_read() -> u64 {
         Self::with_reg_val().trcauxctlr_1_extract()
     }
 
@@ -542,7 +542,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcauxctlr_1` field, and writes the updated value
-    pub fn trcauxctlr_1_write(&mut self, val: u64) {
+    pub fn trcauxctlr_1_write(val: u64) {
         Self::with_reg_val().trcauxctlr_1_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trcauthstatus_1` from it
-    pub fn trcauthstatus_1_read(&mut self) -> u64 {
+    pub fn trcauthstatus_1_read() -> u64 {
         Self::with_reg_val().trcauthstatus_1_extract()
     }
 
@@ -571,7 +571,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trcauthstatus_1` field, and writes the updated value
-    pub fn trcauthstatus_1_write(&mut self, val: u64) {
+    pub fn trcauthstatus_1_write(val: u64) {
         Self::with_reg_val().trcauthstatus_1_insert(val).write();
     }
 
@@ -588,7 +588,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `trc_1` from it
-    pub fn trc_1_read(&mut self) -> u64 {
+    pub fn trc_1_read() -> u64 {
         Self::with_reg_val().trc_1_extract()
     }
 
@@ -600,7 +600,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `trc_1` field, and writes the updated value
-    pub fn trc_1_write(&mut self, val: u64) {
+    pub fn trc_1_write(val: u64) {
         Self::with_reg_val().trc_1_insert(val).write();
     }
 
@@ -617,7 +617,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmslatfr_el1_1` from it
-    pub fn pmslatfr_el1_1_read(&mut self) -> u64 {
+    pub fn pmslatfr_el1_1_read() -> u64 {
         Self::with_reg_val().pmslatfr_el1_1_extract()
     }
 
@@ -629,7 +629,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmslatfr_el1_1` field, and writes the updated value
-    pub fn pmslatfr_el1_1_write(&mut self, val: u64) {
+    pub fn pmslatfr_el1_1_write(val: u64) {
         Self::with_reg_val().pmslatfr_el1_1_insert(val).write();
     }
 
@@ -646,7 +646,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmsirr_el1_1` from it
-    pub fn pmsirr_el1_1_read(&mut self) -> u64 {
+    pub fn pmsirr_el1_1_read() -> u64 {
         Self::with_reg_val().pmsirr_el1_1_extract()
     }
 
@@ -658,7 +658,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmsirr_el1_1` field, and writes the updated value
-    pub fn pmsirr_el1_1_write(&mut self, val: u64) {
+    pub fn pmsirr_el1_1_write(val: u64) {
         Self::with_reg_val().pmsirr_el1_1_insert(val).write();
     }
 
@@ -675,7 +675,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmsidr_el1_1` from it
-    pub fn pmsidr_el1_1_read(&mut self) -> u64 {
+    pub fn pmsidr_el1_1_read() -> u64 {
         Self::with_reg_val().pmsidr_el1_1_extract()
     }
 
@@ -687,7 +687,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmsidr_el1_1` field, and writes the updated value
-    pub fn pmsidr_el1_1_write(&mut self, val: u64) {
+    pub fn pmsidr_el1_1_write(val: u64) {
         Self::with_reg_val().pmsidr_el1_1_insert(val).write();
     }
 
@@ -704,7 +704,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmsicr_el1_1` from it
-    pub fn pmsicr_el1_1_read(&mut self) -> u64 {
+    pub fn pmsicr_el1_1_read() -> u64 {
         Self::with_reg_val().pmsicr_el1_1_extract()
     }
 
@@ -716,7 +716,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmsicr_el1_1` field, and writes the updated value
-    pub fn pmsicr_el1_1_write(&mut self, val: u64) {
+    pub fn pmsicr_el1_1_write(val: u64) {
         Self::with_reg_val().pmsicr_el1_1_insert(val).write();
     }
 
@@ -733,7 +733,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmsfcr_el1_1` from it
-    pub fn pmsfcr_el1_1_read(&mut self) -> u64 {
+    pub fn pmsfcr_el1_1_read() -> u64 {
         Self::with_reg_val().pmsfcr_el1_1_extract()
     }
 
@@ -745,7 +745,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmsfcr_el1_1` field, and writes the updated value
-    pub fn pmsfcr_el1_1_write(&mut self, val: u64) {
+    pub fn pmsfcr_el1_1_write(val: u64) {
         Self::with_reg_val().pmsfcr_el1_1_insert(val).write();
     }
 
@@ -762,7 +762,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmsevfr_el1_1` from it
-    pub fn pmsevfr_el1_1_read(&mut self) -> u64 {
+    pub fn pmsevfr_el1_1_read() -> u64 {
         Self::with_reg_val().pmsevfr_el1_1_extract()
     }
 
@@ -774,7 +774,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmsevfr_el1_1` field, and writes the updated value
-    pub fn pmsevfr_el1_1_write(&mut self, val: u64) {
+    pub fn pmsevfr_el1_1_write(val: u64) {
         Self::with_reg_val().pmsevfr_el1_1_insert(val).write();
     }
 
@@ -791,7 +791,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmscr_el1_1` from it
-    pub fn pmscr_el1_1_read(&mut self) -> u64 {
+    pub fn pmscr_el1_1_read() -> u64 {
         Self::with_reg_val().pmscr_el1_1_extract()
     }
 
@@ -803,7 +803,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmscr_el1_1` field, and writes the updated value
-    pub fn pmscr_el1_1_write(&mut self, val: u64) {
+    pub fn pmscr_el1_1_write(val: u64) {
         Self::with_reg_val().pmscr_el1_1_insert(val).write();
     }
 
@@ -820,7 +820,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmbsr_el1_1` from it
-    pub fn pmbsr_el1_1_read(&mut self) -> u64 {
+    pub fn pmbsr_el1_1_read() -> u64 {
         Self::with_reg_val().pmbsr_el1_1_extract()
     }
 
@@ -832,7 +832,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmbsr_el1_1` field, and writes the updated value
-    pub fn pmbsr_el1_1_write(&mut self, val: u64) {
+    pub fn pmbsr_el1_1_write(val: u64) {
         Self::with_reg_val().pmbsr_el1_1_insert(val).write();
     }
 
@@ -849,7 +849,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmbptr_el1_1` from it
-    pub fn pmbptr_el1_1_read(&mut self) -> u64 {
+    pub fn pmbptr_el1_1_read() -> u64 {
         Self::with_reg_val().pmbptr_el1_1_extract()
     }
 
@@ -861,7 +861,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmbptr_el1_1` field, and writes the updated value
-    pub fn pmbptr_el1_1_write(&mut self, val: u64) {
+    pub fn pmbptr_el1_1_write(val: u64) {
         Self::with_reg_val().pmbptr_el1_1_insert(val).write();
     }
 
@@ -878,7 +878,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmblimitr_el1_1` from it
-    pub fn pmblimitr_el1_1_read(&mut self) -> u64 {
+    pub fn pmblimitr_el1_1_read() -> u64 {
         Self::with_reg_val().pmblimitr_el1_1_extract()
     }
 
@@ -890,7 +890,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmblimitr_el1_1` field, and writes the updated value
-    pub fn pmblimitr_el1_1_write(&mut self, val: u64) {
+    pub fn pmblimitr_el1_1_write(val: u64) {
         Self::with_reg_val().pmblimitr_el1_1_insert(val).write();
     }
 
@@ -907,7 +907,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmmir_el1_1` from it
-    pub fn pmmir_el1_1_read(&mut self) -> u64 {
+    pub fn pmmir_el1_1_read() -> u64 {
         Self::with_reg_val().pmmir_el1_1_extract()
     }
 
@@ -919,7 +919,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmmir_el1_1` field, and writes the updated value
-    pub fn pmmir_el1_1_write(&mut self, val: u64) {
+    pub fn pmmir_el1_1_write(val: u64) {
         Self::with_reg_val().pmmir_el1_1_insert(val).write();
     }
 
@@ -936,7 +936,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmselr_el0_1` from it
-    pub fn pmselr_el0_1_read(&mut self) -> u64 {
+    pub fn pmselr_el0_1_read() -> u64 {
         Self::with_reg_val().pmselr_el0_1_extract()
     }
 
@@ -948,7 +948,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmselr_el0_1` field, and writes the updated value
-    pub fn pmselr_el0_1_write(&mut self, val: u64) {
+    pub fn pmselr_el0_1_write(val: u64) {
         Self::with_reg_val().pmselr_el0_1_insert(val).write();
     }
 
@@ -965,7 +965,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmovs_1` from it
-    pub fn pmovs_1_read(&mut self) -> u64 {
+    pub fn pmovs_1_read() -> u64 {
         Self::with_reg_val().pmovs_1_extract()
     }
 
@@ -977,7 +977,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmovs_1` field, and writes the updated value
-    pub fn pmovs_1_write(&mut self, val: u64) {
+    pub fn pmovs_1_write(val: u64) {
         Self::with_reg_val().pmovs_1_insert(val).write();
     }
 
@@ -994,7 +994,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pminten_1` from it
-    pub fn pminten_1_read(&mut self) -> u64 {
+    pub fn pminten_1_read() -> u64 {
         Self::with_reg_val().pminten_1_extract()
     }
 
@@ -1006,7 +1006,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pminten_1` field, and writes the updated value
-    pub fn pminten_1_write(&mut self, val: u64) {
+    pub fn pminten_1_write(val: u64) {
         Self::with_reg_val().pminten_1_insert(val).write();
     }
 
@@ -1023,7 +1023,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmcnten_1` from it
-    pub fn pmcnten_1_read(&mut self) -> u64 {
+    pub fn pmcnten_1_read() -> u64 {
         Self::with_reg_val().pmcnten_1_extract()
     }
 
@@ -1035,7 +1035,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmcnten_1` field, and writes the updated value
-    pub fn pmcnten_1_write(&mut self, val: u64) {
+    pub fn pmcnten_1_write(val: u64) {
         Self::with_reg_val().pmcnten_1_insert(val).write();
     }
 
@@ -1052,7 +1052,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmccntr_el0_1` from it
-    pub fn pmccntr_el0_1_read(&mut self) -> u64 {
+    pub fn pmccntr_el0_1_read() -> u64 {
         Self::with_reg_val().pmccntr_el0_1_extract()
     }
 
@@ -1064,7 +1064,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmccntr_el0_1` field, and writes the updated value
-    pub fn pmccntr_el0_1_write(&mut self, val: u64) {
+    pub fn pmccntr_el0_1_write(val: u64) {
         Self::with_reg_val().pmccntr_el0_1_insert(val).write();
     }
 
@@ -1081,7 +1081,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmccfiltr_el0_1` from it
-    pub fn pmccfiltr_el0_1_read(&mut self) -> u64 {
+    pub fn pmccfiltr_el0_1_read() -> u64 {
         Self::with_reg_val().pmccfiltr_el0_1_extract()
     }
 
@@ -1093,7 +1093,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmccfiltr_el0_1` field, and writes the updated value
-    pub fn pmccfiltr_el0_1_write(&mut self, val: u64) {
+    pub fn pmccfiltr_el0_1_write(val: u64) {
         Self::with_reg_val().pmccfiltr_el0_1_insert(val).write();
     }
 
@@ -1110,7 +1110,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmevtypern_el0_1` from it
-    pub fn pmevtypern_el0_1_read(&mut self) -> u64 {
+    pub fn pmevtypern_el0_1_read() -> u64 {
         Self::with_reg_val().pmevtypern_el0_1_extract()
     }
 
@@ -1122,7 +1122,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmevtypern_el0_1` field, and writes the updated value
-    pub fn pmevtypern_el0_1_write(&mut self, val: u64) {
+    pub fn pmevtypern_el0_1_write(val: u64) {
         Self::with_reg_val().pmevtypern_el0_1_insert(val).write();
     }
 
@@ -1139,7 +1139,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `pmevcntrn_el0_1` from it
-    pub fn pmevcntrn_el0_1_read(&mut self) -> u64 {
+    pub fn pmevcntrn_el0_1_read() -> u64 {
         Self::with_reg_val().pmevcntrn_el0_1_extract()
     }
 
@@ -1151,7 +1151,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `pmevcntrn_el0_1` field, and writes the updated value
-    pub fn pmevcntrn_el0_1_write(&mut self, val: u64) {
+    pub fn pmevcntrn_el0_1_write(val: u64) {
         Self::with_reg_val().pmevcntrn_el0_1_insert(val).write();
     }
 
@@ -1168,7 +1168,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `osdlr_el1_1` from it
-    pub fn osdlr_el1_1_read(&mut self) -> u64 {
+    pub fn osdlr_el1_1_read() -> u64 {
         Self::with_reg_val().osdlr_el1_1_extract()
     }
 
@@ -1180,7 +1180,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `osdlr_el1_1` field, and writes the updated value
-    pub fn osdlr_el1_1_write(&mut self, val: u64) {
+    pub fn osdlr_el1_1_write(val: u64) {
         Self::with_reg_val().osdlr_el1_1_insert(val).write();
     }
 
@@ -1197,7 +1197,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `oseccr_el1` from it
-    pub fn oseccr_el1_read(&mut self) -> u64 {
+    pub fn oseccr_el1_read() -> u64 {
         Self::with_reg_val().oseccr_el1_extract()
     }
 
@@ -1209,7 +1209,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `oseccr_el1` field, and writes the updated value
-    pub fn oseccr_el1_write(&mut self, val: u64) {
+    pub fn oseccr_el1_write(val: u64) {
         Self::with_reg_val().oseccr_el1_insert(val).write();
     }
 
@@ -1226,7 +1226,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `oslsr_el1` from it
-    pub fn oslsr_el1_read(&mut self) -> u64 {
+    pub fn oslsr_el1_read() -> u64 {
         Self::with_reg_val().oslsr_el1_extract()
     }
 
@@ -1238,7 +1238,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `oslsr_el1` field, and writes the updated value
-    pub fn oslsr_el1_write(&mut self, val: u64) {
+    pub fn oslsr_el1_write(val: u64) {
         Self::with_reg_val().oslsr_el1_insert(val).write();
     }
 
@@ -1255,7 +1255,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgprcr_el1` from it
-    pub fn dbgprcr_el1_read(&mut self) -> u64 {
+    pub fn dbgprcr_el1_read() -> u64 {
         Self::with_reg_val().dbgprcr_el1_extract()
     }
 
@@ -1267,7 +1267,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgprcr_el1` field, and writes the updated value
-    pub fn dbgprcr_el1_write(&mut self, val: u64) {
+    pub fn dbgprcr_el1_write(val: u64) {
         Self::with_reg_val().dbgprcr_el1_insert(val).write();
     }
 
@@ -1284,7 +1284,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgauthstatus_el1` from it
-    pub fn dbgauthstatus_el1_read(&mut self) -> u64 {
+    pub fn dbgauthstatus_el1_read() -> u64 {
         Self::with_reg_val().dbgauthstatus_el1_extract()
     }
 
@@ -1296,7 +1296,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgauthstatus_el1` field, and writes the updated value
-    pub fn dbgauthstatus_el1_write(&mut self, val: u64) {
+    pub fn dbgauthstatus_el1_write(val: u64) {
         Self::with_reg_val().dbgauthstatus_el1_insert(val).write();
     }
 
@@ -1313,7 +1313,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgclaim` from it
-    pub fn dbgclaim_read(&mut self) -> u64 {
+    pub fn dbgclaim_read() -> u64 {
         Self::with_reg_val().dbgclaim_extract()
     }
 
@@ -1325,7 +1325,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgclaim` field, and writes the updated value
-    pub fn dbgclaim_write(&mut self, val: u64) {
+    pub fn dbgclaim_write(val: u64) {
         Self::with_reg_val().dbgclaim_insert(val).write();
     }
 
@@ -1342,7 +1342,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `mdscr_el1` from it
-    pub fn mdscr_el1_read(&mut self) -> u64 {
+    pub fn mdscr_el1_read() -> u64 {
         Self::with_reg_val().mdscr_el1_extract()
     }
 
@@ -1354,7 +1354,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `mdscr_el1` field, and writes the updated value
-    pub fn mdscr_el1_write(&mut self, val: u64) {
+    pub fn mdscr_el1_write(val: u64) {
         Self::with_reg_val().mdscr_el1_insert(val).write();
     }
 
@@ -1371,7 +1371,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgwvrn_el1` from it
-    pub fn dbgwvrn_el1_read(&mut self) -> u64 {
+    pub fn dbgwvrn_el1_read() -> u64 {
         Self::with_reg_val().dbgwvrn_el1_extract()
     }
 
@@ -1383,7 +1383,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgwvrn_el1` field, and writes the updated value
-    pub fn dbgwvrn_el1_write(&mut self, val: u64) {
+    pub fn dbgwvrn_el1_write(val: u64) {
         Self::with_reg_val().dbgwvrn_el1_insert(val).write();
     }
 
@@ -1400,7 +1400,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgwcrn_el1` from it
-    pub fn dbgwcrn_el1_read(&mut self) -> u64 {
+    pub fn dbgwcrn_el1_read() -> u64 {
         Self::with_reg_val().dbgwcrn_el1_extract()
     }
 
@@ -1412,7 +1412,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgwcrn_el1` field, and writes the updated value
-    pub fn dbgwcrn_el1_write(&mut self, val: u64) {
+    pub fn dbgwcrn_el1_write(val: u64) {
         Self::with_reg_val().dbgwcrn_el1_insert(val).write();
     }
 
@@ -1429,7 +1429,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgbvrn_el1` from it
-    pub fn dbgbvrn_el1_read(&mut self) -> u64 {
+    pub fn dbgbvrn_el1_read() -> u64 {
         Self::with_reg_val().dbgbvrn_el1_extract()
     }
 
@@ -1441,7 +1441,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgbvrn_el1` field, and writes the updated value
-    pub fn dbgbvrn_el1_write(&mut self, val: u64) {
+    pub fn dbgbvrn_el1_write(val: u64) {
         Self::with_reg_val().dbgbvrn_el1_insert(val).write();
     }
 
@@ -1458,7 +1458,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the current register value and extract field `dbgbcrn_el1` from it
-    pub fn dbgbcrn_el1_read(&mut self) -> u64 {
+    pub fn dbgbcrn_el1_read() -> u64 {
         Self::with_reg_val().dbgbcrn_el1_extract()
     }
 
@@ -1470,7 +1470,7 @@ impl HdfgrtrEl2 {
     }
 
     /// reads the register, updates the `dbgbcrn_el1` field, and writes the updated value
-    pub fn dbgbcrn_el1_write(&mut self, val: u64) {
+    pub fn dbgbcrn_el1_write(val: u64) {
         Self::with_reg_val().dbgbcrn_el1_insert(val).write();
     }
 

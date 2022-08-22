@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.101906
+ * Generated on: 2022-08-22T16:35:53.083442
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl VpidrEl2 {
     }
 
     /// reads the current register value and extract field `implementer` from it
-    pub fn implementer_read(&mut self) -> u64 {
+    pub fn implementer_read() -> u64 {
         Self::with_reg_val().implementer_extract()
     }
 
@@ -165,7 +165,7 @@ impl VpidrEl2 {
     }
 
     /// reads the register, updates the `implementer` field, and writes the updated value
-    pub fn implementer_write(&mut self, val: u64) {
+    pub fn implementer_write(val: u64) {
         Self::with_reg_val().implementer_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl VpidrEl2 {
     }
 
     /// reads the current register value and extract field `variant` from it
-    pub fn variant_read(&mut self) -> u64 {
+    pub fn variant_read() -> u64 {
         Self::with_reg_val().variant_extract()
     }
 
@@ -194,7 +194,7 @@ impl VpidrEl2 {
     }
 
     /// reads the register, updates the `variant` field, and writes the updated value
-    pub fn variant_write(&mut self, val: u64) {
+    pub fn variant_write(val: u64) {
         Self::with_reg_val().variant_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl VpidrEl2 {
     }
 
     /// reads the current register value and extract field `architecture` from it
-    pub fn architecture_read(&mut self) -> u64 {
+    pub fn architecture_read() -> u64 {
         Self::with_reg_val().architecture_extract()
     }
 
@@ -223,7 +223,7 @@ impl VpidrEl2 {
     }
 
     /// reads the register, updates the `architecture` field, and writes the updated value
-    pub fn architecture_write(&mut self, val: u64) {
+    pub fn architecture_write(val: u64) {
         Self::with_reg_val().architecture_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl VpidrEl2 {
     }
 
     /// reads the current register value and extract field `partnum` from it
-    pub fn partnum_read(&mut self) -> u64 {
+    pub fn partnum_read() -> u64 {
         Self::with_reg_val().partnum_extract()
     }
 
@@ -252,7 +252,7 @@ impl VpidrEl2 {
     }
 
     /// reads the register, updates the `partnum` field, and writes the updated value
-    pub fn partnum_write(&mut self, val: u64) {
+    pub fn partnum_write(val: u64) {
         Self::with_reg_val().partnum_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl VpidrEl2 {
     }
 
     /// reads the current register value and extract field `revision` from it
-    pub fn revision_read(&mut self) -> u64 {
+    pub fn revision_read() -> u64 {
         Self::with_reg_val().revision_extract()
     }
 
@@ -281,7 +281,7 @@ impl VpidrEl2 {
     }
 
     /// reads the register, updates the `revision` field, and writes the updated value
-    pub fn revision_write(&mut self, val: u64) {
+    pub fn revision_write(val: u64) {
         Self::with_reg_val().revision_insert(val).write();
     }
 

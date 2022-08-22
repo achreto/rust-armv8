@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.067720
+ * Generated on: 2022-08-22T16:35:53.048304
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl Amcg1idrEl0 {
     }
 
     /// reads the current register value and extract field `amevcntoff1n_el2` from it
-    pub fn amevcntoff1n_el2_read(&mut self) -> u64 {
+    pub fn amevcntoff1n_el2_read() -> u64 {
         Self::with_reg_val().amevcntoff1n_el2_extract()
     }
 // no insert() method for field amevcntoff1n_el2
@@ -155,7 +155,7 @@ impl Amcg1idrEl0 {
     }
 
     /// reads the current register value and extract field `amevcntr1n_el0` from it
-    pub fn amevcntr1n_el0_read(&mut self) -> u64 {
+    pub fn amevcntr1n_el0_read() -> u64 {
         Self::with_reg_val().amevcntr1n_el0_extract()
     }
 // no insert() method for field amevcntr1n_el0

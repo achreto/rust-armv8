@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.083753
+ * Generated on: 2022-08-22T16:35:53.065010
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `mtpmu` from it
-    pub fn mtpmu_read(&mut self) -> u64 {
+    pub fn mtpmu_read() -> u64 {
         Self::with_reg_val().mtpmu_extract()
     }
 // no insert() method for field mtpmu
@@ -155,7 +155,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `tracefilt` from it
-    pub fn tracefilt_read(&mut self) -> u64 {
+    pub fn tracefilt_read() -> u64 {
         Self::with_reg_val().tracefilt_extract()
     }
 // no insert() method for field tracefilt
@@ -172,7 +172,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `doublelock` from it
-    pub fn doublelock_read(&mut self) -> u64 {
+    pub fn doublelock_read() -> u64 {
         Self::with_reg_val().doublelock_extract()
     }
 // no insert() method for field doublelock
@@ -189,7 +189,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `pmsver` from it
-    pub fn pmsver_read(&mut self) -> u64 {
+    pub fn pmsver_read() -> u64 {
         Self::with_reg_val().pmsver_extract()
     }
 // no insert() method for field pmsver
@@ -206,7 +206,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `ctx_cmps` from it
-    pub fn ctx_cmps_read(&mut self) -> u64 {
+    pub fn ctx_cmps_read() -> u64 {
         Self::with_reg_val().ctx_cmps_extract()
     }
 // no insert() method for field ctx_cmps
@@ -223,7 +223,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `wrps` from it
-    pub fn wrps_read(&mut self) -> u64 {
+    pub fn wrps_read() -> u64 {
         Self::with_reg_val().wrps_extract()
     }
 // no insert() method for field wrps
@@ -240,7 +240,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `brps` from it
-    pub fn brps_read(&mut self) -> u64 {
+    pub fn brps_read() -> u64 {
         Self::with_reg_val().brps_extract()
     }
 // no insert() method for field brps
@@ -257,7 +257,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `pmuver` from it
-    pub fn pmuver_read(&mut self) -> u64 {
+    pub fn pmuver_read() -> u64 {
         Self::with_reg_val().pmuver_extract()
     }
 // no insert() method for field pmuver
@@ -274,7 +274,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `tracever` from it
-    pub fn tracever_read(&mut self) -> u64 {
+    pub fn tracever_read() -> u64 {
         Self::with_reg_val().tracever_extract()
     }
 // no insert() method for field tracever
@@ -291,7 +291,7 @@ impl IdAa64dfr0El1 {
     }
 
     /// reads the current register value and extract field `debugver` from it
-    pub fn debugver_read(&mut self) -> u64 {
+    pub fn debugver_read() -> u64 {
         Self::with_reg_val().debugver_extract()
     }
 // no insert() method for field debugver

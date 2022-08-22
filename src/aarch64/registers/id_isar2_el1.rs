@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085447
+ * Generated on: 2022-08-22T16:35:53.066662
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `reversal` from it
-    pub fn reversal_read(&mut self) -> u64 {
+    pub fn reversal_read() -> u64 {
         Self::with_reg_val().reversal_extract()
     }
 // no insert() method for field reversal
@@ -155,7 +155,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `psr_ar` from it
-    pub fn psr_ar_read(&mut self) -> u64 {
+    pub fn psr_ar_read() -> u64 {
         Self::with_reg_val().psr_ar_extract()
     }
 // no insert() method for field psr_ar
@@ -172,7 +172,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `multu` from it
-    pub fn multu_read(&mut self) -> u64 {
+    pub fn multu_read() -> u64 {
         Self::with_reg_val().multu_extract()
     }
 // no insert() method for field multu
@@ -189,7 +189,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `mults` from it
-    pub fn mults_read(&mut self) -> u64 {
+    pub fn mults_read() -> u64 {
         Self::with_reg_val().mults_extract()
     }
 // no insert() method for field mults
@@ -206,7 +206,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `mult` from it
-    pub fn mult_read(&mut self) -> u64 {
+    pub fn mult_read() -> u64 {
         Self::with_reg_val().mult_extract()
     }
 // no insert() method for field mult
@@ -223,7 +223,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `multiaccessint` from it
-    pub fn multiaccessint_read(&mut self) -> u64 {
+    pub fn multiaccessint_read() -> u64 {
         Self::with_reg_val().multiaccessint_extract()
     }
 // no insert() method for field multiaccessint
@@ -240,7 +240,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `memhint` from it
-    pub fn memhint_read(&mut self) -> u64 {
+    pub fn memhint_read() -> u64 {
         Self::with_reg_val().memhint_extract()
     }
 // no insert() method for field memhint
@@ -257,7 +257,7 @@ impl IdIsar2El1 {
     }
 
     /// reads the current register value and extract field `loadstore` from it
-    pub fn loadstore_read(&mut self) -> u64 {
+    pub fn loadstore_read() -> u64 {
         Self::with_reg_val().loadstore_extract()
     }
 // no insert() method for field loadstore

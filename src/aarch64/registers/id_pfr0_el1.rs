@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086541
+ * Generated on: 2022-08-22T16:35:53.067775
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `ras` from it
-    pub fn ras_read(&mut self) -> u64 {
+    pub fn ras_read() -> u64 {
         Self::with_reg_val().ras_extract()
     }
 // no insert() method for field ras
@@ -155,7 +155,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `dit` from it
-    pub fn dit_read(&mut self) -> u64 {
+    pub fn dit_read() -> u64 {
         Self::with_reg_val().dit_extract()
     }
 // no insert() method for field dit
@@ -172,7 +172,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `amu` from it
-    pub fn amu_read(&mut self) -> u64 {
+    pub fn amu_read() -> u64 {
         Self::with_reg_val().amu_extract()
     }
 // no insert() method for field amu
@@ -189,7 +189,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `csv2` from it
-    pub fn csv2_read(&mut self) -> u64 {
+    pub fn csv2_read() -> u64 {
         Self::with_reg_val().csv2_extract()
     }
 // no insert() method for field csv2
@@ -206,7 +206,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `state3` from it
-    pub fn state3_read(&mut self) -> u64 {
+    pub fn state3_read() -> u64 {
         Self::with_reg_val().state3_extract()
     }
 // no insert() method for field state3
@@ -223,7 +223,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `state2` from it
-    pub fn state2_read(&mut self) -> u64 {
+    pub fn state2_read() -> u64 {
         Self::with_reg_val().state2_extract()
     }
 // no insert() method for field state2
@@ -240,7 +240,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `state1` from it
-    pub fn state1_read(&mut self) -> u64 {
+    pub fn state1_read() -> u64 {
         Self::with_reg_val().state1_extract()
     }
 // no insert() method for field state1
@@ -257,7 +257,7 @@ impl IdPfr0El1 {
     }
 
     /// reads the current register value and extract field `state0` from it
-    pub fn state0_read(&mut self) -> u64 {
+    pub fn state0_read() -> u64 {
         Self::with_reg_val().state0_extract()
     }
 // no insert() method for field state0

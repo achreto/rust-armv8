@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.101703
+ * Generated on: 2022-08-22T16:35:53.083240
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `aff3` from it
-    pub fn aff3_read(&mut self) -> u64 {
+    pub fn aff3_read() -> u64 {
         Self::with_reg_val().aff3_extract()
     }
 
@@ -165,7 +165,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `aff3` field, and writes the updated value
-    pub fn aff3_write(&mut self, val: u64) {
+    pub fn aff3_write(val: u64) {
         Self::with_reg_val().aff3_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `u` from it
-    pub fn u_read(&mut self) -> u64 {
+    pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
 
@@ -194,7 +194,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `u` field, and writes the updated value
-    pub fn u_write(&mut self, val: u64) {
+    pub fn u_write(val: u64) {
         Self::with_reg_val().u_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `mt` from it
-    pub fn mt_read(&mut self) -> u64 {
+    pub fn mt_read() -> u64 {
         Self::with_reg_val().mt_extract()
     }
 
@@ -223,7 +223,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `mt` field, and writes the updated value
-    pub fn mt_write(&mut self, val: u64) {
+    pub fn mt_write(val: u64) {
         Self::with_reg_val().mt_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `aff2` from it
-    pub fn aff2_read(&mut self) -> u64 {
+    pub fn aff2_read() -> u64 {
         Self::with_reg_val().aff2_extract()
     }
 
@@ -252,7 +252,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `aff2` field, and writes the updated value
-    pub fn aff2_write(&mut self, val: u64) {
+    pub fn aff2_write(val: u64) {
         Self::with_reg_val().aff2_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `aff1` from it
-    pub fn aff1_read(&mut self) -> u64 {
+    pub fn aff1_read() -> u64 {
         Self::with_reg_val().aff1_extract()
     }
 
@@ -281,7 +281,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `aff1` field, and writes the updated value
-    pub fn aff1_write(&mut self, val: u64) {
+    pub fn aff1_write(val: u64) {
         Self::with_reg_val().aff1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the current register value and extract field `aff0` from it
-    pub fn aff0_read(&mut self) -> u64 {
+    pub fn aff0_read() -> u64 {
         Self::with_reg_val().aff0_extract()
     }
 
@@ -310,7 +310,7 @@ impl VmpidrEl2 {
     }
 
     /// reads the register, updates the `aff0` field, and writes the updated value
-    pub fn aff0_write(&mut self, val: u64) {
+    pub fn aff0_write(val: u64) {
         Self::with_reg_val().aff0_insert(val).write();
     }
 

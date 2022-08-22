@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.092314
+ * Generated on: 2022-08-22T16:35:53.073884
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `fzs_1` from it
-    pub fn fzs_1_read(&mut self) -> u64 {
+    pub fn fzs_1_read() -> u64 {
         Self::with_reg_val().fzs_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `fzs_1` field, and writes the updated value
-    pub fn fzs_1_write(&mut self, val: u64) {
+    pub fn fzs_1_write(val: u64) {
         Self::with_reg_val().fzs_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `imp_1` from it
-    pub fn imp_1_read(&mut self) -> u64 {
+    pub fn imp_1_read() -> u64 {
         Self::with_reg_val().imp_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `imp_1` field, and writes the updated value
-    pub fn imp_1_write(&mut self, val: u64) {
+    pub fn imp_1_write(val: u64) {
         Self::with_reg_val().imp_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `idcode_1` from it
-    pub fn idcode_1_read(&mut self) -> u64 {
+    pub fn idcode_1_read() -> u64 {
         Self::with_reg_val().idcode_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `idcode_1` field, and writes the updated value
-    pub fn idcode_1_write(&mut self, val: u64) {
+    pub fn idcode_1_write(val: u64) {
         Self::with_reg_val().idcode_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `n` from it
-    pub fn n_read(&mut self) -> u64 {
+    pub fn n_read() -> u64 {
         Self::with_reg_val().n_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `n` field, and writes the updated value
-    pub fn n_write(&mut self, val: u64) {
+    pub fn n_write(val: u64) {
         Self::with_reg_val().n_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `fzo_1` from it
-    pub fn fzo_1_read(&mut self) -> u64 {
+    pub fn fzo_1_read() -> u64 {
         Self::with_reg_val().fzo_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `fzo_1` field, and writes the updated value
-    pub fn fzo_1_write(&mut self, val: u64) {
+    pub fn fzo_1_write(val: u64) {
         Self::with_reg_val().fzo_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `lp_1` from it
-    pub fn lp_1_read(&mut self) -> u64 {
+    pub fn lp_1_read() -> u64 {
         Self::with_reg_val().lp_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `lp_1` field, and writes the updated value
-    pub fn lp_1_write(&mut self, val: u64) {
+    pub fn lp_1_write(val: u64) {
         Self::with_reg_val().lp_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `lc_1` from it
-    pub fn lc_1_read(&mut self) -> u64 {
+    pub fn lc_1_read() -> u64 {
         Self::with_reg_val().lc_1_extract()
     }
 
@@ -339,7 +339,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `lc_1` field, and writes the updated value
-    pub fn lc_1_write(&mut self, val: u64) {
+    pub fn lc_1_write(val: u64) {
         Self::with_reg_val().lc_1_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `dp_1` from it
-    pub fn dp_1_read(&mut self) -> u64 {
+    pub fn dp_1_read() -> u64 {
         Self::with_reg_val().dp_1_extract()
     }
 
@@ -368,7 +368,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `dp_1` field, and writes the updated value
-    pub fn dp_1_write(&mut self, val: u64) {
+    pub fn dp_1_write(val: u64) {
         Self::with_reg_val().dp_1_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `x_1` from it
-    pub fn x_1_read(&mut self) -> u64 {
+    pub fn x_1_read() -> u64 {
         Self::with_reg_val().x_1_extract()
     }
 
@@ -397,7 +397,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `x_1` field, and writes the updated value
-    pub fn x_1_write(&mut self, val: u64) {
+    pub fn x_1_write(val: u64) {
         Self::with_reg_val().x_1_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `d_1` from it
-    pub fn d_1_read(&mut self) -> u64 {
+    pub fn d_1_read() -> u64 {
         Self::with_reg_val().d_1_extract()
     }
 
@@ -426,7 +426,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `d_1` field, and writes the updated value
-    pub fn d_1_write(&mut self, val: u64) {
+    pub fn d_1_write(val: u64) {
         Self::with_reg_val().d_1_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `c` from it
-    pub fn c_read(&mut self) -> u64 {
+    pub fn c_read() -> u64 {
         Self::with_reg_val().c_extract()
     }
 
@@ -455,7 +455,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `c` field, and writes the updated value
-    pub fn c_write(&mut self, val: u64) {
+    pub fn c_write(val: u64) {
         Self::with_reg_val().c_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `p` from it
-    pub fn p_read(&mut self) -> u64 {
+    pub fn p_read() -> u64 {
         Self::with_reg_val().p_extract()
     }
 
@@ -484,7 +484,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `p` field, and writes the updated value
-    pub fn p_write(&mut self, val: u64) {
+    pub fn p_write(val: u64) {
         Self::with_reg_val().p_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl PmcrEl0 {
     }
 
     /// reads the current register value and extract field `e` from it
-    pub fn e_read(&mut self) -> u64 {
+    pub fn e_read() -> u64 {
         Self::with_reg_val().e_extract()
     }
 
@@ -513,7 +513,7 @@ impl PmcrEl0 {
     }
 
     /// reads the register, updates the `e` field, and writes the updated value
-    pub fn e_write(&mut self, val: u64) {
+    pub fn e_write(val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
 

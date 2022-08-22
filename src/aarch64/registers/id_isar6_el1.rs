@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.085866
+ * Generated on: 2022-08-22T16:35:53.067085
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `i8mm` from it
-    pub fn i8mm_read(&mut self) -> u64 {
+    pub fn i8mm_read() -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
 // no insert() method for field i8mm
@@ -155,7 +155,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `bf16` from it
-    pub fn bf16_read(&mut self) -> u64 {
+    pub fn bf16_read() -> u64 {
         Self::with_reg_val().bf16_extract()
     }
 // no insert() method for field bf16
@@ -172,7 +172,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `specres` from it
-    pub fn specres_read(&mut self) -> u64 {
+    pub fn specres_read() -> u64 {
         Self::with_reg_val().specres_extract()
     }
 // no insert() method for field specres
@@ -189,7 +189,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `sb` from it
-    pub fn sb_read(&mut self) -> u64 {
+    pub fn sb_read() -> u64 {
         Self::with_reg_val().sb_extract()
     }
 // no insert() method for field sb
@@ -206,7 +206,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `fhm` from it
-    pub fn fhm_read(&mut self) -> u64 {
+    pub fn fhm_read() -> u64 {
         Self::with_reg_val().fhm_extract()
     }
 // no insert() method for field fhm
@@ -223,7 +223,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `dp` from it
-    pub fn dp_read(&mut self) -> u64 {
+    pub fn dp_read() -> u64 {
         Self::with_reg_val().dp_extract()
     }
 // no insert() method for field dp
@@ -240,7 +240,7 @@ impl IdIsar6El1 {
     }
 
     /// reads the current register value and extract field `jscvt` from it
-    pub fn jscvt_read(&mut self) -> u64 {
+    pub fn jscvt_read() -> u64 {
         Self::with_reg_val().jscvt_extract()
     }
 // no insert() method for field jscvt

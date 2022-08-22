@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.094384
+ * Generated on: 2022-08-22T16:35:53.075981
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the current register value and extract field `er` from it
-    pub fn er_read(&mut self) -> u64 {
+    pub fn er_read() -> u64 {
         Self::with_reg_val().er_extract()
     }
 
@@ -165,7 +165,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the register, updates the `er` field, and writes the updated value
-    pub fn er_write(&mut self, val: u64) {
+    pub fn er_write(val: u64) {
         Self::with_reg_val().er_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the current register value and extract field `cr` from it
-    pub fn cr_read(&mut self) -> u64 {
+    pub fn cr_read() -> u64 {
         Self::with_reg_val().cr_extract()
     }
 
@@ -194,7 +194,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the register, updates the `cr` field, and writes the updated value
-    pub fn cr_write(&mut self, val: u64) {
+    pub fn cr_write(val: u64) {
         Self::with_reg_val().cr_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the current register value and extract field `sw` from it
-    pub fn sw_read(&mut self) -> u64 {
+    pub fn sw_read() -> u64 {
         Self::with_reg_val().sw_extract()
     }
 
@@ -223,7 +223,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the register, updates the `sw` field, and writes the updated value
-    pub fn sw_write(&mut self, val: u64) {
+    pub fn sw_write(val: u64) {
         Self::with_reg_val().sw_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the current register value and extract field `en` from it
-    pub fn en_read(&mut self) -> u64 {
+    pub fn en_read() -> u64 {
         Self::with_reg_val().en_extract()
     }
 
@@ -252,7 +252,7 @@ impl PmuserenrEl0 {
     }
 
     /// reads the register, updates the `en` field, and writes the updated value
-    pub fn en_write(&mut self, val: u64) {
+    pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
 

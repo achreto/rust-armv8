@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086165
+ * Generated on: 2022-08-22T16:35:53.067393
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `hwaccflg` from it
-    pub fn hwaccflg_read(&mut self) -> u64 {
+    pub fn hwaccflg_read() -> u64 {
         Self::with_reg_val().hwaccflg_extract()
     }
 // no insert() method for field hwaccflg
@@ -155,7 +155,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `wfistall` from it
-    pub fn wfistall_read(&mut self) -> u64 {
+    pub fn wfistall_read() -> u64 {
         Self::with_reg_val().wfistall_extract()
     }
 // no insert() method for field wfistall
@@ -172,7 +172,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `membarr` from it
-    pub fn membarr_read(&mut self) -> u64 {
+    pub fn membarr_read() -> u64 {
         Self::with_reg_val().membarr_extract()
     }
 // no insert() method for field membarr
@@ -189,7 +189,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `unitlb` from it
-    pub fn unitlb_read(&mut self) -> u64 {
+    pub fn unitlb_read() -> u64 {
         Self::with_reg_val().unitlb_extract()
     }
 // no insert() method for field unitlb
@@ -206,7 +206,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `hvdtlb` from it
-    pub fn hvdtlb_read(&mut self) -> u64 {
+    pub fn hvdtlb_read() -> u64 {
         Self::with_reg_val().hvdtlb_extract()
     }
 // no insert() method for field hvdtlb
@@ -223,7 +223,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `l1hvdrng` from it
-    pub fn l1hvdrng_read(&mut self) -> u64 {
+    pub fn l1hvdrng_read() -> u64 {
         Self::with_reg_val().l1hvdrng_extract()
     }
 // no insert() method for field l1hvdrng
@@ -240,7 +240,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `l1hvdbg` from it
-    pub fn l1hvdbg_read(&mut self) -> u64 {
+    pub fn l1hvdbg_read() -> u64 {
         Self::with_reg_val().l1hvdbg_extract()
     }
 // no insert() method for field l1hvdbg
@@ -257,7 +257,7 @@ impl IdMmfr2El1 {
     }
 
     /// reads the current register value and extract field `l1hvdfg` from it
-    pub fn l1hvdfg_read(&mut self) -> u64 {
+    pub fn l1hvdfg_read() -> u64 {
         Self::with_reg_val().l1hvdfg_extract()
     }
 // no insert() method for field l1hvdfg

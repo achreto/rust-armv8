@@ -28,10 +28,7 @@ use crate::aarch64::vm::granule4k::PAddr;
 use crate::aarch64::vm::granule4k::VAddr;
 
 use crate::aarch64::vm::descriptor_attributes::*;
-use crate::{
-    page_block_lower_attributes_impl, page_block_upper_attributes_impl,
-    table_next_level_attributes_impl,
-};
+use crate::table_next_level_attributes_impl;
 
 // VMSAv8-64 translation table level -1, level 0, level 1, and level 2 descriptor formats
 // The difference in the level -1, level 0, level 1 and level 2 VMSAv8-64 Translation Table

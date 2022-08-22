@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.090540
+ * Generated on: 2022-08-22T16:35:53.071675
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Nzcv {
     }
 
     /// reads the current register value and extract field `n` from it
-    pub fn n_read(&mut self) -> u64 {
+    pub fn n_read() -> u64 {
         Self::with_reg_val().n_extract()
     }
 
@@ -165,7 +165,7 @@ impl Nzcv {
     }
 
     /// reads the register, updates the `n` field, and writes the updated value
-    pub fn n_write(&mut self, val: u64) {
+    pub fn n_write(val: u64) {
         Self::with_reg_val().n_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Nzcv {
     }
 
     /// reads the current register value and extract field `z` from it
-    pub fn z_read(&mut self) -> u64 {
+    pub fn z_read() -> u64 {
         Self::with_reg_val().z_extract()
     }
 
@@ -194,7 +194,7 @@ impl Nzcv {
     }
 
     /// reads the register, updates the `z` field, and writes the updated value
-    pub fn z_write(&mut self, val: u64) {
+    pub fn z_write(val: u64) {
         Self::with_reg_val().z_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Nzcv {
     }
 
     /// reads the current register value and extract field `c` from it
-    pub fn c_read(&mut self) -> u64 {
+    pub fn c_read() -> u64 {
         Self::with_reg_val().c_extract()
     }
 
@@ -223,7 +223,7 @@ impl Nzcv {
     }
 
     /// reads the register, updates the `c` field, and writes the updated value
-    pub fn c_write(&mut self, val: u64) {
+    pub fn c_write(val: u64) {
         Self::with_reg_val().c_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl Nzcv {
     }
 
     /// reads the current register value and extract field `v` from it
-    pub fn v_read(&mut self) -> u64 {
+    pub fn v_read() -> u64 {
         Self::with_reg_val().v_extract()
     }
 
@@ -252,7 +252,7 @@ impl Nzcv {
     }
 
     /// reads the register, updates the `v` field, and writes the updated value
-    pub fn v_write(&mut self, val: u64) {
+    pub fn v_write(val: u64) {
         Self::with_reg_val().v_insert(val).write();
     }
 

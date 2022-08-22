@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.069382
+ * Generated on: 2022-08-22T16:35:53.050499
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `evntis_1` from it
-    pub fn evntis_1_read(&mut self) -> u64 {
+    pub fn evntis_1_read() -> u64 {
         Self::with_reg_val().evntis_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `evntis_1` field, and writes the updated value
-    pub fn evntis_1_write(&mut self, val: u64) {
+    pub fn evntis_1_write(val: u64) {
         Self::with_reg_val().evntis_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1nvvct_1` from it
-    pub fn el1nvvct_1_read(&mut self) -> u64 {
+    pub fn el1nvvct_1_read() -> u64 {
         Self::with_reg_val().el1nvvct_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1nvvct_1` field, and writes the updated value
-    pub fn el1nvvct_1_write(&mut self, val: u64) {
+    pub fn el1nvvct_1_write(val: u64) {
         Self::with_reg_val().el1nvvct_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1nvpct_1` from it
-    pub fn el1nvpct_1_read(&mut self) -> u64 {
+    pub fn el1nvpct_1_read() -> u64 {
         Self::with_reg_val().el1nvpct_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1nvpct_1` field, and writes the updated value
-    pub fn el1nvpct_1_write(&mut self, val: u64) {
+    pub fn el1nvpct_1_write(val: u64) {
         Self::with_reg_val().el1nvpct_1_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1tvct_1` from it
-    pub fn el1tvct_1_read(&mut self) -> u64 {
+    pub fn el1tvct_1_read() -> u64 {
         Self::with_reg_val().el1tvct_1_extract()
     }
 
@@ -252,7 +252,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1tvct_1` field, and writes the updated value
-    pub fn el1tvct_1_write(&mut self, val: u64) {
+    pub fn el1tvct_1_write(val: u64) {
         Self::with_reg_val().el1tvct_1_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1tvt_1` from it
-    pub fn el1tvt_1_read(&mut self) -> u64 {
+    pub fn el1tvt_1_read() -> u64 {
         Self::with_reg_val().el1tvt_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1tvt_1` field, and writes the updated value
-    pub fn el1tvt_1_write(&mut self, val: u64) {
+    pub fn el1tvt_1_write(val: u64) {
         Self::with_reg_val().el1tvt_1_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `ecv_1` from it
-    pub fn ecv_1_read(&mut self) -> u64 {
+    pub fn ecv_1_read() -> u64 {
         Self::with_reg_val().ecv_1_extract()
     }
 
@@ -310,7 +310,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `ecv_1` field, and writes the updated value
-    pub fn ecv_1_write(&mut self, val: u64) {
+    pub fn ecv_1_write(val: u64) {
         Self::with_reg_val().ecv_1_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1pten` from it
-    pub fn el1pten_read(&mut self) -> u64 {
+    pub fn el1pten_read() -> u64 {
         Self::with_reg_val().el1pten_extract()
     }
 
@@ -339,7 +339,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1pten` field, and writes the updated value
-    pub fn el1pten_write(&mut self, val: u64) {
+    pub fn el1pten_write(val: u64) {
         Self::with_reg_val().el1pten_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el1pcten` from it
-    pub fn el1pcten_read(&mut self) -> u64 {
+    pub fn el1pcten_read() -> u64 {
         Self::with_reg_val().el1pcten_extract()
     }
 
@@ -368,7 +368,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el1pcten` field, and writes the updated value
-    pub fn el1pcten_write(&mut self, val: u64) {
+    pub fn el1pcten_write(val: u64) {
         Self::with_reg_val().el1pcten_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el0pten` from it
-    pub fn el0pten_read(&mut self) -> u64 {
+    pub fn el0pten_read() -> u64 {
         Self::with_reg_val().el0pten_extract()
     }
 
@@ -397,7 +397,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el0pten` field, and writes the updated value
-    pub fn el0pten_write(&mut self, val: u64) {
+    pub fn el0pten_write(val: u64) {
         Self::with_reg_val().el0pten_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el0vten` from it
-    pub fn el0vten_read(&mut self) -> u64 {
+    pub fn el0vten_read() -> u64 {
         Self::with_reg_val().el0vten_extract()
     }
 
@@ -426,7 +426,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el0vten` field, and writes the updated value
-    pub fn el0vten_write(&mut self, val: u64) {
+    pub fn el0vten_write(val: u64) {
         Self::with_reg_val().el0vten_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `evnti` from it
-    pub fn evnti_read(&mut self) -> u64 {
+    pub fn evnti_read() -> u64 {
         Self::with_reg_val().evnti_extract()
     }
 
@@ -455,7 +455,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `evnti` field, and writes the updated value
-    pub fn evnti_write(&mut self, val: u64) {
+    pub fn evnti_write(val: u64) {
         Self::with_reg_val().evnti_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `evntdir` from it
-    pub fn evntdir_read(&mut self) -> u64 {
+    pub fn evntdir_read() -> u64 {
         Self::with_reg_val().evntdir_extract()
     }
 
@@ -484,7 +484,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `evntdir` field, and writes the updated value
-    pub fn evntdir_write(&mut self, val: u64) {
+    pub fn evntdir_write(val: u64) {
         Self::with_reg_val().evntdir_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `evnten` from it
-    pub fn evnten_read(&mut self) -> u64 {
+    pub fn evnten_read() -> u64 {
         Self::with_reg_val().evnten_extract()
     }
 
@@ -513,7 +513,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `evnten` field, and writes the updated value
-    pub fn evnten_write(&mut self, val: u64) {
+    pub fn evnten_write(val: u64) {
         Self::with_reg_val().evnten_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el0vcten` from it
-    pub fn el0vcten_read(&mut self) -> u64 {
+    pub fn el0vcten_read() -> u64 {
         Self::with_reg_val().el0vcten_extract()
     }
 
@@ -542,7 +542,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el0vcten` field, and writes the updated value
-    pub fn el0vcten_write(&mut self, val: u64) {
+    pub fn el0vcten_write(val: u64) {
         Self::with_reg_val().el0vcten_insert(val).write();
     }
 
@@ -559,7 +559,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the current register value and extract field `el0pcten` from it
-    pub fn el0pcten_read(&mut self) -> u64 {
+    pub fn el0pcten_read() -> u64 {
         Self::with_reg_val().el0pcten_extract()
     }
 
@@ -571,7 +571,7 @@ impl CnthctlEl2 {
     }
 
     /// reads the register, updates the `el0pcten` field, and writes the updated value
-    pub fn el0pcten_write(&mut self, val: u64) {
+    pub fn el0pcten_write(val: u64) {
         Self::with_reg_val().el0pcten_insert(val).write();
     }
 

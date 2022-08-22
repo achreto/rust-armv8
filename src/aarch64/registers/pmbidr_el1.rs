@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091389
+ * Generated on: 2022-08-22T16:35:53.072529
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl PmbidrEl1 {
     }
 
     /// reads the current register value and extract field `f` from it
-    pub fn f_read(&mut self) -> u64 {
+    pub fn f_read() -> u64 {
         Self::with_reg_val().f_extract()
     }
 // no insert() method for field f
@@ -155,7 +155,7 @@ impl PmbidrEl1 {
     }
 
     /// reads the current register value and extract field `p` from it
-    pub fn p_read(&mut self) -> u64 {
+    pub fn p_read() -> u64 {
         Self::with_reg_val().p_extract()
     }
 // no insert() method for field p
@@ -172,7 +172,7 @@ impl PmbidrEl1 {
     }
 
     /// reads the current register value and extract field `align` from it
-    pub fn align_read(&mut self) -> u64 {
+    pub fn align_read() -> u64 {
         Self::with_reg_val().align_extract()
     }
 // no insert() method for field align

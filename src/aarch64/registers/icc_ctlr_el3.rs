@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.079726
+ * Generated on: 2022-08-22T16:35:53.061479
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `extrange` from it
-    pub fn extrange_read(&mut self) -> u64 {
+    pub fn extrange_read() -> u64 {
         Self::with_reg_val().extrange_extract()
     }
 
@@ -165,7 +165,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `extrange` field, and writes the updated value
-    pub fn extrange_write(&mut self, val: u64) {
+    pub fn extrange_write(val: u64) {
         Self::with_reg_val().extrange_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `rss` from it
-    pub fn rss_read(&mut self) -> u64 {
+    pub fn rss_read() -> u64 {
         Self::with_reg_val().rss_extract()
     }
 
@@ -194,7 +194,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `rss` field, and writes the updated value
-    pub fn rss_write(&mut self, val: u64) {
+    pub fn rss_write(val: u64) {
         Self::with_reg_val().rss_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `nds` from it
-    pub fn nds_read(&mut self) -> u64 {
+    pub fn nds_read() -> u64 {
         Self::with_reg_val().nds_extract()
     }
 
@@ -223,7 +223,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `nds` field, and writes the updated value
-    pub fn nds_write(&mut self, val: u64) {
+    pub fn nds_write(val: u64) {
         Self::with_reg_val().nds_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `a3v` from it
-    pub fn a3v_read(&mut self) -> u64 {
+    pub fn a3v_read() -> u64 {
         Self::with_reg_val().a3v_extract()
     }
 
@@ -252,7 +252,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `a3v` field, and writes the updated value
-    pub fn a3v_write(&mut self, val: u64) {
+    pub fn a3v_write(val: u64) {
         Self::with_reg_val().a3v_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `seis` from it
-    pub fn seis_read(&mut self) -> u64 {
+    pub fn seis_read() -> u64 {
         Self::with_reg_val().seis_extract()
     }
 
@@ -281,7 +281,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `seis` field, and writes the updated value
-    pub fn seis_write(&mut self, val: u64) {
+    pub fn seis_write(val: u64) {
         Self::with_reg_val().seis_insert(val).write();
     }
 
@@ -298,7 +298,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `idbits` from it
-    pub fn idbits_read(&mut self) -> u64 {
+    pub fn idbits_read() -> u64 {
         Self::with_reg_val().idbits_extract()
     }
 
@@ -310,7 +310,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `idbits` field, and writes the updated value
-    pub fn idbits_write(&mut self, val: u64) {
+    pub fn idbits_write(val: u64) {
         Self::with_reg_val().idbits_insert(val).write();
     }
 
@@ -327,7 +327,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `pribits` from it
-    pub fn pribits_read(&mut self) -> u64 {
+    pub fn pribits_read() -> u64 {
         Self::with_reg_val().pribits_extract()
     }
 
@@ -339,7 +339,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `pribits` field, and writes the updated value
-    pub fn pribits_write(&mut self, val: u64) {
+    pub fn pribits_write(val: u64) {
         Self::with_reg_val().pribits_insert(val).write();
     }
 
@@ -356,7 +356,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `pmhe` from it
-    pub fn pmhe_read(&mut self) -> u64 {
+    pub fn pmhe_read() -> u64 {
         Self::with_reg_val().pmhe_extract()
     }
 
@@ -368,7 +368,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `pmhe` field, and writes the updated value
-    pub fn pmhe_write(&mut self, val: u64) {
+    pub fn pmhe_write(val: u64) {
         Self::with_reg_val().pmhe_insert(val).write();
     }
 
@@ -385,7 +385,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `rm` from it
-    pub fn rm_read(&mut self) -> u64 {
+    pub fn rm_read() -> u64 {
         Self::with_reg_val().rm_extract()
     }
 
@@ -397,7 +397,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `rm` field, and writes the updated value
-    pub fn rm_write(&mut self, val: u64) {
+    pub fn rm_write(val: u64) {
         Self::with_reg_val().rm_insert(val).write();
     }
 
@@ -414,7 +414,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `eoimode_el1ns` from it
-    pub fn eoimode_el1ns_read(&mut self) -> u64 {
+    pub fn eoimode_el1ns_read() -> u64 {
         Self::with_reg_val().eoimode_el1ns_extract()
     }
 
@@ -426,7 +426,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `eoimode_el1ns` field, and writes the updated value
-    pub fn eoimode_el1ns_write(&mut self, val: u64) {
+    pub fn eoimode_el1ns_write(val: u64) {
         Self::with_reg_val().eoimode_el1ns_insert(val).write();
     }
 
@@ -443,7 +443,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `eoimode_el1s` from it
-    pub fn eoimode_el1s_read(&mut self) -> u64 {
+    pub fn eoimode_el1s_read() -> u64 {
         Self::with_reg_val().eoimode_el1s_extract()
     }
 
@@ -455,7 +455,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `eoimode_el1s` field, and writes the updated value
-    pub fn eoimode_el1s_write(&mut self, val: u64) {
+    pub fn eoimode_el1s_write(val: u64) {
         Self::with_reg_val().eoimode_el1s_insert(val).write();
     }
 
@@ -472,7 +472,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `eoimode_el3` from it
-    pub fn eoimode_el3_read(&mut self) -> u64 {
+    pub fn eoimode_el3_read() -> u64 {
         Self::with_reg_val().eoimode_el3_extract()
     }
 
@@ -484,7 +484,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `eoimode_el3` field, and writes the updated value
-    pub fn eoimode_el3_write(&mut self, val: u64) {
+    pub fn eoimode_el3_write(val: u64) {
         Self::with_reg_val().eoimode_el3_insert(val).write();
     }
 
@@ -501,7 +501,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `cbpr_el1ns` from it
-    pub fn cbpr_el1ns_read(&mut self) -> u64 {
+    pub fn cbpr_el1ns_read() -> u64 {
         Self::with_reg_val().cbpr_el1ns_extract()
     }
 
@@ -513,7 +513,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `cbpr_el1ns` field, and writes the updated value
-    pub fn cbpr_el1ns_write(&mut self, val: u64) {
+    pub fn cbpr_el1ns_write(val: u64) {
         Self::with_reg_val().cbpr_el1ns_insert(val).write();
     }
 
@@ -530,7 +530,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the current register value and extract field `cbpr_el1s` from it
-    pub fn cbpr_el1s_read(&mut self) -> u64 {
+    pub fn cbpr_el1s_read() -> u64 {
         Self::with_reg_val().cbpr_el1s_extract()
     }
 
@@ -542,7 +542,7 @@ impl IccCtlrEl3 {
     }
 
     /// reads the register, updates the `cbpr_el1s` field, and writes the updated value
-    pub fn cbpr_el1s_write(&mut self, val: u64) {
+    pub fn cbpr_el1s_write(val: u64) {
         Self::with_reg_val().cbpr_el1s_insert(val).write();
     }
 

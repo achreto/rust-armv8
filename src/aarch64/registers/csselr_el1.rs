@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.072190
+ * Generated on: 2022-08-22T16:35:53.053536
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl CsselrEl1 {
     }
 
     /// reads the current register value and extract field `tnd_1` from it
-    pub fn tnd_1_read(&mut self) -> u64 {
+    pub fn tnd_1_read() -> u64 {
         Self::with_reg_val().tnd_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl CsselrEl1 {
     }
 
     /// reads the register, updates the `tnd_1` field, and writes the updated value
-    pub fn tnd_1_write(&mut self, val: u64) {
+    pub fn tnd_1_write(val: u64) {
         Self::with_reg_val().tnd_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl CsselrEl1 {
     }
 
     /// reads the current register value and extract field `level` from it
-    pub fn level_read(&mut self) -> u64 {
+    pub fn level_read() -> u64 {
         Self::with_reg_val().level_extract()
     }
 
@@ -194,7 +194,7 @@ impl CsselrEl1 {
     }
 
     /// reads the register, updates the `level` field, and writes the updated value
-    pub fn level_write(&mut self, val: u64) {
+    pub fn level_write(val: u64) {
         Self::with_reg_val().level_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl CsselrEl1 {
     }
 
     /// reads the current register value and extract field `ind` from it
-    pub fn ind_read(&mut self) -> u64 {
+    pub fn ind_read() -> u64 {
         Self::with_reg_val().ind_extract()
     }
 
@@ -223,7 +223,7 @@ impl CsselrEl1 {
     }
 
     /// reads the register, updates the `ind` field, and writes the updated value
-    pub fn ind_write(&mut self, val: u64) {
+    pub fn ind_write(val: u64) {
         Self::with_reg_val().ind_insert(val).write();
     }
 

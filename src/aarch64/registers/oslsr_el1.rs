@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.091019
+ * Generated on: 2022-08-22T16:35:53.072155
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl OslsrEl1 {
     }
 
     /// reads the current register value and extract field `oslm` from it
-    pub fn oslm_read(&mut self) -> u64 {
+    pub fn oslm_read() -> u64 {
         Self::with_reg_val().oslm_extract()
     }
 // no insert() method for field oslm
@@ -155,7 +155,7 @@ impl OslsrEl1 {
     }
 
     /// reads the current register value and extract field `ntt` from it
-    pub fn ntt_read(&mut self) -> u64 {
+    pub fn ntt_read() -> u64 {
         Self::with_reg_val().ntt_extract()
     }
 // no insert() method for field ntt
@@ -172,7 +172,7 @@ impl OslsrEl1 {
     }
 
     /// reads the current register value and extract field `oslk` from it
-    pub fn oslk_read(&mut self) -> u64 {
+    pub fn oslk_read() -> u64 {
         Self::with_reg_val().oslk_extract()
     }
 // no insert() method for field oslk
@@ -189,7 +189,7 @@ impl OslsrEl1 {
     }
 
     /// reads the current register value and extract field `oslm_0_0` from it
-    pub fn oslm_0_0_read(&mut self) -> u64 {
+    pub fn oslm_0_0_read() -> u64 {
         Self::with_reg_val().oslm_0_0_extract()
     }
 // no insert() method for field oslm_0_0

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.072764
+ * Generated on: 2022-08-22T16:35:53.054116
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `snid_1` from it
-    pub fn snid_1_read(&mut self) -> u64 {
+    pub fn snid_1_read() -> u64 {
         Self::with_reg_val().snid_1_extract()
     }
 // no insert() method for field snid_1
@@ -155,7 +155,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `snid_2` from it
-    pub fn snid_2_read(&mut self) -> u64 {
+    pub fn snid_2_read() -> u64 {
         Self::with_reg_val().snid_2_extract()
     }
 // no insert() method for field snid_2
@@ -172,7 +172,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `sid` from it
-    pub fn sid_read(&mut self) -> u64 {
+    pub fn sid_read() -> u64 {
         Self::with_reg_val().sid_extract()
     }
 // no insert() method for field sid
@@ -189,7 +189,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `nsnid_1` from it
-    pub fn nsnid_1_read(&mut self) -> u64 {
+    pub fn nsnid_1_read() -> u64 {
         Self::with_reg_val().nsnid_1_extract()
     }
 // no insert() method for field nsnid_1
@@ -206,7 +206,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `nsnid_2` from it
-    pub fn nsnid_2_read(&mut self) -> u64 {
+    pub fn nsnid_2_read() -> u64 {
         Self::with_reg_val().nsnid_2_extract()
     }
 // no insert() method for field nsnid_2
@@ -223,7 +223,7 @@ impl DbgauthstatusEl1 {
     }
 
     /// reads the current register value and extract field `nsid` from it
-    pub fn nsid_read(&mut self) -> u64 {
+    pub fn nsid_read() -> u64 {
         Self::with_reg_val().nsid_extract()
     }
 // no insert() method for field nsid

@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.082234
+ * Generated on: 2022-08-22T16:35:53.063551
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `pribits` from it
-    pub fn pribits_read(&mut self) -> u64 {
+    pub fn pribits_read() -> u64 {
         Self::with_reg_val().pribits_extract()
     }
 // no insert() method for field pribits
@@ -155,7 +155,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `prebits` from it
-    pub fn prebits_read(&mut self) -> u64 {
+    pub fn prebits_read() -> u64 {
         Self::with_reg_val().prebits_extract()
     }
 // no insert() method for field prebits
@@ -172,7 +172,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `idbits` from it
-    pub fn idbits_read(&mut self) -> u64 {
+    pub fn idbits_read() -> u64 {
         Self::with_reg_val().idbits_extract()
     }
 // no insert() method for field idbits
@@ -189,7 +189,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `seis` from it
-    pub fn seis_read(&mut self) -> u64 {
+    pub fn seis_read() -> u64 {
         Self::with_reg_val().seis_extract()
     }
 // no insert() method for field seis
@@ -206,7 +206,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `a3v` from it
-    pub fn a3v_read(&mut self) -> u64 {
+    pub fn a3v_read() -> u64 {
         Self::with_reg_val().a3v_extract()
     }
 // no insert() method for field a3v
@@ -223,7 +223,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `nv4` from it
-    pub fn nv4_read(&mut self) -> u64 {
+    pub fn nv4_read() -> u64 {
         Self::with_reg_val().nv4_extract()
     }
 // no insert() method for field nv4
@@ -240,7 +240,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `tds` from it
-    pub fn tds_read(&mut self) -> u64 {
+    pub fn tds_read() -> u64 {
         Self::with_reg_val().tds_extract()
     }
 // no insert() method for field tds
@@ -257,7 +257,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `dvim` from it
-    pub fn dvim_read(&mut self) -> u64 {
+    pub fn dvim_read() -> u64 {
         Self::with_reg_val().dvim_extract()
     }
 // no insert() method for field dvim
@@ -274,7 +274,7 @@ impl IchVtrEl2 {
     }
 
     /// reads the current register value and extract field `listregs` from it
-    pub fn listregs_read(&mut self) -> u64 {
+    pub fn listregs_read() -> u64 {
         Self::with_reg_val().listregs_extract()
     }
 // no insert() method for field listregs

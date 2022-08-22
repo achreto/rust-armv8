@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.086638
+ * Generated on: 2022-08-22T16:35:53.067871
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `gic` from it
-    pub fn gic_read(&mut self) -> u64 {
+    pub fn gic_read() -> u64 {
         Self::with_reg_val().gic_extract()
     }
 // no insert() method for field gic
@@ -155,7 +155,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `virt_frac` from it
-    pub fn virt_frac_read(&mut self) -> u64 {
+    pub fn virt_frac_read() -> u64 {
         Self::with_reg_val().virt_frac_extract()
     }
 // no insert() method for field virt_frac
@@ -172,7 +172,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `sec_frac` from it
-    pub fn sec_frac_read(&mut self) -> u64 {
+    pub fn sec_frac_read() -> u64 {
         Self::with_reg_val().sec_frac_extract()
     }
 // no insert() method for field sec_frac
@@ -189,7 +189,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `gentimer` from it
-    pub fn gentimer_read(&mut self) -> u64 {
+    pub fn gentimer_read() -> u64 {
         Self::with_reg_val().gentimer_extract()
     }
 // no insert() method for field gentimer
@@ -206,7 +206,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `virtualization` from it
-    pub fn virtualization_read(&mut self) -> u64 {
+    pub fn virtualization_read() -> u64 {
         Self::with_reg_val().virtualization_extract()
     }
 // no insert() method for field virtualization
@@ -223,7 +223,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `mprogmod` from it
-    pub fn mprogmod_read(&mut self) -> u64 {
+    pub fn mprogmod_read() -> u64 {
         Self::with_reg_val().mprogmod_extract()
     }
 // no insert() method for field mprogmod
@@ -240,7 +240,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `security` from it
-    pub fn security_read(&mut self) -> u64 {
+    pub fn security_read() -> u64 {
         Self::with_reg_val().security_extract()
     }
 // no insert() method for field security
@@ -257,7 +257,7 @@ impl IdPfr1El1 {
     }
 
     /// reads the current register value and extract field `progmod` from it
-    pub fn progmod_read(&mut self) -> u64 {
+    pub fn progmod_read() -> u64 {
         Self::with_reg_val().progmod_extract()
     }
 // no insert() method for field progmod

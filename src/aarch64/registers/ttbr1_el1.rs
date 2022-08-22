@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.101014
+ * Generated on: 2022-08-22T16:35:53.082552
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the current register value and extract field `asid` from it
-    pub fn asid_read(&mut self) -> u64 {
+    pub fn asid_read() -> u64 {
         Self::with_reg_val().asid_extract()
     }
 
@@ -165,7 +165,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the register, updates the `asid` field, and writes the updated value
-    pub fn asid_write(&mut self, val: u64) {
+    pub fn asid_write(val: u64) {
         Self::with_reg_val().asid_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the current register value and extract field `baddr471` from it
-    pub fn baddr471_read(&mut self) -> u64 {
+    pub fn baddr471_read() -> u64 {
         Self::with_reg_val().baddr471_extract()
     }
 
@@ -194,7 +194,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the register, updates the `baddr471` field, and writes the updated value
-    pub fn baddr471_write(&mut self, val: u64) {
+    pub fn baddr471_write(val: u64) {
         Self::with_reg_val().baddr471_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the current register value and extract field `cnp_1` from it
-    pub fn cnp_1_read(&mut self) -> u64 {
+    pub fn cnp_1_read() -> u64 {
         Self::with_reg_val().cnp_1_extract()
     }
 
@@ -223,7 +223,7 @@ impl Ttbr1El1 {
     }
 
     /// reads the register, updates the `cnp_1` field, and writes the updated value
-    pub fn cnp_1_write(&mut self, val: u64) {
+    pub fn cnp_1_write(val: u64) {
         Self::with_reg_val().cnp_1_insert(val).write();
     }
 

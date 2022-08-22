@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.072088
+ * Generated on: 2022-08-22T16:35:53.053429
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl CptrEl3 {
     }
 
     /// reads the current register value and extract field `tcpac` from it
-    pub fn tcpac_read(&mut self) -> u64 {
+    pub fn tcpac_read() -> u64 {
         Self::with_reg_val().tcpac_extract()
     }
 
@@ -165,7 +165,7 @@ impl CptrEl3 {
     }
 
     /// reads the register, updates the `tcpac` field, and writes the updated value
-    pub fn tcpac_write(&mut self, val: u64) {
+    pub fn tcpac_write(val: u64) {
         Self::with_reg_val().tcpac_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl CptrEl3 {
     }
 
     /// reads the current register value and extract field `tam_1` from it
-    pub fn tam_1_read(&mut self) -> u64 {
+    pub fn tam_1_read() -> u64 {
         Self::with_reg_val().tam_1_extract()
     }
 
@@ -194,7 +194,7 @@ impl CptrEl3 {
     }
 
     /// reads the register, updates the `tam_1` field, and writes the updated value
-    pub fn tam_1_write(&mut self, val: u64) {
+    pub fn tam_1_write(val: u64) {
         Self::with_reg_val().tam_1_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl CptrEl3 {
     }
 
     /// reads the current register value and extract field `tta` from it
-    pub fn tta_read(&mut self) -> u64 {
+    pub fn tta_read() -> u64 {
         Self::with_reg_val().tta_extract()
     }
 
@@ -223,7 +223,7 @@ impl CptrEl3 {
     }
 
     /// reads the register, updates the `tta` field, and writes the updated value
-    pub fn tta_write(&mut self, val: u64) {
+    pub fn tta_write(val: u64) {
         Self::with_reg_val().tta_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl CptrEl3 {
     }
 
     /// reads the current register value and extract field `tfp` from it
-    pub fn tfp_read(&mut self) -> u64 {
+    pub fn tfp_read() -> u64 {
         Self::with_reg_val().tfp_extract()
     }
 
@@ -252,7 +252,7 @@ impl CptrEl3 {
     }
 
     /// reads the register, updates the `tfp` field, and writes the updated value
-    pub fn tfp_write(&mut self, val: u64) {
+    pub fn tfp_write(val: u64) {
         Self::with_reg_val().tfp_insert(val).write();
     }
 
@@ -269,7 +269,7 @@ impl CptrEl3 {
     }
 
     /// reads the current register value and extract field `ez_1` from it
-    pub fn ez_1_read(&mut self) -> u64 {
+    pub fn ez_1_read() -> u64 {
         Self::with_reg_val().ez_1_extract()
     }
 
@@ -281,7 +281,7 @@ impl CptrEl3 {
     }
 
     /// reads the register, updates the `ez_1` field, and writes the updated value
-    pub fn ez_1_write(&mut self, val: u64) {
+    pub fn ez_1_write(val: u64) {
         Self::with_reg_val().ez_1_insert(val).write();
     }
 

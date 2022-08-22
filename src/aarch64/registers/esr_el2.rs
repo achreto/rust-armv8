@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.075397
+ * Generated on: 2022-08-22T16:35:53.056917
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl EsrEl2 {
     }
 
     /// reads the current register value and extract field `iss2_1` from it
-    pub fn iss2_1_read(&mut self) -> u64 {
+    pub fn iss2_1_read() -> u64 {
         Self::with_reg_val().iss2_1_extract()
     }
 
@@ -165,7 +165,7 @@ impl EsrEl2 {
     }
 
     /// reads the register, updates the `iss2_1` field, and writes the updated value
-    pub fn iss2_1_write(&mut self, val: u64) {
+    pub fn iss2_1_write(val: u64) {
         Self::with_reg_val().iss2_1_insert(val).write();
     }
 
@@ -182,7 +182,7 @@ impl EsrEl2 {
     }
 
     /// reads the current register value and extract field `ec` from it
-    pub fn ec_read(&mut self) -> u64 {
+    pub fn ec_read() -> u64 {
         Self::with_reg_val().ec_extract()
     }
 
@@ -194,7 +194,7 @@ impl EsrEl2 {
     }
 
     /// reads the register, updates the `ec` field, and writes the updated value
-    pub fn ec_write(&mut self, val: u64) {
+    pub fn ec_write(val: u64) {
         Self::with_reg_val().ec_insert(val).write();
     }
 
@@ -211,7 +211,7 @@ impl EsrEl2 {
     }
 
     /// reads the current register value and extract field `il` from it
-    pub fn il_read(&mut self) -> u64 {
+    pub fn il_read() -> u64 {
         Self::with_reg_val().il_extract()
     }
 
@@ -223,7 +223,7 @@ impl EsrEl2 {
     }
 
     /// reads the register, updates the `il` field, and writes the updated value
-    pub fn il_write(&mut self, val: u64) {
+    pub fn il_write(val: u64) {
         Self::with_reg_val().il_insert(val).write();
     }
 
@@ -240,7 +240,7 @@ impl EsrEl2 {
     }
 
     /// reads the current register value and extract field `iss` from it
-    pub fn iss_read(&mut self) -> u64 {
+    pub fn iss_read() -> u64 {
         Self::with_reg_val().iss_extract()
     }
 
@@ -252,7 +252,7 @@ impl EsrEl2 {
     }
 
     /// reads the register, updates the `iss` field, and writes the updated value
-    pub fn iss_write(&mut self, val: u64) {
+    pub fn iss_write(val: u64) {
         Self::with_reg_val().iss_insert(val).write();
     }
 

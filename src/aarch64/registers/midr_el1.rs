@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.088444
+ * Generated on: 2022-08-22T16:35:53.069684
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -138,7 +138,7 @@ impl MidrEl1 {
     }
 
     /// reads the current register value and extract field `implementer` from it
-    pub fn implementer_read(&mut self) -> u64 {
+    pub fn implementer_read() -> u64 {
         Self::with_reg_val().implementer_extract()
     }
 // no insert() method for field implementer
@@ -155,7 +155,7 @@ impl MidrEl1 {
     }
 
     /// reads the current register value and extract field `variant` from it
-    pub fn variant_read(&mut self) -> u64 {
+    pub fn variant_read() -> u64 {
         Self::with_reg_val().variant_extract()
     }
 // no insert() method for field variant
@@ -172,7 +172,7 @@ impl MidrEl1 {
     }
 
     /// reads the current register value and extract field `architecture` from it
-    pub fn architecture_read(&mut self) -> u64 {
+    pub fn architecture_read() -> u64 {
         Self::with_reg_val().architecture_extract()
     }
 // no insert() method for field architecture
@@ -189,7 +189,7 @@ impl MidrEl1 {
     }
 
     /// reads the current register value and extract field `partnum` from it
-    pub fn partnum_read(&mut self) -> u64 {
+    pub fn partnum_read() -> u64 {
         Self::with_reg_val().partnum_extract()
     }
 // no insert() method for field partnum
@@ -206,7 +206,7 @@ impl MidrEl1 {
     }
 
     /// reads the current register value and extract field `revision` from it
-    pub fn revision_read(&mut self) -> u64 {
+    pub fn revision_read() -> u64 {
         Self::with_reg_val().revision_extract()
     }
 // no insert() method for field revision

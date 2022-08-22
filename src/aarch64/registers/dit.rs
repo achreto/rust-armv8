@@ -32,7 +32,7 @@ use bit_field::BitField;
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T16:25:59.073653
+ * Generated on: 2022-08-22T16:35:53.055057
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -153,7 +153,7 @@ impl Dit {
     }
 
     /// reads the current register value and extract field `dit` from it
-    pub fn dit_read(&mut self) -> u64 {
+    pub fn dit_read() -> u64 {
         Self::with_reg_val().dit_extract()
     }
 
@@ -165,7 +165,7 @@ impl Dit {
     }
 
     /// reads the register, updates the `dit` field, and writes the updated value
-    pub fn dit_write(&mut self, val: u64) {
+    pub fn dit_write(val: u64) {
         Self::with_reg_val().dit_insert(val).write();
     }
 
