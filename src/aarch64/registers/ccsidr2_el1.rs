@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.507281
+ * Generated on: 2022-08-22T16:25:59.069073
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Current Cache Size ID Register 2 (ccsidr2_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: When
+ * Description: When 
  * File:        AArch64-ccsidr2_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Current Cache Size ID Register 2 value in memory
 pub struct Ccsidr2El1(u64);
 
 /// struct implementation for accessing the fields of register ccsidr2_el1
 impl Ccsidr2El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Ccsidr2El1 {
@@ -73,30 +79,35 @@ impl Ccsidr2El1 {
         Ccsidr2El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Ccsidr2El1 {
+    pub fn with_reg_val() ->  Ccsidr2El1 {
         let curval = Self::reg_rawrd() & 0xffffff;
         Ccsidr2El1(curval)
     }
 
+
+    
     /// reading the Current Cache Size ID Register 2 (ccsidr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, CCSIDR2_EL1
-            llvm_asm!("mrs $0, S3_1_C0_C0_2" : "=r"(regval));
+            asm!("mrs {}, S3_1_C0_C0_2", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl Ccsidr2El1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 16777215;
+    //    self.0 = newval & 16777215;
     //}
 
     /// gets the value of the struct
@@ -112,28 +123,31 @@ impl Ccsidr2El1 {
         self.0
     }
 
+
+    
     /*
      * Field: numsets
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn numsets_extract(&self) -> u64 {
         // bits 0..23
-        self.val.get_bits(0..=23)
+        self.0.get_bits(0..=23)
     }
 
     /// reads the current register value and extract field `numsets` from it
     pub fn numsets_read(&mut self) -> u64 {
         Self::with_reg_val().numsets_extract()
     }
-    // no insert() method for field numsets
+// no insert() method for field numsets
 }
 
 impl Default for Ccsidr2El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Ccsidr2El1 {
+    fn default() -> Ccsidr2El1 {
         Ccsidr2El1(0)
     }
 }

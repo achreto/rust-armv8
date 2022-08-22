@@ -24,17 +24,20 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.542038
+ * Generated on: 2022-08-22T16:25:59.103439
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
  *************************************************************************************************/
+use core::arch::asm;
+
 
 /*
  * ================================================================================================
@@ -42,13 +45,16 @@
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL1
 #[inline(always)]
 pub fn tlbi_alle1_tlbi_alle1nxs() {
     unsafe {
-        llvm_asm!("tlbi alle1");
+        asm!("tlbi alle1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -56,13 +62,16 @@ pub fn tlbi_alle1_tlbi_alle1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_alle1is_tlbi_alle1isnxs() {
     unsafe {
-        llvm_asm!("tlbi alle1is");
+        asm!("tlbi alle1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -70,13 +79,16 @@ pub fn tlbi_alle1is_tlbi_alle1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_alle1os_tlbi_alle1osnxs() {
     unsafe {
-        llvm_asm!("tlbi alle1os");
+        asm!("tlbi alle1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -84,13 +96,16 @@ pub fn tlbi_alle1os_tlbi_alle1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL2
 #[inline(always)]
 pub fn tlbi_alle2_tlbi_alle2nxs() {
     unsafe {
-        llvm_asm!("tlbi alle2");
+        asm!("tlbi alle2");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -98,13 +113,16 @@ pub fn tlbi_alle2_tlbi_alle2nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL2, Inner Shareable
 #[inline(always)]
 pub fn tlbi_alle2is_tlbi_alle2isnxs() {
     unsafe {
-        llvm_asm!("tlbi alle2is");
+        asm!("tlbi alle2is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -112,13 +130,16 @@ pub fn tlbi_alle2is_tlbi_alle2isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL2, Outer Shareable
 #[inline(always)]
 pub fn tlbi_alle2os_tlbi_alle2osnxs() {
     unsafe {
-        llvm_asm!("tlbi alle2os");
+        asm!("tlbi alle2os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -126,13 +147,16 @@ pub fn tlbi_alle2os_tlbi_alle2osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL3
 #[inline(always)]
 pub fn tlbi_alle3_tlbi_alle3nxs() {
     unsafe {
-        llvm_asm!("tlbi alle3");
+        asm!("tlbi alle3");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -140,13 +164,16 @@ pub fn tlbi_alle3_tlbi_alle3nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL3, Inner Shareable
 #[inline(always)]
 pub fn tlbi_alle3is_tlbi_alle3isnxs() {
     unsafe {
-        llvm_asm!("tlbi alle3is");
+        asm!("tlbi alle3is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -154,13 +181,16 @@ pub fn tlbi_alle3is_tlbi_alle3isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate All, EL3, Outer Shareable
 #[inline(always)]
 pub fn tlbi_alle3os_tlbi_alle3osnxs() {
     unsafe {
-        llvm_asm!("tlbi alle3os");
+        asm!("tlbi alle3os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -168,13 +198,16 @@ pub fn tlbi_alle3os_tlbi_alle3osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by ASID, EL1
 #[inline(always)]
 pub fn tlbi_aside1_tlbi_aside1nxs() {
     unsafe {
-        llvm_asm!("tlbi aside1");
+        asm!("tlbi aside1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -182,13 +215,16 @@ pub fn tlbi_aside1_tlbi_aside1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by ASID, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_aside1is_tlbi_aside1isnxs() {
     unsafe {
-        llvm_asm!("tlbi aside1is");
+        asm!("tlbi aside1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -196,13 +232,16 @@ pub fn tlbi_aside1is_tlbi_aside1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by ASID, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_aside1os_tlbi_aside1osnxs() {
     unsafe {
-        llvm_asm!("tlbi aside1os");
+        asm!("tlbi aside1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -210,13 +249,16 @@ pub fn tlbi_aside1os_tlbi_aside1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1
 #[inline(always)]
 pub fn tlbi_ipas2e1_tlbi_ipas2e1nxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2e1");
+        asm!("tlbi ipas2e1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -224,13 +266,16 @@ pub fn tlbi_ipas2e1_tlbi_ipas2e1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_ipas2e1is_tlbi_ipas2e1isnxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2e1is");
+        asm!("tlbi ipas2e1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -238,13 +283,16 @@ pub fn tlbi_ipas2e1is_tlbi_ipas2e1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_ipas2e1os_tlbi_ipas2e1osnxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2e1os");
+        asm!("tlbi ipas2e1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -252,13 +300,16 @@ pub fn tlbi_ipas2e1os_tlbi_ipas2e1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
 #[inline(always)]
 pub fn tlbi_ipas2le1_tlbi_ipas2le1nxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2le1");
+        asm!("tlbi ipas2le1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -266,13 +317,16 @@ pub fn tlbi_ipas2le1_tlbi_ipas2le1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_ipas2le1is_tlbi_ipas2le1isnxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2le1is");
+        asm!("tlbi ipas2le1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -280,13 +334,16 @@ pub fn tlbi_ipas2le1is_tlbi_ipas2le1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_ipas2le1os_tlbi_ipas2le1osnxs() {
     unsafe {
-        llvm_asm!("tlbi ipas2le1os");
+        asm!("tlbi ipas2le1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -294,13 +351,16 @@ pub fn tlbi_ipas2le1os_tlbi_ipas2le1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1
 #[inline(always)]
 pub fn tlbi_ripas2e1_tlbi_ripas2e1nxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2e1");
+        asm!("tlbi ripas2e1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -308,13 +368,16 @@ pub fn tlbi_ripas2e1_tlbi_ripas2e1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_ripas2e1is_tlbi_ripas2e1isnxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2e1is");
+        asm!("tlbi ripas2e1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -322,13 +385,16 @@ pub fn tlbi_ripas2e1is_tlbi_ripas2e1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_ripas2e1os_tlbi_ripas2e1osnxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2e1os");
+        asm!("tlbi ripas2e1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -336,13 +402,16 @@ pub fn tlbi_ripas2e1os_tlbi_ripas2e1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
 #[inline(always)]
 pub fn tlbi_ripas2le1_tlbi_ripas2le1nxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2le1");
+        asm!("tlbi ripas2le1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -350,13 +419,16 @@ pub fn tlbi_ripas2le1_tlbi_ripas2le1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_ripas2le1is_tlbi_ripas2le1isnxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2le1is");
+        asm!("tlbi ripas2le1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -364,13 +436,16 @@ pub fn tlbi_ripas2le1is_tlbi_ripas2le1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_ripas2le1os_tlbi_ripas2le1osnxs() {
     unsafe {
-        llvm_asm!("tlbi ripas2le1os");
+        asm!("tlbi ripas2le1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -378,13 +453,16 @@ pub fn tlbi_ripas2le1os_tlbi_ripas2le1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, EL1
 #[inline(always)]
 pub fn tlbi_rvaae1_tlbi_rvaae1nxs() {
     unsafe {
-        llvm_asm!("tlbi rvaae1");
+        asm!("tlbi rvaae1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -392,13 +470,16 @@ pub fn tlbi_rvaae1_tlbi_rvaae1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvaae1is_tlbi_rvaae1isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvaae1is");
+        asm!("tlbi rvaae1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -406,13 +487,16 @@ pub fn tlbi_rvaae1is_tlbi_rvaae1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvaae1os_tlbi_rvaae1osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvaae1os");
+        asm!("tlbi rvaae1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -420,13 +504,16 @@ pub fn tlbi_rvaae1os_tlbi_rvaae1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, Last level, EL1
 #[inline(always)]
 pub fn tlbi_rvaale1_tlbi_rvaale1nxs() {
     unsafe {
-        llvm_asm!("tlbi rvaale1");
+        asm!("tlbi rvaale1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -434,13 +521,16 @@ pub fn tlbi_rvaale1_tlbi_rvaale1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvaale1is_tlbi_rvaale1isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvaale1is");
+        asm!("tlbi rvaale1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -448,13 +538,16 @@ pub fn tlbi_rvaale1is_tlbi_rvaale1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvaale1os_tlbi_rvaale1osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvaale1os");
+        asm!("tlbi rvaale1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -462,13 +555,16 @@ pub fn tlbi_rvaale1os_tlbi_rvaale1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL1
 #[inline(always)]
 pub fn tlbi_rvae1_tlbi_rvae1nxs() {
     unsafe {
-        llvm_asm!("tlbi rvae1");
+        asm!("tlbi rvae1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -476,13 +572,16 @@ pub fn tlbi_rvae1_tlbi_rvae1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvae1is_tlbi_rvae1isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae1is");
+        asm!("tlbi rvae1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -490,13 +589,16 @@ pub fn tlbi_rvae1is_tlbi_rvae1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvae1os_tlbi_rvae1osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae1os");
+        asm!("tlbi rvae1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -504,13 +606,16 @@ pub fn tlbi_rvae1os_tlbi_rvae1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL2
 #[inline(always)]
 pub fn tlbi_rvae2_tlbi_rvae2nxs() {
     unsafe {
-        llvm_asm!("tlbi rvae2");
+        asm!("tlbi rvae2");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -518,13 +623,16 @@ pub fn tlbi_rvae2_tlbi_rvae2nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL2, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvae2is_tlbi_rvae2isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae2is");
+        asm!("tlbi rvae2is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -532,13 +640,16 @@ pub fn tlbi_rvae2is_tlbi_rvae2isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL2, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvae2os_tlbi_rvae2osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae2os");
+        asm!("tlbi rvae2os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -546,13 +657,16 @@ pub fn tlbi_rvae2os_tlbi_rvae2osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL3
 #[inline(always)]
 pub fn tlbi_rvae3_tlbi_rvae3nxs() {
     unsafe {
-        llvm_asm!("tlbi rvae3");
+        asm!("tlbi rvae3");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -560,13 +674,16 @@ pub fn tlbi_rvae3_tlbi_rvae3nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL3, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvae3is_tlbi_rvae3isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae3is");
+        asm!("tlbi rvae3is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -574,13 +691,16 @@ pub fn tlbi_rvae3is_tlbi_rvae3isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, EL3, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvae3os_tlbi_rvae3osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvae3os");
+        asm!("tlbi rvae3os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -588,13 +708,16 @@ pub fn tlbi_rvae3os_tlbi_rvae3osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL1
 #[inline(always)]
 pub fn tlbi_rvale1_tlbi_rvale1nxs() {
     unsafe {
-        llvm_asm!("tlbi rvale1");
+        asm!("tlbi rvale1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -602,13 +725,16 @@ pub fn tlbi_rvale1_tlbi_rvale1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvale1is_tlbi_rvale1isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale1is");
+        asm!("tlbi rvale1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -616,13 +742,16 @@ pub fn tlbi_rvale1is_tlbi_rvale1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvale1os_tlbi_rvale1osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale1os");
+        asm!("tlbi rvale1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -630,13 +759,16 @@ pub fn tlbi_rvale1os_tlbi_rvale1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL2
 #[inline(always)]
 pub fn tlbi_rvale2_tlbi_rvale2nxs() {
     unsafe {
-        llvm_asm!("tlbi rvale2");
+        asm!("tlbi rvale2");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -644,13 +776,16 @@ pub fn tlbi_rvale2_tlbi_rvale2nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL2, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvale2is_tlbi_rvale2isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale2is");
+        asm!("tlbi rvale2is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -658,13 +793,16 @@ pub fn tlbi_rvale2is_tlbi_rvale2isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL2, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvale2os_tlbi_rvale2osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale2os");
+        asm!("tlbi rvale2os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -672,13 +810,16 @@ pub fn tlbi_rvale2os_tlbi_rvale2osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL3
 #[inline(always)]
 pub fn tlbi_rvale3_tlbi_rvale3nxs() {
     unsafe {
-        llvm_asm!("tlbi rvale3");
+        asm!("tlbi rvale3");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -686,13 +827,16 @@ pub fn tlbi_rvale3_tlbi_rvale3nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL3, Inner Shareable
 #[inline(always)]
 pub fn tlbi_rvale3is_tlbi_rvale3isnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale3is");
+        asm!("tlbi rvale3is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -700,13 +844,16 @@ pub fn tlbi_rvale3is_tlbi_rvale3isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Range Invalidate by VA, Last level, EL3, Outer Shareable
 #[inline(always)]
 pub fn tlbi_rvale3os_tlbi_rvale3osnxs() {
     unsafe {
-        llvm_asm!("tlbi rvale3os");
+        asm!("tlbi rvale3os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -714,13 +861,16 @@ pub fn tlbi_rvale3os_tlbi_rvale3osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, EL1
 #[inline(always)]
 pub fn tlbi_vaae1_tlbi_vaae1nxs() {
     unsafe {
-        llvm_asm!("tlbi vaae1");
+        asm!("tlbi vaae1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -728,13 +878,16 @@ pub fn tlbi_vaae1_tlbi_vaae1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vaae1is_tlbi_vaae1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vaae1is");
+        asm!("tlbi vaae1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -742,13 +895,16 @@ pub fn tlbi_vaae1is_tlbi_vaae1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vaae1os_tlbi_vaae1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vaae1os");
+        asm!("tlbi vaae1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -756,13 +912,16 @@ pub fn tlbi_vaae1os_tlbi_vaae1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, Last level, EL1
 #[inline(always)]
 pub fn tlbi_vaale1_tlbi_vaale1nxs() {
     unsafe {
-        llvm_asm!("tlbi vaale1");
+        asm!("tlbi vaale1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -770,13 +929,16 @@ pub fn tlbi_vaale1_tlbi_vaale1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vaale1is_tlbi_vaale1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vaale1is");
+        asm!("tlbi vaale1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -784,13 +946,16 @@ pub fn tlbi_vaale1is_tlbi_vaale1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vaale1os_tlbi_vaale1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vaale1os");
+        asm!("tlbi vaale1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -798,13 +963,16 @@ pub fn tlbi_vaale1os_tlbi_vaale1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL1
 #[inline(always)]
 pub fn tlbi_vae1_tlbi_vae1nxs() {
     unsafe {
-        llvm_asm!("tlbi vae1");
+        asm!("tlbi vae1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -812,13 +980,16 @@ pub fn tlbi_vae1_tlbi_vae1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vae1is_tlbi_vae1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vae1is");
+        asm!("tlbi vae1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -826,13 +997,16 @@ pub fn tlbi_vae1is_tlbi_vae1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vae1os_tlbi_vae1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vae1os");
+        asm!("tlbi vae1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -840,13 +1014,16 @@ pub fn tlbi_vae1os_tlbi_vae1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL2
 #[inline(always)]
 pub fn tlbi_vae2_tlbi_vae2nxs() {
     unsafe {
-        llvm_asm!("tlbi vae2");
+        asm!("tlbi vae2");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -854,13 +1031,16 @@ pub fn tlbi_vae2_tlbi_vae2nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL2, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vae2is_tlbi_vae2isnxs() {
     unsafe {
-        llvm_asm!("tlbi vae2is");
+        asm!("tlbi vae2is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -868,13 +1048,16 @@ pub fn tlbi_vae2is_tlbi_vae2isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL2, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vae2os_tlbi_vae2osnxs() {
     unsafe {
-        llvm_asm!("tlbi vae2os");
+        asm!("tlbi vae2os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -882,13 +1065,16 @@ pub fn tlbi_vae2os_tlbi_vae2osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL3
 #[inline(always)]
 pub fn tlbi_vae3_tlbi_vae3nxs() {
     unsafe {
-        llvm_asm!("tlbi vae3");
+        asm!("tlbi vae3");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -896,13 +1082,16 @@ pub fn tlbi_vae3_tlbi_vae3nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL3, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vae3is_tlbi_vae3isnxs() {
     unsafe {
-        llvm_asm!("tlbi vae3is");
+        asm!("tlbi vae3is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -910,13 +1099,16 @@ pub fn tlbi_vae3is_tlbi_vae3isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, EL3, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vae3os_tlbi_vae3osnxs() {
     unsafe {
-        llvm_asm!("tlbi vae3os");
+        asm!("tlbi vae3os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -924,13 +1116,16 @@ pub fn tlbi_vae3os_tlbi_vae3osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL1
 #[inline(always)]
 pub fn tlbi_vale1_tlbi_vale1nxs() {
     unsafe {
-        llvm_asm!("tlbi vale1");
+        asm!("tlbi vale1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -938,13 +1133,16 @@ pub fn tlbi_vale1_tlbi_vale1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vale1is_tlbi_vale1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vale1is");
+        asm!("tlbi vale1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -952,13 +1150,16 @@ pub fn tlbi_vale1is_tlbi_vale1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vale1os_tlbi_vale1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vale1os");
+        asm!("tlbi vale1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -966,13 +1167,16 @@ pub fn tlbi_vale1os_tlbi_vale1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL2
 #[inline(always)]
 pub fn tlbi_vale2_tlbi_vale2nxs() {
     unsafe {
-        llvm_asm!("tlbi vale2");
+        asm!("tlbi vale2");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -980,13 +1184,16 @@ pub fn tlbi_vale2_tlbi_vale2nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL2, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vale2is_tlbi_vale2isnxs() {
     unsafe {
-        llvm_asm!("tlbi vale2is");
+        asm!("tlbi vale2is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -994,13 +1201,16 @@ pub fn tlbi_vale2is_tlbi_vale2isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL2, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vale2os_tlbi_vale2osnxs() {
     unsafe {
-        llvm_asm!("tlbi vale2os");
+        asm!("tlbi vale2os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1008,13 +1218,16 @@ pub fn tlbi_vale2os_tlbi_vale2osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL3
 #[inline(always)]
 pub fn tlbi_vale3_tlbi_vale3nxs() {
     unsafe {
-        llvm_asm!("tlbi vale3");
+        asm!("tlbi vale3");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1022,13 +1235,16 @@ pub fn tlbi_vale3_tlbi_vale3nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL3, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vale3is_tlbi_vale3isnxs() {
     unsafe {
-        llvm_asm!("tlbi vale3is");
+        asm!("tlbi vale3is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1036,13 +1252,16 @@ pub fn tlbi_vale3is_tlbi_vale3isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VA, Last level, EL3, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vale3os_tlbi_vale3osnxs() {
     unsafe {
-        llvm_asm!("tlbi vale3os");
+        asm!("tlbi vale3os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1050,13 +1269,16 @@ pub fn tlbi_vale3os_tlbi_vale3osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at stage 1, EL1
 #[inline(always)]
 pub fn tlbi_vmalle1_tlbi_vmalle1nxs() {
     unsafe {
-        llvm_asm!("tlbi vmalle1");
+        asm!("tlbi vmalle1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1064,13 +1286,16 @@ pub fn tlbi_vmalle1_tlbi_vmalle1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at stage 1, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vmalle1is_tlbi_vmalle1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vmalle1is");
+        asm!("tlbi vmalle1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1078,13 +1303,16 @@ pub fn tlbi_vmalle1is_tlbi_vmalle1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at stage 1, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vmalle1os_tlbi_vmalle1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vmalle1os");
+        asm!("tlbi vmalle1os");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1092,13 +1320,16 @@ pub fn tlbi_vmalle1os_tlbi_vmalle1osnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1
 #[inline(always)]
 pub fn tlbi_vmalls12e1_tlbi_vmalls12e1nxs() {
     unsafe {
-        llvm_asm!("tlbi vmalls12e1");
+        asm!("tlbi vmalls12e1");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1106,13 +1337,16 @@ pub fn tlbi_vmalls12e1_tlbi_vmalls12e1nxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Inner Shareable
 #[inline(always)]
 pub fn tlbi_vmalls12e1is_tlbi_vmalls12e1isnxs() {
     unsafe {
-        llvm_asm!("tlbi vmalls12e1is");
+        asm!("tlbi vmalls12e1is");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -1120,10 +1354,12 @@ pub fn tlbi_vmalls12e1is_tlbi_vmalls12e1isnxs() {
  * ================================================================================================
  */
 
+
+
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Outer Shareable
 #[inline(always)]
 pub fn tlbi_vmalls12e1os_tlbi_vmalls12e1osnxs() {
     unsafe {
-        llvm_asm!("tlbi vmalls12e1os");
+        asm!("tlbi vmalls12e1os");
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.510913
+ * Generated on: 2022-08-22T16:25:59.072518
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-daif.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Interrupt Mask Bits value in memory
 pub struct Daif(u64);
 
 /// struct implementation for accessing the fields of register daif
 impl Daif {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Daif {
@@ -73,49 +79,58 @@ impl Daif {
         Daif(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Daif {
+    pub fn with_reg_val() ->  Daif {
         let curval = Self::reg_rawrd() & 0x3c0;
         Daif(curval)
     }
 
+
+    
     /// reading the Interrupt Mask Bits (daif) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, DAIF
-            llvm_asm!("mrs $0, daif" : "=r"(regval));
+            asm!("mrs {}, daif", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Interrupt Mask Bits (daif) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR DAIF, <Xt>
-            llvm_asm!("msr daif, $0" : : "r"(val));
+            asm!("msr daif, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x3c0;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x3c0;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 960;
+    //    self.0 = newval & 960;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Daif {
         self.0
     }
 
+
+    
     /*
      * Field: d
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn d_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `d` from it
@@ -140,9 +158,9 @@ impl Daif {
     }
 
     /// inserts the given value `val` into the field `d`
-    pub fn d_insert(&mut self, val: u64) -> &mut self {
+    pub fn d_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl Daif {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
         // bits 8..8
-        self.val.get_bits(8..=8)
+        self.0.get_bits(8..=8)
     }
 
     /// reads the current register value and extract field `a` from it
@@ -168,9 +187,9 @@ impl Daif {
     }
 
     /// inserts the given value `val` into the field `a`
-    pub fn a_insert(&mut self, val: u64) -> &mut self {
+    pub fn a_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..8
-        self.val.set_bits(8..=8, val);
+        self.0.set_bits(8..=8, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl Daif {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
         // bits 7..7
-        self.val.get_bits(7..=7)
+        self.0.get_bits(7..=7)
     }
 
     /// reads the current register value and extract field `i` from it
@@ -196,9 +216,9 @@ impl Daif {
     }
 
     /// inserts the given value `val` into the field `i`
-    pub fn i_insert(&mut self, val: u64) -> &mut self {
+    pub fn i_insert(&mut self, val: u64) -> &mut Self {
         // bits 7..7
-        self.val.set_bits(7..=7, val);
+        self.0.set_bits(7..=7, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl Daif {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `f` from it
@@ -224,9 +245,9 @@ impl Daif {
     }
 
     /// inserts the given value `val` into the field `f`
-    pub fn f_insert(&mut self, val: u64) -> &mut self {
+    pub fn f_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -234,12 +255,13 @@ impl Daif {
     pub fn f_write(&mut self, val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
+
 }
 
 impl Default for Daif {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Daif {
+    fn default() -> Daif {
         Daif(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.531159
+ * Generated on: 2022-08-22T16:25:59.093014
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-pmscr_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Statistical Profiling Control Register (EL2) value in memory
 pub struct PmscrEl2(u64);
 
 /// struct implementation for accessing the fields of register pmscr_el2
 impl PmscrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmscrEl2 {
@@ -73,49 +79,58 @@ impl PmscrEl2 {
         PmscrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> PmscrEl2 {
+    pub fn with_reg_val() ->  PmscrEl2 {
         let curval = Self::reg_rawrd() & 0xfb;
         PmscrEl2(curval)
     }
 
+
+    
     /// reading the Statistical Profiling Control Register (EL2) (pmscr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PMSCR_EL2
-            llvm_asm!("mrs $0, S3_4_C9_C9_0" : "=r"(regval));
+            asm!("mrs {}, S3_4_C9_C9_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Statistical Profiling Control Register (EL2) (pmscr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR PMSCR_EL2, <Xt>
-            llvm_asm!("msr S3_4_C9_C9_0, $0" : : "r"(val));
+            asm!("msr S3_4_C9_C9_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfb;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfb;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 251;
+    //    self.0 = newval & 251;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl PmscrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: pct
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pct_extract(&self) -> u64 {
         // bits 6..7
-        self.val.get_bits(6..=7)
+        self.0.get_bits(6..=7)
     }
 
     /// reads the current register value and extract field `pct` from it
@@ -140,9 +158,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `pct`
-    pub fn pct_insert(&mut self, val: u64) -> &mut self {
+    pub fn pct_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..7
-        self.val.set_bits(6..=7, val);
+        self.0.set_bits(6..=7, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl PmscrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ts_extract(&self) -> u64 {
         // bits 5..5
-        self.val.get_bits(5..=5)
+        self.0.get_bits(5..=5)
     }
 
     /// reads the current register value and extract field `ts` from it
@@ -168,9 +187,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `ts`
-    pub fn ts_insert(&mut self, val: u64) -> &mut self {
+    pub fn ts_insert(&mut self, val: u64) -> &mut Self {
         // bits 5..5
-        self.val.set_bits(5..=5, val);
+        self.0.set_bits(5..=5, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl PmscrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pa_extract(&self) -> u64 {
         // bits 4..4
-        self.val.get_bits(4..=4)
+        self.0.get_bits(4..=4)
     }
 
     /// reads the current register value and extract field `pa` from it
@@ -196,9 +216,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `pa`
-    pub fn pa_insert(&mut self, val: u64) -> &mut self {
+    pub fn pa_insert(&mut self, val: u64) -> &mut Self {
         // bits 4..4
-        self.val.set_bits(4..=4, val);
+        self.0.set_bits(4..=4, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl PmscrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cx_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `cx` from it
@@ -224,9 +245,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `cx`
-    pub fn cx_insert(&mut self, val: u64) -> &mut self {
+    pub fn cx_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl PmscrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn e2spe_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `e2spe` from it
@@ -252,9 +274,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `e2spe`
-    pub fn e2spe_insert(&mut self, val: u64) -> &mut self {
+    pub fn e2spe_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl PmscrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn e0hspe_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `e0hspe` from it
@@ -280,9 +303,9 @@ impl PmscrEl2 {
     }
 
     /// inserts the given value `val` into the field `e0hspe`
-    pub fn e0hspe_insert(&mut self, val: u64) -> &mut self {
+    pub fn e0hspe_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -290,12 +313,13 @@ impl PmscrEl2 {
     pub fn e0hspe_write(&mut self, val: u64) {
         Self::with_reg_val().e0hspe_insert(val).write();
     }
+
 }
 
 impl Default for PmscrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> PmscrEl2 {
+    fn default() -> PmscrEl2 {
         PmscrEl2(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.537189
+ * Generated on: 2022-08-22T16:25:59.098713
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-ssbs.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Speculative Store Bypass Safe value in memory
 pub struct Ssbs(u64);
 
 /// struct implementation for accessing the fields of register ssbs
 impl Ssbs {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Ssbs {
@@ -73,49 +79,58 @@ impl Ssbs {
         Ssbs(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Ssbs {
+    pub fn with_reg_val() ->  Ssbs {
         let curval = Self::reg_rawrd() & 0x1000;
         Ssbs(curval)
     }
 
+
+    
     /// reading the Speculative Store Bypass Safe (ssbs) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, SSBS
-            llvm_asm!("mrs $0, S3_3_C4_C2_6" : "=r"(regval));
+            asm!("mrs {}, S3_3_C4_C2_6", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Speculative Store Bypass Safe (ssbs) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR SSBS, <Xt>
-            llvm_asm!("msr S3_3_C4_C2_6, $0" : : "r"(val));
+            asm!("msr S3_3_C4_C2_6, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1000;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1000;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4096;
+    //    self.0 = newval & 4096;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Ssbs {
         self.0
     }
 
+
+    
     /*
      * Field: ssbs
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ssbs_extract(&self) -> u64 {
         // bits 12..12
-        self.val.get_bits(12..=12)
+        self.0.get_bits(12..=12)
     }
 
     /// reads the current register value and extract field `ssbs` from it
@@ -140,9 +158,9 @@ impl Ssbs {
     }
 
     /// inserts the given value `val` into the field `ssbs`
-    pub fn ssbs_insert(&mut self, val: u64) -> &mut self {
+    pub fn ssbs_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..12
-        self.val.set_bits(12..=12, val);
+        self.0.set_bits(12..=12, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl Ssbs {
     pub fn ssbs_write(&mut self, val: u64) {
         Self::with_reg_val().ssbs_insert(val).write();
     }
+
 }
 
 impl Default for Ssbs {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Ssbs {
+    fn default() -> Ssbs {
         Ssbs(0)
     }
 }

@@ -24,17 +24,20 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.541893
+ * Generated on: 2022-08-22T16:25:59.103304
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
  *************************************************************************************************/
+use core::arch::asm;
+
 
 /*
  * ================================================================================================
@@ -42,13 +45,16 @@
  * ================================================================================================
  */
 
+
+
 /// Clean of Data and Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_cgdsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgdsw, $0" : : "r"(arg));
+        asm!("dc cgdsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -56,13 +62,16 @@ pub fn dc_cgdsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Data and Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_cgdvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgdvac, $0" : : "r"(arg));
+        asm!("dc cgdvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -70,13 +79,16 @@ pub fn dc_cgdvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Data and Allocation Tags by VA to PoDP
 #[inline(always)]
 pub fn dc_cgdvadp(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgdvadp, $0" : : "r"(arg));
+        asm!("dc cgdvadp, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -84,13 +96,16 @@ pub fn dc_cgdvadp(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Data and Allocation Tags by VA to PoP
 #[inline(always)]
 pub fn dc_cgdvap(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgdvap, $0" : : "r"(arg));
+        asm!("dc cgdvap, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -98,13 +113,16 @@ pub fn dc_cgdvap(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_cgsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgsw, $0" : : "r"(arg));
+        asm!("dc cgsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -112,13 +130,16 @@ pub fn dc_cgsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_cgvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgvac, $0" : : "r"(arg));
+        asm!("dc cgvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -126,13 +147,16 @@ pub fn dc_cgvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Allocation Tags by VA to PoDP
 #[inline(always)]
 pub fn dc_cgvadp(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgvadp, $0" : : "r"(arg));
+        asm!("dc cgvadp, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -140,13 +164,16 @@ pub fn dc_cgvadp(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean of Allocation Tags by VA to PoP
 #[inline(always)]
 pub fn dc_cgvap(arg: u64) {
     unsafe {
-        llvm_asm!("dc cgvap, $0" : : "r"(arg));
+        asm!("dc cgvap, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -154,13 +181,16 @@ pub fn dc_cgvap(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean and Invalidate of Data and Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_cigdsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc cigdsw, $0" : : "r"(arg));
+        asm!("dc cigdsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -168,13 +198,16 @@ pub fn dc_cigdsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean and Invalidate of Data and Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_cigdvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc cigdvac, $0" : : "r"(arg));
+        asm!("dc cigdvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -182,13 +215,16 @@ pub fn dc_cigdvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean and Invalidate of Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_cigsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc cigsw, $0" : : "r"(arg));
+        asm!("dc cigsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -196,13 +232,16 @@ pub fn dc_cigsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Clean and Invalidate of Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_cigvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc cigvac, $0" : : "r"(arg));
+        asm!("dc cigvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -210,13 +249,16 @@ pub fn dc_cigvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean and Invalidate by Set/Way
 #[inline(always)]
 pub fn dc_cisw(arg: u64) {
     unsafe {
-        llvm_asm!("dc cisw, $0" : : "r"(arg));
+        asm!("dc cisw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -224,13 +266,16 @@ pub fn dc_cisw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean and Invalidate by VA to PoC
 #[inline(always)]
 pub fn dc_civac(arg: u64) {
     unsafe {
-        llvm_asm!("dc civac, $0" : : "r"(arg));
+        asm!("dc civac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -238,13 +283,16 @@ pub fn dc_civac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean by Set/Way
 #[inline(always)]
 pub fn dc_csw(arg: u64) {
     unsafe {
-        llvm_asm!("dc csw, $0" : : "r"(arg));
+        asm!("dc csw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -252,13 +300,16 @@ pub fn dc_csw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean by VA to PoC
 #[inline(always)]
 pub fn dc_cvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc cvac, $0" : : "r"(arg));
+        asm!("dc cvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -266,13 +317,16 @@ pub fn dc_cvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean by VA to PoDP
 #[inline(always)]
 pub fn dc_cvadp(arg: u64) {
     unsafe {
-        llvm_asm!("dc cvadp, $0" : : "r"(arg));
+        asm!("dc cvadp, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -280,13 +334,16 @@ pub fn dc_cvadp(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean by VA to PoP
 #[inline(always)]
 pub fn dc_cvap(arg: u64) {
     unsafe {
-        llvm_asm!("dc cvap, $0" : : "r"(arg));
+        asm!("dc cvap, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -294,13 +351,16 @@ pub fn dc_cvap(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Clean by VA to PoU
 #[inline(always)]
 pub fn dc_cvau(arg: u64) {
     unsafe {
-        llvm_asm!("dc cvau, $0" : : "r"(arg));
+        asm!("dc cvau, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -308,13 +368,16 @@ pub fn dc_cvau(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data Cache set Allocation Tag by VA
 #[inline(always)]
 pub fn dc_gva(arg: u64) {
     unsafe {
-        llvm_asm!("dc gva, $0" : : "r"(arg));
+        asm!("dc gva, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -322,13 +385,16 @@ pub fn dc_gva(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data Cache set Allocation Tags and Zero by VA
 #[inline(always)]
 pub fn dc_gzva(arg: u64) {
     unsafe {
-        llvm_asm!("dc gzva, $0" : : "r"(arg));
+        asm!("dc gzva, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -336,13 +402,16 @@ pub fn dc_gzva(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Invalidate of Data and Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_igdsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc igdsw, $0" : : "r"(arg));
+        asm!("dc igdsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -350,13 +419,16 @@ pub fn dc_igdsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Invalidate of Data and Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_igdvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc igdvac, $0" : : "r"(arg));
+        asm!("dc igdvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -364,13 +436,16 @@ pub fn dc_igdvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Invalidate of Allocation Tags by Set/Way
 #[inline(always)]
 pub fn dc_igsw(arg: u64) {
     unsafe {
-        llvm_asm!("dc igsw, $0" : : "r"(arg));
+        asm!("dc igsw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -378,13 +453,16 @@ pub fn dc_igsw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Invalidate of Allocation Tags by VA to PoC
 #[inline(always)]
 pub fn dc_igvac(arg: u64) {
     unsafe {
-        llvm_asm!("dc igvac, $0" : : "r"(arg));
+        asm!("dc igvac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -392,13 +470,16 @@ pub fn dc_igvac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Invalidate by Set/Way
 #[inline(always)]
 pub fn dc_isw(arg: u64) {
     unsafe {
-        llvm_asm!("dc isw, $0" : : "r"(arg));
+        asm!("dc isw, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -406,13 +487,16 @@ pub fn dc_isw(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data or unified Cache line Invalidate by VA to PoC
 #[inline(always)]
 pub fn dc_ivac(arg: u64) {
     unsafe {
-        llvm_asm!("dc ivac, $0" : : "r"(arg));
+        asm!("dc ivac, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -420,13 +504,16 @@ pub fn dc_ivac(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data Cache Zero by VA
 #[inline(always)]
 pub fn dc_zva(arg: u64) {
     unsafe {
-        llvm_asm!("dc zva, $0" : : "r"(arg));
+        asm!("dc zva, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -434,13 +521,16 @@ pub fn dc_zva(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Instruction Cache Invalidate All to PoU
 #[inline(always)]
 pub fn ic_iallu() {
     unsafe {
-        llvm_asm!("ic iallu");
+        asm!("ic iallu");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -448,13 +538,16 @@ pub fn ic_iallu() {
  * ================================================================================================
  */
 
+
+
 /// Instruction Cache Invalidate All to PoU, Inner Shareable
 #[inline(always)]
 pub fn ic_ialluis() {
     unsafe {
-        llvm_asm!("ic ialluis");
+        asm!("ic ialluis");
     }
 }
+
 
 /*
  * ================================================================================================
@@ -462,10 +555,12 @@ pub fn ic_ialluis() {
  * ================================================================================================
  */
 
+
+
 /// Instruction Cache line Invalidate by VA to PoU
 #[inline(always)]
 pub fn ic_ivau() {
     unsafe {
-        llvm_asm!("ic ivau");
+        asm!("ic ivau");
     }
 }

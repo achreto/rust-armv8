@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.513922
+ * Generated on: 2022-08-22T16:25:59.075488
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-esr_el3.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Exception Syndrome Register (EL3) value in memory
 pub struct EsrEl3(u64);
 
 /// struct implementation for accessing the fields of register esr_el3
 impl EsrEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> EsrEl3 {
@@ -73,49 +79,58 @@ impl EsrEl3 {
         EsrEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> EsrEl3 {
+    pub fn with_reg_val() ->  EsrEl3 {
         let curval = Self::reg_rawrd() & 0x1fffffffff;
         EsrEl3(curval)
     }
 
+
+    
     /// reading the Exception Syndrome Register (EL3) (esr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ESR_EL3
-            llvm_asm!("mrs $0, esr_el3" : "=r"(regval));
+            asm!("mrs {}, esr_el3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Exception Syndrome Register (EL3) (esr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ESR_EL3, <Xt>
-            llvm_asm!("msr esr_el3, $0" : : "r"(val));
+            asm!("msr esr_el3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1fffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1fffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 137438953471;
+    //    self.0 = newval & 137438953471;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl EsrEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: iss2_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn iss2_1_extract(&self) -> u64 {
         // bits 32..36
-        self.val.get_bits(32..=36)
+        self.0.get_bits(32..=36)
     }
 
     /// reads the current register value and extract field `iss2_1` from it
@@ -140,9 +158,9 @@ impl EsrEl3 {
     }
 
     /// inserts the given value `val` into the field `iss2_1`
-    pub fn iss2_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn iss2_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..36
-        self.val.set_bits(32..=36, val);
+        self.0.set_bits(32..=36, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl EsrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ec_extract(&self) -> u64 {
         // bits 26..31
-        self.val.get_bits(26..=31)
+        self.0.get_bits(26..=31)
     }
 
     /// reads the current register value and extract field `ec` from it
@@ -168,9 +187,9 @@ impl EsrEl3 {
     }
 
     /// inserts the given value `val` into the field `ec`
-    pub fn ec_insert(&mut self, val: u64) -> &mut self {
+    pub fn ec_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..31
-        self.val.set_bits(26..=31, val);
+        self.0.set_bits(26..=31, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl EsrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn il_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `il` from it
@@ -196,9 +216,9 @@ impl EsrEl3 {
     }
 
     /// inserts the given value `val` into the field `il`
-    pub fn il_insert(&mut self, val: u64) -> &mut self {
+    pub fn il_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl EsrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn iss_extract(&self) -> u64 {
         // bits 0..24
-        self.val.get_bits(0..=24)
+        self.0.get_bits(0..=24)
     }
 
     /// reads the current register value and extract field `iss` from it
@@ -224,9 +245,9 @@ impl EsrEl3 {
     }
 
     /// inserts the given value `val` into the field `iss`
-    pub fn iss_insert(&mut self, val: u64) -> &mut self {
+    pub fn iss_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..24
-        self.val.set_bits(0..=24, val);
+        self.0.set_bits(0..=24, val);
         self
     }
 
@@ -234,12 +255,13 @@ impl EsrEl3 {
     pub fn iss_write(&mut self, val: u64) {
         Self::with_reg_val().iss_insert(val).write();
     }
+
 }
 
 impl Default for EsrEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> EsrEl3 {
+    fn default() -> EsrEl3 {
         EsrEl3(0)
     }
 }

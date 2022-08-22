@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.533451
+ * Generated on: 2022-08-22T16:25:59.094979
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-rmr_el3.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Reset Management Register (EL3) value in memory
 pub struct RmrEl3(u64);
 
 /// struct implementation for accessing the fields of register rmr_el3
 impl RmrEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> RmrEl3 {
@@ -73,49 +79,58 @@ impl RmrEl3 {
         RmrEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> RmrEl3 {
+    pub fn with_reg_val() ->  RmrEl3 {
         let curval = Self::reg_rawrd() & 0x3;
         RmrEl3(curval)
     }
 
+
+    
     /// reading the Reset Management Register (EL3) (rmr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, RMR_EL3
-            llvm_asm!("mrs $0, rmr_el3" : "=r"(regval));
+            asm!("mrs {}, rmr_el3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Reset Management Register (EL3) (rmr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR RMR_EL3, <Xt>
-            llvm_asm!("msr rmr_el3, $0" : : "r"(val));
+            asm!("msr rmr_el3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x3;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x3;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 3;
+    //    self.0 = newval & 3;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl RmrEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: rr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rr_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `rr` from it
@@ -140,9 +158,9 @@ impl RmrEl3 {
     }
 
     /// inserts the given value `val` into the field `rr`
-    pub fn rr_insert(&mut self, val: u64) -> &mut self {
+    pub fn rr_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl RmrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn aa64_1_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `aa64_1` from it
@@ -168,9 +187,9 @@ impl RmrEl3 {
     }
 
     /// inserts the given value `val` into the field `aa64_1`
-    pub fn aa64_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn aa64_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl RmrEl3 {
     pub fn aa64_1_write(&mut self, val: u64) {
         Self::with_reg_val().aa64_1_insert(val).write();
     }
+
 }
 
 impl Default for RmrEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> RmrEl3 {
+    fn default() -> RmrEl3 {
         RmrEl3(0)
     }
 }

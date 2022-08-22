@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.526155
+ * Generated on: 2022-08-22T16:25:59.088000
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-mdcr_el3.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Monitor Debug Configuration Register (EL3) value in memory
 pub struct MdcrEl3(u64);
 
 /// struct implementation for accessing the fields of register mdcr_el3
 impl MdcrEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdcrEl3 {
@@ -73,49 +79,58 @@ impl MdcrEl3 {
         MdcrEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> MdcrEl3 {
+    pub fn with_reg_val() ->  MdcrEl3 {
         let curval = Self::reg_rawrd() & 0x1c18bff640;
         MdcrEl3(curval)
     }
 
+
+    
     /// reading the Monitor Debug Configuration Register (EL3) (mdcr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, MDCR_EL3
-            llvm_asm!("mrs $0, mdcr_el3" : "=r"(regval));
+            asm!("mrs {}, mdcr_el3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Monitor Debug Configuration Register (EL3) (mdcr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR MDCR_EL3, <Xt>
-            llvm_asm!("msr mdcr_el3, $0" : : "r"(val));
+            asm!("msr mdcr_el3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1c18bff640;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1c18bff640;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 120674317888;
+    //    self.0 = newval & 120674317888;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl MdcrEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: enpmsn_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enpmsn_1_extract(&self) -> u64 {
         // bits 36..36
-        self.val.get_bits(36..=36)
+        self.0.get_bits(36..=36)
     }
 
     /// reads the current register value and extract field `enpmsn_1` from it
@@ -140,9 +158,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `enpmsn_1`
-    pub fn enpmsn_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enpmsn_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 36..36
-        self.val.set_bits(36..=36, val);
+        self.0.set_bits(36..=36, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mpmx_1_extract(&self) -> u64 {
         // bits 35..35
-        self.val.get_bits(35..=35)
+        self.0.get_bits(35..=35)
     }
 
     /// reads the current register value and extract field `mpmx_1` from it
@@ -168,9 +187,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `mpmx_1`
-    pub fn mpmx_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn mpmx_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 35..35
-        self.val.set_bits(35..=35, val);
+        self.0.set_bits(35..=35, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mccd_1_extract(&self) -> u64 {
         // bits 34..34
-        self.val.get_bits(34..=34)
+        self.0.get_bits(34..=34)
     }
 
     /// reads the current register value and extract field `mccd_1` from it
@@ -196,9 +216,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `mccd_1`
-    pub fn mccd_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn mccd_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 34..34
-        self.val.set_bits(34..=34, val);
+        self.0.set_bits(34..=34, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mtpme_1_extract(&self) -> u64 {
         // bits 28..28
-        self.val.get_bits(28..=28)
+        self.0.get_bits(28..=28)
     }
 
     /// reads the current register value and extract field `mtpme_1` from it
@@ -224,9 +245,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `mtpme_1`
-    pub fn mtpme_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn mtpme_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 28..28
-        self.val.set_bits(28..=28, val);
+        self.0.set_bits(28..=28, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tdcc_1_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `tdcc_1` from it
@@ -252,9 +274,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tdcc_1`
-    pub fn tdcc_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tdcc_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sccd_1_extract(&self) -> u64 {
         // bits 23..23
-        self.val.get_bits(23..=23)
+        self.0.get_bits(23..=23)
     }
 
     /// reads the current register value and extract field `sccd_1` from it
@@ -280,9 +303,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `sccd_1`
-    pub fn sccd_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn sccd_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 23..23
-        self.val.set_bits(23..=23, val);
+        self.0.set_bits(23..=23, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn epmad_1_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `epmad_1` from it
@@ -308,9 +332,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `epmad_1`
-    pub fn epmad_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn epmad_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn epmad_2_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `epmad_2` from it
@@ -336,9 +361,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `epmad_2`
-    pub fn epmad_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn epmad_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn edad_1_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `edad_1` from it
@@ -364,9 +390,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `edad_1`
-    pub fn edad_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn edad_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn edad_2_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `edad_2` from it
@@ -392,9 +419,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `edad_2`
-    pub fn edad_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn edad_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn edad_3_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `edad_3` from it
@@ -420,9 +448,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `edad_3`
-    pub fn edad_3_insert(&mut self, val: u64) -> &mut self {
+    pub fn edad_3_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ttrf_1_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `ttrf_1` from it
@@ -448,9 +477,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `ttrf_1`
-    pub fn ttrf_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ttrf_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ste_1_extract(&self) -> u64 {
         // bits 18..18
-        self.val.get_bits(18..=18)
+        self.0.get_bits(18..=18)
     }
 
     /// reads the current register value and extract field `ste_1` from it
@@ -476,9 +506,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `ste_1`
-    pub fn ste_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ste_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 18..18
-        self.val.set_bits(18..=18, val);
+        self.0.set_bits(18..=18, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn spme_1_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `spme_1` from it
@@ -504,9 +535,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `spme_1`
-    pub fn spme_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn spme_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -520,10 +551,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn spme_2_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `spme_2` from it
@@ -532,9 +564,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `spme_2`
-    pub fn spme_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn spme_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -548,10 +580,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn spme_3_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `spme_3` from it
@@ -560,9 +593,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `spme_3`
-    pub fn spme_3_insert(&mut self, val: u64) -> &mut self {
+    pub fn spme_3_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -576,10 +609,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sdd_extract(&self) -> u64 {
         // bits 16..16
-        self.val.get_bits(16..=16)
+        self.0.get_bits(16..=16)
     }
 
     /// reads the current register value and extract field `sdd` from it
@@ -588,9 +622,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `sdd`
-    pub fn sdd_insert(&mut self, val: u64) -> &mut self {
+    pub fn sdd_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..16
-        self.val.set_bits(16..=16, val);
+        self.0.set_bits(16..=16, val);
         self
     }
 
@@ -604,10 +638,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn spd32_1_extract(&self) -> u64 {
         // bits 14..15
-        self.val.get_bits(14..=15)
+        self.0.get_bits(14..=15)
     }
 
     /// reads the current register value and extract field `spd32_1` from it
@@ -616,9 +651,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `spd32_1`
-    pub fn spd32_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn spd32_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..15
-        self.val.set_bits(14..=15, val);
+        self.0.set_bits(14..=15, val);
         self
     }
 
@@ -632,10 +667,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nspb_1_extract(&self) -> u64 {
         // bits 12..13
-        self.val.get_bits(12..=13)
+        self.0.get_bits(12..=13)
     }
 
     /// reads the current register value and extract field `nspb_1` from it
@@ -644,9 +680,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `nspb_1`
-    pub fn nspb_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn nspb_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..13
-        self.val.set_bits(12..=13, val);
+        self.0.set_bits(12..=13, val);
         self
     }
 
@@ -660,10 +696,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tdosa_1_extract(&self) -> u64 {
         // bits 10..10
-        self.val.get_bits(10..=10)
+        self.0.get_bits(10..=10)
     }
 
     /// reads the current register value and extract field `tdosa_1` from it
@@ -672,9 +709,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tdosa_1`
-    pub fn tdosa_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tdosa_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 10..10
-        self.val.set_bits(10..=10, val);
+        self.0.set_bits(10..=10, val);
         self
     }
 
@@ -688,10 +725,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tdosa_2_extract(&self) -> u64 {
         // bits 10..10
-        self.val.get_bits(10..=10)
+        self.0.get_bits(10..=10)
     }
 
     /// reads the current register value and extract field `tdosa_2` from it
@@ -700,9 +738,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tdosa_2`
-    pub fn tdosa_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn tdosa_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 10..10
-        self.val.set_bits(10..=10, val);
+        self.0.set_bits(10..=10, val);
         self
     }
 
@@ -716,10 +754,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tda_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `tda` from it
@@ -728,9 +767,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tda`
-    pub fn tda_insert(&mut self, val: u64) -> &mut self {
+    pub fn tda_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -744,10 +783,11 @@ impl MdcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tpm_1_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `tpm_1` from it
@@ -756,9 +796,9 @@ impl MdcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tpm_1`
-    pub fn tpm_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tpm_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -766,12 +806,13 @@ impl MdcrEl3 {
     pub fn tpm_1_write(&mut self, val: u64) {
         Self::with_reg_val().tpm_1_insert(val).write();
     }
+
 }
 
 impl Default for MdcrEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> MdcrEl3 {
+    fn default() -> MdcrEl3 {
         MdcrEl3(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.529608
+ * Generated on: 2022-08-22T16:25:59.091476
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-pmblimitr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Profiling Buffer Limit Address Register value in memory
 pub struct PmblimitrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmblimitr_el1
 impl PmblimitrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmblimitrEl1 {
@@ -73,49 +79,58 @@ impl PmblimitrEl1 {
         PmblimitrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> PmblimitrEl1 {
+    pub fn with_reg_val() ->  PmblimitrEl1 {
         let curval = Self::reg_rawrd() & 0xfffffffffffff027;
         PmblimitrEl1(curval)
     }
 
+
+    
     /// reading the Profiling Buffer Limit Address Register (pmblimitr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PMBLIMITR_EL1
-            llvm_asm!("mrs $0, S3_0_C9_C10_0" : "=r"(regval));
+            asm!("mrs {}, S3_0_C9_C10_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Profiling Buffer Limit Address Register (pmblimitr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR PMBLIMITR_EL1, <Xt>
-            llvm_asm!("msr S3_0_C9_C10_0, $0" : : "r"(val));
+            asm!("msr S3_0_C9_C10_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfffffffffffff027;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfffffffffffff027;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709547559;
+    //    self.0 = newval & 18446744073709547559;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl PmblimitrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: limit
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn limit_extract(&self) -> u64 {
         // bits 12..63
-        self.val.get_bits(12..=63)
+        self.0.get_bits(12..=63)
     }
 
     /// reads the current register value and extract field `limit` from it
@@ -140,9 +158,9 @@ impl PmblimitrEl1 {
     }
 
     /// inserts the given value `val` into the field `limit`
-    pub fn limit_insert(&mut self, val: u64) -> &mut self {
+    pub fn limit_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..63
-        self.val.set_bits(12..=63, val);
+        self.0.set_bits(12..=63, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl PmblimitrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pmfz_1_extract(&self) -> u64 {
         // bits 5..5
-        self.val.get_bits(5..=5)
+        self.0.get_bits(5..=5)
     }
 
     /// reads the current register value and extract field `pmfz_1` from it
@@ -168,9 +187,9 @@ impl PmblimitrEl1 {
     }
 
     /// inserts the given value `val` into the field `pmfz_1`
-    pub fn pmfz_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn pmfz_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 5..5
-        self.val.set_bits(5..=5, val);
+        self.0.set_bits(5..=5, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl PmblimitrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fm_extract(&self) -> u64 {
         // bits 1..2
-        self.val.get_bits(1..=2)
+        self.0.get_bits(1..=2)
     }
 
     /// reads the current register value and extract field `fm` from it
@@ -196,9 +216,9 @@ impl PmblimitrEl1 {
     }
 
     /// inserts the given value `val` into the field `fm`
-    pub fn fm_insert(&mut self, val: u64) -> &mut self {
+    pub fn fm_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..2
-        self.val.set_bits(1..=2, val);
+        self.0.set_bits(1..=2, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl PmblimitrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn e_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `e` from it
@@ -224,9 +245,9 @@ impl PmblimitrEl1 {
     }
 
     /// inserts the given value `val` into the field `e`
-    pub fn e_insert(&mut self, val: u64) -> &mut self {
+    pub fn e_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -234,12 +255,13 @@ impl PmblimitrEl1 {
     pub fn e_write(&mut self, val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
+
 }
 
 impl Default for PmblimitrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> PmblimitrEl1 {
+    fn default() -> PmblimitrEl1 {
         PmblimitrEl1(0)
     }
 }

@@ -128,7 +128,7 @@ RS_REG_READ="""
         let mut regval: u{length};
         unsafe {{
             // {access}
-            llvm_asm!(\"{enc}\" : \"=r\"(regval));
+            asm!(\"{enc}\", out(reg) regval);
         }}
         return regval;
     }}
@@ -141,7 +141,7 @@ RS_REG_WRITE="""
     fn reg_rawwr(val: u{length}) {{
         unsafe {{
             // {access}
-            llvm_asm!("{enc}" : : "r"(val));
+            asm!(\"{enc}\", in(reg) val);
         }}
     }}
 
@@ -152,7 +152,7 @@ RS_SYSINSTR_ARG="""
 #[inline(always)]
 pub fn {fn}(arg: u{length}) {{
     unsafe {{
-        llvm_asm!("{instr}" : : "r"(arg));
+        asm!(\"{instr} {{}}\", in(reg) arg);
     }}
 }}
 """
@@ -162,7 +162,7 @@ RS_SYSINSTR="""
 #[inline(always)]
 pub fn {fn}() {{
     unsafe {{
-        llvm_asm!("{instr}");
+        asm!("{instr}");
     }}
 }}
 """
@@ -235,7 +235,7 @@ impl {typename} {{
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u{length}) {{
-    //    self.val = newval & {allmask};
+    //    self.0 = newval & {allmask};
     //}}
 
     /// gets the value of the struct
@@ -250,7 +250,7 @@ impl {typename} {{
 impl Default for {typename} {{
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> {typename} {{
+    fn default() -> {typename} {{
         {typename}({default})
     }}
 }}
@@ -260,7 +260,7 @@ RS_EXTRACT_FIELD="""
     /// extracts field val from current value
     pub fn {field}_extract(&self) -> u{length} {{
         // bits {lsb}..{msb}
-        self.val.get_bits({lsb}..={msb})
+        self.0.get_bits({lsb}..={msb})
     }}
 """
 
@@ -273,9 +273,9 @@ RS_READ_FIELD="""
 
 RS_INSERT_FIELD="""
     /// inserts the given value `val` into the field `{field}`
-    pub fn {field}_insert(&mut self, val: u{length}) -> &mut self {{
+    pub fn {field}_insert(&mut self, val: u{length}) -> &mut Self {{
         // bits {lsb}..{msb}
-        self.val.set_bits({lsb}..={msb}, val);
+        self.0.set_bits({lsb}..={msb}, val);
         self
     }}
 """
@@ -297,8 +297,8 @@ RS_SET_FIELD="""
 RS_STRUCT_READ="""
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {{
-        self.val = Self::reg_rawrd() & 0x{mask:x};
+    pub fn read(&mut self) -> &mut Self {{
+        self.0 = Self::reg_rawrd() & 0x{mask:x};
         self
     }}
 """
@@ -307,7 +307,7 @@ RS_STRUCT_WRITE="""
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {{
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }}
 """
 
@@ -352,6 +352,7 @@ def generate_accessor(accessor, instr, reg) :
         encstr = reg['id']
 
     encoding = accfmt['fmt'][0] + " " + ", ".join(accfmt['fmt'][1:]).format(encstr)
+    encoding = encoding.replace("$0", "{}")
 
     return templ.format(name = reg['name'], id = reg['id'], length = reg['length'],
                                 access = accessor['access_instruction'], enc = encoding)
@@ -448,6 +449,7 @@ def generate_register_access_file(reg, version, url, instr, outdir) :
 
     # write the module header
     rsfile.write(RS_FILE_HEADER.format(year = now.year))
+    rsfile.write("use core::arch::asm;\n")
     rsfile.write("use bit_field::BitField;\n\n")
 
     rsfile.write(RS_AUTOGEN_WARNING.format(date = now.isoformat(),
@@ -582,6 +584,7 @@ def generate_system_instr_file(mid, regs, version, url, instr, outdir) :
     rsfile.write(RS_FILE_HEADER.format(year = now.year))
     rsfile.write(RS_AUTOGEN_WARNING.format(date = now.isoformat(),
                                            version = version, source = url))
+    rsfile.write("use core::arch::asm;\n")
 
     for reg in regs :
         rsfile.write(generate_system_instr(reg, instr))

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.505507
+ * Generated on: 2022-08-22T16:25:59.067359
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Auxiliary ID Register (aidr_el1)
  * Group:       IMPLEMENTATION DEFINED
  * Type:        64-bit Register
- * Description: Provides
+ * Description: Provides 
  * File:        AArch64-aidr_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Auxiliary ID Register value in memory
 pub struct AidrEl1(u64);
 
 /// struct implementation for accessing the fields of register aidr_el1
 impl AidrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AidrEl1 {
@@ -73,30 +79,35 @@ impl AidrEl1 {
         AidrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> AidrEl1 {
+    pub fn with_reg_val() ->  AidrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         AidrEl1(curval)
     }
 
+
+    
     /// reading the Auxiliary ID Register (aidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, AIDR_EL1
-            llvm_asm!("mrs $0, aidr_el1" : "=r"(regval));
+            asm!("mrs {}, aidr_el1", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl AidrEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -112,28 +123,31 @@ impl AidrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: implementation_defined_63_0
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn implementation_defined_63_0_extract(&self) -> u64 {
         // bits 0..63
-        self.val.get_bits(0..=63)
+        self.0.get_bits(0..=63)
     }
 
     /// reads the current register value and extract field `implementation_defined_63_0` from it
     pub fn implementation_defined_63_0_read(&mut self) -> u64 {
         Self::with_reg_val().implementation_defined_63_0_extract()
     }
-    // no insert() method for field implementation_defined_63_0
+// no insert() method for field implementation_defined_63_0
 }
 
 impl Default for AidrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> AidrEl1 {
+    fn default() -> AidrEl1 {
         AidrEl1(0)
     }
 }

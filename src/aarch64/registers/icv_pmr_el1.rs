@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.521560
+ * Generated on: 2022-08-22T16:25:59.083379
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-icv_pmr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Interrupt Controller Virtual Interrupt Priority Mask Register value in memory
 pub struct IcvPmrEl1(u64);
 
 /// struct implementation for accessing the fields of register icv_pmr_el1
 impl IcvPmrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IcvPmrEl1 {
@@ -73,49 +79,58 @@ impl IcvPmrEl1 {
         IcvPmrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IcvPmrEl1 {
+    pub fn with_reg_val() ->  IcvPmrEl1 {
         let curval = Self::reg_rawrd() & 0xff;
         IcvPmrEl1(curval)
     }
 
+
+    
     /// reading the Interrupt Controller Virtual Interrupt Priority Mask Register (icv_pmr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ICC_PMR_EL1
-            llvm_asm!("mrs $0, S3_0_C4_C6_0" : "=r"(regval));
+            asm!("mrs {}, S3_0_C4_C6_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Interrupt Controller Virtual Interrupt Priority Mask Register (icv_pmr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ICC_PMR_EL1, <Xt>
-            llvm_asm!("msr S3_0_C4_C6_0, $0" : : "r"(val));
+            asm!("msr S3_0_C4_C6_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 255;
+    //    self.0 = newval & 255;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl IcvPmrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: priority
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn priority_extract(&self) -> u64 {
         // bits 0..7
-        self.val.get_bits(0..=7)
+        self.0.get_bits(0..=7)
     }
 
     /// reads the current register value and extract field `priority` from it
@@ -140,9 +158,9 @@ impl IcvPmrEl1 {
     }
 
     /// inserts the given value `val` into the field `priority`
-    pub fn priority_insert(&mut self, val: u64) -> &mut self {
+    pub fn priority_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..7
-        self.val.set_bits(0..=7, val);
+        self.0.set_bits(0..=7, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl IcvPmrEl1 {
     pub fn priority_write(&mut self, val: u64) {
         Self::with_reg_val().priority_insert(val).write();
     }
+
 }
 
 impl Default for IcvPmrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IcvPmrEl1 {
+    fn default() -> IcvPmrEl1 {
         IcvPmrEl1(0)
     }
 }

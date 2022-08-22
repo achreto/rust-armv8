@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.529373
+ * Generated on: 2022-08-22T16:25:59.091262
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-par_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Physical Address Register value in memory
 pub struct ParEl1(u64);
 
 /// struct implementation for accessing the fields of register par_el1
 impl ParEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ParEl1 {
@@ -73,49 +79,58 @@ impl ParEl1 {
         ParEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ParEl1 {
+    pub fn with_reg_val() ->  ParEl1 {
         let curval = Self::reg_rawrd() & 0xffff00000000037f;
         ParEl1(curval)
     }
 
+
+    
     /// reading the Physical Address Register (par_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PAR_EL1
-            llvm_asm!("mrs $0, par_el1" : "=r"(regval));
+            asm!("mrs {}, par_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Physical Address Register (par_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR PAR_EL1, <Xt>
-            llvm_asm!("msr par_el1, $0" : : "r"(val));
+            asm!("msr par_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffff00000000037f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffff00000000037f;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446462598732841855;
+    //    self.0 = newval & 18446462598732841855;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl ParEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: implementation_defined_63_56
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn implementation_defined_63_56_extract(&self) -> u64 {
         // bits 56..63
-        self.val.get_bits(56..=63)
+        self.0.get_bits(56..=63)
     }
 
     /// reads the current register value and extract field `implementation_defined_63_56` from it
@@ -140,17 +158,15 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `implementation_defined_63_56`
-    pub fn implementation_defined_63_56_insert(&mut self, val: u64) -> &mut self {
+    pub fn implementation_defined_63_56_insert(&mut self, val: u64) -> &mut Self {
         // bits 56..63
-        self.val.set_bits(56..=63, val);
+        self.0.set_bits(56..=63, val);
         self
     }
 
     /// reads the register, updates the `implementation_defined_63_56` field, and writes the updated value
     pub fn implementation_defined_63_56_write(&mut self, val: u64) {
-        Self::with_reg_val()
-            .implementation_defined_63_56_insert(val)
-            .write();
+        Self::with_reg_val().implementation_defined_63_56_insert(val).write();
     }
 
     /*
@@ -158,10 +174,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn implementation_defined_55_52_extract(&self) -> u64 {
         // bits 52..55
-        self.val.get_bits(52..=55)
+        self.0.get_bits(52..=55)
     }
 
     /// reads the current register value and extract field `implementation_defined_55_52` from it
@@ -170,17 +187,15 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `implementation_defined_55_52`
-    pub fn implementation_defined_55_52_insert(&mut self, val: u64) -> &mut self {
+    pub fn implementation_defined_55_52_insert(&mut self, val: u64) -> &mut Self {
         // bits 52..55
-        self.val.set_bits(52..=55, val);
+        self.0.set_bits(52..=55, val);
         self
     }
 
     /// reads the register, updates the `implementation_defined_55_52` field, and writes the updated value
     pub fn implementation_defined_55_52_write(&mut self, val: u64) {
-        Self::with_reg_val()
-            .implementation_defined_55_52_insert(val)
-            .write();
+        Self::with_reg_val().implementation_defined_55_52_insert(val).write();
     }
 
     /*
@@ -188,10 +203,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn implementation_defined_51_48_extract(&self) -> u64 {
         // bits 48..51
-        self.val.get_bits(48..=51)
+        self.0.get_bits(48..=51)
     }
 
     /// reads the current register value and extract field `implementation_defined_51_48` from it
@@ -200,17 +216,15 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `implementation_defined_51_48`
-    pub fn implementation_defined_51_48_insert(&mut self, val: u64) -> &mut self {
+    pub fn implementation_defined_51_48_insert(&mut self, val: u64) -> &mut Self {
         // bits 48..51
-        self.val.set_bits(48..=51, val);
+        self.0.set_bits(48..=51, val);
         self
     }
 
     /// reads the register, updates the `implementation_defined_51_48` field, and writes the updated value
     pub fn implementation_defined_51_48_write(&mut self, val: u64) {
-        Self::with_reg_val()
-            .implementation_defined_51_48_insert(val)
-            .write();
+        Self::with_reg_val().implementation_defined_51_48_insert(val).write();
     }
 
     /*
@@ -218,10 +232,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn s_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `s` from it
@@ -230,9 +245,9 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `s`
-    pub fn s_insert(&mut self, val: u64) -> &mut self {
+    pub fn s_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -246,10 +261,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ptw_extract(&self) -> u64 {
         // bits 8..8
-        self.val.get_bits(8..=8)
+        self.0.get_bits(8..=8)
     }
 
     /// reads the current register value and extract field `ptw` from it
@@ -258,9 +274,9 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `ptw`
-    pub fn ptw_insert(&mut self, val: u64) -> &mut self {
+    pub fn ptw_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..8
-        self.val.set_bits(8..=8, val);
+        self.0.set_bits(8..=8, val);
         self
     }
 
@@ -274,10 +290,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fst_extract(&self) -> u64 {
         // bits 1..6
-        self.val.get_bits(1..=6)
+        self.0.get_bits(1..=6)
     }
 
     /// reads the current register value and extract field `fst` from it
@@ -286,9 +303,9 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `fst`
-    pub fn fst_insert(&mut self, val: u64) -> &mut self {
+    pub fn fst_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..6
-        self.val.set_bits(1..=6, val);
+        self.0.set_bits(1..=6, val);
         self
     }
 
@@ -302,10 +319,11 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `f` from it
@@ -314,9 +332,9 @@ impl ParEl1 {
     }
 
     /// inserts the given value `val` into the field `f`
-    pub fn f_insert(&mut self, val: u64) -> &mut self {
+    pub fn f_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -324,12 +342,13 @@ impl ParEl1 {
     pub fn f_write(&mut self, val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
+
 }
 
 impl Default for ParEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ParEl1 {
+    fn default() -> ParEl1 {
         ParEl1(0)
     }
 }

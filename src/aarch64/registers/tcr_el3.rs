@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.538138
+ * Generated on: 2022-08-22T16:25:59.099620
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-tcr_el3.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Translation Control Register (EL3) value in memory
 pub struct TcrEl3(u64);
 
 /// struct implementation for accessing the fields of register tcr_el3
 impl TcrEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TcrEl3 {
@@ -73,49 +79,58 @@ impl TcrEl3 {
         TcrEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> TcrEl3 {
+    pub fn with_reg_val() ->  TcrEl3 {
         let curval = Self::reg_rawrd() & 0x17f77ff3f;
         TcrEl3(curval)
     }
 
+
+    
     /// reading the Translation Control Register (EL3) (tcr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, TCR_EL3
-            llvm_asm!("mrs $0, tcr_el3" : "=r"(regval));
+            asm!("mrs {}, tcr_el3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Translation Control Register (EL3) (tcr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR TCR_EL3, <Xt>
-            llvm_asm!("msr tcr_el3, $0" : : "r"(val));
+            asm!("msr tcr_el3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x17f77ff3f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x17f77ff3f;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 6433537855;
+    //    self.0 = newval & 6433537855;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl TcrEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: ds_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ds_1_extract(&self) -> u64 {
         // bits 32..32
-        self.val.get_bits(32..=32)
+        self.0.get_bits(32..=32)
     }
 
     /// reads the current register value and extract field `ds_1` from it
@@ -140,9 +158,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `ds_1`
-    pub fn ds_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ds_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..32
-        self.val.set_bits(32..=32, val);
+        self.0.set_bits(32..=32, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tcma_1_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `tcma_1` from it
@@ -168,9 +187,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tcma_1`
-    pub fn tcma_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tcma_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tbid_1_extract(&self) -> u64 {
         // bits 29..29
-        self.val.get_bits(29..=29)
+        self.0.get_bits(29..=29)
     }
 
     /// reads the current register value and extract field `tbid_1` from it
@@ -196,9 +216,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tbid_1`
-    pub fn tbid_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tbid_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 29..29
-        self.val.set_bits(29..=29, val);
+        self.0.set_bits(29..=29, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hwu62_1_extract(&self) -> u64 {
         // bits 28..28
-        self.val.get_bits(28..=28)
+        self.0.get_bits(28..=28)
     }
 
     /// reads the current register value and extract field `hwu62_1` from it
@@ -224,9 +245,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hwu62_1`
-    pub fn hwu62_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hwu62_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 28..28
-        self.val.set_bits(28..=28, val);
+        self.0.set_bits(28..=28, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hwu61_1_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `hwu61_1` from it
@@ -252,9 +274,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hwu61_1`
-    pub fn hwu61_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hwu61_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hwu60_1_extract(&self) -> u64 {
         // bits 26..26
-        self.val.get_bits(26..=26)
+        self.0.get_bits(26..=26)
     }
 
     /// reads the current register value and extract field `hwu60_1` from it
@@ -280,9 +303,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hwu60_1`
-    pub fn hwu60_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hwu60_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..26
-        self.val.set_bits(26..=26, val);
+        self.0.set_bits(26..=26, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hwu59_1_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `hwu59_1` from it
@@ -308,9 +332,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hwu59_1`
-    pub fn hwu59_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hwu59_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hpd_1_extract(&self) -> u64 {
         // bits 24..24
-        self.val.get_bits(24..=24)
+        self.0.get_bits(24..=24)
     }
 
     /// reads the current register value and extract field `hpd_1` from it
@@ -336,9 +361,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hpd_1`
-    pub fn hpd_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hpd_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 24..24
-        self.val.set_bits(24..=24, val);
+        self.0.set_bits(24..=24, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hd_1_extract(&self) -> u64 {
         // bits 22..22
-        self.val.get_bits(22..=22)
+        self.0.get_bits(22..=22)
     }
 
     /// reads the current register value and extract field `hd_1` from it
@@ -364,9 +390,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `hd_1`
-    pub fn hd_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hd_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 22..22
-        self.val.set_bits(22..=22, val);
+        self.0.set_bits(22..=22, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ha_1_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `ha_1` from it
@@ -392,9 +419,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `ha_1`
-    pub fn ha_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ha_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tbi_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `tbi` from it
@@ -420,9 +448,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tbi`
-    pub fn tbi_insert(&mut self, val: u64) -> &mut self {
+    pub fn tbi_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ps_extract(&self) -> u64 {
         // bits 16..18
-        self.val.get_bits(16..=18)
+        self.0.get_bits(16..=18)
     }
 
     /// reads the current register value and extract field `ps` from it
@@ -448,9 +477,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `ps`
-    pub fn ps_insert(&mut self, val: u64) -> &mut self {
+    pub fn ps_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..18
-        self.val.set_bits(16..=18, val);
+        self.0.set_bits(16..=18, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tg0_extract(&self) -> u64 {
         // bits 14..15
-        self.val.get_bits(14..=15)
+        self.0.get_bits(14..=15)
     }
 
     /// reads the current register value and extract field `tg0` from it
@@ -476,9 +506,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `tg0`
-    pub fn tg0_insert(&mut self, val: u64) -> &mut self {
+    pub fn tg0_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..15
-        self.val.set_bits(14..=15, val);
+        self.0.set_bits(14..=15, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sh0_extract(&self) -> u64 {
         // bits 12..13
-        self.val.get_bits(12..=13)
+        self.0.get_bits(12..=13)
     }
 
     /// reads the current register value and extract field `sh0` from it
@@ -504,9 +535,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `sh0`
-    pub fn sh0_insert(&mut self, val: u64) -> &mut self {
+    pub fn sh0_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..13
-        self.val.set_bits(12..=13, val);
+        self.0.set_bits(12..=13, val);
         self
     }
 
@@ -520,10 +551,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn orgn0_extract(&self) -> u64 {
         // bits 10..11
-        self.val.get_bits(10..=11)
+        self.0.get_bits(10..=11)
     }
 
     /// reads the current register value and extract field `orgn0` from it
@@ -532,9 +564,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `orgn0`
-    pub fn orgn0_insert(&mut self, val: u64) -> &mut self {
+    pub fn orgn0_insert(&mut self, val: u64) -> &mut Self {
         // bits 10..11
-        self.val.set_bits(10..=11, val);
+        self.0.set_bits(10..=11, val);
         self
     }
 
@@ -548,10 +580,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn irgn0_extract(&self) -> u64 {
         // bits 8..9
-        self.val.get_bits(8..=9)
+        self.0.get_bits(8..=9)
     }
 
     /// reads the current register value and extract field `irgn0` from it
@@ -560,9 +593,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `irgn0`
-    pub fn irgn0_insert(&mut self, val: u64) -> &mut self {
+    pub fn irgn0_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..9
-        self.val.set_bits(8..=9, val);
+        self.0.set_bits(8..=9, val);
         self
     }
 
@@ -576,10 +609,11 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn t0sz_extract(&self) -> u64 {
         // bits 0..5
-        self.val.get_bits(0..=5)
+        self.0.get_bits(0..=5)
     }
 
     /// reads the current register value and extract field `t0sz` from it
@@ -588,9 +622,9 @@ impl TcrEl3 {
     }
 
     /// inserts the given value `val` into the field `t0sz`
-    pub fn t0sz_insert(&mut self, val: u64) -> &mut self {
+    pub fn t0sz_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..5
-        self.val.set_bits(0..=5, val);
+        self.0.set_bits(0..=5, val);
         self
     }
 
@@ -598,12 +632,13 @@ impl TcrEl3 {
     pub fn t0sz_write(&mut self, val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
+
 }
 
 impl Default for TcrEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> TcrEl3 {
+    fn default() -> TcrEl3 {
         TcrEl3(0)
     }
 }

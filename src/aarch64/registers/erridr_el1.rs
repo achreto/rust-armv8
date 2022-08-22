@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.512710
+ * Generated on: 2022-08-22T16:25:59.074316
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-erridr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Error Record ID Register value in memory
 pub struct ErridrEl1(u64);
 
 /// struct implementation for accessing the fields of register erridr_el1
 impl ErridrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ErridrEl1 {
@@ -73,30 +79,35 @@ impl ErridrEl1 {
         ErridrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ErridrEl1 {
+    pub fn with_reg_val() ->  ErridrEl1 {
         let curval = Self::reg_rawrd() & 0xffff;
         ErridrEl1(curval)
     }
 
+
+    
     /// reading the Error Record ID Register (erridr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ERRIDR_EL1
-            llvm_asm!("mrs $0, S3_0_C5_C3_0" : "=r"(regval));
+            asm!("mrs {}, S3_0_C5_C3_0", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl ErridrEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 65535;
+    //    self.0 = newval & 65535;
     //}
 
     /// gets the value of the struct
@@ -112,28 +123,31 @@ impl ErridrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: num
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn num_extract(&self) -> u64 {
         // bits 0..15
-        self.val.get_bits(0..=15)
+        self.0.get_bits(0..=15)
     }
 
     /// reads the current register value and extract field `num` from it
     pub fn num_read(&mut self) -> u64 {
         Self::with_reg_val().num_extract()
     }
-    // no insert() method for field num
+// no insert() method for field num
 }
 
 impl Default for ErridrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ErridrEl1 {
+    fn default() -> ErridrEl1 {
         ErridrEl1(0)
     }
 }

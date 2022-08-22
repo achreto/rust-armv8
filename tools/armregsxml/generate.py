@@ -198,6 +198,7 @@ def extract_tar(tarfile, outdir) :
 def download_file(url, outfile) :
     if outfile.is_file() :
         log("Skipping download, as file already exists")
+        return
 
     try :
         log("Downloading file...")

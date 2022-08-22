@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.523994
+ * Generated on: 2022-08-22T16:25:59.085866
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-id_isar6_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 6 value in memory
 pub struct IdIsar6El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar6_el1
 impl IdIsar6El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar6El1 {
@@ -73,30 +79,35 @@ impl IdIsar6El1 {
         IdIsar6El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IdIsar6El1 {
+    pub fn with_reg_val() ->  IdIsar6El1 {
         let curval = Self::reg_rawrd() & 0xfffffff;
         IdIsar6El1(curval)
     }
 
+
+    
     /// reading the AArch32 Instruction Set Attribute Register 6 (id_isar6_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ID_ISAR6_EL1
-            llvm_asm!("mrs $0, S3_0_C0_C2_7" : "=r"(regval));
+            asm!("mrs {}, S3_0_C0_C2_7", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl IdIsar6El1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 268435455;
+    //    self.0 = newval & 268435455;
     //}
 
     /// gets the value of the struct
@@ -112,124 +123,133 @@ impl IdIsar6El1 {
         self.0
     }
 
+
+    
     /*
      * Field: i8mm
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn i8mm_extract(&self) -> u64 {
         // bits 24..27
-        self.val.get_bits(24..=27)
+        self.0.get_bits(24..=27)
     }
 
     /// reads the current register value and extract field `i8mm` from it
     pub fn i8mm_read(&mut self) -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
-    // no insert() method for field i8mm
+// no insert() method for field i8mm
     /*
      * Field: bf16
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bf16_extract(&self) -> u64 {
         // bits 20..23
-        self.val.get_bits(20..=23)
+        self.0.get_bits(20..=23)
     }
 
     /// reads the current register value and extract field `bf16` from it
     pub fn bf16_read(&mut self) -> u64 {
         Self::with_reg_val().bf16_extract()
     }
-    // no insert() method for field bf16
+// no insert() method for field bf16
     /*
      * Field: specres
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn specres_extract(&self) -> u64 {
         // bits 16..19
-        self.val.get_bits(16..=19)
+        self.0.get_bits(16..=19)
     }
 
     /// reads the current register value and extract field `specres` from it
     pub fn specres_read(&mut self) -> u64 {
         Self::with_reg_val().specres_extract()
     }
-    // no insert() method for field specres
+// no insert() method for field specres
     /*
      * Field: sb
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sb_extract(&self) -> u64 {
         // bits 12..15
-        self.val.get_bits(12..=15)
+        self.0.get_bits(12..=15)
     }
 
     /// reads the current register value and extract field `sb` from it
     pub fn sb_read(&mut self) -> u64 {
         Self::with_reg_val().sb_extract()
     }
-    // no insert() method for field sb
+// no insert() method for field sb
     /*
      * Field: fhm
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fhm_extract(&self) -> u64 {
         // bits 8..11
-        self.val.get_bits(8..=11)
+        self.0.get_bits(8..=11)
     }
 
     /// reads the current register value and extract field `fhm` from it
     pub fn fhm_read(&mut self) -> u64 {
         Self::with_reg_val().fhm_extract()
     }
-    // no insert() method for field fhm
+// no insert() method for field fhm
     /*
      * Field: dp
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dp_extract(&self) -> u64 {
         // bits 4..7
-        self.val.get_bits(4..=7)
+        self.0.get_bits(4..=7)
     }
 
     /// reads the current register value and extract field `dp` from it
     pub fn dp_read(&mut self) -> u64 {
         Self::with_reg_val().dp_extract()
     }
-    // no insert() method for field dp
+// no insert() method for field dp
     /*
      * Field: jscvt
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn jscvt_extract(&self) -> u64 {
         // bits 0..3
-        self.val.get_bits(0..=3)
+        self.0.get_bits(0..=3)
     }
 
     /// reads the current register value and extract field `jscvt` from it
     pub fn jscvt_read(&mut self) -> u64 {
         Self::with_reg_val().jscvt_extract()
     }
-    // no insert() method for field jscvt
+// no insert() method for field jscvt
 }
 
 impl Default for IdIsar6El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IdIsar6El1 {
+    fn default() -> IdIsar6El1 {
         IdIsar6El1(0)
     }
 }

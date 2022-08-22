@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.540315
+ * Generated on: 2022-08-22T16:25:59.101818
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Virtual Nested Control Register (vncr_el2)
  * Group:       Generic System Control
  * Type:        64-bit Register
- * Description: When
+ * Description: When 
  * File:        AArch64-vncr_el2.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Virtual Nested Control Register value in memory
 pub struct VncrEl2(u64);
 
 /// struct implementation for accessing the fields of register vncr_el2
 impl VncrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VncrEl2 {
@@ -73,49 +79,58 @@ impl VncrEl2 {
         VncrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> VncrEl2 {
+    pub fn with_reg_val() ->  VncrEl2 {
         let curval = Self::reg_rawrd() & 0x1ffffffffff000;
         VncrEl2(curval)
     }
 
+
+    
     /// reading the Virtual Nested Control Register (vncr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, VNCR_EL2
-            llvm_asm!("mrs $0, S3_4_C2_C2_0" : "=r"(regval));
+            asm!("mrs {}, S3_4_C2_C2_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Virtual Nested Control Register (vncr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR VNCR_EL2, <Xt>
-            llvm_asm!("msr S3_4_C2_C2_0, $0" : : "r"(val));
+            asm!("msr S3_4_C2_C2_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1ffffffffff000;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1ffffffffff000;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 9007199254736896;
+    //    self.0 = newval & 9007199254736896;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl VncrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: baddr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn baddr_extract(&self) -> u64 {
         // bits 12..52
-        self.val.get_bits(12..=52)
+        self.0.get_bits(12..=52)
     }
 
     /// reads the current register value and extract field `baddr` from it
@@ -140,9 +158,9 @@ impl VncrEl2 {
     }
 
     /// inserts the given value `val` into the field `baddr`
-    pub fn baddr_insert(&mut self, val: u64) -> &mut self {
+    pub fn baddr_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..52
-        self.val.set_bits(12..=52, val);
+        self.0.set_bits(12..=52, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl VncrEl2 {
     pub fn baddr_write(&mut self, val: u64) {
         Self::with_reg_val().baddr_insert(val).write();
     }
+
 }
 
 impl Default for VncrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> VncrEl2 {
+    fn default() -> VncrEl2 {
         VncrEl2(0)
     }
 }

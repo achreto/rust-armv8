@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.511710
+ * Generated on: 2022-08-22T16:25:59.073334
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Debug Vector Catch Register (dbgvcr32_el2)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Allows access to the AArch32 register
+ * Description: Allows access to the AArch32 register 
  * File:        AArch64-dbgvcr32_el2.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Debug Vector Catch Register value in memory
 pub struct Dbgvcr32El2(u64);
 
 /// struct implementation for accessing the fields of register dbgvcr32_el2
 impl Dbgvcr32El2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Dbgvcr32El2 {
@@ -73,49 +79,58 @@ impl Dbgvcr32El2 {
         Dbgvcr32El2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Dbgvcr32El2 {
+    pub fn with_reg_val() ->  Dbgvcr32El2 {
         let curval = Self::reg_rawrd() & 0xde0000de;
         Dbgvcr32El2(curval)
     }
 
+
+    
     /// reading the Debug Vector Catch Register (dbgvcr32_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, DBGVCR32_EL2
-            llvm_asm!("mrs $0, dbgvcr32_el2" : "=r"(regval));
+            asm!("mrs {}, dbgvcr32_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Debug Vector Catch Register (dbgvcr32_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR DBGVCR32_EL2, <Xt>
-            llvm_asm!("msr dbgvcr32_el2, $0" : : "r"(val));
+            asm!("msr dbgvcr32_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xde0000de;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xde0000de;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 3724542174;
+    //    self.0 = newval & 3724542174;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Dbgvcr32El2 {
         self.0
     }
 
+
+    
     /*
      * Field: nsf
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nsf_extract(&self) -> u64 {
         // bits 31..31
-        self.val.get_bits(31..=31)
+        self.0.get_bits(31..=31)
     }
 
     /// reads the current register value and extract field `nsf` from it
@@ -140,9 +158,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nsf`
-    pub fn nsf_insert(&mut self, val: u64) -> &mut self {
+    pub fn nsf_insert(&mut self, val: u64) -> &mut Self {
         // bits 31..31
-        self.val.set_bits(31..=31, val);
+        self.0.set_bits(31..=31, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nsi_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `nsi` from it
@@ -168,9 +187,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nsi`
-    pub fn nsi_insert(&mut self, val: u64) -> &mut self {
+    pub fn nsi_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nsd_extract(&self) -> u64 {
         // bits 28..28
-        self.val.get_bits(28..=28)
+        self.0.get_bits(28..=28)
     }
 
     /// reads the current register value and extract field `nsd` from it
@@ -196,9 +216,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nsd`
-    pub fn nsd_insert(&mut self, val: u64) -> &mut self {
+    pub fn nsd_insert(&mut self, val: u64) -> &mut Self {
         // bits 28..28
-        self.val.set_bits(28..=28, val);
+        self.0.set_bits(28..=28, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nsp_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `nsp` from it
@@ -224,9 +245,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nsp`
-    pub fn nsp_insert(&mut self, val: u64) -> &mut self {
+    pub fn nsp_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nss_extract(&self) -> u64 {
         // bits 26..26
-        self.val.get_bits(26..=26)
+        self.0.get_bits(26..=26)
     }
 
     /// reads the current register value and extract field `nss` from it
@@ -252,9 +274,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nss`
-    pub fn nss_insert(&mut self, val: u64) -> &mut self {
+    pub fn nss_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..26
-        self.val.set_bits(26..=26, val);
+        self.0.set_bits(26..=26, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nsu_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `nsu` from it
@@ -280,9 +303,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `nsu`
-    pub fn nsu_insert(&mut self, val: u64) -> &mut self {
+    pub fn nsu_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sf_extract(&self) -> u64 {
         // bits 7..7
-        self.val.get_bits(7..=7)
+        self.0.get_bits(7..=7)
     }
 
     /// reads the current register value and extract field `sf` from it
@@ -308,9 +332,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `sf`
-    pub fn sf_insert(&mut self, val: u64) -> &mut self {
+    pub fn sf_insert(&mut self, val: u64) -> &mut Self {
         // bits 7..7
-        self.val.set_bits(7..=7, val);
+        self.0.set_bits(7..=7, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn si_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `si` from it
@@ -336,9 +361,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `si`
-    pub fn si_insert(&mut self, val: u64) -> &mut self {
+    pub fn si_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sd_extract(&self) -> u64 {
         // bits 4..4
-        self.val.get_bits(4..=4)
+        self.0.get_bits(4..=4)
     }
 
     /// reads the current register value and extract field `sd` from it
@@ -364,9 +390,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `sd`
-    pub fn sd_insert(&mut self, val: u64) -> &mut self {
+    pub fn sd_insert(&mut self, val: u64) -> &mut Self {
         // bits 4..4
-        self.val.set_bits(4..=4, val);
+        self.0.set_bits(4..=4, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sp_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `sp` from it
@@ -392,9 +419,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `sp`
-    pub fn sp_insert(&mut self, val: u64) -> &mut self {
+    pub fn sp_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ss_extract(&self) -> u64 {
         // bits 2..2
-        self.val.get_bits(2..=2)
+        self.0.get_bits(2..=2)
     }
 
     /// reads the current register value and extract field `ss` from it
@@ -420,9 +448,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `ss`
-    pub fn ss_insert(&mut self, val: u64) -> &mut self {
+    pub fn ss_insert(&mut self, val: u64) -> &mut Self {
         // bits 2..2
-        self.val.set_bits(2..=2, val);
+        self.0.set_bits(2..=2, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn su_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `su` from it
@@ -448,9 +477,9 @@ impl Dbgvcr32El2 {
     }
 
     /// inserts the given value `val` into the field `su`
-    pub fn su_insert(&mut self, val: u64) -> &mut self {
+    pub fn su_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -458,12 +487,13 @@ impl Dbgvcr32El2 {
     pub fn su_write(&mut self, val: u64) {
         Self::with_reg_val().su_insert(val).write();
     }
+
 }
 
 impl Default for Dbgvcr32El2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Dbgvcr32El2 {
+    fn default() -> Dbgvcr32El2 {
         Dbgvcr32El2(0)
     }
 }

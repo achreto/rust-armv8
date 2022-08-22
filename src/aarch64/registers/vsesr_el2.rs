@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.540510
+ * Generated on: 2022-08-22T16:25:59.102014
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Virtual SError Exception Syndrome Register (vsesr_el2)
  * Group:       RAS registers
  * Type:        64-bit Register
- * Description: Provides the syndrome value reported to software on taking a virtual SError interrupt exception to EL1, or on executing an
+ * Description: Provides the syndrome value reported to software on taking a virtual SError interrupt exception to EL1, or on executing an 
  * File:        AArch64-vsesr_el2.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Virtual SError Exception Syndrome Register value in memory
 pub struct VsesrEl2(u64);
 
 /// struct implementation for accessing the fields of register vsesr_el2
 impl VsesrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VsesrEl2 {
@@ -73,49 +79,58 @@ impl VsesrEl2 {
         VsesrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> VsesrEl2 {
+    pub fn with_reg_val() ->  VsesrEl2 {
         let curval = Self::reg_rawrd() & 0x1ffffff;
         VsesrEl2(curval)
     }
 
+
+    
     /// reading the Virtual SError Exception Syndrome Register (vsesr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, VSESR_EL2
-            llvm_asm!("mrs $0, S3_4_C5_C2_3" : "=r"(regval));
+            asm!("mrs {}, S3_4_C5_C2_3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Virtual SError Exception Syndrome Register (vsesr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR VSESR_EL2, <Xt>
-            llvm_asm!("msr S3_4_C5_C2_3, $0" : : "r"(val));
+            asm!("msr S3_4_C5_C2_3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1ffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1ffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 33554431;
+    //    self.0 = newval & 33554431;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl VsesrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: ids
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ids_extract(&self) -> u64 {
         // bits 24..24
-        self.val.get_bits(24..=24)
+        self.0.get_bits(24..=24)
     }
 
     /// reads the current register value and extract field `ids` from it
@@ -140,9 +158,9 @@ impl VsesrEl2 {
     }
 
     /// inserts the given value `val` into the field `ids`
-    pub fn ids_insert(&mut self, val: u64) -> &mut self {
+    pub fn ids_insert(&mut self, val: u64) -> &mut Self {
         // bits 24..24
-        self.val.set_bits(24..=24, val);
+        self.0.set_bits(24..=24, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl VsesrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn iss_extract(&self) -> u64 {
         // bits 0..23
-        self.val.get_bits(0..=23)
+        self.0.get_bits(0..=23)
     }
 
     /// reads the current register value and extract field `iss` from it
@@ -168,9 +187,9 @@ impl VsesrEl2 {
     }
 
     /// inserts the given value `val` into the field `iss`
-    pub fn iss_insert(&mut self, val: u64) -> &mut self {
+    pub fn iss_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..23
-        self.val.set_bits(0..=23, val);
+        self.0.set_bits(0..=23, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl VsesrEl2 {
     pub fn iss_write(&mut self, val: u64) {
         Self::with_reg_val().iss_insert(val).write();
     }
+
 }
 
 impl Default for VsesrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> VsesrEl2 {
+    fn default() -> VsesrEl2 {
         VsesrEl2(0)
     }
 }

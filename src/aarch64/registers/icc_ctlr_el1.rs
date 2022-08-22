@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.518153
+ * Generated on: 2022-08-22T16:25:59.079601
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-icc_ctlr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Interrupt Controller Control Register (EL1) value in memory
 pub struct IccCtlrEl1(u64);
 
 /// struct implementation for accessing the fields of register icc_ctlr_el1
 impl IccCtlrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccCtlrEl1 {
@@ -73,49 +79,58 @@ impl IccCtlrEl1 {
         IccCtlrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IccCtlrEl1 {
+    pub fn with_reg_val() ->  IccCtlrEl1 {
         let curval = Self::reg_rawrd() & 0xcff43;
         IccCtlrEl1(curval)
     }
 
+
+    
     /// reading the Interrupt Controller Control Register (EL1) (icc_ctlr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ICC_CTLR_EL1
-            llvm_asm!("mrs $0, icc_ctlr_el1" : "=r"(regval));
+            asm!("mrs {}, icc_ctlr_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Interrupt Controller Control Register (EL1) (icc_ctlr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ICC_CTLR_EL1, <Xt>
-            llvm_asm!("msr icc_ctlr_el1, $0" : : "r"(val));
+            asm!("msr icc_ctlr_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xcff43;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xcff43;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 851779;
+    //    self.0 = newval & 851779;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl IccCtlrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: extrange
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn extrange_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `extrange` from it
@@ -140,9 +158,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `extrange`
-    pub fn extrange_insert(&mut self, val: u64) -> &mut self {
+    pub fn extrange_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rss_extract(&self) -> u64 {
         // bits 18..18
-        self.val.get_bits(18..=18)
+        self.0.get_bits(18..=18)
     }
 
     /// reads the current register value and extract field `rss` from it
@@ -168,9 +187,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `rss`
-    pub fn rss_insert(&mut self, val: u64) -> &mut self {
+    pub fn rss_insert(&mut self, val: u64) -> &mut Self {
         // bits 18..18
-        self.val.set_bits(18..=18, val);
+        self.0.set_bits(18..=18, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn a3v_extract(&self) -> u64 {
         // bits 15..15
-        self.val.get_bits(15..=15)
+        self.0.get_bits(15..=15)
     }
 
     /// reads the current register value and extract field `a3v` from it
@@ -196,9 +216,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `a3v`
-    pub fn a3v_insert(&mut self, val: u64) -> &mut self {
+    pub fn a3v_insert(&mut self, val: u64) -> &mut Self {
         // bits 15..15
-        self.val.set_bits(15..=15, val);
+        self.0.set_bits(15..=15, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn seis_extract(&self) -> u64 {
         // bits 14..14
-        self.val.get_bits(14..=14)
+        self.0.get_bits(14..=14)
     }
 
     /// reads the current register value and extract field `seis` from it
@@ -224,9 +245,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `seis`
-    pub fn seis_insert(&mut self, val: u64) -> &mut self {
+    pub fn seis_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..14
-        self.val.set_bits(14..=14, val);
+        self.0.set_bits(14..=14, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn idbits_extract(&self) -> u64 {
         // bits 11..13
-        self.val.get_bits(11..=13)
+        self.0.get_bits(11..=13)
     }
 
     /// reads the current register value and extract field `idbits` from it
@@ -252,9 +274,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `idbits`
-    pub fn idbits_insert(&mut self, val: u64) -> &mut self {
+    pub fn idbits_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..13
-        self.val.set_bits(11..=13, val);
+        self.0.set_bits(11..=13, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pribits_extract(&self) -> u64 {
         // bits 8..10
-        self.val.get_bits(8..=10)
+        self.0.get_bits(8..=10)
     }
 
     /// reads the current register value and extract field `pribits` from it
@@ -280,9 +303,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `pribits`
-    pub fn pribits_insert(&mut self, val: u64) -> &mut self {
+    pub fn pribits_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..10
-        self.val.set_bits(8..=10, val);
+        self.0.set_bits(8..=10, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pmhe_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `pmhe` from it
@@ -308,9 +332,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `pmhe`
-    pub fn pmhe_insert(&mut self, val: u64) -> &mut self {
+    pub fn pmhe_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn eoimode_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `eoimode` from it
@@ -336,9 +361,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `eoimode`
-    pub fn eoimode_insert(&mut self, val: u64) -> &mut self {
+    pub fn eoimode_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl IccCtlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cbpr_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `cbpr` from it
@@ -364,9 +390,9 @@ impl IccCtlrEl1 {
     }
 
     /// inserts the given value `val` into the field `cbpr`
-    pub fn cbpr_insert(&mut self, val: u64) -> &mut self {
+    pub fn cbpr_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -374,12 +400,13 @@ impl IccCtlrEl1 {
     pub fn cbpr_write(&mut self, val: u64) {
         Self::with_reg_val().cbpr_insert(val).write();
     }
+
 }
 
 impl Default for IccCtlrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IccCtlrEl1 {
+    fn default() -> IccCtlrEl1 {
         IccCtlrEl1(0)
     }
 }

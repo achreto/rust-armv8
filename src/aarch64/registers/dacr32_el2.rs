@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.510837
+ * Generated on: 2022-08-22T16:25:59.072444
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Domain Access Control Register (dacr32_el2)
  * Group:       Virtual memory control registers
  * Type:        64-bit Register
- * Description: Allows access to the AArch32
+ * Description: Allows access to the AArch32 
  * File:        AArch64-dacr32_el2.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Domain Access Control Register value in memory
 pub struct Dacr32El2(u64);
 
 /// struct implementation for accessing the fields of register dacr32_el2
 impl Dacr32El2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Dacr32El2 {
@@ -73,49 +79,58 @@ impl Dacr32El2 {
         Dacr32El2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Dacr32El2 {
+    pub fn with_reg_val() ->  Dacr32El2 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         Dacr32El2(curval)
     }
 
+
+    
     /// reading the Domain Access Control Register (dacr32_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, DACR32_EL2
-            llvm_asm!("mrs $0, dacr32_el2" : "=r"(regval));
+            asm!("mrs {}, dacr32_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Domain Access Control Register (dacr32_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR DACR32_EL2, <Xt>
-            llvm_asm!("msr dacr32_el2, $0" : : "r"(val));
+            asm!("msr dacr32_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4294967295;
+    //    self.0 = newval & 4294967295;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Dacr32El2 {
         self.0
     }
 
+
+    
     /*
      * Field: dn
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dn_extract(&self) -> u64 {
         // bits 0..31
-        self.val.get_bits(0..=31)
+        self.0.get_bits(0..=31)
     }
 
     /// reads the current register value and extract field `dn` from it
@@ -140,9 +158,9 @@ impl Dacr32El2 {
     }
 
     /// inserts the given value `val` into the field `dn`
-    pub fn dn_insert(&mut self, val: u64) -> &mut self {
+    pub fn dn_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..31
-        self.val.set_bits(0..=31, val);
+        self.0.set_bits(0..=31, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl Dacr32El2 {
     pub fn dn_write(&mut self, val: u64) {
         Self::with_reg_val().dn_insert(val).write();
     }
+
 }
 
 impl Default for Dacr32El2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Dacr32El2 {
+    fn default() -> Dacr32El2 {
         Dacr32El2(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.538582
+ * Generated on: 2022-08-22T16:25:59.100063
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-tfsre0_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Tag Fault Status Register (EL0). value in memory
 pub struct Tfsre0El1(u64);
 
 /// struct implementation for accessing the fields of register tfsre0_el1
 impl Tfsre0El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Tfsre0El1 {
@@ -73,49 +79,58 @@ impl Tfsre0El1 {
         Tfsre0El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Tfsre0El1 {
+    pub fn with_reg_val() ->  Tfsre0El1 {
         let curval = Self::reg_rawrd() & 0x3;
         Tfsre0El1(curval)
     }
 
+
+    
     /// reading the Tag Fault Status Register (EL0). (tfsre0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, TFSRE0_EL1
-            llvm_asm!("mrs $0, S3_0_C5_C6_1" : "=r"(regval));
+            asm!("mrs {}, S3_0_C5_C6_1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Tag Fault Status Register (EL0). (tfsre0_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR TFSRE0_EL1, <Xt>
-            llvm_asm!("msr S3_0_C5_C6_1, $0" : : "r"(val));
+            asm!("msr S3_0_C5_C6_1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x3;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x3;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 3;
+    //    self.0 = newval & 3;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Tfsre0El1 {
         self.0
     }
 
+
+    
     /*
      * Field: tf1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tf1_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `tf1` from it
@@ -140,9 +158,9 @@ impl Tfsre0El1 {
     }
 
     /// inserts the given value `val` into the field `tf1`
-    pub fn tf1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tf1_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl Tfsre0El1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tf0_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `tf0` from it
@@ -168,9 +187,9 @@ impl Tfsre0El1 {
     }
 
     /// inserts the given value `val` into the field `tf0`
-    pub fn tf0_insert(&mut self, val: u64) -> &mut self {
+    pub fn tf0_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl Tfsre0El1 {
     pub fn tf0_write(&mut self, val: u64) {
         Self::with_reg_val().tf0_insert(val).write();
     }
+
 }
 
 impl Default for Tfsre0El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Tfsre0El1 {
+    fn default() -> Tfsre0El1 {
         Tfsre0El1(0)
     }
 }

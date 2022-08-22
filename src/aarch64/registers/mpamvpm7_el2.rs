@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.528065
+ * Generated on: 2022-08-22T16:25:59.089992
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-mpamvpm7_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the MPAM Virtual PARTID Mapping Register 7 value in memory
 pub struct Mpamvpm7El2(u64);
 
 /// struct implementation for accessing the fields of register mpamvpm7_el2
 impl Mpamvpm7El2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mpamvpm7El2 {
@@ -73,49 +79,58 @@ impl Mpamvpm7El2 {
         Mpamvpm7El2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Mpamvpm7El2 {
+    pub fn with_reg_val() ->  Mpamvpm7El2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         Mpamvpm7El2(curval)
     }
 
+
+    
     /// reading the MPAM Virtual PARTID Mapping Register 7 (mpamvpm7_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, MPAMVPM7_EL2
-            llvm_asm!("mrs $0, S3_4_C10_C6_7" : "=r"(regval));
+            asm!("mrs {}, S3_4_C10_C6_7", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the MPAM Virtual PARTID Mapping Register 7 (mpamvpm7_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR MPAMVPM7_EL2, <Xt>
-            llvm_asm!("msr S3_4_C10_C6_7, $0" : : "r"(val));
+            asm!("msr S3_4_C10_C6_7, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Mpamvpm7El2 {
         self.0
     }
 
+
+    
     /*
      * Field: phypartid31
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn phypartid31_extract(&self) -> u64 {
         // bits 48..63
-        self.val.get_bits(48..=63)
+        self.0.get_bits(48..=63)
     }
 
     /// reads the current register value and extract field `phypartid31` from it
@@ -140,9 +158,9 @@ impl Mpamvpm7El2 {
     }
 
     /// inserts the given value `val` into the field `phypartid31`
-    pub fn phypartid31_insert(&mut self, val: u64) -> &mut self {
+    pub fn phypartid31_insert(&mut self, val: u64) -> &mut Self {
         // bits 48..63
-        self.val.set_bits(48..=63, val);
+        self.0.set_bits(48..=63, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl Mpamvpm7El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn phypartid30_extract(&self) -> u64 {
         // bits 32..47
-        self.val.get_bits(32..=47)
+        self.0.get_bits(32..=47)
     }
 
     /// reads the current register value and extract field `phypartid30` from it
@@ -168,9 +187,9 @@ impl Mpamvpm7El2 {
     }
 
     /// inserts the given value `val` into the field `phypartid30`
-    pub fn phypartid30_insert(&mut self, val: u64) -> &mut self {
+    pub fn phypartid30_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..47
-        self.val.set_bits(32..=47, val);
+        self.0.set_bits(32..=47, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl Mpamvpm7El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn phypartid29_extract(&self) -> u64 {
         // bits 16..31
-        self.val.get_bits(16..=31)
+        self.0.get_bits(16..=31)
     }
 
     /// reads the current register value and extract field `phypartid29` from it
@@ -196,9 +216,9 @@ impl Mpamvpm7El2 {
     }
 
     /// inserts the given value `val` into the field `phypartid29`
-    pub fn phypartid29_insert(&mut self, val: u64) -> &mut self {
+    pub fn phypartid29_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..31
-        self.val.set_bits(16..=31, val);
+        self.0.set_bits(16..=31, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl Mpamvpm7El2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn phypartid28_extract(&self) -> u64 {
         // bits 0..15
-        self.val.get_bits(0..=15)
+        self.0.get_bits(0..=15)
     }
 
     /// reads the current register value and extract field `phypartid28` from it
@@ -224,9 +245,9 @@ impl Mpamvpm7El2 {
     }
 
     /// inserts the given value `val` into the field `phypartid28`
-    pub fn phypartid28_insert(&mut self, val: u64) -> &mut self {
+    pub fn phypartid28_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..15
-        self.val.set_bits(0..=15, val);
+        self.0.set_bits(0..=15, val);
         self
     }
 
@@ -234,12 +255,13 @@ impl Mpamvpm7El2 {
     pub fn phypartid28_write(&mut self, val: u64) {
         Self::with_reg_val().phypartid28_insert(val).write();
     }
+
 }
 
 impl Default for Mpamvpm7El2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Mpamvpm7El2 {
+    fn default() -> Mpamvpm7El2 {
         Mpamvpm7El2(0)
     }
 }

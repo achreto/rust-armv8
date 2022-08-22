@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.540753
+ * Generated on: 2022-08-22T16:25:59.102228
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-vsttbr_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Virtualization Secure Translation Table Base Register value in memory
 pub struct VsttbrEl2(u64);
 
 /// struct implementation for accessing the fields of register vsttbr_el2
 impl VsttbrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VsttbrEl2 {
@@ -73,49 +79,58 @@ impl VsttbrEl2 {
         VsttbrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> VsttbrEl2 {
+    pub fn with_reg_val() ->  VsttbrEl2 {
         let curval = Self::reg_rawrd() & 0xffffffffffff;
         VsttbrEl2(curval)
     }
 
+
+    
     /// reading the Virtualization Secure Translation Table Base Register (vsttbr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, VSTTBR_EL2
-            llvm_asm!("mrs $0, S3_4_C2_C6_0" : "=r"(regval));
+            asm!("mrs {}, S3_4_C2_C6_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Virtualization Secure Translation Table Base Register (vsttbr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR VSTTBR_EL2, <Xt>
-            llvm_asm!("msr S3_4_C2_C6_0, $0" : : "r"(val));
+            asm!("msr S3_4_C2_C6_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 281474976710655;
+    //    self.0 = newval & 281474976710655;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl VsttbrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: baddr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn baddr_extract(&self) -> u64 {
         // bits 1..47
-        self.val.get_bits(1..=47)
+        self.0.get_bits(1..=47)
     }
 
     /// reads the current register value and extract field `baddr` from it
@@ -140,9 +158,9 @@ impl VsttbrEl2 {
     }
 
     /// inserts the given value `val` into the field `baddr`
-    pub fn baddr_insert(&mut self, val: u64) -> &mut self {
+    pub fn baddr_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..47
-        self.val.set_bits(1..=47, val);
+        self.0.set_bits(1..=47, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl VsttbrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cnp_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `cnp` from it
@@ -168,9 +187,9 @@ impl VsttbrEl2 {
     }
 
     /// inserts the given value `val` into the field `cnp`
-    pub fn cnp_insert(&mut self, val: u64) -> &mut self {
+    pub fn cnp_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl VsttbrEl2 {
     pub fn cnp_write(&mut self, val: u64) {
         Self::with_reg_val().cnp_insert(val).write();
     }
+
 }
 
 impl Default for VsttbrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> VsttbrEl2 {
+    fn default() -> VsttbrEl2 {
         VsttbrEl2(0)
     }
 }

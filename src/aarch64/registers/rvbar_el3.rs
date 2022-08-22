@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.533842
+ * Generated on: 2022-08-22T16:25:59.095356
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Reset Vector Base Address Register (if EL3 implemented) (rvbar_el3)
  * Group:       Reset management registers
  * Type:        64-bit Register
- * Description: If EL3 is the highest Exception level implemented, contains the
+ * Description: If EL3 is the highest Exception level implemented, contains the 
  * File:        AArch64-rvbar_el3.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Reset Vector Base Address Register (if EL3 implemented) value in memory
 pub struct RvbarEl3(u64);
 
 /// struct implementation for accessing the fields of register rvbar_el3
 impl RvbarEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> RvbarEl3 {
@@ -73,30 +79,35 @@ impl RvbarEl3 {
         RvbarEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> RvbarEl3 {
+    pub fn with_reg_val() ->  RvbarEl3 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         RvbarEl3(curval)
     }
 
+
+    
     /// reading the Reset Vector Base Address Register (if EL3 implemented) (rvbar_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, RVBAR_EL3
-            llvm_asm!("mrs $0, rvbar_el3" : "=r"(regval));
+            asm!("mrs {}, rvbar_el3", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl RvbarEl3 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -112,28 +123,31 @@ impl RvbarEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
         // bits 0..63
-        self.val.get_bits(0..=63)
+        self.0.get_bits(0..=63)
     }
 
     /// reads the current register value and extract field `val` from it
     pub fn val_read(&mut self) -> u64 {
         Self::with_reg_val().val_extract()
     }
-    // no insert() method for field val
+// no insert() method for field val
 }
 
 impl Default for RvbarEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> RvbarEl3 {
+    fn default() -> RvbarEl3 {
         RvbarEl3(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.525219
+ * Generated on: 2022-08-22T16:25:59.087090
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    LORegion End Address (EL1) (lorea_el1)
  * Group:       Virtual memory control registers
  * Type:        64-bit Register
- * Description: Holds the physical address of the end of the LORegion described in the current LORegion descriptor selected by
+ * Description: Holds the physical address of the end of the LORegion described in the current LORegion descriptor selected by 
  * File:        AArch64-lorea_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the LORegion End Address (EL1) value in memory
 pub struct LoreaEl1(u64);
 
 /// struct implementation for accessing the fields of register lorea_el1
 impl LoreaEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> LoreaEl1 {
@@ -73,49 +79,58 @@ impl LoreaEl1 {
         LoreaEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> LoreaEl1 {
+    pub fn with_reg_val() ->  LoreaEl1 {
         let curval = Self::reg_rawrd() & 0xfffffffff0000;
         LoreaEl1(curval)
     }
 
+
+    
     /// reading the LORegion End Address (EL1) (lorea_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, LOREA_EL1
-            llvm_asm!("mrs $0, S3_0_C10_C4_1" : "=r"(regval));
+            asm!("mrs {}, S3_0_C10_C4_1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the LORegion End Address (EL1) (lorea_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR LOREA_EL1, <Xt>
-            llvm_asm!("msr S3_0_C10_C4_1, $0" : : "r"(val));
+            asm!("msr S3_0_C10_C4_1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfffffffff0000;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfffffffff0000;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4503599627304960;
+    //    self.0 = newval & 4503599627304960;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl LoreaEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: ea5148_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ea5148_1_extract(&self) -> u64 {
         // bits 48..51
-        self.val.get_bits(48..=51)
+        self.0.get_bits(48..=51)
     }
 
     /// reads the current register value and extract field `ea5148_1` from it
@@ -140,9 +158,9 @@ impl LoreaEl1 {
     }
 
     /// inserts the given value `val` into the field `ea5148_1`
-    pub fn ea5148_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ea5148_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 48..51
-        self.val.set_bits(48..=51, val);
+        self.0.set_bits(48..=51, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl LoreaEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ea4716_extract(&self) -> u64 {
         // bits 16..47
-        self.val.get_bits(16..=47)
+        self.0.get_bits(16..=47)
     }
 
     /// reads the current register value and extract field `ea4716` from it
@@ -168,9 +187,9 @@ impl LoreaEl1 {
     }
 
     /// inserts the given value `val` into the field `ea4716`
-    pub fn ea4716_insert(&mut self, val: u64) -> &mut self {
+    pub fn ea4716_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..47
-        self.val.set_bits(16..=47, val);
+        self.0.set_bits(16..=47, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl LoreaEl1 {
     pub fn ea4716_write(&mut self, val: u64) {
         Self::with_reg_val().ea4716_insert(val).write();
     }
+
 }
 
 impl Default for LoreaEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> LoreaEl1 {
+    fn default() -> LoreaEl1 {
         LoreaEl1(0)
     }
 }

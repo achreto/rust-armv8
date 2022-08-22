@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.533922
+ * Generated on: 2022-08-22T16:25:59.095425
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-scr_el3.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Secure Configuration Register value in memory
 pub struct ScrEl3(u64);
 
 /// struct implementation for accessing the fields of register scr_el3
 impl ScrEl3 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ScrEl3 {
@@ -73,49 +79,58 @@ impl ScrEl3 {
         ScrEl3(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ScrEl3 {
+    pub fn with_reg_val() ->  ScrEl3 {
         let curval = Self::reg_rawrd() & 0x7bfe3fff8f;
         ScrEl3(curval)
     }
 
+
+    
     /// reading the Secure Configuration Register (scr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, SCR_EL3
-            llvm_asm!("mrs $0, scr_el3" : "=r"(regval));
+            asm!("mrs {}, scr_el3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Secure Configuration Register (scr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR SCR_EL3, <Xt>
-            llvm_asm!("msr scr_el3, $0" : : "r"(val));
+            asm!("msr scr_el3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x7bfe3fff8f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x7bfe3fff8f;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 532546584463;
+    //    self.0 = newval & 532546584463;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl ScrEl3 {
         self.0
     }
 
+
+    
     /*
      * Field: hxen_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hxen_1_extract(&self) -> u64 {
         // bits 38..38
-        self.val.get_bits(38..=38)
+        self.0.get_bits(38..=38)
     }
 
     /// reads the current register value and extract field `hxen_1` from it
@@ -140,9 +158,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `hxen_1`
-    pub fn hxen_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn hxen_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 38..38
-        self.val.set_bits(38..=38, val);
+        self.0.set_bits(38..=38, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn aden_1_extract(&self) -> u64 {
         // bits 37..37
-        self.val.get_bits(37..=37)
+        self.0.get_bits(37..=37)
     }
 
     /// reads the current register value and extract field `aden_1` from it
@@ -168,9 +187,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `aden_1`
-    pub fn aden_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn aden_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 37..37
-        self.val.set_bits(37..=37, val);
+        self.0.set_bits(37..=37, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enas0_1_extract(&self) -> u64 {
         // bits 36..36
-        self.val.get_bits(36..=36)
+        self.0.get_bits(36..=36)
     }
 
     /// reads the current register value and extract field `enas0_1` from it
@@ -196,9 +216,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `enas0_1`
-    pub fn enas0_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enas0_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 36..36
-        self.val.set_bits(36..=36, val);
+        self.0.set_bits(36..=36, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn amvoffen_1_extract(&self) -> u64 {
         // bits 35..35
-        self.val.get_bits(35..=35)
+        self.0.get_bits(35..=35)
     }
 
     /// reads the current register value and extract field `amvoffen_1` from it
@@ -224,9 +245,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `amvoffen_1`
-    pub fn amvoffen_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn amvoffen_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 35..35
-        self.val.set_bits(35..=35, val);
+        self.0.set_bits(35..=35, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn twedel_1_extract(&self) -> u64 {
         // bits 30..33
-        self.val.get_bits(30..=33)
+        self.0.get_bits(30..=33)
     }
 
     /// reads the current register value and extract field `twedel_1` from it
@@ -252,9 +274,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `twedel_1`
-    pub fn twedel_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn twedel_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..33
-        self.val.set_bits(30..=33, val);
+        self.0.set_bits(30..=33, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tweden_1_extract(&self) -> u64 {
         // bits 29..29
-        self.val.get_bits(29..=29)
+        self.0.get_bits(29..=29)
     }
 
     /// reads the current register value and extract field `tweden_1` from it
@@ -280,9 +303,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `tweden_1`
-    pub fn tweden_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tweden_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 29..29
-        self.val.set_bits(29..=29, val);
+        self.0.set_bits(29..=29, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ecven_1_extract(&self) -> u64 {
         // bits 28..28
-        self.val.get_bits(28..=28)
+        self.0.get_bits(28..=28)
     }
 
     /// reads the current register value and extract field `ecven_1` from it
@@ -308,9 +332,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `ecven_1`
-    pub fn ecven_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ecven_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 28..28
-        self.val.set_bits(28..=28, val);
+        self.0.set_bits(28..=28, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fgten_1_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `fgten_1` from it
@@ -336,9 +361,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `fgten_1`
-    pub fn fgten_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn fgten_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ata_1_extract(&self) -> u64 {
         // bits 26..26
-        self.val.get_bits(26..=26)
+        self.0.get_bits(26..=26)
     }
 
     /// reads the current register value and extract field `ata_1` from it
@@ -364,9 +390,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `ata_1`
-    pub fn ata_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ata_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..26
-        self.val.set_bits(26..=26, val);
+        self.0.set_bits(26..=26, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enscxt_1_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `enscxt_1` from it
@@ -392,9 +419,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `enscxt_1`
-    pub fn enscxt_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enscxt_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fien_1_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `fien_1` from it
@@ -420,9 +448,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `fien_1`
-    pub fn fien_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn fien_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn nmea_1_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `nmea_1` from it
@@ -448,9 +477,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `nmea_1`
-    pub fn nmea_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn nmea_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ease_1_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `ease_1` from it
@@ -476,9 +506,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `ease_1`
-    pub fn ease_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ease_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn eel2_1_extract(&self) -> u64 {
         // bits 18..18
-        self.val.get_bits(18..=18)
+        self.0.get_bits(18..=18)
     }
 
     /// reads the current register value and extract field `eel2_1` from it
@@ -504,9 +535,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `eel2_1`
-    pub fn eel2_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn eel2_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 18..18
-        self.val.set_bits(18..=18, val);
+        self.0.set_bits(18..=18, val);
         self
     }
 
@@ -520,10 +551,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn api_1_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `api_1` from it
@@ -532,9 +564,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `api_1`
-    pub fn api_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn api_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -548,10 +580,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn api_2_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `api_2` from it
@@ -560,9 +593,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `api_2`
-    pub fn api_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn api_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -576,10 +609,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn apk_1_extract(&self) -> u64 {
         // bits 16..16
-        self.val.get_bits(16..=16)
+        self.0.get_bits(16..=16)
     }
 
     /// reads the current register value and extract field `apk_1` from it
@@ -588,9 +622,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `apk_1`
-    pub fn apk_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn apk_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..16
-        self.val.set_bits(16..=16, val);
+        self.0.set_bits(16..=16, val);
         self
     }
 
@@ -604,10 +638,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn terr_1_extract(&self) -> u64 {
         // bits 15..15
-        self.val.get_bits(15..=15)
+        self.0.get_bits(15..=15)
     }
 
     /// reads the current register value and extract field `terr_1` from it
@@ -616,9 +651,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `terr_1`
-    pub fn terr_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn terr_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 15..15
-        self.val.set_bits(15..=15, val);
+        self.0.set_bits(15..=15, val);
         self
     }
 
@@ -632,10 +667,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlor_1_extract(&self) -> u64 {
         // bits 14..14
-        self.val.get_bits(14..=14)
+        self.0.get_bits(14..=14)
     }
 
     /// reads the current register value and extract field `tlor_1` from it
@@ -644,9 +680,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `tlor_1`
-    pub fn tlor_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlor_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..14
-        self.val.set_bits(14..=14, val);
+        self.0.set_bits(14..=14, val);
         self
     }
 
@@ -660,10 +696,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn twe_extract(&self) -> u64 {
         // bits 13..13
-        self.val.get_bits(13..=13)
+        self.0.get_bits(13..=13)
     }
 
     /// reads the current register value and extract field `twe` from it
@@ -672,9 +709,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `twe`
-    pub fn twe_insert(&mut self, val: u64) -> &mut self {
+    pub fn twe_insert(&mut self, val: u64) -> &mut Self {
         // bits 13..13
-        self.val.set_bits(13..=13, val);
+        self.0.set_bits(13..=13, val);
         self
     }
 
@@ -688,10 +725,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn twi_extract(&self) -> u64 {
         // bits 12..12
-        self.val.get_bits(12..=12)
+        self.0.get_bits(12..=12)
     }
 
     /// reads the current register value and extract field `twi` from it
@@ -700,9 +738,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `twi`
-    pub fn twi_insert(&mut self, val: u64) -> &mut self {
+    pub fn twi_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..12
-        self.val.set_bits(12..=12, val);
+        self.0.set_bits(12..=12, val);
         self
     }
 
@@ -716,10 +754,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn st_extract(&self) -> u64 {
         // bits 11..11
-        self.val.get_bits(11..=11)
+        self.0.get_bits(11..=11)
     }
 
     /// reads the current register value and extract field `st` from it
@@ -728,9 +767,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `st`
-    pub fn st_insert(&mut self, val: u64) -> &mut self {
+    pub fn st_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..11
-        self.val.set_bits(11..=11, val);
+        self.0.set_bits(11..=11, val);
         self
     }
 
@@ -744,10 +783,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rw_1_extract(&self) -> u64 {
         // bits 10..10
-        self.val.get_bits(10..=10)
+        self.0.get_bits(10..=10)
     }
 
     /// reads the current register value and extract field `rw_1` from it
@@ -756,9 +796,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `rw_1`
-    pub fn rw_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn rw_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 10..10
-        self.val.set_bits(10..=10, val);
+        self.0.set_bits(10..=10, val);
         self
     }
 
@@ -772,10 +812,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sif_1_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `sif_1` from it
@@ -784,9 +825,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `sif_1`
-    pub fn sif_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn sif_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -800,10 +841,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sif_2_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `sif_2` from it
@@ -812,9 +854,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `sif_2`
-    pub fn sif_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn sif_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -828,10 +870,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hce_extract(&self) -> u64 {
         // bits 8..8
-        self.val.get_bits(8..=8)
+        self.0.get_bits(8..=8)
     }
 
     /// reads the current register value and extract field `hce` from it
@@ -840,9 +883,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `hce`
-    pub fn hce_insert(&mut self, val: u64) -> &mut self {
+    pub fn hce_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..8
-        self.val.set_bits(8..=8, val);
+        self.0.set_bits(8..=8, val);
         self
     }
 
@@ -856,10 +899,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn smd_extract(&self) -> u64 {
         // bits 7..7
-        self.val.get_bits(7..=7)
+        self.0.get_bits(7..=7)
     }
 
     /// reads the current register value and extract field `smd` from it
@@ -868,9 +912,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `smd`
-    pub fn smd_insert(&mut self, val: u64) -> &mut self {
+    pub fn smd_insert(&mut self, val: u64) -> &mut Self {
         // bits 7..7
-        self.val.set_bits(7..=7, val);
+        self.0.set_bits(7..=7, val);
         self
     }
 
@@ -884,10 +928,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ea_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `ea` from it
@@ -896,9 +941,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `ea`
-    pub fn ea_insert(&mut self, val: u64) -> &mut self {
+    pub fn ea_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -912,10 +957,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fiq_extract(&self) -> u64 {
         // bits 2..2
-        self.val.get_bits(2..=2)
+        self.0.get_bits(2..=2)
     }
 
     /// reads the current register value and extract field `fiq` from it
@@ -924,9 +970,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `fiq`
-    pub fn fiq_insert(&mut self, val: u64) -> &mut self {
+    pub fn fiq_insert(&mut self, val: u64) -> &mut Self {
         // bits 2..2
-        self.val.set_bits(2..=2, val);
+        self.0.set_bits(2..=2, val);
         self
     }
 
@@ -940,10 +986,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn irq_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `irq` from it
@@ -952,9 +999,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `irq`
-    pub fn irq_insert(&mut self, val: u64) -> &mut self {
+    pub fn irq_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -968,10 +1015,11 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ns_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `ns` from it
@@ -980,9 +1028,9 @@ impl ScrEl3 {
     }
 
     /// inserts the given value `val` into the field `ns`
-    pub fn ns_insert(&mut self, val: u64) -> &mut self {
+    pub fn ns_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -990,12 +1038,13 @@ impl ScrEl3 {
     pub fn ns_write(&mut self, val: u64) {
         Self::with_reg_val().ns_insert(val).write();
     }
+
 }
 
 impl Default for ScrEl3 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ScrEl3 {
+    fn default() -> ScrEl3 {
         ScrEl3(0)
     }
 }

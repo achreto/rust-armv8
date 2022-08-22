@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.530455
+ * Generated on: 2022-08-22T16:25:59.092314
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-pmcr_el0.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Performance Monitors Control Register value in memory
 pub struct PmcrEl0(u64);
 
 /// struct implementation for accessing the fields of register pmcr_el0
 impl PmcrEl0 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmcrEl0 {
@@ -73,49 +79,58 @@ impl PmcrEl0 {
         PmcrEl0(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> PmcrEl0 {
+    pub fn with_reg_val() ->  PmcrEl0 {
         let curval = Self::reg_rawrd() & 0x1fffffaff;
         PmcrEl0(curval)
     }
 
+
+    
     /// reading the Performance Monitors Control Register (pmcr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PMCR_EL0
-            llvm_asm!("mrs $0, pmcr_el0" : "=r"(regval));
+            asm!("mrs {}, pmcr_el0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Performance Monitors Control Register (pmcr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR PMCR_EL0, <Xt>
-            llvm_asm!("msr pmcr_el0, $0" : : "r"(val));
+            asm!("msr pmcr_el0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1fffffaff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1fffffaff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 8589933311;
+    //    self.0 = newval & 8589933311;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl PmcrEl0 {
         self.0
     }
 
+
+    
     /*
      * Field: fzs_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fzs_1_extract(&self) -> u64 {
         // bits 32..32
-        self.val.get_bits(32..=32)
+        self.0.get_bits(32..=32)
     }
 
     /// reads the current register value and extract field `fzs_1` from it
@@ -140,9 +158,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `fzs_1`
-    pub fn fzs_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn fzs_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..32
-        self.val.set_bits(32..=32, val);
+        self.0.set_bits(32..=32, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn imp_1_extract(&self) -> u64 {
         // bits 24..31
-        self.val.get_bits(24..=31)
+        self.0.get_bits(24..=31)
     }
 
     /// reads the current register value and extract field `imp_1` from it
@@ -168,9 +187,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `imp_1`
-    pub fn imp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn imp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 24..31
-        self.val.set_bits(24..=31, val);
+        self.0.set_bits(24..=31, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn idcode_1_extract(&self) -> u64 {
         // bits 16..23
-        self.val.get_bits(16..=23)
+        self.0.get_bits(16..=23)
     }
 
     /// reads the current register value and extract field `idcode_1` from it
@@ -196,9 +216,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `idcode_1`
-    pub fn idcode_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn idcode_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..23
-        self.val.set_bits(16..=23, val);
+        self.0.set_bits(16..=23, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
         // bits 11..15
-        self.val.get_bits(11..=15)
+        self.0.get_bits(11..=15)
     }
 
     /// reads the current register value and extract field `n` from it
@@ -224,9 +245,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `n`
-    pub fn n_insert(&mut self, val: u64) -> &mut self {
+    pub fn n_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..15
-        self.val.set_bits(11..=15, val);
+        self.0.set_bits(11..=15, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fzo_1_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `fzo_1` from it
@@ -252,9 +274,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `fzo_1`
-    pub fn fzo_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn fzo_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn lp_1_extract(&self) -> u64 {
         // bits 7..7
-        self.val.get_bits(7..=7)
+        self.0.get_bits(7..=7)
     }
 
     /// reads the current register value and extract field `lp_1` from it
@@ -280,9 +303,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `lp_1`
-    pub fn lp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn lp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 7..7
-        self.val.set_bits(7..=7, val);
+        self.0.set_bits(7..=7, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn lc_1_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `lc_1` from it
@@ -308,9 +332,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `lc_1`
-    pub fn lc_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn lc_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dp_1_extract(&self) -> u64 {
         // bits 5..5
-        self.val.get_bits(5..=5)
+        self.0.get_bits(5..=5)
     }
 
     /// reads the current register value and extract field `dp_1` from it
@@ -336,9 +361,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `dp_1`
-    pub fn dp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn dp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 5..5
-        self.val.set_bits(5..=5, val);
+        self.0.set_bits(5..=5, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn x_1_extract(&self) -> u64 {
         // bits 4..4
-        self.val.get_bits(4..=4)
+        self.0.get_bits(4..=4)
     }
 
     /// reads the current register value and extract field `x_1` from it
@@ -364,9 +390,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `x_1`
-    pub fn x_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn x_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 4..4
-        self.val.set_bits(4..=4, val);
+        self.0.set_bits(4..=4, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn d_1_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `d_1` from it
@@ -392,9 +419,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `d_1`
-    pub fn d_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn d_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
         // bits 2..2
-        self.val.get_bits(2..=2)
+        self.0.get_bits(2..=2)
     }
 
     /// reads the current register value and extract field `c` from it
@@ -420,9 +448,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `c`
-    pub fn c_insert(&mut self, val: u64) -> &mut self {
+    pub fn c_insert(&mut self, val: u64) -> &mut Self {
         // bits 2..2
-        self.val.set_bits(2..=2, val);
+        self.0.set_bits(2..=2, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn p_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `p` from it
@@ -448,9 +477,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `p`
-    pub fn p_insert(&mut self, val: u64) -> &mut self {
+    pub fn p_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn e_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `e` from it
@@ -476,9 +506,9 @@ impl PmcrEl0 {
     }
 
     /// inserts the given value `val` into the field `e`
-    pub fn e_insert(&mut self, val: u64) -> &mut self {
+    pub fn e_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -486,12 +516,13 @@ impl PmcrEl0 {
     pub fn e_write(&mut self, val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
+
 }
 
 impl Default for PmcrEl0 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> PmcrEl0 {
+    fn default() -> PmcrEl0 {
         PmcrEl0(0)
     }
 }

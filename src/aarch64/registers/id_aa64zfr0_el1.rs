@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.523049
+ * Generated on: 2022-08-22T16:25:59.084869
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    SVE Feature ID register 0 (id_aa64zfr0_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Provides additional information about the implemented features of the AArch64 Scalable Vector Extension, when the
+ * Description: Provides additional information about the implemented features of the AArch64 Scalable Vector Extension, when the 
  * File:        AArch64-id_aa64zfr0_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the SVE Feature ID register 0 value in memory
 pub struct IdAa64zfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64zfr0_el1
 impl IdAa64zfr0El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64zfr0El1 {
@@ -73,30 +79,35 @@ impl IdAa64zfr0El1 {
         IdAa64zfr0El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IdAa64zfr0El1 {
+    pub fn with_reg_val() ->  IdAa64zfr0El1 {
         let curval = Self::reg_rawrd() & 0xff0f00000f0000f;
         IdAa64zfr0El1(curval)
     }
 
+
+    
     /// reading the SVE Feature ID register 0 (id_aa64zfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ID_AA64ZFR0_EL1
-            llvm_asm!("mrs $0, S3_0_C0_C4_4" : "=r"(regval));
+            asm!("mrs {}, S3_0_C0_C4_4", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xff0f00000f0000f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xff0f00000f0000f;
         self
     }
 
@@ -104,7 +115,7 @@ impl IdAa64zfr0El1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 1148681787785871375;
+    //    self.0 = newval & 1148681787785871375;
     //}
 
     /// gets the value of the struct
@@ -112,92 +123,99 @@ impl IdAa64zfr0El1 {
         self.0
     }
 
+
+    
     /*
      * Field: f64mm
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn f64mm_extract(&self) -> u64 {
         // bits 56..59
-        self.val.get_bits(56..=59)
+        self.0.get_bits(56..=59)
     }
 
     /// reads the current register value and extract field `f64mm` from it
     pub fn f64mm_read(&mut self) -> u64 {
         Self::with_reg_val().f64mm_extract()
     }
-    // no insert() method for field f64mm
+// no insert() method for field f64mm
     /*
      * Field: f32mm
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn f32mm_extract(&self) -> u64 {
         // bits 52..55
-        self.val.get_bits(52..=55)
+        self.0.get_bits(52..=55)
     }
 
     /// reads the current register value and extract field `f32mm` from it
     pub fn f32mm_read(&mut self) -> u64 {
         Self::with_reg_val().f32mm_extract()
     }
-    // no insert() method for field f32mm
+// no insert() method for field f32mm
     /*
      * Field: i8mm
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn i8mm_extract(&self) -> u64 {
         // bits 44..47
-        self.val.get_bits(44..=47)
+        self.0.get_bits(44..=47)
     }
 
     /// reads the current register value and extract field `i8mm` from it
     pub fn i8mm_read(&mut self) -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
-    // no insert() method for field i8mm
+// no insert() method for field i8mm
     /*
      * Field: bf16
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bf16_extract(&self) -> u64 {
         // bits 20..23
-        self.val.get_bits(20..=23)
+        self.0.get_bits(20..=23)
     }
 
     /// reads the current register value and extract field `bf16` from it
     pub fn bf16_read(&mut self) -> u64 {
         Self::with_reg_val().bf16_extract()
     }
-    // no insert() method for field bf16
+// no insert() method for field bf16
     /*
      * Field: svever
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn svever_extract(&self) -> u64 {
         // bits 0..3
-        self.val.get_bits(0..=3)
+        self.0.get_bits(0..=3)
     }
 
     /// reads the current register value and extract field `svever` from it
     pub fn svever_read(&mut self) -> u64 {
         Self::with_reg_val().svever_extract()
     }
-    // no insert() method for field svever
+// no insert() method for field svever
 }
 
 impl Default for IdAa64zfr0El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IdAa64zfr0El1 {
+    fn default() -> IdAa64zfr0El1 {
         IdAa64zfr0El1(0)
     }
 }

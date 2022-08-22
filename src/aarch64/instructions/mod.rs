@@ -24,11 +24,12 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.541604
+ * Generated on: 2022-08-22T16:25:59.103051
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -47,5 +48,6 @@ pub mod predictor_maintenance;
 
 // TLB maintenance instructions
 pub mod tlb_maintenance;
+
 
 // end of file

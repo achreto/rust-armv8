@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.525385
+ * Generated on: 2022-08-22T16:25:59.087260
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    LORegion Number (EL1) (lorn_el1)
  * Group:       Virtual memory control registers
  * Type:        64-bit Register
- * Description: Holds the number of the LORegion described in the current LORegion descriptor selected by
+ * Description: Holds the number of the LORegion described in the current LORegion descriptor selected by 
  * File:        AArch64-lorn_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the LORegion Number (EL1) value in memory
 pub struct LornEl1(u64);
 
 /// struct implementation for accessing the fields of register lorn_el1
 impl LornEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> LornEl1 {
@@ -73,49 +79,58 @@ impl LornEl1 {
         LornEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> LornEl1 {
+    pub fn with_reg_val() ->  LornEl1 {
         let curval = Self::reg_rawrd() & 0xff;
         LornEl1(curval)
     }
 
+
+    
     /// reading the LORegion Number (EL1) (lorn_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, LORN_EL1
-            llvm_asm!("mrs $0, S3_0_C10_C4_2" : "=r"(regval));
+            asm!("mrs {}, S3_0_C10_C4_2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the LORegion Number (EL1) (lorn_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR LORN_EL1, <Xt>
-            llvm_asm!("msr S3_0_C10_C4_2, $0" : : "r"(val));
+            asm!("msr S3_0_C10_C4_2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 255;
+    //    self.0 = newval & 255;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl LornEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: num
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn num_extract(&self) -> u64 {
         // bits 0..7
-        self.val.get_bits(0..=7)
+        self.0.get_bits(0..=7)
     }
 
     /// reads the current register value and extract field `num` from it
@@ -140,9 +158,9 @@ impl LornEl1 {
     }
 
     /// inserts the given value `val` into the field `num`
-    pub fn num_insert(&mut self, val: u64) -> &mut self {
+    pub fn num_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..7
-        self.val.set_bits(0..=7, val);
+        self.0.set_bits(0..=7, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl LornEl1 {
     pub fn num_write(&mut self, val: u64) {
         Self::with_reg_val().num_insert(val).write();
     }
+
 }
 
 impl Default for LornEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> LornEl1 {
+    fn default() -> LornEl1 {
         LornEl1(0)
     }
 }

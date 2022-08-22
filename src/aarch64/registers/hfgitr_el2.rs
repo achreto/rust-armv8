@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.516496
+ * Generated on: 2022-08-22T16:25:59.078037
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-hfgitr_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Hypervisor Fine-Grained Instruction Trap Register value in memory
 pub struct HfgitrEl2(u64);
 
 /// struct implementation for accessing the fields of register hfgitr_el2
 impl HfgitrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HfgitrEl2 {
@@ -73,49 +79,58 @@ impl HfgitrEl2 {
         HfgitrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> HfgitrEl2 {
+    pub fn with_reg_val() ->  HfgitrEl2 {
         let curval = Self::reg_rawrd() & 0x7fffffffffffff;
         HfgitrEl2(curval)
     }
 
+
+    
     /// reading the Hypervisor Fine-Grained Instruction Trap Register (hfgitr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, HFGITR_EL2
-            llvm_asm!("mrs $0, S3_4_C1_C1_6" : "=r"(regval));
+            asm!("mrs {}, S3_4_C1_C1_6", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Hypervisor Fine-Grained Instruction Trap Register (hfgitr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR HFGITR_EL2, <Xt>
-            llvm_asm!("msr S3_4_C1_C1_6, $0" : : "r"(val));
+            asm!("msr S3_4_C1_C1_6, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x7fffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x7fffffffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 36028797018963967;
+    //    self.0 = newval & 36028797018963967;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl HfgitrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: dccvac
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccvac_extract(&self) -> u64 {
         // bits 54..54
-        self.val.get_bits(54..=54)
+        self.0.get_bits(54..=54)
     }
 
     /// reads the current register value and extract field `dccvac` from it
@@ -140,9 +158,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccvac`
-    pub fn dccvac_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccvac_insert(&mut self, val: u64) -> &mut Self {
         // bits 54..54
-        self.val.set_bits(54..=54, val);
+        self.0.set_bits(54..=54, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn svc_el1_extract(&self) -> u64 {
         // bits 53..53
-        self.val.get_bits(53..=53)
+        self.0.get_bits(53..=53)
     }
 
     /// reads the current register value and extract field `svc_el1` from it
@@ -168,9 +187,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `svc_el1`
-    pub fn svc_el1_insert(&mut self, val: u64) -> &mut self {
+    pub fn svc_el1_insert(&mut self, val: u64) -> &mut Self {
         // bits 53..53
-        self.val.set_bits(53..=53, val);
+        self.0.set_bits(53..=53, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn svc_el0_extract(&self) -> u64 {
         // bits 52..52
-        self.val.get_bits(52..=52)
+        self.0.get_bits(52..=52)
     }
 
     /// reads the current register value and extract field `svc_el0` from it
@@ -196,9 +216,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `svc_el0`
-    pub fn svc_el0_insert(&mut self, val: u64) -> &mut self {
+    pub fn svc_el0_insert(&mut self, val: u64) -> &mut Self {
         // bits 52..52
-        self.val.set_bits(52..=52, val);
+        self.0.set_bits(52..=52, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn eret_extract(&self) -> u64 {
         // bits 51..51
-        self.val.get_bits(51..=51)
+        self.0.get_bits(51..=51)
     }
 
     /// reads the current register value and extract field `eret` from it
@@ -224,9 +245,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `eret`
-    pub fn eret_insert(&mut self, val: u64) -> &mut self {
+    pub fn eret_insert(&mut self, val: u64) -> &mut Self {
         // bits 51..51
-        self.val.set_bits(51..=51, val);
+        self.0.set_bits(51..=51, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cpprctx_1_extract(&self) -> u64 {
         // bits 50..50
-        self.val.get_bits(50..=50)
+        self.0.get_bits(50..=50)
     }
 
     /// reads the current register value and extract field `cpprctx_1` from it
@@ -252,9 +274,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `cpprctx_1`
-    pub fn cpprctx_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn cpprctx_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 50..50
-        self.val.set_bits(50..=50, val);
+        self.0.set_bits(50..=50, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dvprctx_1_extract(&self) -> u64 {
         // bits 49..49
-        self.val.get_bits(49..=49)
+        self.0.get_bits(49..=49)
     }
 
     /// reads the current register value and extract field `dvprctx_1` from it
@@ -280,9 +303,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dvprctx_1`
-    pub fn dvprctx_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn dvprctx_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 49..49
-        self.val.set_bits(49..=49, val);
+        self.0.set_bits(49..=49, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cfprctx_1_extract(&self) -> u64 {
         // bits 48..48
-        self.val.get_bits(48..=48)
+        self.0.get_bits(48..=48)
     }
 
     /// reads the current register value and extract field `cfprctx_1` from it
@@ -308,9 +332,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `cfprctx_1`
-    pub fn cfprctx_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn cfprctx_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 48..48
-        self.val.set_bits(48..=48, val);
+        self.0.set_bits(48..=48, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaale1_extract(&self) -> u64 {
         // bits 47..47
-        self.val.get_bits(47..=47)
+        self.0.get_bits(47..=47)
     }
 
     /// reads the current register value and extract field `tlbivaale1` from it
@@ -336,9 +361,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaale1`
-    pub fn tlbivaale1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaale1_insert(&mut self, val: u64) -> &mut Self {
         // bits 47..47
-        self.val.set_bits(47..=47, val);
+        self.0.set_bits(47..=47, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivale1_extract(&self) -> u64 {
         // bits 46..46
-        self.val.get_bits(46..=46)
+        self.0.get_bits(46..=46)
     }
 
     /// reads the current register value and extract field `tlbivale1` from it
@@ -364,9 +390,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivale1`
-    pub fn tlbivale1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivale1_insert(&mut self, val: u64) -> &mut Self {
         // bits 46..46
-        self.val.set_bits(46..=46, val);
+        self.0.set_bits(46..=46, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaae1_extract(&self) -> u64 {
         // bits 45..45
-        self.val.get_bits(45..=45)
+        self.0.get_bits(45..=45)
     }
 
     /// reads the current register value and extract field `tlbivaae1` from it
@@ -392,9 +419,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaae1`
-    pub fn tlbivaae1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaae1_insert(&mut self, val: u64) -> &mut Self {
         // bits 45..45
-        self.val.set_bits(45..=45, val);
+        self.0.set_bits(45..=45, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbiaside1_extract(&self) -> u64 {
         // bits 44..44
-        self.val.get_bits(44..=44)
+        self.0.get_bits(44..=44)
     }
 
     /// reads the current register value and extract field `tlbiaside1` from it
@@ -420,9 +448,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbiaside1`
-    pub fn tlbiaside1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbiaside1_insert(&mut self, val: u64) -> &mut Self {
         // bits 44..44
-        self.val.set_bits(44..=44, val);
+        self.0.set_bits(44..=44, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivae1_extract(&self) -> u64 {
         // bits 43..43
-        self.val.get_bits(43..=43)
+        self.0.get_bits(43..=43)
     }
 
     /// reads the current register value and extract field `tlbivae1` from it
@@ -448,9 +477,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivae1`
-    pub fn tlbivae1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivae1_insert(&mut self, val: u64) -> &mut Self {
         // bits 43..43
-        self.val.set_bits(43..=43, val);
+        self.0.set_bits(43..=43, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivmalle1_extract(&self) -> u64 {
         // bits 42..42
-        self.val.get_bits(42..=42)
+        self.0.get_bits(42..=42)
     }
 
     /// reads the current register value and extract field `tlbivmalle1` from it
@@ -476,9 +506,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivmalle1`
-    pub fn tlbivmalle1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivmalle1_insert(&mut self, val: u64) -> &mut Self {
         // bits 42..42
-        self.val.set_bits(42..=42, val);
+        self.0.set_bits(42..=42, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaale1_1_extract(&self) -> u64 {
         // bits 41..41
-        self.val.get_bits(41..=41)
+        self.0.get_bits(41..=41)
     }
 
     /// reads the current register value and extract field `tlbirvaale1_1` from it
@@ -504,9 +535,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaale1_1`
-    pub fn tlbirvaale1_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaale1_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 41..41
-        self.val.set_bits(41..=41, val);
+        self.0.set_bits(41..=41, val);
         self
     }
 
@@ -520,10 +551,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvale1_1_extract(&self) -> u64 {
         // bits 40..40
-        self.val.get_bits(40..=40)
+        self.0.get_bits(40..=40)
     }
 
     /// reads the current register value and extract field `tlbirvale1_1` from it
@@ -532,9 +564,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvale1_1`
-    pub fn tlbirvale1_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvale1_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 40..40
-        self.val.set_bits(40..=40, val);
+        self.0.set_bits(40..=40, val);
         self
     }
 
@@ -548,10 +580,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaae1_1_extract(&self) -> u64 {
         // bits 39..39
-        self.val.get_bits(39..=39)
+        self.0.get_bits(39..=39)
     }
 
     /// reads the current register value and extract field `tlbirvaae1_1` from it
@@ -560,9 +593,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaae1_1`
-    pub fn tlbirvaae1_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaae1_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 39..39
-        self.val.set_bits(39..=39, val);
+        self.0.set_bits(39..=39, val);
         self
     }
 
@@ -576,10 +609,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvae1_1_extract(&self) -> u64 {
         // bits 38..38
-        self.val.get_bits(38..=38)
+        self.0.get_bits(38..=38)
     }
 
     /// reads the current register value and extract field `tlbirvae1_1` from it
@@ -588,9 +622,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvae1_1`
-    pub fn tlbirvae1_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvae1_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 38..38
-        self.val.set_bits(38..=38, val);
+        self.0.set_bits(38..=38, val);
         self
     }
 
@@ -604,10 +638,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaale1is_1_extract(&self) -> u64 {
         // bits 37..37
-        self.val.get_bits(37..=37)
+        self.0.get_bits(37..=37)
     }
 
     /// reads the current register value and extract field `tlbirvaale1is_1` from it
@@ -616,9 +651,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaale1is_1`
-    pub fn tlbirvaale1is_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaale1is_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 37..37
-        self.val.set_bits(37..=37, val);
+        self.0.set_bits(37..=37, val);
         self
     }
 
@@ -632,10 +667,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvale1is_1_extract(&self) -> u64 {
         // bits 36..36
-        self.val.get_bits(36..=36)
+        self.0.get_bits(36..=36)
     }
 
     /// reads the current register value and extract field `tlbirvale1is_1` from it
@@ -644,9 +680,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvale1is_1`
-    pub fn tlbirvale1is_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvale1is_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 36..36
-        self.val.set_bits(36..=36, val);
+        self.0.set_bits(36..=36, val);
         self
     }
 
@@ -660,10 +696,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaae1is_1_extract(&self) -> u64 {
         // bits 35..35
-        self.val.get_bits(35..=35)
+        self.0.get_bits(35..=35)
     }
 
     /// reads the current register value and extract field `tlbirvaae1is_1` from it
@@ -672,9 +709,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaae1is_1`
-    pub fn tlbirvaae1is_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaae1is_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 35..35
-        self.val.set_bits(35..=35, val);
+        self.0.set_bits(35..=35, val);
         self
     }
 
@@ -688,10 +725,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvae1is_1_extract(&self) -> u64 {
         // bits 34..34
-        self.val.get_bits(34..=34)
+        self.0.get_bits(34..=34)
     }
 
     /// reads the current register value and extract field `tlbirvae1is_1` from it
@@ -700,9 +738,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvae1is_1`
-    pub fn tlbirvae1is_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvae1is_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 34..34
-        self.val.set_bits(34..=34, val);
+        self.0.set_bits(34..=34, val);
         self
     }
 
@@ -716,10 +754,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaale1is_extract(&self) -> u64 {
         // bits 33..33
-        self.val.get_bits(33..=33)
+        self.0.get_bits(33..=33)
     }
 
     /// reads the current register value and extract field `tlbivaale1is` from it
@@ -728,9 +767,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaale1is`
-    pub fn tlbivaale1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaale1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 33..33
-        self.val.set_bits(33..=33, val);
+        self.0.set_bits(33..=33, val);
         self
     }
 
@@ -744,10 +783,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivale1is_extract(&self) -> u64 {
         // bits 32..32
-        self.val.get_bits(32..=32)
+        self.0.get_bits(32..=32)
     }
 
     /// reads the current register value and extract field `tlbivale1is` from it
@@ -756,9 +796,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivale1is`
-    pub fn tlbivale1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivale1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..32
-        self.val.set_bits(32..=32, val);
+        self.0.set_bits(32..=32, val);
         self
     }
 
@@ -772,10 +812,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaae1is_extract(&self) -> u64 {
         // bits 31..31
-        self.val.get_bits(31..=31)
+        self.0.get_bits(31..=31)
     }
 
     /// reads the current register value and extract field `tlbivaae1is` from it
@@ -784,9 +825,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaae1is`
-    pub fn tlbivaae1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaae1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 31..31
-        self.val.set_bits(31..=31, val);
+        self.0.set_bits(31..=31, val);
         self
     }
 
@@ -800,10 +841,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbiaside1is_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `tlbiaside1is` from it
@@ -812,9 +854,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbiaside1is`
-    pub fn tlbiaside1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbiaside1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -828,10 +870,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivae1is_extract(&self) -> u64 {
         // bits 29..29
-        self.val.get_bits(29..=29)
+        self.0.get_bits(29..=29)
     }
 
     /// reads the current register value and extract field `tlbivae1is` from it
@@ -840,9 +883,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivae1is`
-    pub fn tlbivae1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivae1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 29..29
-        self.val.set_bits(29..=29, val);
+        self.0.set_bits(29..=29, val);
         self
     }
 
@@ -856,10 +899,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivmalle1is_extract(&self) -> u64 {
         // bits 28..28
-        self.val.get_bits(28..=28)
+        self.0.get_bits(28..=28)
     }
 
     /// reads the current register value and extract field `tlbivmalle1is` from it
@@ -868,9 +912,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivmalle1is`
-    pub fn tlbivmalle1is_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivmalle1is_insert(&mut self, val: u64) -> &mut Self {
         // bits 28..28
-        self.val.set_bits(28..=28, val);
+        self.0.set_bits(28..=28, val);
         self
     }
 
@@ -884,10 +928,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaale1os_1_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `tlbirvaale1os_1` from it
@@ -896,9 +941,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaale1os_1`
-    pub fn tlbirvaale1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaale1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -912,10 +957,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvale1os_1_extract(&self) -> u64 {
         // bits 26..26
-        self.val.get_bits(26..=26)
+        self.0.get_bits(26..=26)
     }
 
     /// reads the current register value and extract field `tlbirvale1os_1` from it
@@ -924,9 +970,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvale1os_1`
-    pub fn tlbirvale1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvale1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..26
-        self.val.set_bits(26..=26, val);
+        self.0.set_bits(26..=26, val);
         self
     }
 
@@ -940,10 +986,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvaae1os_1_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `tlbirvaae1os_1` from it
@@ -952,9 +999,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvaae1os_1`
-    pub fn tlbirvaae1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvaae1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -968,10 +1015,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbirvae1os_1_extract(&self) -> u64 {
         // bits 24..24
-        self.val.get_bits(24..=24)
+        self.0.get_bits(24..=24)
     }
 
     /// reads the current register value and extract field `tlbirvae1os_1` from it
@@ -980,9 +1028,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbirvae1os_1`
-    pub fn tlbirvae1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbirvae1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 24..24
-        self.val.set_bits(24..=24, val);
+        self.0.set_bits(24..=24, val);
         self
     }
 
@@ -996,10 +1044,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaale1os_1_extract(&self) -> u64 {
         // bits 23..23
-        self.val.get_bits(23..=23)
+        self.0.get_bits(23..=23)
     }
 
     /// reads the current register value and extract field `tlbivaale1os_1` from it
@@ -1008,9 +1057,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaale1os_1`
-    pub fn tlbivaale1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaale1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 23..23
-        self.val.set_bits(23..=23, val);
+        self.0.set_bits(23..=23, val);
         self
     }
 
@@ -1024,10 +1073,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivale1os_1_extract(&self) -> u64 {
         // bits 22..22
-        self.val.get_bits(22..=22)
+        self.0.get_bits(22..=22)
     }
 
     /// reads the current register value and extract field `tlbivale1os_1` from it
@@ -1036,9 +1086,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivale1os_1`
-    pub fn tlbivale1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivale1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 22..22
-        self.val.set_bits(22..=22, val);
+        self.0.set_bits(22..=22, val);
         self
     }
 
@@ -1052,10 +1102,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivaae1os_1_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `tlbivaae1os_1` from it
@@ -1064,9 +1115,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivaae1os_1`
-    pub fn tlbivaae1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivaae1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -1080,10 +1131,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbiaside1os_1_extract(&self) -> u64 {
         // bits 20..20
-        self.val.get_bits(20..=20)
+        self.0.get_bits(20..=20)
     }
 
     /// reads the current register value and extract field `tlbiaside1os_1` from it
@@ -1092,9 +1144,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbiaside1os_1`
-    pub fn tlbiaside1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbiaside1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 20..20
-        self.val.set_bits(20..=20, val);
+        self.0.set_bits(20..=20, val);
         self
     }
 
@@ -1108,10 +1160,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivae1os_1_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `tlbivae1os_1` from it
@@ -1120,9 +1173,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivae1os_1`
-    pub fn tlbivae1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivae1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -1136,10 +1189,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tlbivmalle1os_1_extract(&self) -> u64 {
         // bits 18..18
-        self.val.get_bits(18..=18)
+        self.0.get_bits(18..=18)
     }
 
     /// reads the current register value and extract field `tlbivmalle1os_1` from it
@@ -1148,9 +1202,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `tlbivmalle1os_1`
-    pub fn tlbivmalle1os_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tlbivmalle1os_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 18..18
-        self.val.set_bits(18..=18, val);
+        self.0.set_bits(18..=18, val);
         self
     }
 
@@ -1164,10 +1218,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e1wp_1_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `ats1e1wp_1` from it
@@ -1176,9 +1231,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e1wp_1`
-    pub fn ats1e1wp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e1wp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 17..17
-        self.val.set_bits(17..=17, val);
+        self.0.set_bits(17..=17, val);
         self
     }
 
@@ -1192,10 +1247,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e1rp_1_extract(&self) -> u64 {
         // bits 16..16
-        self.val.get_bits(16..=16)
+        self.0.get_bits(16..=16)
     }
 
     /// reads the current register value and extract field `ats1e1rp_1` from it
@@ -1204,9 +1260,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e1rp_1`
-    pub fn ats1e1rp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e1rp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..16
-        self.val.set_bits(16..=16, val);
+        self.0.set_bits(16..=16, val);
         self
     }
 
@@ -1220,10 +1276,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e0w_extract(&self) -> u64 {
         // bits 15..15
-        self.val.get_bits(15..=15)
+        self.0.get_bits(15..=15)
     }
 
     /// reads the current register value and extract field `ats1e0w` from it
@@ -1232,9 +1289,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e0w`
-    pub fn ats1e0w_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e0w_insert(&mut self, val: u64) -> &mut Self {
         // bits 15..15
-        self.val.set_bits(15..=15, val);
+        self.0.set_bits(15..=15, val);
         self
     }
 
@@ -1248,10 +1305,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e0r_extract(&self) -> u64 {
         // bits 14..14
-        self.val.get_bits(14..=14)
+        self.0.get_bits(14..=14)
     }
 
     /// reads the current register value and extract field `ats1e0r` from it
@@ -1260,9 +1318,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e0r`
-    pub fn ats1e0r_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e0r_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..14
-        self.val.set_bits(14..=14, val);
+        self.0.set_bits(14..=14, val);
         self
     }
 
@@ -1276,10 +1334,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e1w_extract(&self) -> u64 {
         // bits 13..13
-        self.val.get_bits(13..=13)
+        self.0.get_bits(13..=13)
     }
 
     /// reads the current register value and extract field `ats1e1w` from it
@@ -1288,9 +1347,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e1w`
-    pub fn ats1e1w_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e1w_insert(&mut self, val: u64) -> &mut Self {
         // bits 13..13
-        self.val.set_bits(13..=13, val);
+        self.0.set_bits(13..=13, val);
         self
     }
 
@@ -1304,10 +1363,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ats1e1r_extract(&self) -> u64 {
         // bits 12..12
-        self.val.get_bits(12..=12)
+        self.0.get_bits(12..=12)
     }
 
     /// reads the current register value and extract field `ats1e1r` from it
@@ -1316,9 +1376,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `ats1e1r`
-    pub fn ats1e1r_insert(&mut self, val: u64) -> &mut self {
+    pub fn ats1e1r_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..12
-        self.val.set_bits(12..=12, val);
+        self.0.set_bits(12..=12, val);
         self
     }
 
@@ -1332,10 +1392,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dczva_extract(&self) -> u64 {
         // bits 11..11
-        self.val.get_bits(11..=11)
+        self.0.get_bits(11..=11)
     }
 
     /// reads the current register value and extract field `dczva` from it
@@ -1344,9 +1405,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dczva`
-    pub fn dczva_insert(&mut self, val: u64) -> &mut self {
+    pub fn dczva_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..11
-        self.val.set_bits(11..=11, val);
+        self.0.set_bits(11..=11, val);
         self
     }
 
@@ -1360,10 +1421,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccivac_extract(&self) -> u64 {
         // bits 10..10
-        self.val.get_bits(10..=10)
+        self.0.get_bits(10..=10)
     }
 
     /// reads the current register value and extract field `dccivac` from it
@@ -1372,9 +1434,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccivac`
-    pub fn dccivac_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccivac_insert(&mut self, val: u64) -> &mut Self {
         // bits 10..10
-        self.val.set_bits(10..=10, val);
+        self.0.set_bits(10..=10, val);
         self
     }
 
@@ -1388,10 +1450,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccvadp_1_extract(&self) -> u64 {
         // bits 9..9
-        self.val.get_bits(9..=9)
+        self.0.get_bits(9..=9)
     }
 
     /// reads the current register value and extract field `dccvadp_1` from it
@@ -1400,9 +1463,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccvadp_1`
-    pub fn dccvadp_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccvadp_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 9..9
-        self.val.set_bits(9..=9, val);
+        self.0.set_bits(9..=9, val);
         self
     }
 
@@ -1416,10 +1479,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccvap_extract(&self) -> u64 {
         // bits 8..8
-        self.val.get_bits(8..=8)
+        self.0.get_bits(8..=8)
     }
 
     /// reads the current register value and extract field `dccvap` from it
@@ -1428,9 +1492,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccvap`
-    pub fn dccvap_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccvap_insert(&mut self, val: u64) -> &mut Self {
         // bits 8..8
-        self.val.set_bits(8..=8, val);
+        self.0.set_bits(8..=8, val);
         self
     }
 
@@ -1444,10 +1508,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccvau_extract(&self) -> u64 {
         // bits 7..7
-        self.val.get_bits(7..=7)
+        self.0.get_bits(7..=7)
     }
 
     /// reads the current register value and extract field `dccvau` from it
@@ -1456,9 +1521,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccvau`
-    pub fn dccvau_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccvau_insert(&mut self, val: u64) -> &mut Self {
         // bits 7..7
-        self.val.set_bits(7..=7, val);
+        self.0.set_bits(7..=7, val);
         self
     }
 
@@ -1472,10 +1537,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccisw_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `dccisw` from it
@@ -1484,9 +1550,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccisw`
-    pub fn dccisw_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccisw_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -1500,10 +1566,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dccsw_extract(&self) -> u64 {
         // bits 5..5
-        self.val.get_bits(5..=5)
+        self.0.get_bits(5..=5)
     }
 
     /// reads the current register value and extract field `dccsw` from it
@@ -1512,9 +1579,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dccsw`
-    pub fn dccsw_insert(&mut self, val: u64) -> &mut self {
+    pub fn dccsw_insert(&mut self, val: u64) -> &mut Self {
         // bits 5..5
-        self.val.set_bits(5..=5, val);
+        self.0.set_bits(5..=5, val);
         self
     }
 
@@ -1528,10 +1595,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dcisw_extract(&self) -> u64 {
         // bits 4..4
-        self.val.get_bits(4..=4)
+        self.0.get_bits(4..=4)
     }
 
     /// reads the current register value and extract field `dcisw` from it
@@ -1540,9 +1608,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dcisw`
-    pub fn dcisw_insert(&mut self, val: u64) -> &mut self {
+    pub fn dcisw_insert(&mut self, val: u64) -> &mut Self {
         // bits 4..4
-        self.val.set_bits(4..=4, val);
+        self.0.set_bits(4..=4, val);
         self
     }
 
@@ -1556,10 +1624,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dcivac_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `dcivac` from it
@@ -1568,9 +1637,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `dcivac`
-    pub fn dcivac_insert(&mut self, val: u64) -> &mut self {
+    pub fn dcivac_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -1584,10 +1653,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn icivau_extract(&self) -> u64 {
         // bits 2..2
-        self.val.get_bits(2..=2)
+        self.0.get_bits(2..=2)
     }
 
     /// reads the current register value and extract field `icivau` from it
@@ -1596,9 +1666,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `icivau`
-    pub fn icivau_insert(&mut self, val: u64) -> &mut self {
+    pub fn icivau_insert(&mut self, val: u64) -> &mut Self {
         // bits 2..2
-        self.val.set_bits(2..=2, val);
+        self.0.set_bits(2..=2, val);
         self
     }
 
@@ -1612,10 +1682,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn iciallu_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `iciallu` from it
@@ -1624,9 +1695,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `iciallu`
-    pub fn iciallu_insert(&mut self, val: u64) -> &mut self {
+    pub fn iciallu_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -1640,10 +1711,11 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn icialluis_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `icialluis` from it
@@ -1652,9 +1724,9 @@ impl HfgitrEl2 {
     }
 
     /// inserts the given value `val` into the field `icialluis`
-    pub fn icialluis_insert(&mut self, val: u64) -> &mut self {
+    pub fn icialluis_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -1662,12 +1734,13 @@ impl HfgitrEl2 {
     pub fn icialluis_write(&mut self, val: u64) {
         Self::with_reg_val().icialluis_insert(val).write();
     }
+
 }
 
 impl Default for HfgitrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> HfgitrEl2 {
+    fn default() -> HfgitrEl2 {
         HfgitrEl2(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.528824
+ * Generated on: 2022-08-22T16:25:59.090717
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    OS Lock Data Transfer Register, Receive (osdtrrx_el1)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Used for save/restore of
+ * Description: Used for save/restore of 
  * File:        AArch64-osdtrrx_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the OS Lock Data Transfer Register, Receive value in memory
 pub struct OsdtrrxEl1(u64);
 
 /// struct implementation for accessing the fields of register osdtrrx_el1
 impl OsdtrrxEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> OsdtrrxEl1 {
@@ -73,49 +79,58 @@ impl OsdtrrxEl1 {
         OsdtrrxEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> OsdtrrxEl1 {
+    pub fn with_reg_val() ->  OsdtrrxEl1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         OsdtrrxEl1(curval)
     }
 
+
+    
     /// reading the OS Lock Data Transfer Register, Receive (osdtrrx_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, OSDTRRX_EL1
-            llvm_asm!("mrs $0, osdtrrx_el1" : "=r"(regval));
+            asm!("mrs {}, osdtrrx_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the OS Lock Data Transfer Register, Receive (osdtrrx_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR OSDTRRX_EL1, <Xt>
-            llvm_asm!("msr osdtrrx_el1, $0" : : "r"(val));
+            asm!("msr osdtrrx_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4294967295;
+    //    self.0 = newval & 4294967295;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl OsdtrrxEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: none_31_0
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn none_31_0_extract(&self) -> u64 {
         // bits 0..31
-        self.val.get_bits(0..=31)
+        self.0.get_bits(0..=31)
     }
 
     /// reads the current register value and extract field `none_31_0` from it
@@ -140,9 +158,9 @@ impl OsdtrrxEl1 {
     }
 
     /// inserts the given value `val` into the field `none_31_0`
-    pub fn none_31_0_insert(&mut self, val: u64) -> &mut self {
+    pub fn none_31_0_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..31
-        self.val.set_bits(0..=31, val);
+        self.0.set_bits(0..=31, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl OsdtrrxEl1 {
     pub fn none_31_0_write(&mut self, val: u64) {
         Self::with_reg_val().none_31_0_insert(val).write();
     }
+
 }
 
 impl Default for OsdtrrxEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> OsdtrrxEl1 {
+    fn default() -> OsdtrrxEl1 {
         OsdtrrxEl1(0)
     }
 }

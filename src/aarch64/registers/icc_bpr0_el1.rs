@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.517991
+ * Generated on: 2022-08-22T16:25:59.079438
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-icc_bpr0_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Interrupt Controller Binary Point Register 0 value in memory
 pub struct IccBpr0El1(u64);
 
 /// struct implementation for accessing the fields of register icc_bpr0_el1
 impl IccBpr0El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccBpr0El1 {
@@ -73,49 +79,58 @@ impl IccBpr0El1 {
         IccBpr0El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IccBpr0El1 {
+    pub fn with_reg_val() ->  IccBpr0El1 {
         let curval = Self::reg_rawrd() & 0x7;
         IccBpr0El1(curval)
     }
 
+
+    
     /// reading the Interrupt Controller Binary Point Register 0 (icc_bpr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ICC_BPR0_EL1
-            llvm_asm!("mrs $0, icc_bpr0_el1" : "=r"(regval));
+            asm!("mrs {}, icc_bpr0_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Interrupt Controller Binary Point Register 0 (icc_bpr0_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ICC_BPR0_EL1, <Xt>
-            llvm_asm!("msr icc_bpr0_el1, $0" : : "r"(val));
+            asm!("msr icc_bpr0_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x7;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x7;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 7;
+    //    self.0 = newval & 7;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl IccBpr0El1 {
         self.0
     }
 
+
+    
     /*
      * Field: binarypoint
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn binarypoint_extract(&self) -> u64 {
         // bits 0..2
-        self.val.get_bits(0..=2)
+        self.0.get_bits(0..=2)
     }
 
     /// reads the current register value and extract field `binarypoint` from it
@@ -140,9 +158,9 @@ impl IccBpr0El1 {
     }
 
     /// inserts the given value `val` into the field `binarypoint`
-    pub fn binarypoint_insert(&mut self, val: u64) -> &mut self {
+    pub fn binarypoint_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..2
-        self.val.set_bits(0..=2, val);
+        self.0.set_bits(0..=2, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl IccBpr0El1 {
     pub fn binarypoint_write(&mut self, val: u64) {
         Self::with_reg_val().binarypoint_insert(val).write();
     }
+
 }
 
 impl Default for IccBpr0El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IccBpr0El1 {
+    fn default() -> IccBpr0El1 {
         IccBpr0El1(0)
     }
 }

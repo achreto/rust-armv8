@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.539940
+ * Generated on: 2022-08-22T16:25:59.101443
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-vbar_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Vector Base Address Register (EL2) value in memory
 pub struct VbarEl2(u64);
 
 /// struct implementation for accessing the fields of register vbar_el2
 impl VbarEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VbarEl2 {
@@ -73,49 +79,58 @@ impl VbarEl2 {
         VbarEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> VbarEl2 {
+    pub fn with_reg_val() ->  VbarEl2 {
         let curval = Self::reg_rawrd() & 0xfffffffffffff800;
         VbarEl2(curval)
     }
 
+
+    
     /// reading the Vector Base Address Register (EL2) (vbar_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, VBAR_EL2
-            llvm_asm!("mrs $0, vbar_el2" : "=r"(regval));
+            asm!("mrs {}, vbar_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Vector Base Address Register (EL2) (vbar_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR VBAR_EL2, <Xt>
-            llvm_asm!("msr vbar_el2, $0" : : "r"(val));
+            asm!("msr vbar_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfffffffffffff800;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfffffffffffff800;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709549568;
+    //    self.0 = newval & 18446744073709549568;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl VbarEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: none_63_11
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn none_63_11_extract(&self) -> u64 {
         // bits 11..63
-        self.val.get_bits(11..=63)
+        self.0.get_bits(11..=63)
     }
 
     /// reads the current register value and extract field `none_63_11` from it
@@ -140,9 +158,9 @@ impl VbarEl2 {
     }
 
     /// inserts the given value `val` into the field `none_63_11`
-    pub fn none_63_11_insert(&mut self, val: u64) -> &mut self {
+    pub fn none_63_11_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..63
-        self.val.set_bits(11..=63, val);
+        self.0.set_bits(11..=63, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl VbarEl2 {
     pub fn none_63_11_write(&mut self, val: u64) {
         Self::with_reg_val().none_63_11_insert(val).write();
     }
+
 }
 
 impl Default for VbarEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> VbarEl2 {
+    fn default() -> VbarEl2 {
         VbarEl2(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.541143
+ * Generated on: 2022-08-22T16:25:59.102604
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-zcr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the SVE Control Register for EL1 value in memory
 pub struct ZcrEl1(u64);
 
 /// struct implementation for accessing the fields of register zcr_el1
 impl ZcrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ZcrEl1 {
@@ -73,49 +79,58 @@ impl ZcrEl1 {
         ZcrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ZcrEl1 {
+    pub fn with_reg_val() ->  ZcrEl1 {
         let curval = Self::reg_rawrd() & 0xf;
         ZcrEl1(curval)
     }
 
+
+    
     /// reading the SVE Control Register for EL1 (zcr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ZCR_EL1
-            llvm_asm!("mrs $0, S3_0_C1_C2_0" : "=r"(regval));
+            asm!("mrs {}, S3_0_C1_C2_0", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the SVE Control Register for EL1 (zcr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ZCR_EL1, <Xt>
-            llvm_asm!("msr S3_0_C1_C2_0, $0" : : "r"(val));
+            asm!("msr S3_0_C1_C2_0, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xf;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xf;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 15;
+    //    self.0 = newval & 15;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl ZcrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: len
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn len_extract(&self) -> u64 {
         // bits 0..3
-        self.val.get_bits(0..=3)
+        self.0.get_bits(0..=3)
     }
 
     /// reads the current register value and extract field `len` from it
@@ -140,9 +158,9 @@ impl ZcrEl1 {
     }
 
     /// inserts the given value `val` into the field `len`
-    pub fn len_insert(&mut self, val: u64) -> &mut self {
+    pub fn len_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..3
-        self.val.set_bits(0..=3, val);
+        self.0.set_bits(0..=3, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl ZcrEl1 {
     pub fn len_write(&mut self, val: u64) {
         Self::with_reg_val().len_insert(val).write();
     }
+
 }
 
 impl Default for ZcrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ZcrEl1 {
+    fn default() -> ZcrEl1 {
         ZcrEl1(0)
     }
 }

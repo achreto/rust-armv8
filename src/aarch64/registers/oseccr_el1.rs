@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.528978
+ * Generated on: 2022-08-22T16:25:59.090870
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    OS Lock Exception Catch Control Register (oseccr_el1)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Provides a mechanism for an operating system to access the contents of
+ * Description: Provides a mechanism for an operating system to access the contents of 
  * File:        AArch64-oseccr_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the OS Lock Exception Catch Control Register value in memory
 pub struct OseccrEl1(u64);
 
 /// struct implementation for accessing the fields of register oseccr_el1
 impl OseccrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> OseccrEl1 {
@@ -73,49 +79,58 @@ impl OseccrEl1 {
         OseccrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> OseccrEl1 {
+    pub fn with_reg_val() ->  OseccrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         OseccrEl1(curval)
     }
 
+
+    
     /// reading the OS Lock Exception Catch Control Register (oseccr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, OSECCR_EL1
-            llvm_asm!("mrs $0, oseccr_el1" : "=r"(regval));
+            asm!("mrs {}, oseccr_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the OS Lock Exception Catch Control Register (oseccr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR OSECCR_EL1, <Xt>
-            llvm_asm!("msr oseccr_el1, $0" : : "r"(val));
+            asm!("msr oseccr_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4294967295;
+    //    self.0 = newval & 4294967295;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl OseccrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: edeccr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn edeccr_extract(&self) -> u64 {
         // bits 0..31
-        self.val.get_bits(0..=31)
+        self.0.get_bits(0..=31)
     }
 
     /// reads the current register value and extract field `edeccr` from it
@@ -140,9 +158,9 @@ impl OseccrEl1 {
     }
 
     /// inserts the given value `val` into the field `edeccr`
-    pub fn edeccr_insert(&mut self, val: u64) -> &mut self {
+    pub fn edeccr_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..31
-        self.val.set_bits(0..=31, val);
+        self.0.set_bits(0..=31, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl OseccrEl1 {
     pub fn edeccr_write(&mut self, val: u64) {
         Self::with_reg_val().edeccr_insert(val).write();
     }
+
 }
 
 impl Default for OseccrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> OseccrEl1 {
+    fn default() -> OseccrEl1 {
         OseccrEl1(0)
     }
 }

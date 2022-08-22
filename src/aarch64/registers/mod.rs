@@ -24,11 +24,12 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.503211
+ * Generated on: 2022-08-22T16:25:59.065396
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -36,11 +37,13 @@
  *
  *************************************************************************************************/
 
+
 /*
  * ================================================================================================
  * A group mapping that does not have a known primary
  * ================================================================================================
  */
+
 
 // Accelerator Data
 mod accdata_el1;
@@ -74,11 +77,14 @@ pub use hfgwtr_el2::HfgwtrEl2;
 mod pmsnevfr_el1;
 pub use pmsnevfr_el1::PmsnevfrEl1;
 
+
+
 /*
  * ================================================================================================
  * Activity Monitors registers
  * ================================================================================================
  */
+
 
 // Activity Monitors Configuration Register
 mod amcfgr_el0;
@@ -116,21 +122,27 @@ pub use amcr_el0::AmcrEl0;
 mod amuserenr_el0;
 pub use amuserenr_el0::AmuserenrEl0;
 
+
+
 /*
  * ================================================================================================
  * Address translation instructions
  * ================================================================================================
  */
 
+
 // Physical Address Register
 mod par_el1;
 pub use par_el1::ParEl1;
+
+
 
 /*
  * ================================================================================================
  * Debug registers
  * ================================================================================================
  */
+
 
 // Debug Authentication Status register
 mod dbgauthstatus_el1;
@@ -220,11 +232,14 @@ pub use trfcr_el1::TrfcrEl1;
 mod trfcr_el2;
 pub use trfcr_el2::TrfcrEl2;
 
+
+
 /*
  * ================================================================================================
  * Exception and fault handling registers
  * ================================================================================================
  */
+
 
 // Auxiliary Fault Status Register 0 (EL1)
 mod afsr0_el1;
@@ -286,11 +301,14 @@ pub use vbar_el1::VbarEl1;
 mod vbar_el2;
 pub use vbar_el2::VbarEl2;
 
+
+
 /*
  * ================================================================================================
  * Floating-point registers
  * ================================================================================================
  */
+
 
 // Floating-point Control Register
 mod fpcr;
@@ -316,11 +334,14 @@ pub use mvfr1_el1::Mvfr1El1;
 mod mvfr2_el1;
 pub use mvfr2_el1::Mvfr2El1;
 
+
+
 /*
  * ================================================================================================
  * GIC control registers
  * ================================================================================================
  */
+
 
 // Interrupt Controller Control Register (EL3)
 mod icc_ctlr_el3;
@@ -330,11 +351,14 @@ pub use icc_ctlr_el3::IccCtlrEl3;
 mod icc_sre_el3;
 pub use icc_sre_el3::IccSreEl3;
 
+
+
 /*
  * ================================================================================================
  * Generic System Control
  * ================================================================================================
  */
+
 
 // Tag Control Register.
 mod gcr_el1;
@@ -384,11 +408,14 @@ pub use vstcr_el2::VstcrEl2;
 mod vsttbr_el2;
 pub use vsttbr_el2::VsttbrEl2;
 
+
+
 /*
  * ================================================================================================
  * Generic Timer registers
  * ================================================================================================
  */
+
 
 // Counter-timer Frequency register
 mod cntfrq_el0;
@@ -478,11 +505,14 @@ pub use cntvct_el0::CntvctEl0;
 mod cntvctss_el0;
 pub use cntvctss_el0::CntvctssEl0;
 
+
+
 /*
  * ================================================================================================
  * IMPLEMENTATION DEFINED
  * ================================================================================================
  */
+
 
 // Auxiliary Control Register (EL1)
 mod actlr_el1;
@@ -492,11 +522,14 @@ pub use actlr_el1::ActlrEl1;
 mod aidr_el1;
 pub use aidr_el1::AidrEl1;
 
+
+
 /*
  * ================================================================================================
  * Identification registers
  * ================================================================================================
  */
+
 
 // Current Cache Size ID Register 2
 mod ccsidr2_el1;
@@ -670,11 +703,14 @@ pub use mpidr_el1::MpidrEl1;
 mod revidr_el1;
 pub use revidr_el1::RevidrEl1;
 
+
+
 /*
  * ================================================================================================
  * Memory Partitioning and Monitoring registers
  * ================================================================================================
  */
+
 
 // MPAM0 Register (EL1)
 mod mpam0_el1;
@@ -732,11 +768,14 @@ pub use mpamvpm7_el2::Mpamvpm7El2;
 mod mpamvpmv_el2;
 pub use mpamvpmv_el2::MpamvpmvEl2;
 
+
+
 /*
  * ================================================================================================
  * Other system control registers
  * ================================================================================================
  */
+
 
 // Architectural Feature Access Control Register
 mod cpacr_el1;
@@ -762,11 +801,14 @@ pub use zcr_el2::ZcrEl2;
 mod zcr_el3;
 pub use zcr_el3::ZcrEl3;
 
+
+
 /*
  * ================================================================================================
  * Performance Monitors registers
  * ================================================================================================
  */
+
 
 // Performance Monitors Cycle Count Filter Register
 mod pmccfiltr_el0;
@@ -836,11 +878,14 @@ pub use pmxevcntr_el0::PmxevcntrEl0;
 mod pmxevtyper_el0;
 pub use pmxevtyper_el0::PmxevtyperEl0;
 
+
+
 /*
  * ================================================================================================
  * Pointer authentication
  * ================================================================================================
  */
+
 
 // Pointer Authentication Key A for Data (bits[127:64])
 mod apdakeyhi_el1;
@@ -882,11 +927,14 @@ pub use apibkeyhi_el1::ApibkeyhiEl1;
 mod apibkeylo_el1;
 pub use apibkeylo_el1::ApibkeyloEl1;
 
+
+
 /*
  * ================================================================================================
  * Process state registers
  * ================================================================================================
  */
+
 
 // Current Exception Level
 mod currentel;
@@ -924,11 +972,14 @@ pub use tco::Tco;
 mod uao;
 pub use uao::Uao;
 
+
+
 /*
  * ================================================================================================
  * RAS registers
  * ================================================================================================
  */
+
 
 // Deferred Interrupt Status Register
 mod disr_el1;
@@ -994,11 +1045,14 @@ pub use vdisr_el2::VdisrEl2;
 mod vsesr_el2;
 pub use vsesr_el2::VsesrEl2;
 
+
+
 /*
  * ================================================================================================
  * Reset management registers
  * ================================================================================================
  */
+
 
 // Reset Management Register (EL1)
 mod rmr_el1;
@@ -1024,11 +1078,14 @@ pub use rvbar_el2::RvbarEl2;
 mod rvbar_el3;
 pub use rvbar_el3::RvbarEl3;
 
+
+
 /*
  * ================================================================================================
  * Security registers
  * ================================================================================================
  */
+
 
 // Auxiliary Control Register (EL3)
 mod actlr_el3;
@@ -1050,11 +1107,14 @@ pub use scr_el3::ScrEl3;
 mod sder32_el3;
 pub use sder32_el3::Sder32El3;
 
+
+
 /*
  * ================================================================================================
  * Special-purpose registers
  * ================================================================================================
  */
+
 
 // Exception Link Register (EL1)
 mod elr_el1;
@@ -1108,11 +1168,14 @@ pub use spsr_irq::SpsrIrq;
 mod spsr_und;
 pub use spsr_und::SpsrUnd;
 
+
+
 /*
  * ================================================================================================
  * Statistical Profiling Extension registers
  * ================================================================================================
  */
+
 
 // Profiling Buffer ID Register
 mod pmbidr_el1;
@@ -1162,11 +1225,14 @@ pub use pmsirr_el1::PmsirrEl1;
 mod pmslatfr_el1;
 pub use pmslatfr_el1::PmslatfrEl1;
 
+
+
 /*
  * ================================================================================================
  * Thread and process ID registers
  * ================================================================================================
  */
+
 
 // EL0 Read/Write Software Context Number
 mod scxtnum_el0;
@@ -1204,11 +1270,14 @@ pub use tpidr_el3::TpidrEl3;
 mod tpidrro_el0;
 pub use tpidrro_el0::TpidrroEl0;
 
+
+
 /*
  * ================================================================================================
  * Virtual memory control registers
  * ================================================================================================
  */
+
 
 // Auxiliary Memory Attribute Indirection Register (EL1)
 mod amair_el1;
@@ -1279,8 +1348,8 @@ mod ttbr0_el1;
 pub use ttbr0_el1::Ttbr0El1;
 
 // Translation Table Base Register 0 (EL2)
-mod ttbr0_el2;
-pub use ttbr0_el2::Ttbr0El2;
+// mod ttbr0_el2;
+// pub use ttbr0_el2::Ttbr0El2;
 
 // Translation Table Base Register 0 (EL3)
 mod ttbr0_el3;
@@ -1299,14 +1368,17 @@ mod vtcr_el2;
 pub use vtcr_el2::VtcrEl2;
 
 // Virtualization Translation Table Base Register
-mod vttbr_el2;
-pub use vttbr_el2::VttbrEl2;
+// mod vttbr_el2;
+// pub use vttbr_el2::VttbrEl2;
+
+
 
 /*
  * ================================================================================================
  * Virtualization registers
  * ================================================================================================
  */
+
 
 // Auxiliary Control Register (EL2)
 mod actlr_el2;
@@ -1555,5 +1627,7 @@ pub use vmpidr_el2::VmpidrEl2;
 // Virtualization Processor ID Register
 mod vpidr_el2;
 pub use vpidr_el2::VpidrEl2;
+
+
 
 // end of file

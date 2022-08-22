@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.509511
+ * Generated on: 2022-08-22T16:25:59.071174
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-cntps_cval_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Counter-timer Physical Secure Timer CompareValue register value in memory
 pub struct CntpsCvalEl1(u64);
 
 /// struct implementation for accessing the fields of register cntps_cval_el1
 impl CntpsCvalEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntpsCvalEl1 {
@@ -73,49 +79,58 @@ impl CntpsCvalEl1 {
         CntpsCvalEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> CntpsCvalEl1 {
+    pub fn with_reg_val() ->  CntpsCvalEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         CntpsCvalEl1(curval)
     }
 
+
+    
     /// reading the Counter-timer Physical Secure Timer CompareValue register (cntps_cval_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, CNTPS_CVAL_EL1
-            llvm_asm!("mrs $0, cntps_cval_el1" : "=r"(regval));
+            asm!("mrs {}, cntps_cval_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Counter-timer Physical Secure Timer CompareValue register (cntps_cval_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR CNTPS_CVAL_EL1, <Xt>
-            llvm_asm!("msr cntps_cval_el1, $0" : : "r"(val));
+            asm!("msr cntps_cval_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl CntpsCvalEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: comparevalue
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn comparevalue_extract(&self) -> u64 {
         // bits 0..63
-        self.val.get_bits(0..=63)
+        self.0.get_bits(0..=63)
     }
 
     /// reads the current register value and extract field `comparevalue` from it
@@ -140,9 +158,9 @@ impl CntpsCvalEl1 {
     }
 
     /// inserts the given value `val` into the field `comparevalue`
-    pub fn comparevalue_insert(&mut self, val: u64) -> &mut self {
+    pub fn comparevalue_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..63
-        self.val.set_bits(0..=63, val);
+        self.0.set_bits(0..=63, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl CntpsCvalEl1 {
     pub fn comparevalue_write(&mut self, val: u64) {
         Self::with_reg_val().comparevalue_insert(val).write();
     }
+
 }
 
 impl Default for CntpsCvalEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> CntpsCvalEl1 {
+    fn default() -> CntpsCvalEl1 {
         CntpsCvalEl1(0)
     }
 }

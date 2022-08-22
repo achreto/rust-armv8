@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.505986
+ * Generated on: 2022-08-22T16:25:59.067793
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-amcgcr_el0.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Activity Monitors Counter Group Configuration Register value in memory
 pub struct AmcgcrEl0(u64);
 
 /// struct implementation for accessing the fields of register amcgcr_el0
 impl AmcgcrEl0 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AmcgcrEl0 {
@@ -73,30 +79,35 @@ impl AmcgcrEl0 {
         AmcgcrEl0(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> AmcgcrEl0 {
+    pub fn with_reg_val() ->  AmcgcrEl0 {
         let curval = Self::reg_rawrd() & 0xffff;
         AmcgcrEl0(curval)
     }
 
+
+    
     /// reading the Activity Monitors Counter Group Configuration Register (amcgcr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, AMCGCR_EL0
-            llvm_asm!("mrs $0, S3_3_C13_C2_2" : "=r"(regval));
+            asm!("mrs {}, S3_3_C13_C2_2", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl AmcgcrEl0 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 65535;
+    //    self.0 = newval & 65535;
     //}
 
     /// gets the value of the struct
@@ -112,44 +123,48 @@ impl AmcgcrEl0 {
         self.0
     }
 
+
+    
     /*
      * Field: cg1nc
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cg1nc_extract(&self) -> u64 {
         // bits 8..15
-        self.val.get_bits(8..=15)
+        self.0.get_bits(8..=15)
     }
 
     /// reads the current register value and extract field `cg1nc` from it
     pub fn cg1nc_read(&mut self) -> u64 {
         Self::with_reg_val().cg1nc_extract()
     }
-    // no insert() method for field cg1nc
+// no insert() method for field cg1nc
     /*
      * Field: cg0nc
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn cg0nc_extract(&self) -> u64 {
         // bits 0..7
-        self.val.get_bits(0..=7)
+        self.0.get_bits(0..=7)
     }
 
     /// reads the current register value and extract field `cg0nc` from it
     pub fn cg0nc_read(&mut self) -> u64 {
         Self::with_reg_val().cg0nc_extract()
     }
-    // no insert() method for field cg0nc
+// no insert() method for field cg0nc
 }
 
 impl Default for AmcgcrEl0 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> AmcgcrEl0 {
+    fn default() -> AmcgcrEl0 {
         AmcgcrEl0(0)
     }
 }

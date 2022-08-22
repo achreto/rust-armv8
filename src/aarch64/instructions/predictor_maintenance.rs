@@ -24,17 +24,20 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.541829
+ * Generated on: 2022-08-22T16:25:59.103248
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
  *************************************************************************************************/
+use core::arch::asm;
+
 
 /*
  * ================================================================================================
@@ -42,13 +45,16 @@
  * ================================================================================================
  */
 
+
+
 /// Control Flow Prediction Restriction by Context
 #[inline(always)]
 pub fn cfp_rctx(arg: u64) {
     unsafe {
-        llvm_asm!("cfp rctx, $0" : : "r"(arg));
+        asm!("cfp rctx, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -56,13 +62,16 @@ pub fn cfp_rctx(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Cache Prefetch Prediction Restriction by Context
 #[inline(always)]
 pub fn cpp_rctx(arg: u64) {
     unsafe {
-        llvm_asm!("cpp rctx, $0" : : "r"(arg));
+        asm!("cpp rctx, $0 {}", in(reg) arg);
     }
 }
+
 
 /*
  * ================================================================================================
@@ -70,10 +79,12 @@ pub fn cpp_rctx(arg: u64) {
  * ================================================================================================
  */
 
+
+
 /// Data Value Prediction Restriction by Context
 #[inline(always)]
 pub fn dvp_rctx(arg: u64) {
     unsafe {
-        llvm_asm!("dvp rctx, $0" : : "r"(arg));
+        asm!("dvp rctx, $0 {}", in(reg) arg);
     }
 }

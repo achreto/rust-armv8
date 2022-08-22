@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.517611
+ * Generated on: 2022-08-22T16:25:59.079087
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-hpfar_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Hypervisor IPA Fault Address Register value in memory
 pub struct HpfarEl2(u64);
 
 /// struct implementation for accessing the fields of register hpfar_el2
 impl HpfarEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HpfarEl2 {
@@ -73,49 +79,58 @@ impl HpfarEl2 {
         HpfarEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> HpfarEl2 {
+    pub fn with_reg_val() ->  HpfarEl2 {
         let curval = Self::reg_rawrd() & 0x80000ffffffffff0;
         HpfarEl2(curval)
     }
 
+
+    
     /// reading the Hypervisor IPA Fault Address Register (hpfar_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, HPFAR_EL2
-            llvm_asm!("mrs $0, hpfar_el2" : "=r"(regval));
+            asm!("mrs {}, hpfar_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Hypervisor IPA Fault Address Register (hpfar_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR HPFAR_EL2, <Xt>
-            llvm_asm!("msr hpfar_el2, $0" : : "r"(val));
+            asm!("msr hpfar_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x80000ffffffffff0;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x80000ffffffffff0;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 9223389629040820208;
+    //    self.0 = newval & 9223389629040820208;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl HpfarEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: ns_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ns_1_extract(&self) -> u64 {
         // bits 63..63
-        self.val.get_bits(63..=63)
+        self.0.get_bits(63..=63)
     }
 
     /// reads the current register value and extract field `ns_1` from it
@@ -140,9 +158,9 @@ impl HpfarEl2 {
     }
 
     /// inserts the given value `val` into the field `ns_1`
-    pub fn ns_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ns_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 63..63
-        self.val.set_bits(63..=63, val);
+        self.0.set_bits(63..=63, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl HpfarEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn fipa_extract(&self) -> u64 {
         // bits 4..43
-        self.val.get_bits(4..=43)
+        self.0.get_bits(4..=43)
     }
 
     /// reads the current register value and extract field `fipa` from it
@@ -168,9 +187,9 @@ impl HpfarEl2 {
     }
 
     /// inserts the given value `val` into the field `fipa`
-    pub fn fipa_insert(&mut self, val: u64) -> &mut self {
+    pub fn fipa_insert(&mut self, val: u64) -> &mut Self {
         // bits 4..43
-        self.val.set_bits(4..=43, val);
+        self.0.set_bits(4..=43, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl HpfarEl2 {
     pub fn fipa_write(&mut self, val: u64) {
         Self::with_reg_val().fipa_insert(val).write();
     }
+
 }
 
 impl Default for HpfarEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> HpfarEl2 {
+    fn default() -> HpfarEl2 {
         HpfarEl2(0)
     }
 }

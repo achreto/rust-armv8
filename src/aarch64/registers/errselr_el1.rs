@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.512787
+ * Generated on: 2022-08-22T16:25:59.074392
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-errselr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Error Record Select Register value in memory
 pub struct ErrselrEl1(u64);
 
 /// struct implementation for accessing the fields of register errselr_el1
 impl ErrselrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ErrselrEl1 {
@@ -73,49 +79,58 @@ impl ErrselrEl1 {
         ErrselrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ErrselrEl1 {
+    pub fn with_reg_val() ->  ErrselrEl1 {
         let curval = Self::reg_rawrd() & 0xffff;
         ErrselrEl1(curval)
     }
 
+
+    
     /// reading the Error Record Select Register (errselr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ERRSELR_EL1
-            llvm_asm!("mrs $0, S3_0_C5_C3_1" : "=r"(regval));
+            asm!("mrs {}, S3_0_C5_C3_1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Error Record Select Register (errselr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ERRSELR_EL1, <Xt>
-            llvm_asm!("msr S3_0_C5_C3_1, $0" : : "r"(val));
+            asm!("msr S3_0_C5_C3_1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 65535;
+    //    self.0 = newval & 65535;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl ErrselrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: sel
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sel_extract(&self) -> u64 {
         // bits 0..15
-        self.val.get_bits(0..=15)
+        self.0.get_bits(0..=15)
     }
 
     /// reads the current register value and extract field `sel` from it
@@ -140,9 +158,9 @@ impl ErrselrEl1 {
     }
 
     /// inserts the given value `val` into the field `sel`
-    pub fn sel_insert(&mut self, val: u64) -> &mut self {
+    pub fn sel_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..15
-        self.val.set_bits(0..=15, val);
+        self.0.set_bits(0..=15, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl ErrselrEl1 {
     pub fn sel_write(&mut self, val: u64) {
         Self::with_reg_val().sel_insert(val).write();
     }
+
 }
 
 impl Default for ErrselrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ErrselrEl1 {
+    fn default() -> ErrselrEl1 {
         ErrselrEl1(0)
     }
 }

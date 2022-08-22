@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.534521
+ * Generated on: 2022-08-22T16:25:59.096029
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-sctlr_el2.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the System Control Register (EL2) value in memory
 pub struct SctlrEl2(u64);
 
 /// struct implementation for accessing the fields of register sctlr_el2
 impl SctlrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> SctlrEl2 {
@@ -73,49 +79,58 @@ impl SctlrEl2 {
         SctlrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> SctlrEl2 {
+    pub fn with_reg_val() ->  SctlrEl2 {
         let curval = Self::reg_rawrd() & 0x1b30ca68384f;
         SctlrEl2(curval)
     }
 
+
+    
     /// reading the System Control Register (EL2) (sctlr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, SCTLR_EL2
-            llvm_asm!("mrs $0, sctlr_el2" : "=r"(regval));
+            asm!("mrs {}, sctlr_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the System Control Register (EL2) (sctlr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR SCTLR_EL2, <Xt>
-            llvm_asm!("msr sctlr_el2, $0" : : "r"(val));
+            asm!("msr sctlr_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1b30ca68384f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1b30ca68384f;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 29896368207951;
+    //    self.0 = newval & 29896368207951;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl SctlrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: dssbs_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dssbs_1_extract(&self) -> u64 {
         // bits 44..44
-        self.val.get_bits(44..=44)
+        self.0.get_bits(44..=44)
     }
 
     /// reads the current register value and extract field `dssbs_1` from it
@@ -140,9 +158,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `dssbs_1`
-    pub fn dssbs_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn dssbs_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 44..44
-        self.val.set_bits(44..=44, val);
+        self.0.set_bits(44..=44, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ata_1_extract(&self) -> u64 {
         // bits 43..43
-        self.val.get_bits(43..=43)
+        self.0.get_bits(43..=43)
     }
 
     /// reads the current register value and extract field `ata_1` from it
@@ -168,9 +187,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `ata_1`
-    pub fn ata_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn ata_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 43..43
-        self.val.set_bits(43..=43, val);
+        self.0.set_bits(43..=43, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tcf_1_extract(&self) -> u64 {
         // bits 40..41
-        self.val.get_bits(40..=41)
+        self.0.get_bits(40..=41)
     }
 
     /// reads the current register value and extract field `tcf_1` from it
@@ -196,9 +216,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `tcf_1`
-    pub fn tcf_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tcf_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 40..41
-        self.val.set_bits(40..=41, val);
+        self.0.set_bits(40..=41, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn itfsb_1_extract(&self) -> u64 {
         // bits 37..37
-        self.val.get_bits(37..=37)
+        self.0.get_bits(37..=37)
     }
 
     /// reads the current register value and extract field `itfsb_1` from it
@@ -224,9 +245,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `itfsb_1`
-    pub fn itfsb_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn itfsb_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 37..37
-        self.val.set_bits(37..=37, val);
+        self.0.set_bits(37..=37, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bt_1_extract(&self) -> u64 {
         // bits 36..36
-        self.val.get_bits(36..=36)
+        self.0.get_bits(36..=36)
     }
 
     /// reads the current register value and extract field `bt_1` from it
@@ -252,9 +274,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `bt_1`
-    pub fn bt_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn bt_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 36..36
-        self.val.set_bits(36..=36, val);
+        self.0.set_bits(36..=36, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enia_1_extract(&self) -> u64 {
         // bits 31..31
-        self.val.get_bits(31..=31)
+        self.0.get_bits(31..=31)
     }
 
     /// reads the current register value and extract field `enia_1` from it
@@ -280,9 +303,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `enia_1`
-    pub fn enia_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enia_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 31..31
-        self.val.set_bits(31..=31, val);
+        self.0.set_bits(31..=31, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enib_1_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `enib_1` from it
@@ -308,9 +332,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `enib_1`
-    pub fn enib_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enib_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enda_1_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `enda_1` from it
@@ -336,9 +361,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `enda_1`
-    pub fn enda_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn enda_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ee_extract(&self) -> u64 {
         // bits 25..25
-        self.val.get_bits(25..=25)
+        self.0.get_bits(25..=25)
     }
 
     /// reads the current register value and extract field `ee` from it
@@ -364,9 +390,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `ee`
-    pub fn ee_insert(&mut self, val: u64) -> &mut self {
+    pub fn ee_insert(&mut self, val: u64) -> &mut Self {
         // bits 25..25
-        self.val.set_bits(25..=25, val);
+        self.0.set_bits(25..=25, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn eis_1_extract(&self) -> u64 {
         // bits 22..22
-        self.val.get_bits(22..=22)
+        self.0.get_bits(22..=22)
     }
 
     /// reads the current register value and extract field `eis_1` from it
@@ -392,9 +419,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `eis_1`
-    pub fn eis_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn eis_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 22..22
-        self.val.set_bits(22..=22, val);
+        self.0.set_bits(22..=22, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn iesb_1_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `iesb_1` from it
@@ -420,9 +448,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `iesb_1`
-    pub fn iesb_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn iesb_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn wxn_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `wxn` from it
@@ -448,9 +477,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `wxn`
-    pub fn wxn_insert(&mut self, val: u64) -> &mut self {
+    pub fn wxn_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn endb_1_extract(&self) -> u64 {
         // bits 13..13
-        self.val.get_bits(13..=13)
+        self.0.get_bits(13..=13)
     }
 
     /// reads the current register value and extract field `endb_1` from it
@@ -476,9 +506,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `endb_1`
-    pub fn endb_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn endb_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 13..13
-        self.val.set_bits(13..=13, val);
+        self.0.set_bits(13..=13, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
         // bits 12..12
-        self.val.get_bits(12..=12)
+        self.0.get_bits(12..=12)
     }
 
     /// reads the current register value and extract field `i` from it
@@ -504,9 +535,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `i`
-    pub fn i_insert(&mut self, val: u64) -> &mut self {
+    pub fn i_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..12
-        self.val.set_bits(12..=12, val);
+        self.0.set_bits(12..=12, val);
         self
     }
 
@@ -520,10 +551,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn eos_1_extract(&self) -> u64 {
         // bits 11..11
-        self.val.get_bits(11..=11)
+        self.0.get_bits(11..=11)
     }
 
     /// reads the current register value and extract field `eos_1` from it
@@ -532,9 +564,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `eos_1`
-    pub fn eos_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn eos_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 11..11
-        self.val.set_bits(11..=11, val);
+        self.0.set_bits(11..=11, val);
         self
     }
 
@@ -548,10 +580,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn naa_1_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `naa_1` from it
@@ -560,9 +593,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `naa_1`
-    pub fn naa_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn naa_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -576,10 +609,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sa_extract(&self) -> u64 {
         // bits 3..3
-        self.val.get_bits(3..=3)
+        self.0.get_bits(3..=3)
     }
 
     /// reads the current register value and extract field `sa` from it
@@ -588,9 +622,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `sa`
-    pub fn sa_insert(&mut self, val: u64) -> &mut self {
+    pub fn sa_insert(&mut self, val: u64) -> &mut Self {
         // bits 3..3
-        self.val.set_bits(3..=3, val);
+        self.0.set_bits(3..=3, val);
         self
     }
 
@@ -604,10 +638,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
         // bits 2..2
-        self.val.get_bits(2..=2)
+        self.0.get_bits(2..=2)
     }
 
     /// reads the current register value and extract field `c` from it
@@ -616,9 +651,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `c`
-    pub fn c_insert(&mut self, val: u64) -> &mut self {
+    pub fn c_insert(&mut self, val: u64) -> &mut Self {
         // bits 2..2
-        self.val.set_bits(2..=2, val);
+        self.0.set_bits(2..=2, val);
         self
     }
 
@@ -632,10 +667,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
         // bits 1..1
-        self.val.get_bits(1..=1)
+        self.0.get_bits(1..=1)
     }
 
     /// reads the current register value and extract field `a` from it
@@ -644,9 +680,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `a`
-    pub fn a_insert(&mut self, val: u64) -> &mut self {
+    pub fn a_insert(&mut self, val: u64) -> &mut Self {
         // bits 1..1
-        self.val.set_bits(1..=1, val);
+        self.0.set_bits(1..=1, val);
         self
     }
 
@@ -660,10 +696,11 @@ impl SctlrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn m_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `m` from it
@@ -672,9 +709,9 @@ impl SctlrEl2 {
     }
 
     /// inserts the given value `val` into the field `m`
-    pub fn m_insert(&mut self, val: u64) -> &mut self {
+    pub fn m_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -682,12 +719,13 @@ impl SctlrEl2 {
     pub fn m_write(&mut self, val: u64) {
         Self::with_reg_val().m_insert(val).write();
     }
+
 }
 
 impl Default for SctlrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> SctlrEl2 {
+    fn default() -> SctlrEl2 {
         SctlrEl2(0)
     }
 }

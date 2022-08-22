@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.507432
+ * Generated on: 2022-08-22T16:25:59.069219
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-clidr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Cache Level ID Register value in memory
 pub struct ClidrEl1(u64);
 
 /// struct implementation for accessing the fields of register clidr_el1
 impl ClidrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ClidrEl1 {
@@ -73,30 +79,35 @@ impl ClidrEl1 {
         ClidrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ClidrEl1 {
+    pub fn with_reg_val() ->  ClidrEl1 {
         let curval = Self::reg_rawrd() & 0x7fffffffffff;
         ClidrEl1(curval)
     }
 
+
+    
     /// reading the Cache Level ID Register (clidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, CLIDR_EL1
-            llvm_asm!("mrs $0, clidr_el1" : "=r"(regval));
+            asm!("mrs {}, clidr_el1", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x7fffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x7fffffffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl ClidrEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 140737488355327;
+    //    self.0 = newval & 140737488355327;
     //}
 
     /// gets the value of the struct
@@ -112,108 +123,116 @@ impl ClidrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: ttypen_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ttypen_1_extract(&self) -> u64 {
         // bits 33..46
-        self.val.get_bits(33..=46)
+        self.0.get_bits(33..=46)
     }
 
     /// reads the current register value and extract field `ttypen_1` from it
     pub fn ttypen_1_read(&mut self) -> u64 {
         Self::with_reg_val().ttypen_1_extract()
     }
-    // no insert() method for field ttypen_1
+// no insert() method for field ttypen_1
     /*
      * Field: icb
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn icb_extract(&self) -> u64 {
         // bits 30..32
-        self.val.get_bits(30..=32)
+        self.0.get_bits(30..=32)
     }
 
     /// reads the current register value and extract field `icb` from it
     pub fn icb_read(&mut self) -> u64 {
         Self::with_reg_val().icb_extract()
     }
-    // no insert() method for field icb
+// no insert() method for field icb
     /*
      * Field: louu
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn louu_extract(&self) -> u64 {
         // bits 27..29
-        self.val.get_bits(27..=29)
+        self.0.get_bits(27..=29)
     }
 
     /// reads the current register value and extract field `louu` from it
     pub fn louu_read(&mut self) -> u64 {
         Self::with_reg_val().louu_extract()
     }
-    // no insert() method for field louu
+// no insert() method for field louu
     /*
      * Field: loc
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn loc_extract(&self) -> u64 {
         // bits 24..26
-        self.val.get_bits(24..=26)
+        self.0.get_bits(24..=26)
     }
 
     /// reads the current register value and extract field `loc` from it
     pub fn loc_read(&mut self) -> u64 {
         Self::with_reg_val().loc_extract()
     }
-    // no insert() method for field loc
+// no insert() method for field loc
     /*
      * Field: louis
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn louis_extract(&self) -> u64 {
         // bits 21..23
-        self.val.get_bits(21..=23)
+        self.0.get_bits(21..=23)
     }
 
     /// reads the current register value and extract field `louis` from it
     pub fn louis_read(&mut self) -> u64 {
         Self::with_reg_val().louis_extract()
     }
-    // no insert() method for field louis
+// no insert() method for field louis
     /*
      * Field: ctypen
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ctypen_extract(&self) -> u64 {
         // bits 0..20
-        self.val.get_bits(0..=20)
+        self.0.get_bits(0..=20)
     }
 
     /// reads the current register value and extract field `ctypen` from it
     pub fn ctypen_read(&mut self) -> u64 {
         Self::with_reg_val().ctypen_extract()
     }
-    // no insert() method for field ctypen
+// no insert() method for field ctypen
 }
 
 impl Default for ClidrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ClidrEl1 {
+    fn default() -> ClidrEl1 {
         ClidrEl1(0)
     }
 }

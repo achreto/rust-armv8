@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.511861
+ * Generated on: 2022-08-22T16:25:59.073483
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Data Cache Zero ID register (dczid_el0)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Indicates the block size that is written with byte values of 0 by the
+ * Description: Indicates the block size that is written with byte values of 0 by the 
  * File:        AArch64-dczid_el0.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Data Cache Zero ID register value in memory
 pub struct DczidEl0(u64);
 
 /// struct implementation for accessing the fields of register dczid_el0
 impl DczidEl0 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DczidEl0 {
@@ -73,30 +79,35 @@ impl DczidEl0 {
         DczidEl0(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> DczidEl0 {
+    pub fn with_reg_val() ->  DczidEl0 {
         let curval = Self::reg_rawrd() & 0x1f;
         DczidEl0(curval)
     }
 
+
+    
     /// reading the Data Cache Zero ID register (dczid_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, DCZID_EL0
-            llvm_asm!("mrs $0, dczid_el0" : "=r"(regval));
+            asm!("mrs {}, dczid_el0", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1f;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1f;
         self
     }
 
@@ -104,7 +115,7 @@ impl DczidEl0 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 31;
+    //    self.0 = newval & 31;
     //}
 
     /// gets the value of the struct
@@ -112,44 +123,48 @@ impl DczidEl0 {
         self.0
     }
 
+
+    
     /*
      * Field: dzp
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn dzp_extract(&self) -> u64 {
         // bits 4..4
-        self.val.get_bits(4..=4)
+        self.0.get_bits(4..=4)
     }
 
     /// reads the current register value and extract field `dzp` from it
     pub fn dzp_read(&mut self) -> u64 {
         Self::with_reg_val().dzp_extract()
     }
-    // no insert() method for field dzp
+// no insert() method for field dzp
     /*
      * Field: bs
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bs_extract(&self) -> u64 {
         // bits 0..3
-        self.val.get_bits(0..=3)
+        self.0.get_bits(0..=3)
     }
 
     /// reads the current register value and extract field `bs` from it
     pub fn bs_read(&mut self) -> u64 {
         Self::with_reg_val().bs_extract()
     }
-    // no insert() method for field bs
+// no insert() method for field bs
 }
 
 impl Default for DczidEl0 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> DczidEl0 {
+    fn default() -> DczidEl0 {
         DczidEl0(0)
     }
 }

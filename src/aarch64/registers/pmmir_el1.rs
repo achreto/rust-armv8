@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.530782
+ * Generated on: 2022-08-22T16:25:59.092644
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-pmmir_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Performance Monitors Machine Identification Register value in memory
 pub struct PmmirEl1(u64);
 
 /// struct implementation for accessing the fields of register pmmir_el1
 impl PmmirEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmmirEl1 {
@@ -73,30 +79,35 @@ impl PmmirEl1 {
         PmmirEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> PmmirEl1 {
+    pub fn with_reg_val() ->  PmmirEl1 {
         let curval = Self::reg_rawrd() & 0xfffff;
         PmmirEl1(curval)
     }
 
+
+    
     /// reading the Performance Monitors Machine Identification Register (pmmir_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PMMIR_EL1
-            llvm_asm!("mrs $0, S3_0_C9_C14_6" : "=r"(regval));
+            asm!("mrs {}, S3_0_C9_C14_6", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xfffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xfffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl PmmirEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 1048575;
+    //    self.0 = newval & 1048575;
     //}
 
     /// gets the value of the struct
@@ -112,60 +123,65 @@ impl PmmirEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: bus_width_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bus_width_1_extract(&self) -> u64 {
         // bits 16..19
-        self.val.get_bits(16..=19)
+        self.0.get_bits(16..=19)
     }
 
     /// reads the current register value and extract field `bus_width_1` from it
     pub fn bus_width_1_read(&mut self) -> u64 {
         Self::with_reg_val().bus_width_1_extract()
     }
-    // no insert() method for field bus_width_1
+// no insert() method for field bus_width_1
     /*
      * Field: bus_slots_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn bus_slots_1_extract(&self) -> u64 {
         // bits 8..15
-        self.val.get_bits(8..=15)
+        self.0.get_bits(8..=15)
     }
 
     /// reads the current register value and extract field `bus_slots_1` from it
     pub fn bus_slots_1_read(&mut self) -> u64 {
         Self::with_reg_val().bus_slots_1_extract()
     }
-    // no insert() method for field bus_slots_1
+// no insert() method for field bus_slots_1
     /*
      * Field: slots
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn slots_extract(&self) -> u64 {
         // bits 0..7
-        self.val.get_bits(0..=7)
+        self.0.get_bits(0..=7)
     }
 
     /// reads the current register value and extract field `slots` from it
     pub fn slots_read(&mut self) -> u64 {
         Self::with_reg_val().slots_extract()
     }
-    // no insert() method for field slots
+// no insert() method for field slots
 }
 
 impl Default for PmmirEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> PmmirEl1 {
+    fn default() -> PmmirEl1 {
         PmmirEl1(0)
     }
 }

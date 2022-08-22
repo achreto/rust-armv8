@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.529207
+ * Generated on: 2022-08-22T16:25:59.091102
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-pan.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Privileged Access Never value in memory
 pub struct Pan(u64);
 
 /// struct implementation for accessing the fields of register pan
 impl Pan {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Pan {
@@ -73,49 +79,58 @@ impl Pan {
         Pan(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> Pan {
+    pub fn with_reg_val() ->  Pan {
         let curval = Self::reg_rawrd() & 0x400000;
         Pan(curval)
     }
 
+
+    
     /// reading the Privileged Access Never (pan) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, PAN
-            llvm_asm!("mrs $0, S3_0_C4_C2_3" : "=r"(regval));
+            asm!("mrs {}, S3_0_C4_C2_3", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Privileged Access Never (pan) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR PAN, <Xt>
-            llvm_asm!("msr S3_0_C4_C2_3, $0" : : "r"(val));
+            asm!("msr S3_0_C4_C2_3, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x400000;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x400000;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4194304;
+    //    self.0 = newval & 4194304;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl Pan {
         self.0
     }
 
+
+    
     /*
      * Field: pan
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pan_extract(&self) -> u64 {
         // bits 22..22
-        self.val.get_bits(22..=22)
+        self.0.get_bits(22..=22)
     }
 
     /// reads the current register value and extract field `pan` from it
@@ -140,9 +158,9 @@ impl Pan {
     }
 
     /// inserts the given value `val` into the field `pan`
-    pub fn pan_insert(&mut self, val: u64) -> &mut self {
+    pub fn pan_insert(&mut self, val: u64) -> &mut Self {
         // bits 22..22
-        self.val.set_bits(22..=22, val);
+        self.0.set_bits(22..=22, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl Pan {
     pub fn pan_write(&mut self, val: u64) {
         Self::with_reg_val().pan_insert(val).write();
     }
+
 }
 
 impl Default for Pan {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> Pan {
+    fn default() -> Pan {
         Pan(0)
     }
 }

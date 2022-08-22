@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.526443
+ * Generated on: 2022-08-22T16:25:59.088290
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-mdscr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Monitor Debug System Control Register value in memory
 pub struct MdscrEl1(u64);
 
 /// struct implementation for accessing the fields of register mdscr_el1
 impl MdscrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdscrEl1 {
@@ -73,49 +79,58 @@ impl MdscrEl1 {
         MdscrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> MdscrEl1 {
+    pub fn with_reg_val() ->  MdscrEl1 {
         let curval = Self::reg_rawrd() & 0xece8f041;
         MdscrEl1(curval)
     }
 
+
+    
     /// reading the Monitor Debug System Control Register (mdscr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, MDSCR_EL1
-            llvm_asm!("mrs $0, mdscr_el1" : "=r"(regval));
+            asm!("mrs {}, mdscr_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Monitor Debug System Control Register (mdscr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR MDSCR_EL1, <Xt>
-            llvm_asm!("msr mdscr_el1, $0" : : "r"(val));
+            asm!("msr mdscr_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xece8f041;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xece8f041;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 3974688833;
+    //    self.0 = newval & 3974688833;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl MdscrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: tfo_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tfo_1_extract(&self) -> u64 {
         // bits 31..31
-        self.val.get_bits(31..=31)
+        self.0.get_bits(31..=31)
     }
 
     /// reads the current register value and extract field `tfo_1` from it
@@ -140,9 +158,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `tfo_1`
-    pub fn tfo_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn tfo_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 31..31
-        self.val.set_bits(31..=31, val);
+        self.0.set_bits(31..=31, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rxfull_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `rxfull` from it
@@ -168,9 +187,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `rxfull`
-    pub fn rxfull_insert(&mut self, val: u64) -> &mut self {
+    pub fn rxfull_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -184,10 +203,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn txfull_extract(&self) -> u64 {
         // bits 29..29
-        self.val.get_bits(29..=29)
+        self.0.get_bits(29..=29)
     }
 
     /// reads the current register value and extract field `txfull` from it
@@ -196,9 +216,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `txfull`
-    pub fn txfull_insert(&mut self, val: u64) -> &mut self {
+    pub fn txfull_insert(&mut self, val: u64) -> &mut Self {
         // bits 29..29
-        self.val.set_bits(29..=29, val);
+        self.0.set_bits(29..=29, val);
         self
     }
 
@@ -212,10 +232,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rxo_extract(&self) -> u64 {
         // bits 27..27
-        self.val.get_bits(27..=27)
+        self.0.get_bits(27..=27)
     }
 
     /// reads the current register value and extract field `rxo` from it
@@ -224,9 +245,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `rxo`
-    pub fn rxo_insert(&mut self, val: u64) -> &mut self {
+    pub fn rxo_insert(&mut self, val: u64) -> &mut Self {
         // bits 27..27
-        self.val.set_bits(27..=27, val);
+        self.0.set_bits(27..=27, val);
         self
     }
 
@@ -240,10 +261,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn txu_extract(&self) -> u64 {
         // bits 26..26
-        self.val.get_bits(26..=26)
+        self.0.get_bits(26..=26)
     }
 
     /// reads the current register value and extract field `txu` from it
@@ -252,9 +274,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `txu`
-    pub fn txu_insert(&mut self, val: u64) -> &mut self {
+    pub fn txu_insert(&mut self, val: u64) -> &mut Self {
         // bits 26..26
-        self.val.set_bits(26..=26, val);
+        self.0.set_bits(26..=26, val);
         self
     }
 
@@ -268,10 +290,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn intdis_extract(&self) -> u64 {
         // bits 22..23
-        self.val.get_bits(22..=23)
+        self.0.get_bits(22..=23)
     }
 
     /// reads the current register value and extract field `intdis` from it
@@ -280,9 +303,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `intdis`
-    pub fn intdis_insert(&mut self, val: u64) -> &mut self {
+    pub fn intdis_insert(&mut self, val: u64) -> &mut Self {
         // bits 22..23
-        self.val.set_bits(22..=23, val);
+        self.0.set_bits(22..=23, val);
         self
     }
 
@@ -296,10 +319,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tda_extract(&self) -> u64 {
         // bits 21..21
-        self.val.get_bits(21..=21)
+        self.0.get_bits(21..=21)
     }
 
     /// reads the current register value and extract field `tda` from it
@@ -308,9 +332,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `tda`
-    pub fn tda_insert(&mut self, val: u64) -> &mut self {
+    pub fn tda_insert(&mut self, val: u64) -> &mut Self {
         // bits 21..21
-        self.val.set_bits(21..=21, val);
+        self.0.set_bits(21..=21, val);
         self
     }
 
@@ -324,10 +348,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn sc2_1_extract(&self) -> u64 {
         // bits 19..19
-        self.val.get_bits(19..=19)
+        self.0.get_bits(19..=19)
     }
 
     /// reads the current register value and extract field `sc2_1` from it
@@ -336,9 +361,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `sc2_1`
-    pub fn sc2_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn sc2_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 19..19
-        self.val.set_bits(19..=19, val);
+        self.0.set_bits(19..=19, val);
         self
     }
 
@@ -352,10 +377,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mde_extract(&self) -> u64 {
         // bits 15..15
-        self.val.get_bits(15..=15)
+        self.0.get_bits(15..=15)
     }
 
     /// reads the current register value and extract field `mde` from it
@@ -364,9 +390,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `mde`
-    pub fn mde_insert(&mut self, val: u64) -> &mut self {
+    pub fn mde_insert(&mut self, val: u64) -> &mut Self {
         // bits 15..15
-        self.val.set_bits(15..=15, val);
+        self.0.set_bits(15..=15, val);
         self
     }
 
@@ -380,10 +406,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn hde_extract(&self) -> u64 {
         // bits 14..14
-        self.val.get_bits(14..=14)
+        self.0.get_bits(14..=14)
     }
 
     /// reads the current register value and extract field `hde` from it
@@ -392,9 +419,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `hde`
-    pub fn hde_insert(&mut self, val: u64) -> &mut self {
+    pub fn hde_insert(&mut self, val: u64) -> &mut Self {
         // bits 14..14
-        self.val.set_bits(14..=14, val);
+        self.0.set_bits(14..=14, val);
         self
     }
 
@@ -408,10 +435,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn kde_extract(&self) -> u64 {
         // bits 13..13
-        self.val.get_bits(13..=13)
+        self.0.get_bits(13..=13)
     }
 
     /// reads the current register value and extract field `kde` from it
@@ -420,9 +448,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `kde`
-    pub fn kde_insert(&mut self, val: u64) -> &mut self {
+    pub fn kde_insert(&mut self, val: u64) -> &mut Self {
         // bits 13..13
-        self.val.set_bits(13..=13, val);
+        self.0.set_bits(13..=13, val);
         self
     }
 
@@ -436,10 +464,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tdcc_extract(&self) -> u64 {
         // bits 12..12
-        self.val.get_bits(12..=12)
+        self.0.get_bits(12..=12)
     }
 
     /// reads the current register value and extract field `tdcc` from it
@@ -448,9 +477,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `tdcc`
-    pub fn tdcc_insert(&mut self, val: u64) -> &mut self {
+    pub fn tdcc_insert(&mut self, val: u64) -> &mut Self {
         // bits 12..12
-        self.val.set_bits(12..=12, val);
+        self.0.set_bits(12..=12, val);
         self
     }
 
@@ -464,10 +493,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn err_extract(&self) -> u64 {
         // bits 6..6
-        self.val.get_bits(6..=6)
+        self.0.get_bits(6..=6)
     }
 
     /// reads the current register value and extract field `err` from it
@@ -476,9 +506,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `err`
-    pub fn err_insert(&mut self, val: u64) -> &mut self {
+    pub fn err_insert(&mut self, val: u64) -> &mut Self {
         // bits 6..6
-        self.val.set_bits(6..=6, val);
+        self.0.set_bits(6..=6, val);
         self
     }
 
@@ -492,10 +522,11 @@ impl MdscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn ss_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `ss` from it
@@ -504,9 +535,9 @@ impl MdscrEl1 {
     }
 
     /// inserts the given value `val` into the field `ss`
-    pub fn ss_insert(&mut self, val: u64) -> &mut self {
+    pub fn ss_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -514,12 +545,13 @@ impl MdscrEl1 {
     pub fn ss_write(&mut self, val: u64) {
         Self::with_reg_val().ss_insert(val).write();
     }
+
 }
 
 impl Default for MdscrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> MdscrEl1 {
+    fn default() -> MdscrEl1 {
         MdscrEl1(0)
     }
 }

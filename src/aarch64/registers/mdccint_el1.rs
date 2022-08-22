@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.525807
+ * Generated on: 2022-08-22T16:25:59.087657
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-mdccint_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Monitor DCC Interrupt Enable Register value in memory
 pub struct MdccintEl1(u64);
 
 /// struct implementation for accessing the fields of register mdccint_el1
 impl MdccintEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdccintEl1 {
@@ -73,49 +79,58 @@ impl MdccintEl1 {
         MdccintEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> MdccintEl1 {
+    pub fn with_reg_val() ->  MdccintEl1 {
         let curval = Self::reg_rawrd() & 0x60000000;
         MdccintEl1(curval)
     }
 
+
+    
     /// reading the Monitor DCC Interrupt Enable Register (mdccint_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, MDCCINT_EL1
-            llvm_asm!("mrs $0, mdccint_el1" : "=r"(regval));
+            asm!("mrs {}, mdccint_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Monitor DCC Interrupt Enable Register (mdccint_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR MDCCINT_EL1, <Xt>
-            llvm_asm!("msr mdccint_el1, $0" : : "r"(val));
+            asm!("msr mdccint_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x60000000;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x60000000;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 1610612736;
+    //    self.0 = newval & 1610612736;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl MdccintEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: rx
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn rx_extract(&self) -> u64 {
         // bits 30..30
-        self.val.get_bits(30..=30)
+        self.0.get_bits(30..=30)
     }
 
     /// reads the current register value and extract field `rx` from it
@@ -140,9 +158,9 @@ impl MdccintEl1 {
     }
 
     /// inserts the given value `val` into the field `rx`
-    pub fn rx_insert(&mut self, val: u64) -> &mut self {
+    pub fn rx_insert(&mut self, val: u64) -> &mut Self {
         // bits 30..30
-        self.val.set_bits(30..=30, val);
+        self.0.set_bits(30..=30, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl MdccintEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn tx_extract(&self) -> u64 {
         // bits 29..29
-        self.val.get_bits(29..=29)
+        self.0.get_bits(29..=29)
     }
 
     /// reads the current register value and extract field `tx` from it
@@ -168,9 +187,9 @@ impl MdccintEl1 {
     }
 
     /// inserts the given value `val` into the field `tx`
-    pub fn tx_insert(&mut self, val: u64) -> &mut self {
+    pub fn tx_insert(&mut self, val: u64) -> &mut Self {
         // bits 29..29
-        self.val.set_bits(29..=29, val);
+        self.0.set_bits(29..=29, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl MdccintEl1 {
     pub fn tx_write(&mut self, val: u64) {
         Self::with_reg_val().tx_insert(val).write();
     }
+
 }
 
 impl Default for MdccintEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> MdccintEl1 {
+    fn default() -> MdccintEl1 {
         MdccintEl1(0)
     }
 }

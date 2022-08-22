@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.518937
+ * Generated on: 2022-08-22T16:25:59.080391
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-icc_igrpen0_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Interrupt Controller Interrupt Group 0 Enable register value in memory
 pub struct IccIgrpen0El1(u64);
 
 /// struct implementation for accessing the fields of register icc_igrpen0_el1
 impl IccIgrpen0El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccIgrpen0El1 {
@@ -73,49 +79,58 @@ impl IccIgrpen0El1 {
         IccIgrpen0El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IccIgrpen0El1 {
+    pub fn with_reg_val() ->  IccIgrpen0El1 {
         let curval = Self::reg_rawrd() & 0x1;
         IccIgrpen0El1(curval)
     }
 
+
+    
     /// reading the Interrupt Controller Interrupt Group 0 Enable register (icc_igrpen0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ICC_IGRPEN0_EL1
-            llvm_asm!("mrs $0, icc_igrpen0_el1" : "=r"(regval));
+            asm!("mrs {}, icc_igrpen0_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Interrupt Controller Interrupt Group 0 Enable register (icc_igrpen0_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR ICC_IGRPEN0_EL1, <Xt>
-            llvm_asm!("msr icc_igrpen0_el1, $0" : : "r"(val));
+            asm!("msr icc_igrpen0_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 1;
+    //    self.0 = newval & 1;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl IccIgrpen0El1 {
         self.0
     }
 
+
+    
     /*
      * Field: enable
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn enable_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `enable` from it
@@ -140,9 +158,9 @@ impl IccIgrpen0El1 {
     }
 
     /// inserts the given value `val` into the field `enable`
-    pub fn enable_insert(&mut self, val: u64) -> &mut self {
+    pub fn enable_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -150,12 +168,13 @@ impl IccIgrpen0El1 {
     pub fn enable_write(&mut self, val: u64) {
         Self::with_reg_val().enable_insert(val).write();
     }
+
 }
 
 impl Default for IccIgrpen0El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IccIgrpen0El1 {
+    fn default() -> IccIgrpen0El1 {
         IccIgrpen0El1(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.513028
+ * Generated on: 2022-08-22T16:25:59.074625
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Selected Error Record Feature Register (erxfr_el1)
  * Group:       RAS registers
  * Type:        64-bit Register
- * Description: Accesses
+ * Description: Accesses 
  * File:        AArch64-erxfr_el1.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Selected Error Record Feature Register value in memory
 pub struct ErxfrEl1(u64);
 
 /// struct implementation for accessing the fields of register erxfr_el1
 impl ErxfrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ErxfrEl1 {
@@ -73,30 +79,35 @@ impl ErxfrEl1 {
         ErxfrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> ErxfrEl1 {
+    pub fn with_reg_val() ->  ErxfrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         ErxfrEl1(curval)
     }
 
+
+    
     /// reading the Selected Error Record Feature Register (erxfr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ERXFR_EL1
-            llvm_asm!("mrs $0, S3_0_C5_C4_0" : "=r"(regval));
+            asm!("mrs {}, S3_0_C5_C4_0", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl ErxfrEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -112,28 +123,31 @@ impl ErxfrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
         // bits 0..63
-        self.val.get_bits(0..=63)
+        self.0.get_bits(0..=63)
     }
 
     /// reads the current register value and extract field `val` from it
     pub fn val_read(&mut self) -> u64 {
         Self::with_reg_val().val_extract()
     }
-    // no insert() method for field val
+// no insert() method for field val
 }
 
 impl Default for ErxfrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> ErxfrEl1 {
+    fn default() -> ErxfrEl1 {
         ErxfrEl1(0)
     }
 }

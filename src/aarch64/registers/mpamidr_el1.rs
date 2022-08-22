@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.527263
+ * Generated on: 2022-08-22T16:25:59.089162
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-mpamidr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the MPAM ID Register (EL1) value in memory
 pub struct MpamidrEl1(u64);
 
 /// struct implementation for accessing the fields of register mpamidr_el1
 impl MpamidrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MpamidrEl1 {
@@ -73,30 +79,35 @@ impl MpamidrEl1 {
         MpamidrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> MpamidrEl1 {
+    pub fn with_reg_val() ->  MpamidrEl1 {
         let curval = Self::reg_rawrd() & 0x340000ff001effff;
         MpamidrEl1(curval)
     }
 
+
+    
     /// reading the MPAM ID Register (EL1) (mpamidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, MPAMIDR_EL1
-            llvm_asm!("mrs $0, S3_0_C10_C4_4" : "=r"(regval));
+            asm!("mrs {}, S3_0_C10_C4_4", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x340000ff001effff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x340000ff001effff;
         self
     }
 
@@ -104,7 +115,7 @@ impl MpamidrEl1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 3746995985190944767;
+    //    self.0 = newval & 3746995985190944767;
     //}
 
     /// gets the value of the struct
@@ -112,124 +123,133 @@ impl MpamidrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: has_sdeflt
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn has_sdeflt_extract(&self) -> u64 {
         // bits 61..61
-        self.val.get_bits(61..=61)
+        self.0.get_bits(61..=61)
     }
 
     /// reads the current register value and extract field `has_sdeflt` from it
     pub fn has_sdeflt_read(&mut self) -> u64 {
         Self::with_reg_val().has_sdeflt_extract()
     }
-    // no insert() method for field has_sdeflt
+// no insert() method for field has_sdeflt
     /*
      * Field: has_force_ns
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn has_force_ns_extract(&self) -> u64 {
         // bits 60..60
-        self.val.get_bits(60..=60)
+        self.0.get_bits(60..=60)
     }
 
     /// reads the current register value and extract field `has_force_ns` from it
     pub fn has_force_ns_read(&mut self) -> u64 {
         Self::with_reg_val().has_force_ns_extract()
     }
-    // no insert() method for field has_force_ns
+// no insert() method for field has_force_ns
     /*
      * Field: has_tidr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn has_tidr_extract(&self) -> u64 {
         // bits 58..58
-        self.val.get_bits(58..=58)
+        self.0.get_bits(58..=58)
     }
 
     /// reads the current register value and extract field `has_tidr` from it
     pub fn has_tidr_read(&mut self) -> u64 {
         Self::with_reg_val().has_tidr_extract()
     }
-    // no insert() method for field has_tidr
+// no insert() method for field has_tidr
     /*
      * Field: pmg_max
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn pmg_max_extract(&self) -> u64 {
         // bits 32..39
-        self.val.get_bits(32..=39)
+        self.0.get_bits(32..=39)
     }
 
     /// reads the current register value and extract field `pmg_max` from it
     pub fn pmg_max_read(&mut self) -> u64 {
         Self::with_reg_val().pmg_max_extract()
     }
-    // no insert() method for field pmg_max
+// no insert() method for field pmg_max
     /*
      * Field: vpmr_max_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn vpmr_max_1_extract(&self) -> u64 {
         // bits 18..20
-        self.val.get_bits(18..=20)
+        self.0.get_bits(18..=20)
     }
 
     /// reads the current register value and extract field `vpmr_max_1` from it
     pub fn vpmr_max_1_read(&mut self) -> u64 {
         Self::with_reg_val().vpmr_max_1_extract()
     }
-    // no insert() method for field vpmr_max_1
+// no insert() method for field vpmr_max_1
     /*
      * Field: has_hcr
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn has_hcr_extract(&self) -> u64 {
         // bits 17..17
-        self.val.get_bits(17..=17)
+        self.0.get_bits(17..=17)
     }
 
     /// reads the current register value and extract field `has_hcr` from it
     pub fn has_hcr_read(&mut self) -> u64 {
         Self::with_reg_val().has_hcr_extract()
     }
-    // no insert() method for field has_hcr
+// no insert() method for field has_hcr
     /*
      * Field: partid_max
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn partid_max_extract(&self) -> u64 {
         // bits 0..15
-        self.val.get_bits(0..=15)
+        self.0.get_bits(0..=15)
     }
 
     /// reads the current register value and extract field `partid_max` from it
     pub fn partid_max_read(&mut self) -> u64 {
         Self::with_reg_val().partid_max_extract()
     }
-    // no insert() method for field partid_max
+// no insert() method for field partid_max
 }
 
 impl Default for MpamidrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> MpamidrEl1 {
+    fn default() -> MpamidrEl1 {
         MpamidrEl1(0)
     }
 }

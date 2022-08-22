@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.514852
+ * Generated on: 2022-08-22T16:25:59.076407
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -46,9 +48,10 @@ use bit_field::BitField;
  * Register:    Hypervisor Auxiliary Control Register (hacr_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Controls trapping to EL2 of
+ * Description: Controls trapping to EL2 of 
  * File:        AArch64-hacr_el2.xml
  */
+
 
 /*
  * ================================================================================================
@@ -56,11 +59,14 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Hypervisor Auxiliary Control Register value in memory
 pub struct HacrEl2(u64);
 
 /// struct implementation for accessing the fields of register hacr_el2
 impl HacrEl2 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HacrEl2 {
@@ -73,49 +79,58 @@ impl HacrEl2 {
         HacrEl2(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> HacrEl2 {
+    pub fn with_reg_val() ->  HacrEl2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         HacrEl2(curval)
     }
 
+
+    
     /// reading the Hypervisor Auxiliary Control Register (hacr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, HACR_EL2
-            llvm_asm!("mrs $0, hacr_el2" : "=r"(regval));
+            asm!("mrs {}, hacr_el2", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Hypervisor Auxiliary Control Register (hacr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR HACR_EL2, <Xt>
-            llvm_asm!("msr hacr_el2, $0" : : "r"(val));
+            asm!("msr hacr_el2, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffffffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffffffffffff;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 18446744073709551615;
+    //    self.0 = newval & 18446744073709551615;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl HacrEl2 {
         self.0
     }
 
+
+    
     /*
      * Field: implementation_defined_63_0
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn implementation_defined_63_0_extract(&self) -> u64 {
         // bits 0..63
-        self.val.get_bits(0..=63)
+        self.0.get_bits(0..=63)
     }
 
     /// reads the current register value and extract field `implementation_defined_63_0` from it
@@ -140,24 +158,23 @@ impl HacrEl2 {
     }
 
     /// inserts the given value `val` into the field `implementation_defined_63_0`
-    pub fn implementation_defined_63_0_insert(&mut self, val: u64) -> &mut self {
+    pub fn implementation_defined_63_0_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..63
-        self.val.set_bits(0..=63, val);
+        self.0.set_bits(0..=63, val);
         self
     }
 
     /// reads the register, updates the `implementation_defined_63_0` field, and writes the updated value
     pub fn implementation_defined_63_0_write(&mut self, val: u64) {
-        Self::with_reg_val()
-            .implementation_defined_63_0_insert(val)
-            .write();
+        Self::with_reg_val().implementation_defined_63_0_insert(val).write();
     }
+
 }
 
 impl Default for HacrEl2 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> HacrEl2 {
+    fn default() -> HacrEl2 {
         HacrEl2(0)
     }
 }

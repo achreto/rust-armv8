@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.511630
+ * Generated on: 2022-08-22T16:25:59.073252
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-dbgprcr_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the Debug Power Control Register value in memory
 pub struct DbgprcrEl1(u64);
 
 /// struct implementation for accessing the fields of register dbgprcr_el1
 impl DbgprcrEl1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DbgprcrEl1 {
@@ -73,49 +79,58 @@ impl DbgprcrEl1 {
         DbgprcrEl1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> DbgprcrEl1 {
+    pub fn with_reg_val() ->  DbgprcrEl1 {
         let curval = Self::reg_rawrd() & 0x1;
         DbgprcrEl1(curval)
     }
 
+
+    
     /// reading the Debug Power Control Register (dbgprcr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, DBGPRCR_EL1
-            llvm_asm!("mrs $0, dbgprcr_el1" : "=r"(regval));
+            asm!("mrs {}, dbgprcr_el1", out(reg) regval);
         }
         return regval;
     }
+
 
     /// writing the Debug Power Control Register (dbgprcr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
         unsafe {
             // MSR DBGPRCR_EL1, <Xt>
-            llvm_asm!("msr dbgprcr_el1, $0" : : "r"(val));
+            asm!("msr dbgprcr_el1, {}", in(reg) val);
         }
     }
 
+
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0x1;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0x1;
         self
     }
 
+    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
-        Self::reg_rawwr(self.val)
+        Self::reg_rawwr(self.0)
     }
+
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 1;
+    //    self.0 = newval & 1;
     //}
 
     /// gets the value of the struct
@@ -123,15 +138,18 @@ impl DbgprcrEl1 {
         self.0
     }
 
+
+    
     /*
      * Field: corenpdrq_1
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn corenpdrq_1_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `corenpdrq_1` from it
@@ -140,9 +158,9 @@ impl DbgprcrEl1 {
     }
 
     /// inserts the given value `val` into the field `corenpdrq_1`
-    pub fn corenpdrq_1_insert(&mut self, val: u64) -> &mut self {
+    pub fn corenpdrq_1_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -156,10 +174,11 @@ impl DbgprcrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn corenpdrq_2_extract(&self) -> u64 {
         // bits 0..0
-        self.val.get_bits(0..=0)
+        self.0.get_bits(0..=0)
     }
 
     /// reads the current register value and extract field `corenpdrq_2` from it
@@ -168,9 +187,9 @@ impl DbgprcrEl1 {
     }
 
     /// inserts the given value `val` into the field `corenpdrq_2`
-    pub fn corenpdrq_2_insert(&mut self, val: u64) -> &mut self {
+    pub fn corenpdrq_2_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..0
-        self.val.set_bits(0..=0, val);
+        self.0.set_bits(0..=0, val);
         self
     }
 
@@ -178,12 +197,13 @@ impl DbgprcrEl1 {
     pub fn corenpdrq_2_write(&mut self, val: u64) {
         Self::with_reg_val().corenpdrq_2_insert(val).write();
     }
+
 }
 
 impl Default for DbgprcrEl1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> DbgprcrEl1 {
+    fn default() -> DbgprcrEl1 {
         DbgprcrEl1(0)
     }
 }

@@ -24,13 +24,15 @@
  * SPDX-License-Identifier: MIT
  */
 
+use core::arch::asm;
 use bit_field::BitField;
+
 
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
  *
- * Generated on: 2022-08-22T15:51:28.523603
+ * Generated on: 2022-08-22T16:25:59.085447
  * Version: Armv8.7-A-2020-09
  * Source: https://developer.arm.com/-/media/developer/products/architecture/armv8-a-architecture/2020-09/SysReg_xml_v87A-2020-09.tar.gz
  *
@@ -50,17 +52,21 @@ use bit_field::BitField;
  * File:        AArch64-id_isar2_el1.xml
  */
 
+
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
+
+
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 2 value in memory
 pub struct IdIsar2El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar2_el1
 impl IdIsar2El1 {
+
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar2El1 {
@@ -73,30 +79,35 @@ impl IdIsar2El1 {
         IdIsar2El1(self.0)
     }
 
+    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() -> IdIsar2El1 {
+    pub fn with_reg_val() ->  IdIsar2El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdIsar2El1(curval)
     }
 
+
+    
     /// reading the AArch32 Instruction Set Attribute Register 2 (id_isar2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
         let mut regval: u64;
         unsafe {
             // MRS <Xt>, ID_ISAR2_EL1
-            llvm_asm!("mrs $0, id_isar2_el1" : "=r"(regval));
+            asm!("mrs {}, id_isar2_el1", out(reg) regval);
         }
         return regval;
     }
 
-    // register is not writable. not emitting write accessor
+// register is not writable. not emitting write accessor
 
+
+    
     /// updates the stored value with the current register value
     #[inline(always)]
-    pub fn read(&mut self) -> &mut self {
-        self.val = Self::reg_rawrd() & 0xffffffff;
+    pub fn read(&mut self) -> &mut Self {
+        self.0 = Self::reg_rawrd() & 0xffffffff;
         self
     }
 
@@ -104,7 +115,7 @@ impl IdIsar2El1 {
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
-    //    self.val = newval & 4294967295;
+    //    self.0 = newval & 4294967295;
     //}
 
     /// gets the value of the struct
@@ -112,140 +123,150 @@ impl IdIsar2El1 {
         self.0
     }
 
+
+    
     /*
      * Field: reversal
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn reversal_extract(&self) -> u64 {
         // bits 28..31
-        self.val.get_bits(28..=31)
+        self.0.get_bits(28..=31)
     }
 
     /// reads the current register value and extract field `reversal` from it
     pub fn reversal_read(&mut self) -> u64 {
         Self::with_reg_val().reversal_extract()
     }
-    // no insert() method for field reversal
+// no insert() method for field reversal
     /*
      * Field: psr_ar
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn psr_ar_extract(&self) -> u64 {
         // bits 24..27
-        self.val.get_bits(24..=27)
+        self.0.get_bits(24..=27)
     }
 
     /// reads the current register value and extract field `psr_ar` from it
     pub fn psr_ar_read(&mut self) -> u64 {
         Self::with_reg_val().psr_ar_extract()
     }
-    // no insert() method for field psr_ar
+// no insert() method for field psr_ar
     /*
      * Field: multu
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn multu_extract(&self) -> u64 {
         // bits 20..23
-        self.val.get_bits(20..=23)
+        self.0.get_bits(20..=23)
     }
 
     /// reads the current register value and extract field `multu` from it
     pub fn multu_read(&mut self) -> u64 {
         Self::with_reg_val().multu_extract()
     }
-    // no insert() method for field multu
+// no insert() method for field multu
     /*
      * Field: mults
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mults_extract(&self) -> u64 {
         // bits 16..19
-        self.val.get_bits(16..=19)
+        self.0.get_bits(16..=19)
     }
 
     /// reads the current register value and extract field `mults` from it
     pub fn mults_read(&mut self) -> u64 {
         Self::with_reg_val().mults_extract()
     }
-    // no insert() method for field mults
+// no insert() method for field mults
     /*
      * Field: mult
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn mult_extract(&self) -> u64 {
         // bits 12..15
-        self.val.get_bits(12..=15)
+        self.0.get_bits(12..=15)
     }
 
     /// reads the current register value and extract field `mult` from it
     pub fn mult_read(&mut self) -> u64 {
         Self::with_reg_val().mult_extract()
     }
-    // no insert() method for field mult
+// no insert() method for field mult
     /*
      * Field: multiaccessint
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn multiaccessint_extract(&self) -> u64 {
         // bits 8..11
-        self.val.get_bits(8..=11)
+        self.0.get_bits(8..=11)
     }
 
     /// reads the current register value and extract field `multiaccessint` from it
     pub fn multiaccessint_read(&mut self) -> u64 {
         Self::with_reg_val().multiaccessint_extract()
     }
-    // no insert() method for field multiaccessint
+// no insert() method for field multiaccessint
     /*
      * Field: memhint
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn memhint_extract(&self) -> u64 {
         // bits 4..7
-        self.val.get_bits(4..=7)
+        self.0.get_bits(4..=7)
     }
 
     /// reads the current register value and extract field `memhint` from it
     pub fn memhint_read(&mut self) -> u64 {
         Self::with_reg_val().memhint_extract()
     }
-    // no insert() method for field memhint
+// no insert() method for field memhint
     /*
      * Field: loadstore
      * --------------------------------------------------------------------------------------------
      */
 
+
     /// extracts field val from current value
     pub fn loadstore_extract(&self) -> u64 {
         // bits 0..3
-        self.val.get_bits(0..=3)
+        self.0.get_bits(0..=3)
     }
 
     /// reads the current register value and extract field `loadstore` from it
     pub fn loadstore_read(&mut self) -> u64 {
         Self::with_reg_val().loadstore_extract()
     }
-    // no insert() method for field loadstore
+// no insert() method for field loadstore
 }
 
 impl Default for IdIsar2El1 {
     /// creates a new default value
     #[inline(always)]
-    pub fn default() -> IdIsar2El1 {
+    fn default() -> IdIsar2El1 {
         IdIsar2El1(0)
     }
 }
