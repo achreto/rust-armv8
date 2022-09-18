@@ -309,14 +309,71 @@ impl L2Table {
         &mut self.0
     }
 
-    /// obtains a reference to the entry
-    pub fn entry(&self, idx: usize) -> &L2Descriptor {
-        &self.0[idx]
+    /// sets the reference to a L1 table
+    ///
+    /// # Panics
+    ///
+    /// The function panics if the entry is out of bounds or there has already been
+    /// a valid entry set in the descriptor
+    pub fn set_entry(&mut self, idx: usize, entry: L2Descriptor) {
+        if idx < L2_TABLE_ENTRIES {
+            if self.0[idx].is_valid() {
+                panic!("L0Table::set_entry: entry is already valid, invalidate first");
+            } else {
+                self.0[idx] = entry;
+            }
+        } else {
+            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+        }
     }
 
-    /// obtains a reference to the entry
+    /// sets the reference to a L2 table
+    ///
+    /// # Panics
+    ///
+    /// The function panics if there has already been a valid entry set in the descriptor
+    pub fn set_entry_at_vaddr(&mut self, vaddr: VAddr, entry: L2Descriptor) {
+        let idx = Self::index(vaddr);
+        self.set_entry(idx, entry);
+    }
+
+    /// obtains a reference to the entry with the given index
+    ///
+    /// # Panics
+    ///
+    /// The function panics if the entry is out of bounds
+    pub fn entry(&self, idx: usize) -> &L2Descriptor {
+        if idx < L2_TABLE_ENTRIES {
+            &self.0[idx]
+        } else {
+            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+        }
+    }
+
+    /// obtains the entry based on the vaddr
+    pub fn entry_at_vaddr(&self, vaddr: VAddr) -> &L2Descriptor {
+        let idx = Self::index(vaddr);
+        self.entry(idx)
+    }
+
+    /// obtains a mutable reference to the entry with the given idnex
     pub fn entry_mut(&mut self, idx: usize) -> &mut L2Descriptor {
-        &mut self.0[idx]
+        if idx < L2_TABLE_ENTRIES {
+            &mut self.0[idx]
+        } else {
+            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+        }
+    }
+
+    /// obtains a mutable reference to the entry based on the vaddr
+    pub fn entry_at_vaddr_mut(&mut self, vaddr: VAddr) -> &mut L2Descriptor {
+        let idx = Self::index(vaddr);
+        self.entry_mut(idx)
+    }
+
+    /// calculates the index of the entry based on the vaddr
+    pub fn index(va: VAddr) -> usize {
+        va.as_u64().get_bits(21..30) as usize
     }
 }
 
