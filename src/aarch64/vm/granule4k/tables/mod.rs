@@ -30,6 +30,6 @@ mod l3table;
 // selecting a byte within the 4kB coming directly from the original address.
 
 pub use l0table::{L0Descriptor, L0Table};
-pub use l1table::{L1Descriptor, L1Table};
-pub use l2table::{L2Descriptor, L2Table};
+pub use l1table::{L1Descriptor, L1DescriptorTable, L1DescriptorBlock, L1Table};
+pub use l2table::{L2Descriptor, L2DescriptorTable, L2DescriptorBlock, L2Table};
 pub use l3table::{L3Descriptor, L3Table};

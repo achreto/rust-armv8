@@ -58,7 +58,7 @@ impl L2DescriptorTable {
     /// creates a new L2 table descriptor with the given L3 table descriptor
     pub fn with_table(table: &L3Table) -> Self {
         let mut entry = L2DescriptorTable::new();
-        entry.table(table);
+        entry.table(table).valid();
         entry
     }
 

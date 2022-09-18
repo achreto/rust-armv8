@@ -55,7 +55,7 @@ impl L0Descriptor {
     /// creates a new L0 table descriptor with the given L1 table descriptor
     pub fn with_table(table: &L1Table) -> Self {
         let mut entry = L0Descriptor::new();
-        entry.table(table);
+        entry.table(table).valid();
         entry
     }
 

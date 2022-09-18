@@ -45,7 +45,7 @@ impl L3Descriptor {
         // assert!(pt_val == pt.into());
         // assert!(pt % BASE_PAGE_SIZE == 0);
         let mut entry = L3Descriptor::new();
-        entry.frame(frame);
+        entry.frame(frame).valid();
         entry
     }
 
