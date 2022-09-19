@@ -527,12 +527,12 @@ macro_rules! page_block_lower_attributes_impl {
         impl BlockPageDescriptorLowerAttributes for $t {
             #[inline]
             fn attr_index(&self) -> u64 {
-                self.0.get_bits(2..4)
+                self.0.get_bits(2..=4)
             }
 
             #[inline]
             fn set_attr_index(&mut self, index: u64) -> &mut Self {
-                self.0.set_bits(2..4, index);
+                self.0.set_bits(2..=4, index);
                 self
             }
 
@@ -561,62 +561,62 @@ macro_rules! page_block_lower_attributes_impl {
 
             #[inline]
             fn no_access(&mut self) -> &mut Self {
-                self.0.set_bits(6..7, ACCESS_PERMISSIONS_NONE);
+                self.0.set_bits(6..=7, ACCESS_PERMISSIONS_NONE);
                 self
             }
 
             #[inline]
             fn is_read_only(&mut self) -> bool {
-                self.0.get_bits(6..7) == ACCESS_PERMISSIONS_RO
+                self.0.get_bits(6..=7) == ACCESS_PERMISSIONS_RO
             }
 
             #[inline]
             fn read_only(&mut self) -> &mut Self {
-                self.0.set_bits(6..7, ACCESS_PERMISSIONS_RO);
+                self.0.set_bits(6..=7, ACCESS_PERMISSIONS_RO);
                 self
             }
 
             #[inline]
             fn is_read_write(&mut self) -> bool {
-                self.0.get_bits(6..7) == ACCESS_PERMISSIONS_RW
+                self.0.get_bits(6..=7) == ACCESS_PERMISSIONS_RW
             }
 
             #[inline]
             fn read_write(&mut self) -> &mut Self {
-                self.0.set_bits(6..7, ACCESS_PERMISSIONS_RW);
+                self.0.set_bits(6..=7, ACCESS_PERMISSIONS_RW);
                 self
             }
 
             #[inline]
             fn is_non_shareable(&self) -> bool {
-                self.0.get_bits(8..9) == SHAREABILITY_NONE
+                self.0.get_bits(8..=9) == SHAREABILITY_NONE
             }
 
             #[inline]
             fn non_shareable(&mut self) -> &mut Self {
-                self.0.set_bits(8..9, SHAREABILITY_NONE);
+                self.0.set_bits(8..=9, SHAREABILITY_NONE);
                 self
             }
 
             #[inline]
             fn is_outer_shareable(&self) -> bool {
-                self.0.get_bits(8..9) == SHAREABILITY_OUTER
+                self.0.get_bits(8..=9) == SHAREABILITY_OUTER
             }
 
             #[inline]
             fn outer_shareable(&mut self) -> &mut Self {
-                self.0.set_bits(8..9, SHAREABILITY_OUTER);
+                self.0.set_bits(8..=9, SHAREABILITY_OUTER);
                 self
             }
 
             #[inline]
             fn is_inner_shareable(&self) -> bool {
-                self.0.get_bits(8..9) == SHAREABILITY_INNER
+                self.0.get_bits(8..=9) == SHAREABILITY_INNER
             }
 
             #[inline]
             fn inner_shareable(&mut self) -> &mut Self {
-                self.0.set_bits(8..9, SHAREABILITY_INNER);
+                self.0.set_bits(8..=9, SHAREABILITY_INNER);
                 self
             }
 
@@ -765,7 +765,7 @@ macro_rules! page_block_upper_attributes_impl {
 
             #[inline]
             fn page_based_hardware_attributes(&self) -> u64 {
-                self.0.get_bits(59..62)
+                self.0.get_bits(59..=62)
             }
         }
     };
@@ -816,29 +816,29 @@ macro_rules! table_next_level_attributes_impl {
 
             #[inline]
             fn no_access_table(&mut self) -> &mut Self {
-                self.0.set_bits(61..62, ACCESS_PERMISSIONS_NONE);
+                self.0.set_bits(61..=62, ACCESS_PERMISSIONS_NONE);
                 self
             }
 
             #[inline]
             fn is_read_only_table(&mut self) -> bool {
-                self.0.get_bits(61..62) == ACCESS_PERMISSIONS_RO
+                self.0.get_bits(61..=62) == ACCESS_PERMISSIONS_RO
             }
 
             #[inline]
             fn read_only_table(&mut self) -> &mut Self {
-                self.0.set_bits(61..62, ACCESS_PERMISSIONS_RO);
+                self.0.set_bits(61..=62, ACCESS_PERMISSIONS_RO);
                 self
             }
 
             #[inline]
             fn is_read_write_table(&mut self) -> bool {
-                self.0.get_bits(61..62) == ACCESS_PERMISSIONS_RW
+                self.0.get_bits(61..=62) == ACCESS_PERMISSIONS_RW
             }
 
             #[inline]
             fn read_write_table(&mut self) -> &mut Self {
-                self.0.set_bits(61..62, ACCESS_PERMISSIONS_RW);
+                self.0.set_bits(61..=62, ACCESS_PERMISSIONS_RW);
                 self
             }
 

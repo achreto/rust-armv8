@@ -83,9 +83,14 @@ impl L0Descriptor {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> Option<PAddr> {
+    pub fn get_paddr(&self) -> PAddr {
+        PAddr::from(self.0.get_bits(12..=47) << BASE_PAGE_SHIFT)
+    }
+
+    pub fn get_table(&self) -> Option<&L1Table> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT))
+            // Some(unsafe { &*(self.get_paddr().unwrap().as_usize() as *const L1Table) })
+            panic!("not yet implemented");
         } else {
             None
         }
@@ -94,7 +99,7 @@ impl L0Descriptor {
     // sets the frame address of the entry
     pub fn table(&mut self, table: &L1Table) -> &mut Self {
         let pt = PAddr::from(table);
-        self.0.set_bits(12..48, pt.as_u64() >> BASE_PAGE_SHIFT);
+        self.0.set_bits(12..=47, pt.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
 }
@@ -188,7 +193,7 @@ impl L0Table {
 
     /// calculates the index of the entry based on the vaddr
     pub fn index(va: VAddr) -> usize {
-        va.as_u64().get_bits(39..48) as usize
+        va.as_u64().get_bits(39..=47) as usize
     }
 }
 

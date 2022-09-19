@@ -77,9 +77,14 @@ impl L3Descriptor {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> Option<PAddr> {
+    pub fn get_paddr(&self) -> PAddr {
+        PAddr::from(self.0.get_bits(12..=47) << BASE_PAGE_SHIFT)
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_frame(&self) -> Option<PAddr> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT))
+            Some(PAddr::from(self.0.get_bits(12..=47) << BASE_PAGE_SHIFT))
         } else {
             None
         }
@@ -88,7 +93,7 @@ impl L3Descriptor {
     // sets the frame address of the entry
     pub fn frame(&mut self, frame: PAddr) -> &mut Self {
         assert!(frame % BASE_PAGE_SIZE == 0);
-        self.0.set_bits(12..48, frame.as_u64() >> BASE_PAGE_SHIFT);
+        self.0.set_bits(12..=47, frame.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
 }

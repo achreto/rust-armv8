@@ -86,9 +86,14 @@ impl L1DescriptorTable {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> Option<PAddr> {
+    pub fn get_paddr(&self) -> PAddr {
+        PAddr::from(self.0.get_bits(12..=47) << BASE_PAGE_SHIFT)
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_table(&self) -> Option<&L2Table> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(12..48) << BASE_PAGE_SHIFT))
+            panic!("not yet implmented");
         } else {
             None
         }
@@ -97,7 +102,7 @@ impl L1DescriptorTable {
     // sets the frame address of the entry
     pub fn table(&mut self, table: &L2Table) -> &mut Self {
         let pt = PAddr::from(table);
-        self.0.set_bits(12..48, pt.as_u64() >> BASE_PAGE_SHIFT);
+        self.0.set_bits(12..=47, pt.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
 }
@@ -152,9 +157,14 @@ impl L1DescriptorBlock {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> Option<PAddr> {
+    pub fn get_paddr(&self) -> PAddr {
+        PAddr::from(self.0.get_bits(21..=47) << LARGE_PAGE_SHIFT)
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_frame(&self) -> Option<PAddr> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(21..48) << LARGE_PAGE_SHIFT))
+            Some(PAddr::from(self.0.get_bits(21..=47) << LARGE_PAGE_SHIFT))
         } else {
             None
         }
@@ -163,7 +173,7 @@ impl L1DescriptorBlock {
     // sets the frame address of the entry
     pub fn frame(&mut self, frame: PAddr) -> &mut Self {
         assert!(frame % LARGE_PAGE_SIZE == 0);
-        self.0.set_bits(21..48, frame.as_u64() >> LARGE_PAGE_SHIFT);
+        self.0.set_bits(21..=47, frame.as_u64() >> LARGE_PAGE_SHIFT);
         self
     }
 }
@@ -195,7 +205,7 @@ impl L1Descriptor {
         } else if self.is_block() {
             let mut val = self.0;
             // make sure the res0 fields are cleared
-            val.set_bits(48..49, 0).set_bits(17..21, 0);
+            val.set_bits(48..=49, 0).set_bits(17..30, 0);
             Some(L1DescriptorBlock(self.0))
         } else {
             None
@@ -209,7 +219,7 @@ impl L1Descriptor {
         } else if self.is_table() {
             let mut val = self.0;
             // make sure the res0 fields are cleared
-            val.set_bits(48..51, 0);
+            val.set_bits(48..=51, 0);
             Some(L1DescriptorTable(val))
         } else {
             None
@@ -262,15 +272,34 @@ impl L1Descriptor {
     }
 
     /// obtains the physical address of the entry
-    pub fn get_paddr(&self) -> Option<PAddr> {
+    pub fn get_frame(&self) -> Option<PAddr> {
+        if self.is_block() {
+            let block = L1DescriptorBlock(self.0);
+            block.get_frame()
+        } else {
+            None
+        }
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_table(&self) -> Option<&L2Table> {
+        if self.is_table() {
+            // let table = L1DescriptorTable(self.0);
+            // table.get_table()
+            panic!("not implemented");
+        } else {
+            None
+        }
+    }
+
+    /// obtains the physical address of the entry
+    pub fn get_paddr(&self) -> PAddr {
         if self.is_table() {
             let table = L1DescriptorTable(self.0);
             table.get_paddr()
-        } else if self.is_block() {
+        } else {
             let block = L1DescriptorBlock(self.0);
             block.get_paddr()
-        } else {
-            None
         }
     }
 }
@@ -323,7 +352,10 @@ impl L1Table {
                 self.0[idx] = entry;
             }
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L1_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L1_TABLE_ENTRIES
+            );
         }
     }
 
@@ -346,7 +378,10 @@ impl L1Table {
         if idx < L1_TABLE_ENTRIES {
             &self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L1_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L1_TABLE_ENTRIES
+            );
         }
     }
 
@@ -361,7 +396,10 @@ impl L1Table {
         if idx < L1_TABLE_ENTRIES {
             &mut self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L1_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L1_TABLE_ENTRIES
+            );
         }
     }
 

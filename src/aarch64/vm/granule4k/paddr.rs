@@ -172,7 +172,15 @@ impl From<i32> for PAddr {
 
 impl From<VAddr> for PAddr {
     fn from(num: VAddr) -> Self {
-        PAddr(num.as_u64() - KERNEL_OFFSET)
+        // this assumes that we have a 1:1 mapping between virtual and physical addresses
+        // if the address is in the high-addresses then we subtract the kernel offset
+        // other wise we just keep the address as-is.
+        let vaddr = num.as_u64();
+        if vaddr < KERNEL_OFFSET {
+            PAddr(vaddr)
+        } else {
+            PAddr(vaddr - KERNEL_OFFSET)
+        }
     }
 }
 
