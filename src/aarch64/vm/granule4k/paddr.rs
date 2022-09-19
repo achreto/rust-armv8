@@ -176,10 +176,12 @@ impl From<VAddr> for PAddr {
         // if the address is in the high-addresses then we subtract the kernel offset
         // other wise we just keep the address as-is.
         let vaddr = num.as_u64();
-        if vaddr < KERNEL_OFFSET {
-            PAddr(vaddr)
-        } else {
-            PAddr(vaddr - KERNEL_OFFSET)
+        unsafe {
+            if vaddr < KERNEL_OFFSET {
+                PAddr(vaddr)
+            } else {
+                PAddr(vaddr - KERNEL_OFFSET)
+            }
         }
     }
 }

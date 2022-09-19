@@ -26,7 +26,7 @@ pub mod granule4k;
 pub mod granule64k;
 
 /// the kernel offset
-static KERNEL_OFFSET: u64 = 0xFFFF_0000_0000_0000;
+static mut KERNEL_OFFSET: u64 = 0xFFFF_0000_0000_0000;
 
 /// Align address downwards.
 ///

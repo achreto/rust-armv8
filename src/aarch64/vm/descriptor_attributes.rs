@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+use crate::aarch64::registers::{MairEl1, MairEl2, MairEl3};
+
 // Data access permissions for stage 1 translations that applies to EL0 and a
 // higher Exception level
 //
@@ -49,6 +51,101 @@ pub const SHAREABILITY_NONE: u64 = 0b00;
 pub const SHAREABILITY_OUTER: u64 = 0b10;
 pub const SHAREABILITY_INNER: u64 = 0b11;
 
+/// represents memory attributes
+pub enum MemoryAttributes {
+    /// Normal memory, cachable, writeback, write allocate
+    NormalMemoryUnused = 0,
+    /// Normal memory, cachable, writeback, write allocate
+    NormalMemory = 1,
+    /// Normal memory, Write-Through, no Write Allocate.
+    NormalMemoryWriteThrough = 2,
+    /// Normal memory, non-cachable
+    NormalMemoryNonCacheable = 3,
+    /// Device memory, non-gathering, non-reordering, non-early write acknowledge
+    DeviceMemory = 4,
+    /// Device memory, non-gathering, non-reordering, early write acknowledge
+    DeviceMemoryE = 5,
+    /// Device memory, non-gathering, reordering, early write acknowledge
+    DeviceMemoryRE = 6,
+    /// Device memory, gathering, reordering, early write acknowledge
+    DeviceMemoryGRE = 7,
+}
+
+impl MemoryAttributes {
+
+    const MEM_ATTR_NORMAL_MEMORY: u64 = 0b1111_1111;
+    const MEM_ATTR_NORMAL_MEMORY_WRITE_THROUGH: u64 = 0b1010_1010;
+    const MEM_ATTR_NORMAL_MEMORY_NO_CACHE: u64 = 0b0100_0100;
+    const MEM_ATTR_DEVICE_MEMORY: u64 = 0b0000_0000;
+    const MEM_ATTR_DEVICE_MEMORY_E: u64 = 0b0000_0100;
+    const MEM_ATTR_DEVICE_MEMORY_RE: u64 = 0b0000_1000;
+    const MEM_ATTR_DEVICE_MEMORY_GRE: u64 = 0b0000_1100;
+
+    const MEM_ATTRIBUTES: u64 = (MemoryAttributes::MEM_ATTR_NORMAL_MEMORY << 0)
+        | (MemoryAttributes::MEM_ATTR_NORMAL_MEMORY << 8)
+        | (MemoryAttributes::MEM_ATTR_NORMAL_MEMORY_WRITE_THROUGH << 16)
+        | (MemoryAttributes::MEM_ATTR_NORMAL_MEMORY_NO_CACHE << 24)
+        | (MemoryAttributes::MEM_ATTR_DEVICE_MEMORY << 32)
+        | (MemoryAttributes::MEM_ATTR_DEVICE_MEMORY_E << 40)
+        | (MemoryAttributes::MEM_ATTR_DEVICE_MEMORY_RE << 48)
+        | (MemoryAttributes::MEM_ATTR_DEVICE_MEMORY_GRE << 56);
+
+    pub fn to_attribute(&self) -> u64 {
+        match self {
+            MemoryAttributes::NormalMemoryUnused => 0b1111_1111,
+            MemoryAttributes::NormalMemory => 0b1111_1111,
+            MemoryAttributes::NormalMemoryWriteThrough => 0b1010_1010,
+            MemoryAttributes::NormalMemoryNonCacheable => 0b0100_0100,
+            MemoryAttributes::DeviceMemory => 0b0000_0000,
+            MemoryAttributes::DeviceMemoryE => 0b0000_0100,
+            MemoryAttributes::DeviceMemoryRE => 0b0000_1000,
+            MemoryAttributes::DeviceMemoryGRE => 0b0000_1100,
+        }
+    }
+
+    pub fn to_attr_idx(&self) -> u64 {
+        match self {
+            MemoryAttributes::NormalMemoryUnused => 0,
+            MemoryAttributes::NormalMemory => 1,
+            MemoryAttributes::NormalMemoryWriteThrough => 2,
+            MemoryAttributes::NormalMemoryNonCacheable => 3,
+            MemoryAttributes::DeviceMemory => 4,
+            MemoryAttributes::DeviceMemoryE => 5,
+            MemoryAttributes::DeviceMemoryRE => 6,
+            MemoryAttributes::DeviceMemoryGRE => 7,
+        }
+    }
+
+    pub fn from_attr_idx(idx: u64) -> Self {
+        match idx {
+            0 => MemoryAttributes::NormalMemoryUnused,
+            1 => MemoryAttributes::NormalMemory,
+            2 => MemoryAttributes::NormalMemoryWriteThrough,
+            3 => MemoryAttributes::NormalMemoryNonCacheable,
+            4 => MemoryAttributes::DeviceMemory,
+            5 => MemoryAttributes::DeviceMemoryE,
+            6 => MemoryAttributes::DeviceMemoryRE,
+            7 => MemoryAttributes::DeviceMemoryGRE,
+            _ => panic!("invalid memory attribute index"),
+        }
+    }
+
+    /// configures the memory attribute register for EL1
+    pub fn configure_el1() {
+        MairEl1::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+    }
+
+    /// configures the memory attribute register for EL2
+    pub fn configure_el2() {
+        MairEl2::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+    }
+
+    /// configures the memory attribute register for EL3
+    pub fn configure_el3() {
+        MairEl2::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+    }
+}
+
 /// Lower Attribute fields in stage 1 VMSAv8-64 Block and Page descriptors
 pub trait BlockPageDescriptorLowerAttributes {
     /// Obtains the stage 1 memory attributes index field, for the MAIR_ELx
@@ -57,7 +154,7 @@ pub trait BlockPageDescriptorLowerAttributes {
     ///
     /// AttrIndx[2:0], bits[4:2]
     ///
-    fn attr_index(&self) -> u64;
+    fn attr_index(&self) -> MemoryAttributes;
 
     /// Sets the stage 1 memory attributes index field, for the MAIR_ELx
     ///
@@ -65,7 +162,7 @@ pub trait BlockPageDescriptorLowerAttributes {
     ///
     /// AttrIndx[2:0], bits[4:2]
     ///
-    fn set_attr_index(&mut self, index: u64) -> &mut Self;
+    fn set_attr_index(&mut self, attr: MemoryAttributes) -> &mut Self;
 
     /// Obtains the non-secure bit.
     ///
@@ -526,13 +623,13 @@ macro_rules! page_block_lower_attributes_impl {
     ($t:ty) => {
         impl BlockPageDescriptorLowerAttributes for $t {
             #[inline]
-            fn attr_index(&self) -> u64 {
-                self.0.get_bits(2..=4)
+            fn attr_index(&self) -> MemoryAttributes {
+                MemoryAttributes::from_attr_idx(self.0.get_bits(2..=4))
             }
 
             #[inline]
-            fn set_attr_index(&mut self, index: u64) -> &mut Self {
-                self.0.set_bits(2..=4, index);
+            fn set_attr_index(&mut self, index: MemoryAttributes) -> &mut Self {
+                self.0.set_bits(2..=4, index.to_attr_idx());
                 self
             }
 
