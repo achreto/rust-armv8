@@ -36,6 +36,7 @@ pub use tables::{L1Descriptor, L1DescriptorTable, L1DescriptorBlock, L1Table};
 pub use tables::{L2Descriptor, L2DescriptorTable, L2DescriptorBlock, L2Table};
 pub use tables::{L3Descriptor, L3Table};
 pub use vaddr::VAddr;
+pub use super::descriptor_attributes::{TableDescriptorNextLevelAttributes, BlockPageDescriptorUpperAttributes, BlockPageDescriptorLowerAttributes};
 
 /// A type wrapping a base page with a 4 KiB buffer.
 pub struct Page([u8; BASE_PAGE_SIZE]);
