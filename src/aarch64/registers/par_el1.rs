@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-par_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Physical Address Register value in memory
 pub struct ParEl1(u64);
 
 /// struct implementation for accessing the fields of register par_el1
 impl ParEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ParEl1 {
@@ -79,16 +74,13 @@ impl ParEl1 {
         ParEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ParEl1 {
+    pub fn with_reg_val() -> ParEl1 {
         let curval = Self::reg_rawrd() & 0xffff00000000037f;
         ParEl1(curval)
     }
 
-
-    
     /// reading the Physical Address Register (par_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl ParEl1 {
         return regval;
     }
 
-
     /// writing the Physical Address Register (par_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl ParEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl ParEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl ParEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: implementation_defined_63_56
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_63_56_extract(&self) -> u64 {
@@ -166,14 +149,15 @@ impl ParEl1 {
 
     /// reads the register, updates the `implementation_defined_63_56` field, and writes the updated value
     pub fn implementation_defined_63_56_write(val: u64) {
-        Self::with_reg_val().implementation_defined_63_56_insert(val).write();
+        Self::with_reg_val()
+            .implementation_defined_63_56_insert(val)
+            .write();
     }
 
     /*
      * Field: implementation_defined_55_52
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_55_52_extract(&self) -> u64 {
@@ -195,14 +179,15 @@ impl ParEl1 {
 
     /// reads the register, updates the `implementation_defined_55_52` field, and writes the updated value
     pub fn implementation_defined_55_52_write(val: u64) {
-        Self::with_reg_val().implementation_defined_55_52_insert(val).write();
+        Self::with_reg_val()
+            .implementation_defined_55_52_insert(val)
+            .write();
     }
 
     /*
      * Field: implementation_defined_51_48
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_51_48_extract(&self) -> u64 {
@@ -224,14 +209,15 @@ impl ParEl1 {
 
     /// reads the register, updates the `implementation_defined_51_48` field, and writes the updated value
     pub fn implementation_defined_51_48_write(val: u64) {
-        Self::with_reg_val().implementation_defined_51_48_insert(val).write();
+        Self::with_reg_val()
+            .implementation_defined_51_48_insert(val)
+            .write();
     }
 
     /*
      * Field: s
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn s_extract(&self) -> u64 {
@@ -261,7 +247,6 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ptw_extract(&self) -> u64 {
         // bits 8..8
@@ -289,7 +274,6 @@ impl ParEl1 {
      * Field: fst
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fst_extract(&self) -> u64 {
@@ -319,7 +303,6 @@ impl ParEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
         // bits 0..0
@@ -342,7 +325,6 @@ impl ParEl1 {
     pub fn f_write(val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
-
 }
 
 impl Default for ParEl1 {

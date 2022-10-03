@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    MPAM Hypervisor Control Register (EL2) (mpamhcr_el2)
  * Group:       Memory Partitioning and Monitoring registers
  * Type:        64-bit Register
- * Description: Controls the PARTID virtualization features of MPAM. It controls the mapping of virtual PARTIDs into physical PARTIDs in 
+ * Description: Controls the PARTID virtualization features of MPAM. It controls the mapping of virtual PARTIDs into physical PARTIDs in
  * File:        AArch64-mpamhcr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the MPAM Hypervisor Control Register (EL2) value in memory
 pub struct MpamhcrEl2(u64);
 
 /// struct implementation for accessing the fields of register mpamhcr_el2
 impl MpamhcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MpamhcrEl2 {
@@ -79,16 +74,13 @@ impl MpamhcrEl2 {
         MpamhcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MpamhcrEl2 {
+    pub fn with_reg_val() -> MpamhcrEl2 {
         let curval = Self::reg_rawrd() & 0x80000103;
         MpamhcrEl2(curval)
     }
 
-
-    
     /// reading the MPAM Hypervisor Control Register (EL2) (mpamhcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl MpamhcrEl2 {
         return regval;
     }
 
-
     /// writing the MPAM Hypervisor Control Register (EL2) (mpamhcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl MpamhcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl MpamhcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl MpamhcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: trap_mpamidr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trap_mpamidr_el1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl MpamhcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn gstapp_plk_extract(&self) -> u64 {
         // bits 8..8
@@ -202,7 +184,6 @@ impl MpamhcrEl2 {
      * Field: el1_vpmen
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el1_vpmen_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl MpamhcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0_vpmen_extract(&self) -> u64 {
         // bits 0..0
@@ -255,7 +235,6 @@ impl MpamhcrEl2 {
     pub fn el0_vpmen_write(val: u64) {
         Self::with_reg_val().el0_vpmen_insert(val).write();
     }
-
 }
 
 impl Default for MpamhcrEl2 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-amcgcr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Activity Monitors Counter Group Configuration Register value in memory
 pub struct AmcgcrEl0(u64);
 
 /// struct implementation for accessing the fields of register amcgcr_el0
 impl AmcgcrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AmcgcrEl0 {
@@ -79,16 +74,13 @@ impl AmcgcrEl0 {
         AmcgcrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  AmcgcrEl0 {
+    pub fn with_reg_val() -> AmcgcrEl0 {
         let curval = Self::reg_rawrd() & 0xffff;
         AmcgcrEl0(curval)
     }
 
-
-    
     /// reading the Activity Monitors Counter Group Configuration Register (amcgcr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl AmcgcrEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl AmcgcrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: cg1nc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cg1nc_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl AmcgcrEl0 {
     pub fn cg1nc_read() -> u64 {
         Self::with_reg_val().cg1nc_extract()
     }
-// no insert() method for field cg1nc
+    // no insert() method for field cg1nc
     /*
      * Field: cg0nc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cg0nc_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl AmcgcrEl0 {
     pub fn cg0nc_read() -> u64 {
         Self::with_reg_val().cg0nc_extract()
     }
-// no insert() method for field cg0nc
+    // no insert() method for field cg0nc
 }
 
 impl Default for AmcgcrEl0 {

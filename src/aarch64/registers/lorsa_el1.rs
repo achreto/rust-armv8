@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    LORegion Start Address (EL1) (lorsa_el1)
  * Group:       Virtual memory control registers
  * Type:        64-bit Register
- * Description: Indicates whether the current LORegion descriptor selected by 
+ * Description: Indicates whether the current LORegion descriptor selected by
  * File:        AArch64-lorsa_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the LORegion Start Address (EL1) value in memory
 pub struct LorsaEl1(u64);
 
 /// struct implementation for accessing the fields of register lorsa_el1
 impl LorsaEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> LorsaEl1 {
@@ -79,16 +74,13 @@ impl LorsaEl1 {
         LorsaEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  LorsaEl1 {
+    pub fn with_reg_val() -> LorsaEl1 {
         let curval = Self::reg_rawrd() & 0xfffffffff0001;
         LorsaEl1(curval)
     }
 
-
-    
     /// reading the LORegion Start Address (EL1) (lorsa_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl LorsaEl1 {
         return regval;
     }
 
-
     /// writing the LORegion Start Address (EL1) (lorsa_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl LorsaEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl LorsaEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl LorsaEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: sa
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sa_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl LorsaEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn valid_extract(&self) -> u64 {
         // bits 0..0
@@ -197,7 +179,6 @@ impl LorsaEl1 {
     pub fn valid_write(val: u64) {
         Self::with_reg_val().valid_insert(val).write();
     }
-
 }
 
 impl Default for LorsaEl1 {

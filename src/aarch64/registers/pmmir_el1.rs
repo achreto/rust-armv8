@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmmir_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Performance Monitors Machine Identification Register value in memory
 pub struct PmmirEl1(u64);
 
 /// struct implementation for accessing the fields of register pmmir_el1
 impl PmmirEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmmirEl1 {
@@ -79,16 +74,13 @@ impl PmmirEl1 {
         PmmirEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmmirEl1 {
+    pub fn with_reg_val() -> PmmirEl1 {
         let curval = Self::reg_rawrd() & 0xfffff;
         PmmirEl1(curval)
     }
 
-
-    
     /// reading the Performance Monitors Machine Identification Register (pmmir_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl PmmirEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl PmmirEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: bus_width_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bus_width_1_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl PmmirEl1 {
     pub fn bus_width_1_read() -> u64 {
         Self::with_reg_val().bus_width_1_extract()
     }
-// no insert() method for field bus_width_1
+    // no insert() method for field bus_width_1
     /*
      * Field: bus_slots_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bus_slots_1_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl PmmirEl1 {
     pub fn bus_slots_1_read() -> u64 {
         Self::with_reg_val().bus_slots_1_extract()
     }
-// no insert() method for field bus_slots_1
+    // no insert() method for field bus_slots_1
     /*
      * Field: slots
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn slots_extract(&self) -> u64 {
@@ -175,7 +160,7 @@ impl PmmirEl1 {
     pub fn slots_read() -> u64 {
         Self::with_reg_val().slots_extract()
     }
-// no insert() method for field slots
+    // no insert() method for field slots
 }
 
 impl Default for PmmirEl1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-uao.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the User Access Override value in memory
 pub struct Uao(u64);
 
 /// struct implementation for accessing the fields of register uao
 impl Uao {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Uao {
@@ -79,16 +74,13 @@ impl Uao {
         Uao(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Uao {
+    pub fn with_reg_val() -> Uao {
         let curval = Self::reg_rawrd() & 0x800000;
         Uao(curval)
     }
 
-
-    
     /// reading the User Access Override (uao) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Uao {
         return regval;
     }
 
-
     /// writing the User Access Override (uao) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Uao {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Uao {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Uao {
         self.0
     }
 
-
-    
     /*
      * Field: uao
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn uao_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl Uao {
     pub fn uao_write(val: u64) {
         Self::with_reg_val().uao_insert(val).write();
     }
-
 }
 
 impl Default for Uao {

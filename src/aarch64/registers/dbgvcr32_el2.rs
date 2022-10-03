@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Debug Vector Catch Register (dbgvcr32_el2)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Allows access to the AArch32 register 
+ * Description: Allows access to the AArch32 register
  * File:        AArch64-dbgvcr32_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Vector Catch Register value in memory
 pub struct Dbgvcr32El2(u64);
 
 /// struct implementation for accessing the fields of register dbgvcr32_el2
 impl Dbgvcr32El2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Dbgvcr32El2 {
@@ -79,16 +74,13 @@ impl Dbgvcr32El2 {
         Dbgvcr32El2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Dbgvcr32El2 {
+    pub fn with_reg_val() -> Dbgvcr32El2 {
         let curval = Self::reg_rawrd() & 0xde0000de;
         Dbgvcr32El2(curval)
     }
 
-
-    
     /// reading the Debug Vector Catch Register (dbgvcr32_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Dbgvcr32El2 {
         return regval;
     }
 
-
     /// writing the Debug Vector Catch Register (dbgvcr32_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Dbgvcr32El2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Dbgvcr32El2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Dbgvcr32El2 {
         self.0
     }
 
-
-    
     /*
      * Field: nsf
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsf_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nsi_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl Dbgvcr32El2 {
      * Field: nsd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsd_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nsp_extract(&self) -> u64 {
         // bits 27..27
@@ -260,7 +240,6 @@ impl Dbgvcr32El2 {
      * Field: nss
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nss_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nsu_extract(&self) -> u64 {
         // bits 25..25
@@ -318,7 +296,6 @@ impl Dbgvcr32El2 {
      * Field: sf
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sf_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn si_extract(&self) -> u64 {
         // bits 6..6
@@ -376,7 +352,6 @@ impl Dbgvcr32El2 {
      * Field: sd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sd_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sp_extract(&self) -> u64 {
         // bits 3..3
@@ -434,7 +408,6 @@ impl Dbgvcr32El2 {
      * Field: ss
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ss_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl Dbgvcr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn su_extract(&self) -> u64 {
         // bits 1..1
@@ -487,7 +459,6 @@ impl Dbgvcr32El2 {
     pub fn su_write(val: u64) {
         Self::with_reg_val().su_insert(val).write();
     }
-
 }
 
 impl Default for Dbgvcr32El2 {

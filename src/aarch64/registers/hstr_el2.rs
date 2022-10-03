@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Hypervisor System Trap Register (hstr_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Controls trapping to EL2 of EL1 or lower AArch32 accesses to the System register in the coproc == 
+ * Description: Controls trapping to EL2 of EL1 or lower AArch32 accesses to the System register in the coproc ==
  * File:        AArch64-hstr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor System Trap Register value in memory
 pub struct HstrEl2(u64);
 
 /// struct implementation for accessing the fields of register hstr_el2
 impl HstrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HstrEl2 {
@@ -79,16 +74,13 @@ impl HstrEl2 {
         HstrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HstrEl2 {
+    pub fn with_reg_val() -> HstrEl2 {
         let curval = Self::reg_rawrd() & 0xbfef;
         HstrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor System Trap Register (hstr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HstrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor System Trap Register (hstr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HstrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HstrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HstrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: tn
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tn_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t15_15_15_extract(&self) -> u64 {
         // bits 15..15
@@ -202,7 +184,6 @@ impl HstrEl2 {
      * Field: t13_13_13
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t13_13_13_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t12_12_12_extract(&self) -> u64 {
         // bits 12..12
@@ -260,7 +240,6 @@ impl HstrEl2 {
      * Field: t11_11_11
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t11_11_11_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t10_10_10_extract(&self) -> u64 {
         // bits 10..10
@@ -318,7 +296,6 @@ impl HstrEl2 {
      * Field: t9_9_9
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t9_9_9_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t8_8_8_extract(&self) -> u64 {
         // bits 8..8
@@ -376,7 +352,6 @@ impl HstrEl2 {
      * Field: t7_7_7
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t7_7_7_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t6_6_6_extract(&self) -> u64 {
         // bits 6..6
@@ -434,7 +408,6 @@ impl HstrEl2 {
      * Field: t5_5_5
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t5_5_5_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t3_3_3_extract(&self) -> u64 {
         // bits 3..3
@@ -492,7 +464,6 @@ impl HstrEl2 {
      * Field: t2_2_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t2_2_2_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t1_1_1_extract(&self) -> u64 {
         // bits 1..1
@@ -551,7 +521,6 @@ impl HstrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t0_0_0_extract(&self) -> u64 {
         // bits 0..0
@@ -574,7 +543,6 @@ impl HstrEl2 {
     pub fn t0_0_0_write(val: u64) {
         Self::with_reg_val().t0_0_0_insert(val).write();
     }
-
 }
 
 impl Default for HstrEl2 {

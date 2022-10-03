@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ccsidr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Current Cache Size ID Register value in memory
 pub struct CcsidrEl1(u64);
 
 /// struct implementation for accessing the fields of register ccsidr_el1
 impl CcsidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CcsidrEl1 {
@@ -79,16 +74,13 @@ impl CcsidrEl1 {
         CcsidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CcsidrEl1 {
+    pub fn with_reg_val() -> CcsidrEl1 {
         let curval = Self::reg_rawrd() & 0xffffff00ffffff;
         CcsidrEl1(curval)
     }
 
-
-    
     /// reading the Current Cache Size ID Register (ccsidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl CcsidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl CcsidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: numsets
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn numsets_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl CcsidrEl1 {
     pub fn numsets_read() -> u64 {
         Self::with_reg_val().numsets_extract()
     }
-// no insert() method for field numsets
+    // no insert() method for field numsets
     /*
      * Field: associativity
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn associativity_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl CcsidrEl1 {
     pub fn associativity_read() -> u64 {
         Self::with_reg_val().associativity_extract()
     }
-// no insert() method for field associativity
+    // no insert() method for field associativity
     /*
      * Field: linesize
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn linesize_extract(&self) -> u64 {
@@ -175,7 +160,7 @@ impl CcsidrEl1 {
     pub fn linesize_read() -> u64 {
         Self::with_reg_val().linesize_extract()
     }
-// no insert() method for field linesize
+    // no insert() method for field linesize
 }
 
 impl Default for CcsidrEl1 {

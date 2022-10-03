@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 0 value in memory
 pub struct IdIsar0El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar0_el1
 impl IdIsar0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar0El1 {
@@ -79,16 +74,13 @@ impl IdIsar0El1 {
         IdIsar0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar0El1 {
+    pub fn with_reg_val() -> IdIsar0El1 {
         let curval = Self::reg_rawrd() & 0xfffffff;
         IdIsar0El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 0 (id_isar0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: divide
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn divide_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar0El1 {
     pub fn divide_read() -> u64 {
         Self::with_reg_val().divide_extract()
     }
-// no insert() method for field divide
+    // no insert() method for field divide
     /*
      * Field: debug
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn debug_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar0El1 {
     pub fn debug_read() -> u64 {
         Self::with_reg_val().debug_extract()
     }
-// no insert() method for field debug
+    // no insert() method for field debug
     /*
      * Field: coproc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn coproc_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar0El1 {
     pub fn coproc_read() -> u64 {
         Self::with_reg_val().coproc_extract()
     }
-// no insert() method for field coproc
+    // no insert() method for field coproc
     /*
      * Field: cmpbranch
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cmpbranch_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar0El1 {
     pub fn cmpbranch_read() -> u64 {
         Self::with_reg_val().cmpbranch_extract()
     }
-// no insert() method for field cmpbranch
+    // no insert() method for field cmpbranch
     /*
      * Field: bitfield
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bitfield_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar0El1 {
     pub fn bitfield_read() -> u64 {
         Self::with_reg_val().bitfield_extract()
     }
-// no insert() method for field bitfield
+    // no insert() method for field bitfield
     /*
      * Field: bitcount
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bitcount_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar0El1 {
     pub fn bitcount_read() -> u64 {
         Self::with_reg_val().bitcount_extract()
     }
-// no insert() method for field bitcount
+    // no insert() method for field bitcount
     /*
      * Field: swap
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn swap_extract(&self) -> u64 {
@@ -243,7 +224,7 @@ impl IdIsar0El1 {
     pub fn swap_read() -> u64 {
         Self::with_reg_val().swap_extract()
     }
-// no insert() method for field swap
+    // no insert() method for field swap
 }
 
 impl Default for IdIsar0El1 {

@@ -24,7 +24,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
@@ -38,14 +37,11 @@
  *************************************************************************************************/
 use core::arch::asm;
 
-
 /*
  * ================================================================================================
  * Clean of Data and Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Clean of Data and Allocation Tags by Set/Way
 #[inline(always)]
@@ -55,14 +51,11 @@ pub fn dc_cgdsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Data and Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Clean of Data and Allocation Tags by VA to PoC
 #[inline(always)]
@@ -72,14 +65,11 @@ pub fn dc_cgdvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Data and Allocation Tags by VA to PoDP
  * ================================================================================================
  */
-
-
 
 /// Clean of Data and Allocation Tags by VA to PoDP
 #[inline(always)]
@@ -89,14 +79,11 @@ pub fn dc_cgdvadp(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Data and Allocation Tags by VA to PoP
  * ================================================================================================
  */
-
-
 
 /// Clean of Data and Allocation Tags by VA to PoP
 #[inline(always)]
@@ -106,14 +93,11 @@ pub fn dc_cgdvap(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Clean of Allocation Tags by Set/Way
 #[inline(always)]
@@ -123,14 +107,11 @@ pub fn dc_cgsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Clean of Allocation Tags by VA to PoC
 #[inline(always)]
@@ -140,14 +121,11 @@ pub fn dc_cgvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Allocation Tags by VA to PoDP
  * ================================================================================================
  */
-
-
 
 /// Clean of Allocation Tags by VA to PoDP
 #[inline(always)]
@@ -157,14 +135,11 @@ pub fn dc_cgvadp(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean of Allocation Tags by VA to PoP
  * ================================================================================================
  */
-
-
 
 /// Clean of Allocation Tags by VA to PoP
 #[inline(always)]
@@ -174,14 +149,11 @@ pub fn dc_cgvap(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean and Invalidate of Data and Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Clean and Invalidate of Data and Allocation Tags by Set/Way
 #[inline(always)]
@@ -191,14 +163,11 @@ pub fn dc_cigdsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean and Invalidate of Data and Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Clean and Invalidate of Data and Allocation Tags by VA to PoC
 #[inline(always)]
@@ -208,14 +177,11 @@ pub fn dc_cigdvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean and Invalidate of Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Clean and Invalidate of Allocation Tags by Set/Way
 #[inline(always)]
@@ -225,14 +191,11 @@ pub fn dc_cigsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Clean and Invalidate of Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Clean and Invalidate of Allocation Tags by VA to PoC
 #[inline(always)]
@@ -242,14 +205,11 @@ pub fn dc_cigvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean and Invalidate by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean and Invalidate by Set/Way
 #[inline(always)]
@@ -259,14 +219,11 @@ pub fn dc_cisw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean and Invalidate by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean and Invalidate by VA to PoC
 #[inline(always)]
@@ -276,14 +233,11 @@ pub fn dc_civac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean by Set/Way
 #[inline(always)]
@@ -293,14 +247,11 @@ pub fn dc_csw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean by VA to PoC
 #[inline(always)]
@@ -310,14 +261,11 @@ pub fn dc_cvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean by VA to PoDP
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean by VA to PoDP
 #[inline(always)]
@@ -327,14 +275,11 @@ pub fn dc_cvadp(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean by VA to PoP
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean by VA to PoP
 #[inline(always)]
@@ -344,14 +289,11 @@ pub fn dc_cvap(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Clean by VA to PoU
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Clean by VA to PoU
 #[inline(always)]
@@ -361,14 +303,11 @@ pub fn dc_cvau(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data Cache set Allocation Tag by VA
  * ================================================================================================
  */
-
-
 
 /// Data Cache set Allocation Tag by VA
 #[inline(always)]
@@ -378,14 +317,11 @@ pub fn dc_gva(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data Cache set Allocation Tags and Zero by VA
  * ================================================================================================
  */
-
-
 
 /// Data Cache set Allocation Tags and Zero by VA
 #[inline(always)]
@@ -395,14 +331,11 @@ pub fn dc_gzva(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Invalidate of Data and Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Invalidate of Data and Allocation Tags by Set/Way
 #[inline(always)]
@@ -412,14 +345,11 @@ pub fn dc_igdsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Invalidate of Data and Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Invalidate of Data and Allocation Tags by VA to PoC
 #[inline(always)]
@@ -429,14 +359,11 @@ pub fn dc_igdvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Invalidate of Allocation Tags by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Invalidate of Allocation Tags by Set/Way
 #[inline(always)]
@@ -446,14 +373,11 @@ pub fn dc_igsw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Invalidate of Allocation Tags by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Invalidate of Allocation Tags by VA to PoC
 #[inline(always)]
@@ -463,14 +387,11 @@ pub fn dc_igvac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Invalidate by Set/Way
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Invalidate by Set/Way
 #[inline(always)]
@@ -480,14 +401,11 @@ pub fn dc_isw(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data or unified Cache line Invalidate by VA to PoC
  * ================================================================================================
  */
-
-
 
 /// Data or unified Cache line Invalidate by VA to PoC
 #[inline(always)]
@@ -497,14 +415,11 @@ pub fn dc_ivac(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data Cache Zero by VA
  * ================================================================================================
  */
-
-
 
 /// Data Cache Zero by VA
 #[inline(always)]
@@ -514,14 +429,11 @@ pub fn dc_zva(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Instruction Cache Invalidate All to PoU
  * ================================================================================================
  */
-
-
 
 /// Instruction Cache Invalidate All to PoU
 #[inline(always)]
@@ -531,14 +443,11 @@ pub fn ic_iallu() {
     }
 }
 
-
 /*
  * ================================================================================================
  * Instruction Cache Invalidate All to PoU, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// Instruction Cache Invalidate All to PoU, Inner Shareable
 #[inline(always)]
@@ -548,14 +457,11 @@ pub fn ic_ialluis() {
     }
 }
 
-
 /*
  * ================================================================================================
  * Instruction Cache line Invalidate by VA to PoU
  * ================================================================================================
  */
-
-
 
 /// Instruction Cache line Invalidate by VA to PoU
 #[inline(always)]

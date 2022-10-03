@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmsirr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Sampling Interval Reload Register value in memory
 pub struct PmsirrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmsirr_el1
 impl PmsirrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmsirrEl1 {
@@ -79,16 +74,13 @@ impl PmsirrEl1 {
         PmsirrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmsirrEl1 {
+    pub fn with_reg_val() -> PmsirrEl1 {
         let curval = Self::reg_rawrd() & 0xffffff01;
         PmsirrEl1(curval)
     }
 
-
-    
     /// reading the Sampling Interval Reload Register (pmsirr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmsirrEl1 {
         return regval;
     }
 
-
     /// writing the Sampling Interval Reload Register (pmsirr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmsirrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmsirrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmsirrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: interval
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn interval_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmsirrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn rnd_extract(&self) -> u64 {
         // bits 0..0
@@ -197,7 +179,6 @@ impl PmsirrEl1 {
     pub fn rnd_write(val: u64) {
         Self::with_reg_val().rnd_insert(val).write();
     }
-
 }
 
 impl Default for PmsirrEl1 {

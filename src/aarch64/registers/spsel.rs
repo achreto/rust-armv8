@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-spsel.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Stack Pointer Select value in memory
 pub struct Spsel(u64);
 
 /// struct implementation for accessing the fields of register spsel
 impl Spsel {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Spsel {
@@ -79,16 +74,13 @@ impl Spsel {
         Spsel(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Spsel {
+    pub fn with_reg_val() -> Spsel {
         let curval = Self::reg_rawrd() & 0x1;
         Spsel(curval)
     }
 
-
-    
     /// reading the Stack Pointer Select (spsel) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Spsel {
         return regval;
     }
 
-
     /// writing the Stack Pointer Select (spsel) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Spsel {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Spsel {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Spsel {
         self.0
     }
 
-
-    
     /*
      * Field: sp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sp_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl Spsel {
     pub fn sp_write(val: u64) {
         Self::with_reg_val().sp_insert(val).write();
     }
-
 }
 
 impl Default for Spsel {

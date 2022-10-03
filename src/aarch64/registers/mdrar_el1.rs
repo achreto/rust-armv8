@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mdrar_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Monitor Debug ROM Address Register value in memory
 pub struct MdrarEl1(u64);
 
 /// struct implementation for accessing the fields of register mdrar_el1
 impl MdrarEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdrarEl1 {
@@ -79,16 +74,13 @@ impl MdrarEl1 {
         MdrarEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MdrarEl1 {
+    pub fn with_reg_val() -> MdrarEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffff003;
         MdrarEl1(curval)
     }
 
-
-    
     /// reading the Monitor Debug ROM Address Register (mdrar_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl MdrarEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl MdrarEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: romaddr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn romaddr_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl MdrarEl1 {
     pub fn romaddr_read() -> u64 {
         Self::with_reg_val().romaddr_extract()
     }
-// no insert() method for field romaddr
+    // no insert() method for field romaddr
     /*
      * Field: valid
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn valid_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl MdrarEl1 {
     pub fn valid_read() -> u64 {
         Self::with_reg_val().valid_extract()
     }
-// no insert() method for field valid
+    // no insert() method for field valid
 }
 
 impl Default for MdrarEl1 {

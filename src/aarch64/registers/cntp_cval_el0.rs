@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cntp_cval_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Physical Timer CompareValue register value in memory
 pub struct CntpCvalEl0(u64);
 
 /// struct implementation for accessing the fields of register cntp_cval_el0
 impl CntpCvalEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntpCvalEl0 {
@@ -79,16 +74,13 @@ impl CntpCvalEl0 {
         CntpCvalEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntpCvalEl0 {
+    pub fn with_reg_val() -> CntpCvalEl0 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         CntpCvalEl0(curval)
     }
 
-
-    
     /// reading the Counter-timer Physical Timer CompareValue register (cntp_cval_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CntpCvalEl0 {
         return regval;
     }
 
-
     /// writing the Counter-timer Physical Timer CompareValue register (cntp_cval_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CntpCvalEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CntpCvalEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CntpCvalEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: comparevalue
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn comparevalue_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl CntpCvalEl0 {
     pub fn comparevalue_write(val: u64) {
         Self::with_reg_val().comparevalue_insert(val).write();
     }
-
 }
 
 impl Default for CntpCvalEl0 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar5_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 5 value in memory
 pub struct IdIsar5El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar5_el1
 impl IdIsar5El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar5El1 {
@@ -79,16 +74,13 @@ impl IdIsar5El1 {
         IdIsar5El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar5El1 {
+    pub fn with_reg_val() -> IdIsar5El1 {
         let curval = Self::reg_rawrd() & 0xff0fffff;
         IdIsar5El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 5 (id_isar5_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar5El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar5El1 {
         self.0
     }
 
-
-    
     /*
      * Field: vcma
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vcma_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar5El1 {
     pub fn vcma_read() -> u64 {
         Self::with_reg_val().vcma_extract()
     }
-// no insert() method for field vcma
+    // no insert() method for field vcma
     /*
      * Field: rdm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rdm_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar5El1 {
     pub fn rdm_read() -> u64 {
         Self::with_reg_val().rdm_extract()
     }
-// no insert() method for field rdm
+    // no insert() method for field rdm
     /*
      * Field: crc32
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn crc32_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar5El1 {
     pub fn crc32_read() -> u64 {
         Self::with_reg_val().crc32_extract()
     }
-// no insert() method for field crc32
+    // no insert() method for field crc32
     /*
      * Field: sha2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sha2_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar5El1 {
     pub fn sha2_read() -> u64 {
         Self::with_reg_val().sha2_extract()
     }
-// no insert() method for field sha2
+    // no insert() method for field sha2
     /*
      * Field: sha1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sha1_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar5El1 {
     pub fn sha1_read() -> u64 {
         Self::with_reg_val().sha1_extract()
     }
-// no insert() method for field sha1
+    // no insert() method for field sha1
     /*
      * Field: aes
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aes_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar5El1 {
     pub fn aes_read() -> u64 {
         Self::with_reg_val().aes_extract()
     }
-// no insert() method for field aes
+    // no insert() method for field aes
     /*
      * Field: sevl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sevl_extract(&self) -> u64 {
@@ -243,7 +224,7 @@ impl IdIsar5El1 {
     pub fn sevl_read() -> u64 {
         Self::with_reg_val().sevl_extract()
     }
-// no insert() method for field sevl
+    // no insert() method for field sevl
 }
 
 impl Default for IdIsar5El1 {

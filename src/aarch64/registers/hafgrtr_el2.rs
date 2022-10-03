@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Hypervisor Activity Monitors Fine-Grained Read Trap Register (hafgrtr_el2)
  * Group:       A group mapping that does not have a known primary
  * Type:        64-bit Register
- * Description: Provides controls for traps of 
+ * Description: Provides controls for traps of
  * File:        AArch64-hafgrtr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor Activity Monitors Fine-Grained Read Trap Register value in memory
 pub struct HafgrtrEl2(u64);
 
 /// struct implementation for accessing the fields of register hafgrtr_el2
 impl HafgrtrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HafgrtrEl2 {
@@ -79,16 +74,13 @@ impl HafgrtrEl2 {
         HafgrtrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HafgrtrEl2 {
+    pub fn with_reg_val() -> HafgrtrEl2 {
         let curval = Self::reg_rawrd() & 0x3fffffffe001f;
         HafgrtrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor Activity Monitors Fine-Grained Read Trap Register (hafgrtr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HafgrtrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor Activity Monitors Fine-Grained Read Trap Register (hafgrtr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HafgrtrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HafgrtrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HafgrtrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: amevtyper1x_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper1x_el0_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HafgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amevtyper115_el0_49_49_extract(&self) -> u64 {
         // bits 49..49
@@ -195,14 +177,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper115_el0_49_49` field, and writes the updated value
     pub fn amevtyper115_el0_49_49_write(val: u64) {
-        Self::with_reg_val().amevtyper115_el0_49_49_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper115_el0_49_49_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr1x_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr1x_el0_extract(&self) -> u64 {
@@ -232,7 +215,6 @@ impl HafgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amevcntr115_el0_48_48_extract(&self) -> u64 {
         // bits 48..48
@@ -253,14 +235,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr115_el0_48_48` field, and writes the updated value
     pub fn amevcntr115_el0_48_48_write(val: u64) {
-        Self::with_reg_val().amevcntr115_el0_48_48_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr115_el0_48_48_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper114_el0_47_47
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper114_el0_47_47_extract(&self) -> u64 {
@@ -282,14 +265,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper114_el0_47_47` field, and writes the updated value
     pub fn amevtyper114_el0_47_47_write(val: u64) {
-        Self::with_reg_val().amevtyper114_el0_47_47_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper114_el0_47_47_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr114_el0_46_46
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr114_el0_46_46_extract(&self) -> u64 {
@@ -311,14 +295,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr114_el0_46_46` field, and writes the updated value
     pub fn amevcntr114_el0_46_46_write(val: u64) {
-        Self::with_reg_val().amevcntr114_el0_46_46_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr114_el0_46_46_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper113_el0_45_45
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper113_el0_45_45_extract(&self) -> u64 {
@@ -340,14 +325,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper113_el0_45_45` field, and writes the updated value
     pub fn amevtyper113_el0_45_45_write(val: u64) {
-        Self::with_reg_val().amevtyper113_el0_45_45_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper113_el0_45_45_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr113_el0_44_44
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr113_el0_44_44_extract(&self) -> u64 {
@@ -369,14 +355,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr113_el0_44_44` field, and writes the updated value
     pub fn amevcntr113_el0_44_44_write(val: u64) {
-        Self::with_reg_val().amevcntr113_el0_44_44_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr113_el0_44_44_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper112_el0_43_43
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper112_el0_43_43_extract(&self) -> u64 {
@@ -398,14 +385,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper112_el0_43_43` field, and writes the updated value
     pub fn amevtyper112_el0_43_43_write(val: u64) {
-        Self::with_reg_val().amevtyper112_el0_43_43_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper112_el0_43_43_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr112_el0_42_42
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr112_el0_42_42_extract(&self) -> u64 {
@@ -427,14 +415,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr112_el0_42_42` field, and writes the updated value
     pub fn amevcntr112_el0_42_42_write(val: u64) {
-        Self::with_reg_val().amevcntr112_el0_42_42_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr112_el0_42_42_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper111_el0_41_41
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper111_el0_41_41_extract(&self) -> u64 {
@@ -456,14 +445,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper111_el0_41_41` field, and writes the updated value
     pub fn amevtyper111_el0_41_41_write(val: u64) {
-        Self::with_reg_val().amevtyper111_el0_41_41_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper111_el0_41_41_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr111_el0_40_40
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr111_el0_40_40_extract(&self) -> u64 {
@@ -485,14 +475,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr111_el0_40_40` field, and writes the updated value
     pub fn amevcntr111_el0_40_40_write(val: u64) {
-        Self::with_reg_val().amevcntr111_el0_40_40_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr111_el0_40_40_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper110_el0_39_39
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper110_el0_39_39_extract(&self) -> u64 {
@@ -514,14 +505,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper110_el0_39_39` field, and writes the updated value
     pub fn amevtyper110_el0_39_39_write(val: u64) {
-        Self::with_reg_val().amevtyper110_el0_39_39_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper110_el0_39_39_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr110_el0_38_38
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr110_el0_38_38_extract(&self) -> u64 {
@@ -543,14 +535,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr110_el0_38_38` field, and writes the updated value
     pub fn amevcntr110_el0_38_38_write(val: u64) {
-        Self::with_reg_val().amevcntr110_el0_38_38_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr110_el0_38_38_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper19_el0_37_37
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper19_el0_37_37_extract(&self) -> u64 {
@@ -572,14 +565,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper19_el0_37_37` field, and writes the updated value
     pub fn amevtyper19_el0_37_37_write(val: u64) {
-        Self::with_reg_val().amevtyper19_el0_37_37_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper19_el0_37_37_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr19_el0_36_36
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr19_el0_36_36_extract(&self) -> u64 {
@@ -601,14 +595,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr19_el0_36_36` field, and writes the updated value
     pub fn amevcntr19_el0_36_36_write(val: u64) {
-        Self::with_reg_val().amevcntr19_el0_36_36_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr19_el0_36_36_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper18_el0_35_35
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper18_el0_35_35_extract(&self) -> u64 {
@@ -630,14 +625,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper18_el0_35_35` field, and writes the updated value
     pub fn amevtyper18_el0_35_35_write(val: u64) {
-        Self::with_reg_val().amevtyper18_el0_35_35_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper18_el0_35_35_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr18_el0_34_34
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr18_el0_34_34_extract(&self) -> u64 {
@@ -659,14 +655,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr18_el0_34_34` field, and writes the updated value
     pub fn amevcntr18_el0_34_34_write(val: u64) {
-        Self::with_reg_val().amevcntr18_el0_34_34_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr18_el0_34_34_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper17_el0_33_33
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper17_el0_33_33_extract(&self) -> u64 {
@@ -688,14 +685,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper17_el0_33_33` field, and writes the updated value
     pub fn amevtyper17_el0_33_33_write(val: u64) {
-        Self::with_reg_val().amevtyper17_el0_33_33_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper17_el0_33_33_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr17_el0_32_32
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr17_el0_32_32_extract(&self) -> u64 {
@@ -717,14 +715,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr17_el0_32_32` field, and writes the updated value
     pub fn amevcntr17_el0_32_32_write(val: u64) {
-        Self::with_reg_val().amevcntr17_el0_32_32_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr17_el0_32_32_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper16_el0_31_31
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper16_el0_31_31_extract(&self) -> u64 {
@@ -746,14 +745,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper16_el0_31_31` field, and writes the updated value
     pub fn amevtyper16_el0_31_31_write(val: u64) {
-        Self::with_reg_val().amevtyper16_el0_31_31_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper16_el0_31_31_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr16_el0_30_30
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr16_el0_30_30_extract(&self) -> u64 {
@@ -775,14 +775,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr16_el0_30_30` field, and writes the updated value
     pub fn amevcntr16_el0_30_30_write(val: u64) {
-        Self::with_reg_val().amevcntr16_el0_30_30_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr16_el0_30_30_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper15_el0_29_29
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper15_el0_29_29_extract(&self) -> u64 {
@@ -804,14 +805,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper15_el0_29_29` field, and writes the updated value
     pub fn amevtyper15_el0_29_29_write(val: u64) {
-        Self::with_reg_val().amevtyper15_el0_29_29_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper15_el0_29_29_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr15_el0_28_28
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr15_el0_28_28_extract(&self) -> u64 {
@@ -833,14 +835,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr15_el0_28_28` field, and writes the updated value
     pub fn amevcntr15_el0_28_28_write(val: u64) {
-        Self::with_reg_val().amevcntr15_el0_28_28_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr15_el0_28_28_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper14_el0_27_27
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper14_el0_27_27_extract(&self) -> u64 {
@@ -862,14 +865,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper14_el0_27_27` field, and writes the updated value
     pub fn amevtyper14_el0_27_27_write(val: u64) {
-        Self::with_reg_val().amevtyper14_el0_27_27_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper14_el0_27_27_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr14_el0_26_26
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr14_el0_26_26_extract(&self) -> u64 {
@@ -891,14 +895,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr14_el0_26_26` field, and writes the updated value
     pub fn amevcntr14_el0_26_26_write(val: u64) {
-        Self::with_reg_val().amevcntr14_el0_26_26_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr14_el0_26_26_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper13_el0_25_25
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper13_el0_25_25_extract(&self) -> u64 {
@@ -920,14 +925,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper13_el0_25_25` field, and writes the updated value
     pub fn amevtyper13_el0_25_25_write(val: u64) {
-        Self::with_reg_val().amevtyper13_el0_25_25_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper13_el0_25_25_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr13_el0_24_24
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr13_el0_24_24_extract(&self) -> u64 {
@@ -949,14 +955,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr13_el0_24_24` field, and writes the updated value
     pub fn amevcntr13_el0_24_24_write(val: u64) {
-        Self::with_reg_val().amevcntr13_el0_24_24_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr13_el0_24_24_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper12_el0_23_23
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper12_el0_23_23_extract(&self) -> u64 {
@@ -978,14 +985,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper12_el0_23_23` field, and writes the updated value
     pub fn amevtyper12_el0_23_23_write(val: u64) {
-        Self::with_reg_val().amevtyper12_el0_23_23_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper12_el0_23_23_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr12_el0_22_22
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr12_el0_22_22_extract(&self) -> u64 {
@@ -1007,14 +1015,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr12_el0_22_22` field, and writes the updated value
     pub fn amevcntr12_el0_22_22_write(val: u64) {
-        Self::with_reg_val().amevcntr12_el0_22_22_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr12_el0_22_22_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper11_el0_21_21
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper11_el0_21_21_extract(&self) -> u64 {
@@ -1036,14 +1045,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper11_el0_21_21` field, and writes the updated value
     pub fn amevtyper11_el0_21_21_write(val: u64) {
-        Self::with_reg_val().amevtyper11_el0_21_21_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper11_el0_21_21_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr11_el0_20_20
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr11_el0_20_20_extract(&self) -> u64 {
@@ -1065,14 +1075,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr11_el0_20_20` field, and writes the updated value
     pub fn amevcntr11_el0_20_20_write(val: u64) {
-        Self::with_reg_val().amevcntr11_el0_20_20_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr11_el0_20_20_insert(val)
+            .write();
     }
 
     /*
      * Field: amevtyper10_el0_19_19
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevtyper10_el0_19_19_extract(&self) -> u64 {
@@ -1094,14 +1105,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevtyper10_el0_19_19` field, and writes the updated value
     pub fn amevtyper10_el0_19_19_write(val: u64) {
-        Self::with_reg_val().amevtyper10_el0_19_19_insert(val).write();
+        Self::with_reg_val()
+            .amevtyper10_el0_19_19_insert(val)
+            .write();
     }
 
     /*
      * Field: amevcntr10_el0_18_18
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr10_el0_18_18_extract(&self) -> u64 {
@@ -1123,14 +1135,15 @@ impl HafgrtrEl2 {
 
     /// reads the register, updates the `amevcntr10_el0_18_18` field, and writes the updated value
     pub fn amevcntr10_el0_18_18_write(val: u64) {
-        Self::with_reg_val().amevcntr10_el0_18_18_insert(val).write();
+        Self::with_reg_val()
+            .amevcntr10_el0_18_18_insert(val)
+            .write();
     }
 
     /*
      * Field: amcntenx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amcntenx_extract(&self) -> u64 {
@@ -1160,7 +1173,6 @@ impl HafgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amcnten1_17_17_extract(&self) -> u64 {
         // bits 17..17
@@ -1188,7 +1200,6 @@ impl HafgrtrEl2 {
      * Field: amevcntr0x_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr0x_el0_extract(&self) -> u64 {
@@ -1218,7 +1229,6 @@ impl HafgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amcnten0_0_0_extract(&self) -> u64 {
         // bits 0..0
@@ -1241,7 +1251,6 @@ impl HafgrtrEl2 {
     pub fn amcnten0_0_0_write(val: u64) {
         Self::with_reg_val().amcnten0_0_0_insert(val).write();
     }
-
 }
 
 impl Default for HafgrtrEl2 {

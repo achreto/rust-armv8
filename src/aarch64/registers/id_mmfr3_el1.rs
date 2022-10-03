@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_mmfr3_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Memory Model Feature Register 3 value in memory
 pub struct IdMmfr3El1(u64);
 
 /// struct implementation for accessing the fields of register id_mmfr3_el1
 impl IdMmfr3El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdMmfr3El1 {
@@ -79,16 +74,13 @@ impl IdMmfr3El1 {
         IdMmfr3El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdMmfr3El1 {
+    pub fn with_reg_val() -> IdMmfr3El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdMmfr3El1(curval)
     }
 
-
-    
     /// reading the AArch32 Memory Model Feature Register 3 (id_mmfr3_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdMmfr3El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdMmfr3El1 {
         self.0
     }
 
-
-    
     /*
      * Field: supersec
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn supersec_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdMmfr3El1 {
     pub fn supersec_read() -> u64 {
         Self::with_reg_val().supersec_extract()
     }
-// no insert() method for field supersec
+    // no insert() method for field supersec
     /*
      * Field: cmemsz
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cmemsz_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdMmfr3El1 {
     pub fn cmemsz_read() -> u64 {
         Self::with_reg_val().cmemsz_extract()
     }
-// no insert() method for field cmemsz
+    // no insert() method for field cmemsz
     /*
      * Field: cohwalk
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cohwalk_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdMmfr3El1 {
     pub fn cohwalk_read() -> u64 {
         Self::with_reg_val().cohwalk_extract()
     }
-// no insert() method for field cohwalk
+    // no insert() method for field cohwalk
     /*
      * Field: pan
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pan_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdMmfr3El1 {
     pub fn pan_read() -> u64 {
         Self::with_reg_val().pan_extract()
     }
-// no insert() method for field pan
+    // no insert() method for field pan
     /*
      * Field: maintbcst
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn maintbcst_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdMmfr3El1 {
     pub fn maintbcst_read() -> u64 {
         Self::with_reg_val().maintbcst_extract()
     }
-// no insert() method for field maintbcst
+    // no insert() method for field maintbcst
     /*
      * Field: bpmaint
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bpmaint_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdMmfr3El1 {
     pub fn bpmaint_read() -> u64 {
         Self::with_reg_val().bpmaint_extract()
     }
-// no insert() method for field bpmaint
+    // no insert() method for field bpmaint
     /*
      * Field: cmaintsw
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cmaintsw_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdMmfr3El1 {
     pub fn cmaintsw_read() -> u64 {
         Self::with_reg_val().cmaintsw_extract()
     }
-// no insert() method for field cmaintsw
+    // no insert() method for field cmaintsw
     /*
      * Field: cmaintva
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cmaintva_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdMmfr3El1 {
     pub fn cmaintva_read() -> u64 {
         Self::with_reg_val().cmaintva_extract()
     }
-// no insert() method for field cmaintva
+    // no insert() method for field cmaintva
 }
 
 impl Default for IdMmfr3El1 {

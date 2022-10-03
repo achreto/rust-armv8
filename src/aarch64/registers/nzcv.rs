@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-nzcv.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Condition Flags value in memory
 pub struct Nzcv(u64);
 
 /// struct implementation for accessing the fields of register nzcv
 impl Nzcv {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Nzcv {
@@ -79,16 +74,13 @@ impl Nzcv {
         Nzcv(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Nzcv {
+    pub fn with_reg_val() -> Nzcv {
         let curval = Self::reg_rawrd() & 0xf0000000;
         Nzcv(curval)
     }
 
-
-    
     /// reading the Condition Flags (nzcv) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Nzcv {
         return regval;
     }
 
-
     /// writing the Condition Flags (nzcv) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Nzcv {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Nzcv {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Nzcv {
         self.0
     }
 
-
-    
     /*
      * Field: n
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Nzcv {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn z_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl Nzcv {
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Nzcv {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn v_extract(&self) -> u64 {
         // bits 28..28
@@ -255,7 +235,6 @@ impl Nzcv {
     pub fn v_write(val: u64) {
         Self::with_reg_val().v_insert(val).write();
     }
-
 }
 
 impl Default for Nzcv {

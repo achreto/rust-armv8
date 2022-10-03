@@ -158,13 +158,14 @@ impl VAddr {
 
 impl From<u64> for VAddr {
     fn from(num: u64) -> Self {
-        VAddr(num & VADDR_MAX)
+        VAddr(num)
     }
 }
 
 impl From<i32> for VAddr {
     fn from(num: i32) -> Self {
-        VAddr(num as u64 & VADDR_MAX)
+        assert!(num >= 0);
+        VAddr(num as u64)
     }
 }
 

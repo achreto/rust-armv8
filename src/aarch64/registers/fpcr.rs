@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-fpcr.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Floating-point Control Register value in memory
 pub struct Fpcr(u64);
 
 /// struct implementation for accessing the fields of register fpcr
 impl Fpcr {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Fpcr {
@@ -79,16 +74,13 @@ impl Fpcr {
         Fpcr(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Fpcr {
+    pub fn with_reg_val() -> Fpcr {
         let curval = Self::reg_rawrd() & 0x7ff9f07;
         Fpcr(curval)
     }
 
-
-    
     /// reading the Floating-point Control Register (fpcr) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Fpcr {
         return regval;
     }
 
-
     /// writing the Floating-point Control Register (fpcr) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Fpcr {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Fpcr {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Fpcr {
         self.0
     }
 
-
-    
     /*
      * Field: ahp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ahp_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dn_extract(&self) -> u64 {
         // bits 25..25
@@ -202,7 +184,6 @@ impl Fpcr {
      * Field: fz
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fz_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn rmode_extract(&self) -> u64 {
         // bits 22..23
@@ -260,7 +240,6 @@ impl Fpcr {
      * Field: stride
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn stride_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fz16_1_extract(&self) -> u64 {
         // bits 19..19
@@ -318,7 +296,6 @@ impl Fpcr {
      * Field: len
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn len_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ide_extract(&self) -> u64 {
         // bits 15..15
@@ -376,7 +352,6 @@ impl Fpcr {
      * Field: ixe
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ixe_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ufe_extract(&self) -> u64 {
         // bits 11..11
@@ -434,7 +408,6 @@ impl Fpcr {
      * Field: ofe
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ofe_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dze_extract(&self) -> u64 {
         // bits 9..9
@@ -492,7 +464,6 @@ impl Fpcr {
      * Field: ioe
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ioe_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nep_1_extract(&self) -> u64 {
         // bits 2..2
@@ -550,7 +520,6 @@ impl Fpcr {
      * Field: ah_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ah_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl Fpcr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fiz_1_extract(&self) -> u64 {
         // bits 0..0
@@ -603,7 +571,6 @@ impl Fpcr {
     pub fn fiz_1_write(val: u64) {
         Self::with_reg_val().fiz_1_insert(val).write();
     }
-
 }
 
 impl Default for Fpcr {

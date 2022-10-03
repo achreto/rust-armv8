@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cnthctl_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Hypervisor Control register value in memory
 pub struct CnthctlEl2(u64);
 
 /// struct implementation for accessing the fields of register cnthctl_el2
 impl CnthctlEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CnthctlEl2 {
@@ -79,16 +74,13 @@ impl CnthctlEl2 {
         CnthctlEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CnthctlEl2 {
+    pub fn with_reg_val() -> CnthctlEl2 {
         let curval = Self::reg_rawrd() & 0x3ffff;
         CnthctlEl2(curval)
     }
 
-
-    
     /// reading the Counter-timer Hypervisor Control register (cnthctl_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CnthctlEl2 {
         return regval;
     }
 
-
     /// writing the Counter-timer Hypervisor Control register (cnthctl_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CnthctlEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CnthctlEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CnthctlEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: evntis_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evntis_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el1nvvct_1_extract(&self) -> u64 {
         // bits 16..16
@@ -202,7 +184,6 @@ impl CnthctlEl2 {
      * Field: el1nvpct_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el1nvpct_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el1tvct_1_extract(&self) -> u64 {
         // bits 14..14
@@ -260,7 +240,6 @@ impl CnthctlEl2 {
      * Field: el1tvt_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el1tvt_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ecv_1_extract(&self) -> u64 {
         // bits 12..12
@@ -318,7 +296,6 @@ impl CnthctlEl2 {
      * Field: el1pten
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el1pten_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el1pcten_extract(&self) -> u64 {
         // bits 10..10
@@ -376,7 +352,6 @@ impl CnthctlEl2 {
      * Field: el0pten
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el0pten_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0vten_extract(&self) -> u64 {
         // bits 8..8
@@ -434,7 +408,6 @@ impl CnthctlEl2 {
      * Field: evnti
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evnti_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn evntdir_extract(&self) -> u64 {
         // bits 3..3
@@ -492,7 +464,6 @@ impl CnthctlEl2 {
      * Field: evnten
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evnten_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0vcten_extract(&self) -> u64 {
         // bits 1..1
@@ -551,7 +521,6 @@ impl CnthctlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0pcten_extract(&self) -> u64 {
         // bits 0..0
@@ -574,7 +543,6 @@ impl CnthctlEl2 {
     pub fn el0pcten_write(val: u64) {
         Self::with_reg_val().el0pcten_insert(val).write();
     }
-
 }
 
 impl Default for CnthctlEl2 {

@@ -24,7 +24,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
@@ -38,14 +37,11 @@
  *************************************************************************************************/
 use core::arch::asm;
 
-
 /*
  * ================================================================================================
  * Control Flow Prediction Restriction by Context
  * ================================================================================================
  */
-
-
 
 /// Control Flow Prediction Restriction by Context
 #[inline(always)]
@@ -55,14 +51,11 @@ pub fn cfp_rctx(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Cache Prefetch Prediction Restriction by Context
  * ================================================================================================
  */
-
-
 
 /// Cache Prefetch Prediction Restriction by Context
 #[inline(always)]
@@ -72,14 +65,11 @@ pub fn cpp_rctx(arg: u64) {
     }
 }
 
-
 /*
  * ================================================================================================
  * Data Value Prediction Restriction by Context
  * ================================================================================================
  */
-
-
 
 /// Data Value Prediction Restriction by Context
 #[inline(always)]

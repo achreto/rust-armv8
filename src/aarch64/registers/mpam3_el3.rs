@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mpam3_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the MPAM3 Register (EL3) value in memory
 pub struct Mpam3El3(u64);
 
 /// struct implementation for accessing the fields of register mpam3_el3
 impl Mpam3El3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mpam3El3 {
@@ -79,16 +74,13 @@ impl Mpam3El3 {
         Mpam3El3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mpam3El3 {
+    pub fn with_reg_val() -> Mpam3El3 {
         let curval = Self::reg_rawrd() & 0xf000ffffffffffff;
         Mpam3El3(curval)
     }
 
-
-    
     /// reading the MPAM3 Register (EL3) (mpam3_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Mpam3El3 {
         return regval;
     }
 
-
     /// writing the MPAM3 Register (EL3) (mpam3_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Mpam3El3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Mpam3El3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Mpam3El3 {
         self.0
     }
 
-
-    
     /*
      * Field: mpamen
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mpamen_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Mpam3El3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn traplower_extract(&self) -> u64 {
         // bits 62..62
@@ -202,7 +184,6 @@ impl Mpam3El3 {
      * Field: sdeflt_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sdeflt_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Mpam3El3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn force_ns_1_extract(&self) -> u64 {
         // bits 60..60
@@ -260,7 +240,6 @@ impl Mpam3El3 {
      * Field: pmg_d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmg_d_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl Mpam3El3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmg_i_extract(&self) -> u64 {
         // bits 32..39
@@ -318,7 +296,6 @@ impl Mpam3El3 {
      * Field: partid_d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn partid_d_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl Mpam3El3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn partid_i_extract(&self) -> u64 {
         // bits 0..15
@@ -371,7 +347,6 @@ impl Mpam3El3 {
     pub fn partid_i_write(val: u64) {
         Self::with_reg_val().partid_i_insert(val).write();
     }
-
 }
 
 impl Default for Mpam3El3 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-lorid_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the LORegionID (EL1) value in memory
 pub struct LoridEl1(u64);
 
 /// struct implementation for accessing the fields of register lorid_el1
 impl LoridEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> LoridEl1 {
@@ -79,16 +74,13 @@ impl LoridEl1 {
         LoridEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  LoridEl1 {
+    pub fn with_reg_val() -> LoridEl1 {
         let curval = Self::reg_rawrd() & 0xff00ff;
         LoridEl1(curval)
     }
 
-
-    
     /// reading the LORegionID (EL1) (lorid_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl LoridEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl LoridEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: ld
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ld_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl LoridEl1 {
     pub fn ld_read() -> u64 {
         Self::with_reg_val().ld_extract()
     }
-// no insert() method for field ld
+    // no insert() method for field ld
     /*
      * Field: lr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lr_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl LoridEl1 {
     pub fn lr_read() -> u64 {
         Self::with_reg_val().lr_extract()
     }
-// no insert() method for field lr
+    // no insert() method for field lr
 }
 
 impl Default for LoridEl1 {

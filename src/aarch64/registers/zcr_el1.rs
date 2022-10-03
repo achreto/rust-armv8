@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-zcr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the SVE Control Register for EL1 value in memory
 pub struct ZcrEl1(u64);
 
 /// struct implementation for accessing the fields of register zcr_el1
 impl ZcrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ZcrEl1 {
@@ -79,16 +74,13 @@ impl ZcrEl1 {
         ZcrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ZcrEl1 {
+    pub fn with_reg_val() -> ZcrEl1 {
         let curval = Self::reg_rawrd() & 0xf;
         ZcrEl1(curval)
     }
 
-
-    
     /// reading the SVE Control Register for EL1 (zcr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl ZcrEl1 {
         return regval;
     }
 
-
     /// writing the SVE Control Register for EL1 (zcr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl ZcrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl ZcrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl ZcrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: len
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn len_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl ZcrEl1 {
     pub fn len_write(val: u64) {
         Self::with_reg_val().len_insert(val).write();
     }
-
 }
 
 impl Default for ZcrEl1 {

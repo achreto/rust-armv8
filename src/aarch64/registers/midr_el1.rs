@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-midr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Main ID Register value in memory
 pub struct MidrEl1(u64);
 
 /// struct implementation for accessing the fields of register midr_el1
 impl MidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MidrEl1 {
@@ -79,16 +74,13 @@ impl MidrEl1 {
         MidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MidrEl1 {
+    pub fn with_reg_val() -> MidrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         MidrEl1(curval)
     }
 
-
-    
     /// reading the Main ID Register (midr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl MidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl MidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: implementer
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementer_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl MidrEl1 {
     pub fn implementer_read() -> u64 {
         Self::with_reg_val().implementer_extract()
     }
-// no insert() method for field implementer
+    // no insert() method for field implementer
     /*
      * Field: variant
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn variant_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl MidrEl1 {
     pub fn variant_read() -> u64 {
         Self::with_reg_val().variant_extract()
     }
-// no insert() method for field variant
+    // no insert() method for field variant
     /*
      * Field: architecture
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn architecture_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl MidrEl1 {
     pub fn architecture_read() -> u64 {
         Self::with_reg_val().architecture_extract()
     }
-// no insert() method for field architecture
+    // no insert() method for field architecture
     /*
      * Field: partnum
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn partnum_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl MidrEl1 {
     pub fn partnum_read() -> u64 {
         Self::with_reg_val().partnum_extract()
     }
-// no insert() method for field partnum
+    // no insert() method for field partnum
     /*
      * Field: revision
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn revision_extract(&self) -> u64 {
@@ -209,7 +192,7 @@ impl MidrEl1 {
     pub fn revision_read() -> u64 {
         Self::with_reg_val().revision_extract()
     }
-// no insert() method for field revision
+    // no insert() method for field revision
 }
 
 impl Default for MidrEl1 {

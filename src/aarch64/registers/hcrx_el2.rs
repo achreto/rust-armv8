@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-hcrx_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Extended Hypervisor Configuration Register value in memory
 pub struct HcrxEl2(u64);
 
 /// struct implementation for accessing the fields of register hcrx_el2
 impl HcrxEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HcrxEl2 {
@@ -79,16 +74,13 @@ impl HcrxEl2 {
         HcrxEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HcrxEl2 {
+    pub fn with_reg_val() -> HcrxEl2 {
         let curval = Self::reg_rawrd() & 0x1f;
         HcrxEl2(curval)
     }
 
-
-    
     /// reading the Extended Hypervisor Configuration Register (hcrx_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HcrxEl2 {
         return regval;
     }
 
-
     /// writing the Extended Hypervisor Configuration Register (hcrx_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HcrxEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HcrxEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HcrxEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: fgtnxs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fgtnxs_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HcrxEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fnxs_1_extract(&self) -> u64 {
         // bits 3..3
@@ -202,7 +184,6 @@ impl HcrxEl2 {
      * Field: enasr_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enasr_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HcrxEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enals_1_extract(&self) -> u64 {
         // bits 1..1
@@ -261,7 +241,6 @@ impl HcrxEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enas0_1_extract(&self) -> u64 {
         // bits 0..0
@@ -284,7 +263,6 @@ impl HcrxEl2 {
     pub fn enas0_1_write(val: u64) {
         Self::with_reg_val().enas0_1_insert(val).write();
     }
-
 }
 
 impl Default for HcrxEl2 {

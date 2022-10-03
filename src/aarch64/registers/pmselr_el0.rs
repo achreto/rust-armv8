@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Performance Monitors Event Counter Selection Register (pmselr_el0)
  * Group:       Performance Monitors registers
  * Type:        64-bit Register
- * Description: Selects the current event counter 
+ * Description: Selects the current event counter
  * File:        AArch64-pmselr_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Performance Monitors Event Counter Selection Register value in memory
 pub struct PmselrEl0(u64);
 
 /// struct implementation for accessing the fields of register pmselr_el0
 impl PmselrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmselrEl0 {
@@ -79,16 +74,13 @@ impl PmselrEl0 {
         PmselrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmselrEl0 {
+    pub fn with_reg_val() -> PmselrEl0 {
         let curval = Self::reg_rawrd() & 0x1f;
         PmselrEl0(curval)
     }
 
-
-    
     /// reading the Performance Monitors Event Counter Selection Register (pmselr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmselrEl0 {
         return regval;
     }
 
-
     /// writing the Performance Monitors Event Counter Selection Register (pmselr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmselrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmselrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmselrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: sel
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sel_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl PmselrEl0 {
     pub fn sel_write(val: u64) {
         Self::with_reg_val().sel_insert(val).write();
     }
-
 }
 
 impl Default for PmselrEl0 {

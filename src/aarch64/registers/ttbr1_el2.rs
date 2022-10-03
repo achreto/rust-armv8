@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Translation Table Base Register 1 (EL2) (ttbr1_el2)
  * Group:       Virtual memory control registers
  * Type:        64-bit Register
- * Description: When 
+ * Description: When
  * File:        AArch64-ttbr1_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Translation Table Base Register 1 (EL2) value in memory
 pub struct Ttbr1El2(u64);
 
 /// struct implementation for accessing the fields of register ttbr1_el2
 impl Ttbr1El2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Ttbr1El2 {
@@ -79,16 +74,13 @@ impl Ttbr1El2 {
         Ttbr1El2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Ttbr1El2 {
+    pub fn with_reg_val() -> Ttbr1El2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         Ttbr1El2(curval)
     }
 
-
-    
     /// reading the Translation Table Base Register 1 (EL2) (ttbr1_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Ttbr1El2 {
         return regval;
     }
 
-
     /// writing the Translation Table Base Register 1 (EL2) (ttbr1_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Ttbr1El2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Ttbr1El2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Ttbr1El2 {
         self.0
     }
 
-
-    
     /*
      * Field: asid
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn asid_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Ttbr1El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn baddr471_extract(&self) -> u64 {
         // bits 1..47
@@ -203,7 +185,6 @@ impl Ttbr1El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn cnp_1_extract(&self) -> u64 {
         // bits 0..0
@@ -226,7 +207,6 @@ impl Ttbr1El2 {
     pub fn cnp_1_write(val: u64) {
         Self::with_reg_val().cnp_1_insert(val).write();
     }
-
 }
 
 impl Default for Ttbr1El2 {

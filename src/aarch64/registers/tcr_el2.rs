@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-tcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Translation Control Register (EL2) value in memory
 pub struct TcrEl2(u64);
 
 /// struct implementation for accessing the fields of register tcr_el2
 impl TcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TcrEl2 {
@@ -79,16 +74,13 @@ impl TcrEl2 {
         TcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TcrEl2 {
+    pub fn with_reg_val() -> TcrEl2 {
         let curval = Self::reg_rawrd() & 0xffffff7ffffffbf;
         TcrEl2(curval)
     }
 
-
-    
     /// reading the Translation Control Register (EL2) (tcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TcrEl2 {
         return regval;
     }
 
-
     /// writing the Translation Control Register (EL2) (tcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: ds_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ds_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tcma1_1_extract(&self) -> u64 {
         // bits 58..58
@@ -202,7 +184,6 @@ impl TcrEl2 {
      * Field: tcma0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tcma0_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e0pd1_1_extract(&self) -> u64 {
         // bits 56..56
@@ -260,7 +240,6 @@ impl TcrEl2 {
      * Field: e0pd0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e0pd0_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nfd1_1_extract(&self) -> u64 {
         // bits 54..54
@@ -318,7 +296,6 @@ impl TcrEl2 {
      * Field: nfd0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nfd0_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tbid1_1_extract(&self) -> u64 {
         // bits 52..52
@@ -376,7 +352,6 @@ impl TcrEl2 {
      * Field: tbid0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tbid0_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu162_1_extract(&self) -> u64 {
         // bits 50..50
@@ -434,7 +408,6 @@ impl TcrEl2 {
      * Field: hwu161_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu161_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu160_1_extract(&self) -> u64 {
         // bits 48..48
@@ -492,7 +464,6 @@ impl TcrEl2 {
      * Field: hwu159_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu159_1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu062_1_extract(&self) -> u64 {
         // bits 46..46
@@ -550,7 +520,6 @@ impl TcrEl2 {
      * Field: hwu061_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu061_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu060_1_extract(&self) -> u64 {
         // bits 44..44
@@ -608,7 +576,6 @@ impl TcrEl2 {
      * Field: hwu059_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu059_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpd1_1_extract(&self) -> u64 {
         // bits 42..42
@@ -666,7 +632,6 @@ impl TcrEl2 {
      * Field: hpd0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hpd0_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hd_1_extract(&self) -> u64 {
         // bits 40..40
@@ -724,7 +688,6 @@ impl TcrEl2 {
      * Field: ha_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ha_1_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tbi1_extract(&self) -> u64 {
         // bits 38..38
@@ -782,7 +744,6 @@ impl TcrEl2 {
      * Field: tbi0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tbi0_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn as_extract(&self) -> u64 {
         // bits 36..36
@@ -840,7 +800,6 @@ impl TcrEl2 {
      * Field: ips
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ips_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tg1_extract(&self) -> u64 {
         // bits 30..31
@@ -898,7 +856,6 @@ impl TcrEl2 {
      * Field: sh1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sh1_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn orgn1_extract(&self) -> u64 {
         // bits 26..27
@@ -956,7 +912,6 @@ impl TcrEl2 {
      * Field: irgn1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn irgn1_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn epd1_extract(&self) -> u64 {
         // bits 23..23
@@ -1014,7 +968,6 @@ impl TcrEl2 {
      * Field: a1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn a1_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t1sz_extract(&self) -> u64 {
         // bits 16..21
@@ -1072,7 +1024,6 @@ impl TcrEl2 {
      * Field: tg0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tg0_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sh0_extract(&self) -> u64 {
         // bits 12..13
@@ -1130,7 +1080,6 @@ impl TcrEl2 {
      * Field: orgn0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn orgn0_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn irgn0_extract(&self) -> u64 {
         // bits 8..9
@@ -1188,7 +1136,6 @@ impl TcrEl2 {
      * Field: epd0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn epd0_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl TcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t0sz_extract(&self) -> u64 {
         // bits 0..5
@@ -1241,7 +1187,6 @@ impl TcrEl2 {
     pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
-
 }
 
 impl Default for TcrEl2 {

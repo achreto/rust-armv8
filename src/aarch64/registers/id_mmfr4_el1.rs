@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_mmfr4_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Memory Model Feature Register 4 value in memory
 pub struct IdMmfr4El1(u64);
 
 /// struct implementation for accessing the fields of register id_mmfr4_el1
 impl IdMmfr4El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdMmfr4El1 {
@@ -79,16 +74,13 @@ impl IdMmfr4El1 {
         IdMmfr4El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdMmfr4El1 {
+    pub fn with_reg_val() -> IdMmfr4El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdMmfr4El1(curval)
     }
 
-
-    
     /// reading the AArch32 Memory Model Feature Register 4 (id_mmfr4_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdMmfr4El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdMmfr4El1 {
         self.0
     }
 
-
-    
     /*
      * Field: evt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evt_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdMmfr4El1 {
     pub fn evt_read() -> u64 {
         Self::with_reg_val().evt_extract()
     }
-// no insert() method for field evt
+    // no insert() method for field evt
     /*
      * Field: ccidx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ccidx_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdMmfr4El1 {
     pub fn ccidx_read() -> u64 {
         Self::with_reg_val().ccidx_extract()
     }
-// no insert() method for field ccidx
+    // no insert() method for field ccidx
     /*
      * Field: lsm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lsm_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdMmfr4El1 {
     pub fn lsm_read() -> u64 {
         Self::with_reg_val().lsm_extract()
     }
-// no insert() method for field lsm
+    // no insert() method for field lsm
     /*
      * Field: hpds
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hpds_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdMmfr4El1 {
     pub fn hpds_read() -> u64 {
         Self::with_reg_val().hpds_extract()
     }
-// no insert() method for field hpds
+    // no insert() method for field hpds
     /*
      * Field: cnp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cnp_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdMmfr4El1 {
     pub fn cnp_read() -> u64 {
         Self::with_reg_val().cnp_extract()
     }
-// no insert() method for field cnp
+    // no insert() method for field cnp
     /*
      * Field: xnx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn xnx_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdMmfr4El1 {
     pub fn xnx_read() -> u64 {
         Self::with_reg_val().xnx_extract()
     }
-// no insert() method for field xnx
+    // no insert() method for field xnx
     /*
      * Field: ac2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ac2_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdMmfr4El1 {
     pub fn ac2_read() -> u64 {
         Self::with_reg_val().ac2_extract()
     }
-// no insert() method for field ac2
+    // no insert() method for field ac2
     /*
      * Field: specsei
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn specsei_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdMmfr4El1 {
     pub fn specsei_read() -> u64 {
         Self::with_reg_val().specsei_extract()
     }
-// no insert() method for field specsei
+    // no insert() method for field specsei
 }
 
 impl Default for IdMmfr4El1 {

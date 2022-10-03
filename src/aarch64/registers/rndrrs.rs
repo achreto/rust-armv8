@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-rndrrs.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Reseeded Random Number value in memory
 pub struct Rndrrs(u64);
 
 /// struct implementation for accessing the fields of register rndrrs
 impl Rndrrs {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Rndrrs {
@@ -79,16 +74,13 @@ impl Rndrrs {
         Rndrrs(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Rndrrs {
+    pub fn with_reg_val() -> Rndrrs {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         Rndrrs(curval)
     }
 
-
-    
     /// reading the Reseeded Random Number (rndrrs) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Rndrrs {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Rndrrs {
         self.0
     }
 
-
-    
     /*
      * Field: rndrrs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rndrrs_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl Rndrrs {
     pub fn rndrrs_read() -> u64 {
         Self::with_reg_val().rndrrs_extract()
     }
-// no insert() method for field rndrrs
+    // no insert() method for field rndrrs
 }
 
 impl Default for Rndrrs {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icv_iar1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Virtual Interrupt Acknowledge Register 1 value in memory
 pub struct IcvIar1El1(u64);
 
 /// struct implementation for accessing the fields of register icv_iar1_el1
 impl IcvIar1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IcvIar1El1 {
@@ -79,16 +74,13 @@ impl IcvIar1El1 {
         IcvIar1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IcvIar1El1 {
+    pub fn with_reg_val() -> IcvIar1El1 {
         let curval = Self::reg_rawrd() & 0xffffff;
         IcvIar1El1(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Virtual Interrupt Acknowledge Register 1 (icv_iar1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IcvIar1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IcvIar1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: intid
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn intid_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl IcvIar1El1 {
     pub fn intid_read() -> u64 {
         Self::with_reg_val().intid_extract()
     }
-// no insert() method for field intid
+    // no insert() method for field intid
 }
 
 impl Default for IcvIar1El1 {

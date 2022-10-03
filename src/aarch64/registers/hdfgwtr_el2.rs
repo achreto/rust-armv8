@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Hypervisor Debug Fine-Grained Write Trap Register (hdfgwtr_el2)
  * Group:       A group mapping that does not have a known primary
  * Type:        64-bit Register
- * Description: Provides controls for traps of 
+ * Description: Provides controls for traps of
  * File:        AArch64-hdfgwtr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor Debug Fine-Grained Write Trap Register value in memory
 pub struct HdfgwtrEl2(u64);
 
 /// struct implementation for accessing the fields of register hdfgwtr_el2
 impl HdfgwtrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HdfgwtrEl2 {
@@ -79,16 +74,13 @@ impl HdfgwtrEl2 {
         HdfgwtrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HdfgwtrEl2 {
+    pub fn with_reg_val() -> HdfgwtrEl2 {
         let curval = Self::reg_rawrd() & 0x4203763bbfbffdbf;
         HdfgwtrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor Debug Fine-Grained Write Trap Register (hdfgwtr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HdfgwtrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor Debug Fine-Grained Write Trap Register (hdfgwtr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HdfgwtrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HdfgwtrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HdfgwtrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: npmsnevfr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn npmsnevfr_el1_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmuserenr_el0_1_extract(&self) -> u64 {
         // bits 57..57
@@ -202,7 +184,6 @@ impl HdfgwtrEl2 {
      * Field: trfcr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trfcr_el1_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn trcvictlr_1_extract(&self) -> u64 {
         // bits 48..48
@@ -260,7 +240,6 @@ impl HdfgwtrEl2 {
      * Field: trcsscsrn_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trcsscsrn_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn trcseqstr_1_extract(&self) -> u64 {
         // bits 45..45
@@ -318,7 +296,6 @@ impl HdfgwtrEl2 {
      * Field: trcprgctlr_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trcprgctlr_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn trcoslar_1_extract(&self) -> u64 {
         // bits 42..42
@@ -376,7 +352,6 @@ impl HdfgwtrEl2 {
      * Field: trcimspecn_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trcimspecn_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn trccntvrn_1_extract(&self) -> u64 {
         // bits 37..37
@@ -434,7 +408,6 @@ impl HdfgwtrEl2 {
      * Field: trcclaim_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trcclaim_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn trcauxctlr_1_extract(&self) -> u64 {
         // bits 35..35
@@ -492,7 +464,6 @@ impl HdfgwtrEl2 {
      * Field: trc_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trc_1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmslatfr_el1_1_extract(&self) -> u64 {
         // bits 32..32
@@ -550,7 +520,6 @@ impl HdfgwtrEl2 {
      * Field: pmsirr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmsirr_el1_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmsicr_el1_1_extract(&self) -> u64 {
         // bits 29..29
@@ -608,7 +576,6 @@ impl HdfgwtrEl2 {
      * Field: pmsfcr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmsfcr_el1_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmsevfr_el1_1_extract(&self) -> u64 {
         // bits 27..27
@@ -666,7 +632,6 @@ impl HdfgwtrEl2 {
      * Field: pmscr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmscr_el1_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmbsr_el1_1_extract(&self) -> u64 {
         // bits 25..25
@@ -724,7 +688,6 @@ impl HdfgwtrEl2 {
      * Field: pmbptr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmbptr_el1_1_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmblimitr_el1_1_extract(&self) -> u64 {
         // bits 23..23
@@ -782,7 +744,6 @@ impl HdfgwtrEl2 {
      * Field: pmcr_el0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmcr_el0_1_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmswinc_el0_1_extract(&self) -> u64 {
         // bits 20..20
@@ -840,7 +800,6 @@ impl HdfgwtrEl2 {
      * Field: pmselr_el0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmselr_el0_1_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmovs_1_extract(&self) -> u64 {
         // bits 18..18
@@ -898,7 +856,6 @@ impl HdfgwtrEl2 {
      * Field: pminten_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pminten_1_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmcnten_1_extract(&self) -> u64 {
         // bits 16..16
@@ -956,7 +912,6 @@ impl HdfgwtrEl2 {
      * Field: pmccntr_el0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmccntr_el0_1_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmccfiltr_el0_1_extract(&self) -> u64 {
         // bits 14..14
@@ -1014,7 +968,6 @@ impl HdfgwtrEl2 {
      * Field: pmevtypern_el0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmevtypern_el0_1_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmevcntrn_el0_1_extract(&self) -> u64 {
         // bits 12..12
@@ -1072,7 +1024,6 @@ impl HdfgwtrEl2 {
      * Field: osdlr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn osdlr_el1_1_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn oseccr_el1_extract(&self) -> u64 {
         // bits 10..10
@@ -1130,7 +1080,6 @@ impl HdfgwtrEl2 {
      * Field: oslar_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn oslar_el1_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dbgprcr_el1_extract(&self) -> u64 {
         // bits 7..7
@@ -1188,7 +1136,6 @@ impl HdfgwtrEl2 {
      * Field: dbgclaim
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dbgclaim_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn mdscr_el1_extract(&self) -> u64 {
         // bits 4..4
@@ -1246,7 +1192,6 @@ impl HdfgwtrEl2 {
      * Field: dbgwvrn_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dbgwvrn_el1_extract(&self) -> u64 {
@@ -1276,7 +1221,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dbgwcrn_el1_extract(&self) -> u64 {
         // bits 2..2
@@ -1304,7 +1248,6 @@ impl HdfgwtrEl2 {
      * Field: dbgbvrn_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dbgbvrn_el1_extract(&self) -> u64 {
@@ -1334,7 +1277,6 @@ impl HdfgwtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dbgbcrn_el1_extract(&self) -> u64 {
         // bits 0..0
@@ -1357,7 +1299,6 @@ impl HdfgwtrEl2 {
     pub fn dbgbcrn_el1_write(val: u64) {
         Self::with_reg_val().dbgbcrn_el1_insert(val).write();
     }
-
 }
 
 impl Default for HdfgwtrEl2 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Data Cache Zero ID register (dczid_el0)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Indicates the block size that is written with byte values of 0 by the 
+ * Description: Indicates the block size that is written with byte values of 0 by the
  * File:        AArch64-dczid_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Data Cache Zero ID register value in memory
 pub struct DczidEl0(u64);
 
 /// struct implementation for accessing the fields of register dczid_el0
 impl DczidEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DczidEl0 {
@@ -79,16 +74,13 @@ impl DczidEl0 {
         DczidEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  DczidEl0 {
+    pub fn with_reg_val() -> DczidEl0 {
         let curval = Self::reg_rawrd() & 0x1f;
         DczidEl0(curval)
     }
 
-
-    
     /// reading the Data Cache Zero ID register (dczid_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl DczidEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl DczidEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: dzp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dzp_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl DczidEl0 {
     pub fn dzp_read() -> u64 {
         Self::with_reg_val().dzp_extract()
     }
-// no insert() method for field dzp
+    // no insert() method for field dzp
     /*
      * Field: bs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bs_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl DczidEl0 {
     pub fn bs_read() -> u64 {
         Self::with_reg_val().bs_extract()
     }
-// no insert() method for field bs
+    // no insert() method for field bs
 }
 
 impl Default for DczidEl0 {

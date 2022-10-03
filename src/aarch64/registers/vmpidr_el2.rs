@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Virtualization Multiprocessor ID Register (vmpidr_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Holds the value of the Virtualization Multiprocessor ID. This is the value returned by EL1 reads of 
+ * Description: Holds the value of the Virtualization Multiprocessor ID. This is the value returned by EL1 reads of
  * File:        AArch64-vmpidr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtualization Multiprocessor ID Register value in memory
 pub struct VmpidrEl2(u64);
 
 /// struct implementation for accessing the fields of register vmpidr_el2
 impl VmpidrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VmpidrEl2 {
@@ -79,16 +74,13 @@ impl VmpidrEl2 {
         VmpidrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VmpidrEl2 {
+    pub fn with_reg_val() -> VmpidrEl2 {
         let curval = Self::reg_rawrd() & 0xff41ffffff;
         VmpidrEl2(curval)
     }
 
-
-    
     /// reading the Virtualization Multiprocessor ID Register (vmpidr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VmpidrEl2 {
         return regval;
     }
 
-
     /// writing the Virtualization Multiprocessor ID Register (vmpidr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VmpidrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VmpidrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VmpidrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: aff3
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff3_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl VmpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn u_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl VmpidrEl2 {
      * Field: mt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mt_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl VmpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn aff2_extract(&self) -> u64 {
         // bits 16..23
@@ -260,7 +240,6 @@ impl VmpidrEl2 {
      * Field: aff1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl VmpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn aff0_extract(&self) -> u64 {
         // bits 0..7
@@ -313,7 +291,6 @@ impl VmpidrEl2 {
     pub fn aff0_write(val: u64) {
         Self::with_reg_val().aff0_insert(val).write();
     }
-
 }
 
 impl Default for VmpidrEl2 {

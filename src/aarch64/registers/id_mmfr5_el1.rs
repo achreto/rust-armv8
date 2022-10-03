@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_mmfr5_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Memory Model Feature Register 5 value in memory
 pub struct IdMmfr5El1(u64);
 
 /// struct implementation for accessing the fields of register id_mmfr5_el1
 impl IdMmfr5El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdMmfr5El1 {
@@ -79,16 +74,13 @@ impl IdMmfr5El1 {
         IdMmfr5El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdMmfr5El1 {
+    pub fn with_reg_val() -> IdMmfr5El1 {
         let curval = Self::reg_rawrd() & 0xf;
         IdMmfr5El1(curval)
     }
 
-
-    
     /// reading the AArch32 Memory Model Feature Register 5 (id_mmfr5_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdMmfr5El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdMmfr5El1 {
         self.0
     }
 
-
-    
     /*
      * Field: ets
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ets_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl IdMmfr5El1 {
     pub fn ets_read() -> u64 {
         Self::with_reg_val().ets_extract()
     }
-// no insert() method for field ets
+    // no insert() method for field ets
 }
 
 impl Default for IdMmfr5El1 {

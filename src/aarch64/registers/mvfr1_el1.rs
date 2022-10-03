@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mvfr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Media and VFP Feature Register 1 value in memory
 pub struct Mvfr1El1(u64);
 
 /// struct implementation for accessing the fields of register mvfr1_el1
 impl Mvfr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mvfr1El1 {
@@ -79,16 +74,13 @@ impl Mvfr1El1 {
         Mvfr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mvfr1El1 {
+    pub fn with_reg_val() -> Mvfr1El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         Mvfr1El1(curval)
     }
 
-
-    
     /// reading the AArch32 Media and VFP Feature Register 1 (mvfr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Mvfr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Mvfr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: simdfmac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdfmac_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl Mvfr1El1 {
     pub fn simdfmac_read() -> u64 {
         Self::with_reg_val().simdfmac_extract()
     }
-// no insert() method for field simdfmac
+    // no insert() method for field simdfmac
     /*
      * Field: fphp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fphp_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl Mvfr1El1 {
     pub fn fphp_read() -> u64 {
         Self::with_reg_val().fphp_extract()
     }
-// no insert() method for field fphp
+    // no insert() method for field fphp
     /*
      * Field: simdhp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdhp_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl Mvfr1El1 {
     pub fn simdhp_read() -> u64 {
         Self::with_reg_val().simdhp_extract()
     }
-// no insert() method for field simdhp
+    // no insert() method for field simdhp
     /*
      * Field: simdsp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdsp_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl Mvfr1El1 {
     pub fn simdsp_read() -> u64 {
         Self::with_reg_val().simdsp_extract()
     }
-// no insert() method for field simdsp
+    // no insert() method for field simdsp
     /*
      * Field: simdint
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdint_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl Mvfr1El1 {
     pub fn simdint_read() -> u64 {
         Self::with_reg_val().simdint_extract()
     }
-// no insert() method for field simdint
+    // no insert() method for field simdint
     /*
      * Field: simdls
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdls_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl Mvfr1El1 {
     pub fn simdls_read() -> u64 {
         Self::with_reg_val().simdls_extract()
     }
-// no insert() method for field simdls
+    // no insert() method for field simdls
     /*
      * Field: fpdnan
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpdnan_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl Mvfr1El1 {
     pub fn fpdnan_read() -> u64 {
         Self::with_reg_val().fpdnan_extract()
     }
-// no insert() method for field fpdnan
+    // no insert() method for field fpdnan
     /*
      * Field: fpftz
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpftz_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl Mvfr1El1 {
     pub fn fpftz_read() -> u64 {
         Self::with_reg_val().fpftz_extract()
     }
-// no insert() method for field fpftz
+    // no insert() method for field fpftz
 }
 
 impl Default for Mvfr1El1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_mmfr0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Memory Model Feature Register 0 value in memory
 pub struct IdMmfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_mmfr0_el1
 impl IdMmfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdMmfr0El1 {
@@ -79,16 +74,13 @@ impl IdMmfr0El1 {
         IdMmfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdMmfr0El1 {
+    pub fn with_reg_val() -> IdMmfr0El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdMmfr0El1(curval)
     }
 
-
-    
     /// reading the AArch32 Memory Model Feature Register 0 (id_mmfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdMmfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdMmfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: innershr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn innershr_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdMmfr0El1 {
     pub fn innershr_read() -> u64 {
         Self::with_reg_val().innershr_extract()
     }
-// no insert() method for field innershr
+    // no insert() method for field innershr
     /*
      * Field: fcse
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fcse_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdMmfr0El1 {
     pub fn fcse_read() -> u64 {
         Self::with_reg_val().fcse_extract()
     }
-// no insert() method for field fcse
+    // no insert() method for field fcse
     /*
      * Field: auxreg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn auxreg_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdMmfr0El1 {
     pub fn auxreg_read() -> u64 {
         Self::with_reg_val().auxreg_extract()
     }
-// no insert() method for field auxreg
+    // no insert() method for field auxreg
     /*
      * Field: tcm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tcm_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdMmfr0El1 {
     pub fn tcm_read() -> u64 {
         Self::with_reg_val().tcm_extract()
     }
-// no insert() method for field tcm
+    // no insert() method for field tcm
     /*
      * Field: sharelvl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sharelvl_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdMmfr0El1 {
     pub fn sharelvl_read() -> u64 {
         Self::with_reg_val().sharelvl_extract()
     }
-// no insert() method for field sharelvl
+    // no insert() method for field sharelvl
     /*
      * Field: outershr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn outershr_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdMmfr0El1 {
     pub fn outershr_read() -> u64 {
         Self::with_reg_val().outershr_extract()
     }
-// no insert() method for field outershr
+    // no insert() method for field outershr
     /*
      * Field: pmsa
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmsa_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdMmfr0El1 {
     pub fn pmsa_read() -> u64 {
         Self::with_reg_val().pmsa_extract()
     }
-// no insert() method for field pmsa
+    // no insert() method for field pmsa
     /*
      * Field: vmsa
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vmsa_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdMmfr0El1 {
     pub fn vmsa_read() -> u64 {
         Self::with_reg_val().vmsa_extract()
     }
-// no insert() method for field vmsa
+    // no insert() method for field vmsa
 }
 
 impl Default for IdMmfr0El1 {

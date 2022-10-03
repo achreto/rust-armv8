@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cnthp_ctl_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Hypervisor Physical Timer Control register value in memory
 pub struct CnthpCtlEl2(u64);
 
 /// struct implementation for accessing the fields of register cnthp_ctl_el2
 impl CnthpCtlEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CnthpCtlEl2 {
@@ -79,16 +74,13 @@ impl CnthpCtlEl2 {
         CnthpCtlEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CnthpCtlEl2 {
+    pub fn with_reg_val() -> CnthpCtlEl2 {
         let curval = Self::reg_rawrd() & 0x7;
         CnthpCtlEl2(curval)
     }
 
-
-    
     /// reading the Counter-timer Hypervisor Physical Timer Control register (cnthp_ctl_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CnthpCtlEl2 {
         return regval;
     }
 
-
     /// writing the Counter-timer Hypervisor Physical Timer Control register (cnthp_ctl_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CnthpCtlEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CnthpCtlEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CnthpCtlEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: istatus
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn istatus_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl CnthpCtlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn imask_extract(&self) -> u64 {
         // bits 1..1
@@ -203,7 +185,6 @@ impl CnthpCtlEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enable_extract(&self) -> u64 {
         // bits 0..0
@@ -226,7 +207,6 @@ impl CnthpCtlEl2 {
     pub fn enable_write(val: u64) {
         Self::with_reg_val().enable_insert(val).write();
     }
-
 }
 
 impl Default for CnthpCtlEl2 {

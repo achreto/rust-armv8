@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_dfr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Feature Register 1 value in memory
 pub struct IdDfr1El1(u64);
 
 /// struct implementation for accessing the fields of register id_dfr1_el1
 impl IdDfr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdDfr1El1 {
@@ -79,16 +74,13 @@ impl IdDfr1El1 {
         IdDfr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdDfr1El1 {
+    pub fn with_reg_val() -> IdDfr1El1 {
         let curval = Self::reg_rawrd() & 0xf;
         IdDfr1El1(curval)
     }
 
-
-    
     /// reading the Debug Feature Register 1 (id_dfr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdDfr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdDfr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: mtpmu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mtpmu_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl IdDfr1El1 {
     pub fn mtpmu_read() -> u64 {
         Self::with_reg_val().mtpmu_extract()
     }
-// no insert() method for field mtpmu
+    // no insert() method for field mtpmu
 }
 
 impl Default for IdDfr1El1 {

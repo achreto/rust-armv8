@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icv_bpr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Virtual Binary Point Register 1 value in memory
 pub struct IcvBpr1El1(u64);
 
 /// struct implementation for accessing the fields of register icv_bpr1_el1
 impl IcvBpr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IcvBpr1El1 {
@@ -79,16 +74,13 @@ impl IcvBpr1El1 {
         IcvBpr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IcvBpr1El1 {
+    pub fn with_reg_val() -> IcvBpr1El1 {
         let curval = Self::reg_rawrd() & 0x7;
         IcvBpr1El1(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Virtual Binary Point Register 1 (icv_bpr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl IcvBpr1El1 {
         return regval;
     }
 
-
     /// writing the Interrupt Controller Virtual Binary Point Register 1 (icv_bpr1_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl IcvBpr1El1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl IcvBpr1El1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl IcvBpr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: binarypoint
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn binarypoint_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl IcvBpr1El1 {
     pub fn binarypoint_write(val: u64) {
         Self::with_reg_val().binarypoint_insert(val).write();
     }
-
 }
 
 impl Default for IcvBpr1El1 {

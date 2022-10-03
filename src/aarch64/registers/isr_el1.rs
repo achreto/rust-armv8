@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-isr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Status Register value in memory
 pub struct IsrEl1(u64);
 
 /// struct implementation for accessing the fields of register isr_el1
 impl IsrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IsrEl1 {
@@ -79,16 +74,13 @@ impl IsrEl1 {
         IsrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IsrEl1 {
+    pub fn with_reg_val() -> IsrEl1 {
         let curval = Self::reg_rawrd() & 0x1c0;
         IsrEl1(curval)
     }
 
-
-    
     /// reading the Interrupt Status Register (isr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IsrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IsrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: a
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IsrEl1 {
     pub fn a_read() -> u64 {
         Self::with_reg_val().a_extract()
     }
-// no insert() method for field a
+    // no insert() method for field a
     /*
      * Field: i
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IsrEl1 {
     pub fn i_read() -> u64 {
         Self::with_reg_val().i_extract()
     }
-// no insert() method for field i
+    // no insert() method for field i
     /*
      * Field: f
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
@@ -175,7 +160,7 @@ impl IsrEl1 {
     pub fn f_read() -> u64 {
         Self::with_reg_val().f_extract()
     }
-// no insert() method for field f
+    // no insert() method for field f
 }
 
 impl Default for IsrEl1 {

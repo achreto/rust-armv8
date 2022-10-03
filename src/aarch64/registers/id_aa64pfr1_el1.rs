@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64pfr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Processor Feature Register 1 value in memory
 pub struct IdAa64pfr1El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64pfr1_el1
 impl IdAa64pfr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64pfr1El1 {
@@ -79,16 +74,13 @@ impl IdAa64pfr1El1 {
         IdAa64pfr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64pfr1El1 {
+    pub fn with_reg_val() -> IdAa64pfr1El1 {
         let curval = Self::reg_rawrd() & 0xfffff;
         IdAa64pfr1El1(curval)
     }
 
-
-    
     /// reading the AArch64 Processor Feature Register 1 (id_aa64pfr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64pfr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64pfr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: mpam_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mpam_frac_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64pfr1El1 {
     pub fn mpam_frac_read() -> u64 {
         Self::with_reg_val().mpam_frac_extract()
     }
-// no insert() method for field mpam_frac
+    // no insert() method for field mpam_frac
     /*
      * Field: ras_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ras_frac_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64pfr1El1 {
     pub fn ras_frac_read() -> u64 {
         Self::with_reg_val().ras_frac_extract()
     }
-// no insert() method for field ras_frac
+    // no insert() method for field ras_frac
     /*
      * Field: mte
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mte_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64pfr1El1 {
     pub fn mte_read() -> u64 {
         Self::with_reg_val().mte_extract()
     }
-// no insert() method for field mte
+    // no insert() method for field mte
     /*
      * Field: ssbs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ssbs_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64pfr1El1 {
     pub fn ssbs_read() -> u64 {
         Self::with_reg_val().ssbs_extract()
     }
-// no insert() method for field ssbs
+    // no insert() method for field ssbs
     /*
      * Field: bt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bt_extract(&self) -> u64 {
@@ -209,7 +192,7 @@ impl IdAa64pfr1El1 {
     pub fn bt_read() -> u64 {
         Self::with_reg_val().bt_extract()
     }
-// no insert() method for field bt
+    // no insert() method for field bt
 }
 
 impl Default for IdAa64pfr1El1 {

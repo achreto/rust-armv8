@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-tfsr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Tag Fault Status Register (EL2) value in memory
 pub struct TfsrEl2(u64);
 
 /// struct implementation for accessing the fields of register tfsr_el2
 impl TfsrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TfsrEl2 {
@@ -79,16 +74,13 @@ impl TfsrEl2 {
         TfsrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TfsrEl2 {
+    pub fn with_reg_val() -> TfsrEl2 {
         let curval = Self::reg_rawrd() & 0x3;
         TfsrEl2(curval)
     }
 
-
-    
     /// reading the Tag Fault Status Register (EL2) (tfsr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TfsrEl2 {
         return regval;
     }
 
-
     /// writing the Tag Fault Status Register (EL2) (tfsr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TfsrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TfsrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TfsrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: tf1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tf1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl TfsrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tf0_extract(&self) -> u64 {
         // bits 0..0
@@ -197,7 +179,6 @@ impl TfsrEl2 {
     pub fn tf0_write(val: u64) {
         Self::with_reg_val().tf0_insert(val).write();
     }
-
 }
 
 impl Default for TfsrEl2 {

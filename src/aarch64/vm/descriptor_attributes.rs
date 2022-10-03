@@ -72,7 +72,6 @@ pub enum MemoryAttributes {
 }
 
 impl MemoryAttributes {
-
     const MEM_ATTR_NORMAL_MEMORY: u64 = 0b1111_1111;
     const MEM_ATTR_NORMAL_MEMORY_WRITE_THROUGH: u64 = 0b1010_1010;
     const MEM_ATTR_NORMAL_MEMORY_NO_CACHE: u64 = 0b0100_0100;
@@ -132,17 +131,23 @@ impl MemoryAttributes {
 
     /// configures the memory attribute register for EL1
     pub fn configure_el1() {
-        MairEl1::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+        MairEl1::new()
+            .attrn_insert(MemoryAttributes::MEM_ATTRIBUTES)
+            .write();
     }
 
     /// configures the memory attribute register for EL2
     pub fn configure_el2() {
-        MairEl2::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+        MairEl2::new()
+            .attrn_insert(MemoryAttributes::MEM_ATTRIBUTES)
+            .write();
     }
 
     /// configures the memory attribute register for EL3
     pub fn configure_el3() {
-        MairEl2::new().attrn_insert(MemoryAttributes::MEM_ATTRIBUTES).write();
+        MairEl2::new()
+            .attrn_insert(MemoryAttributes::MEM_ATTRIBUTES)
+            .write();
     }
 }
 

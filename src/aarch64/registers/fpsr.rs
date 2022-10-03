@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-fpsr.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Floating-point Status Register value in memory
 pub struct Fpsr(u64);
 
 /// struct implementation for accessing the fields of register fpsr
 impl Fpsr {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Fpsr {
@@ -79,16 +74,13 @@ impl Fpsr {
         Fpsr(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Fpsr {
+    pub fn with_reg_val() -> Fpsr {
         let curval = Self::reg_rawrd() & 0xf800009f;
         Fpsr(curval)
     }
 
-
-    
     /// reading the Floating-point Status Register (fpsr) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Fpsr {
         return regval;
     }
 
-
     /// writing the Floating-point Status Register (fpsr) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Fpsr {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Fpsr {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Fpsr {
         self.0
     }
 
-
-    
     /*
      * Field: n_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn n_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn z_1_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl Fpsr {
      * Field: c_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn v_1_extract(&self) -> u64 {
         // bits 28..28
@@ -260,7 +240,6 @@ impl Fpsr {
      * Field: qc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn qc_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn idc_extract(&self) -> u64 {
         // bits 7..7
@@ -318,7 +296,6 @@ impl Fpsr {
      * Field: ixc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ixc_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ufc_extract(&self) -> u64 {
         // bits 3..3
@@ -376,7 +352,6 @@ impl Fpsr {
      * Field: ofc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ofc_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dzc_extract(&self) -> u64 {
         // bits 1..1
@@ -435,7 +409,6 @@ impl Fpsr {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ioc_extract(&self) -> u64 {
         // bits 0..0
@@ -458,7 +431,6 @@ impl Fpsr {
     pub fn ioc_write(val: u64) {
         Self::with_reg_val().ioc_insert(val).write();
     }
-
 }
 
 impl Default for Fpsr {

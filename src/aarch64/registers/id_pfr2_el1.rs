@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_pfr2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Processor Feature Register 2 value in memory
 pub struct IdPfr2El1(u64);
 
 /// struct implementation for accessing the fields of register id_pfr2_el1
 impl IdPfr2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdPfr2El1 {
@@ -79,16 +74,13 @@ impl IdPfr2El1 {
         IdPfr2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdPfr2El1 {
+    pub fn with_reg_val() -> IdPfr2El1 {
         let curval = Self::reg_rawrd() & 0xfff;
         IdPfr2El1(curval)
     }
 
-
-    
     /// reading the AArch32 Processor Feature Register 2 (id_pfr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdPfr2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdPfr2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: ras_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ras_frac_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdPfr2El1 {
     pub fn ras_frac_read() -> u64 {
         Self::with_reg_val().ras_frac_extract()
     }
-// no insert() method for field ras_frac
+    // no insert() method for field ras_frac
     /*
      * Field: ssbs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ssbs_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdPfr2El1 {
     pub fn ssbs_read() -> u64 {
         Self::with_reg_val().ssbs_extract()
     }
-// no insert() method for field ssbs
+    // no insert() method for field ssbs
     /*
      * Field: csv3
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn csv3_extract(&self) -> u64 {
@@ -175,7 +160,7 @@ impl IdPfr2El1 {
     pub fn csv3_read() -> u64 {
         Self::with_reg_val().csv3_extract()
     }
-// no insert() method for field csv3
+    // no insert() method for field csv3
 }
 
 impl Default for IdPfr2El1 {

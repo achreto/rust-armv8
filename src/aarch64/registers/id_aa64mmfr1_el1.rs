@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64mmfr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Memory Model Feature Register 1 value in memory
 pub struct IdAa64mmfr1El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64mmfr1_el1
 impl IdAa64mmfr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64mmfr1El1 {
@@ -79,16 +74,13 @@ impl IdAa64mmfr1El1 {
         IdAa64mmfr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64mmfr1El1 {
+    pub fn with_reg_val() -> IdAa64mmfr1El1 {
         let curval = Self::reg_rawrd() & 0xffffffffffff;
         IdAa64mmfr1El1(curval)
     }
 
-
-    
     /// reading the AArch64 Memory Model Feature Register 1 (id_aa64mmfr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64mmfr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64mmfr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: afp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn afp_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64mmfr1El1 {
     pub fn afp_read() -> u64 {
         Self::with_reg_val().afp_extract()
     }
-// no insert() method for field afp
+    // no insert() method for field afp
     /*
      * Field: hcx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hcx_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64mmfr1El1 {
     pub fn hcx_read() -> u64 {
         Self::with_reg_val().hcx_extract()
     }
-// no insert() method for field hcx
+    // no insert() method for field hcx
     /*
      * Field: ets
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ets_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64mmfr1El1 {
     pub fn ets_read() -> u64 {
         Self::with_reg_val().ets_extract()
     }
-// no insert() method for field ets
+    // no insert() method for field ets
     /*
      * Field: twed
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twed_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64mmfr1El1 {
     pub fn twed_read() -> u64 {
         Self::with_reg_val().twed_extract()
     }
-// no insert() method for field twed
+    // no insert() method for field twed
     /*
      * Field: xnx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn xnx_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdAa64mmfr1El1 {
     pub fn xnx_read() -> u64 {
         Self::with_reg_val().xnx_extract()
     }
-// no insert() method for field xnx
+    // no insert() method for field xnx
     /*
      * Field: specsei
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn specsei_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdAa64mmfr1El1 {
     pub fn specsei_read() -> u64 {
         Self::with_reg_val().specsei_extract()
     }
-// no insert() method for field specsei
+    // no insert() method for field specsei
     /*
      * Field: pan
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pan_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdAa64mmfr1El1 {
     pub fn pan_read() -> u64 {
         Self::with_reg_val().pan_extract()
     }
-// no insert() method for field pan
+    // no insert() method for field pan
     /*
      * Field: lo
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lo_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl IdAa64mmfr1El1 {
     pub fn lo_read() -> u64 {
         Self::with_reg_val().lo_extract()
     }
-// no insert() method for field lo
+    // no insert() method for field lo
     /*
      * Field: hpds
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hpds_extract(&self) -> u64 {
@@ -277,12 +256,11 @@ impl IdAa64mmfr1El1 {
     pub fn hpds_read() -> u64 {
         Self::with_reg_val().hpds_extract()
     }
-// no insert() method for field hpds
+    // no insert() method for field hpds
     /*
      * Field: vh
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vh_extract(&self) -> u64 {
@@ -294,12 +272,11 @@ impl IdAa64mmfr1El1 {
     pub fn vh_read() -> u64 {
         Self::with_reg_val().vh_extract()
     }
-// no insert() method for field vh
+    // no insert() method for field vh
     /*
      * Field: vmidbits
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vmidbits_extract(&self) -> u64 {
@@ -311,12 +288,11 @@ impl IdAa64mmfr1El1 {
     pub fn vmidbits_read() -> u64 {
         Self::with_reg_val().vmidbits_extract()
     }
-// no insert() method for field vmidbits
+    // no insert() method for field vmidbits
     /*
      * Field: hafdbs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hafdbs_extract(&self) -> u64 {
@@ -328,7 +304,7 @@ impl IdAa64mmfr1El1 {
     pub fn hafdbs_read() -> u64 {
         Self::with_reg_val().hafdbs_extract()
     }
-// no insert() method for field hafdbs
+    // no insert() method for field hafdbs
 }
 
 impl Default for IdAa64mmfr1El1 {

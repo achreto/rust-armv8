@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64isar1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Instruction Set Attribute Register 1 value in memory
 pub struct IdAa64isar1El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64isar1_el1
 impl IdAa64isar1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64isar1El1 {
@@ -79,16 +74,13 @@ impl IdAa64isar1El1 {
         IdAa64isar1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64isar1El1 {
+    pub fn with_reg_val() -> IdAa64isar1El1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         IdAa64isar1El1(curval)
     }
 
-
-    
     /// reading the AArch64 Instruction Set Attribute Register 1 (id_aa64isar1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64isar1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64isar1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: ls64
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ls64_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64isar1El1 {
     pub fn ls64_read() -> u64 {
         Self::with_reg_val().ls64_extract()
     }
-// no insert() method for field ls64
+    // no insert() method for field ls64
     /*
      * Field: xs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn xs_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64isar1El1 {
     pub fn xs_read() -> u64 {
         Self::with_reg_val().xs_extract()
     }
-// no insert() method for field xs
+    // no insert() method for field xs
     /*
      * Field: i8mm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i8mm_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64isar1El1 {
     pub fn i8mm_read() -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
-// no insert() method for field i8mm
+    // no insert() method for field i8mm
     /*
      * Field: dgh
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dgh_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64isar1El1 {
     pub fn dgh_read() -> u64 {
         Self::with_reg_val().dgh_extract()
     }
-// no insert() method for field dgh
+    // no insert() method for field dgh
     /*
      * Field: bf16
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bf16_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdAa64isar1El1 {
     pub fn bf16_read() -> u64 {
         Self::with_reg_val().bf16_extract()
     }
-// no insert() method for field bf16
+    // no insert() method for field bf16
     /*
      * Field: specres
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn specres_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdAa64isar1El1 {
     pub fn specres_read() -> u64 {
         Self::with_reg_val().specres_extract()
     }
-// no insert() method for field specres
+    // no insert() method for field specres
     /*
      * Field: sb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sb_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdAa64isar1El1 {
     pub fn sb_read() -> u64 {
         Self::with_reg_val().sb_extract()
     }
-// no insert() method for field sb
+    // no insert() method for field sb
     /*
      * Field: frintts
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn frintts_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl IdAa64isar1El1 {
     pub fn frintts_read() -> u64 {
         Self::with_reg_val().frintts_extract()
     }
-// no insert() method for field frintts
+    // no insert() method for field frintts
     /*
      * Field: gpi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn gpi_extract(&self) -> u64 {
@@ -277,12 +256,11 @@ impl IdAa64isar1El1 {
     pub fn gpi_read() -> u64 {
         Self::with_reg_val().gpi_extract()
     }
-// no insert() method for field gpi
+    // no insert() method for field gpi
     /*
      * Field: gpa
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn gpa_extract(&self) -> u64 {
@@ -294,12 +272,11 @@ impl IdAa64isar1El1 {
     pub fn gpa_read() -> u64 {
         Self::with_reg_val().gpa_extract()
     }
-// no insert() method for field gpa
+    // no insert() method for field gpa
     /*
      * Field: lrcpc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lrcpc_extract(&self) -> u64 {
@@ -311,12 +288,11 @@ impl IdAa64isar1El1 {
     pub fn lrcpc_read() -> u64 {
         Self::with_reg_val().lrcpc_extract()
     }
-// no insert() method for field lrcpc
+    // no insert() method for field lrcpc
     /*
      * Field: fcma
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fcma_extract(&self) -> u64 {
@@ -328,12 +304,11 @@ impl IdAa64isar1El1 {
     pub fn fcma_read() -> u64 {
         Self::with_reg_val().fcma_extract()
     }
-// no insert() method for field fcma
+    // no insert() method for field fcma
     /*
      * Field: jscvt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn jscvt_extract(&self) -> u64 {
@@ -345,12 +320,11 @@ impl IdAa64isar1El1 {
     pub fn jscvt_read() -> u64 {
         Self::with_reg_val().jscvt_extract()
     }
-// no insert() method for field jscvt
+    // no insert() method for field jscvt
     /*
      * Field: api
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn api_extract(&self) -> u64 {
@@ -362,12 +336,11 @@ impl IdAa64isar1El1 {
     pub fn api_read() -> u64 {
         Self::with_reg_val().api_extract()
     }
-// no insert() method for field api
+    // no insert() method for field api
     /*
      * Field: apa
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn apa_extract(&self) -> u64 {
@@ -379,12 +352,11 @@ impl IdAa64isar1El1 {
     pub fn apa_read() -> u64 {
         Self::with_reg_val().apa_extract()
     }
-// no insert() method for field apa
+    // no insert() method for field apa
     /*
      * Field: dpb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dpb_extract(&self) -> u64 {
@@ -396,7 +368,7 @@ impl IdAa64isar1El1 {
     pub fn dpb_read() -> u64 {
         Self::with_reg_val().dpb_extract()
     }
-// no insert() method for field dpb
+    // no insert() method for field dpb
 }
 
 impl Default for IdAa64isar1El1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Random Number (rndr)
  * Group:       Generic System Control
  * Type:        64-bit Register
- * Description: Random Number. Returns a 64-bit random number which is reseeded from the True Random Number source at an 
+ * Description: Random Number. Returns a 64-bit random number which is reseeded from the True Random Number source at an
  * File:        AArch64-rndr.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Random Number value in memory
 pub struct Rndr(u64);
 
 /// struct implementation for accessing the fields of register rndr
 impl Rndr {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Rndr {
@@ -79,16 +74,13 @@ impl Rndr {
         Rndr(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Rndr {
+    pub fn with_reg_val() -> Rndr {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         Rndr(curval)
     }
 
-
-    
     /// reading the Random Number (rndr) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Rndr {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Rndr {
         self.0
     }
 
-
-    
     /*
      * Field: rndr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rndr_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl Rndr {
     pub fn rndr_read() -> u64 {
         Self::with_reg_val().rndr_extract()
     }
-// no insert() method for field rndr
+    // no insert() method for field rndr
 }
 
 impl Default for Rndr {

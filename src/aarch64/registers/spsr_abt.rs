@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-spsr_abt.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Saved Program Status Register (Abort mode) value in memory
 pub struct SpsrAbt(u64);
 
 /// struct implementation for accessing the fields of register spsr_abt
 impl SpsrAbt {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> SpsrAbt {
@@ -79,16 +74,13 @@ impl SpsrAbt {
         SpsrAbt(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  SpsrAbt {
+    pub fn with_reg_val() -> SpsrAbt {
         let curval = Self::reg_rawrd() & 0xffffffff;
         SpsrAbt(curval)
     }
 
-
-    
     /// reading the Saved Program Status Register (Abort mode) (spsr_abt) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl SpsrAbt {
         return regval;
     }
 
-
     /// writing the Saved Program Status Register (Abort mode) (spsr_abt) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl SpsrAbt {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl SpsrAbt {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl SpsrAbt {
         self.0
     }
 
-
-    
     /*
      * Field: n
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn z_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl SpsrAbt {
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn v_extract(&self) -> u64 {
         // bits 28..28
@@ -260,7 +240,6 @@ impl SpsrAbt {
      * Field: q
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn q_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn it10_extract(&self) -> u64 {
         // bits 25..26
@@ -318,7 +296,6 @@ impl SpsrAbt {
      * Field: j
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn j_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ssbs_1_extract(&self) -> u64 {
         // bits 23..23
@@ -376,7 +352,6 @@ impl SpsrAbt {
      * Field: pan_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pan_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dit_1_extract(&self) -> u64 {
         // bits 21..21
@@ -434,7 +408,6 @@ impl SpsrAbt {
      * Field: il
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn il_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ge_extract(&self) -> u64 {
         // bits 16..19
@@ -492,7 +464,6 @@ impl SpsrAbt {
      * Field: it72
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn it72_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e_extract(&self) -> u64 {
         // bits 9..9
@@ -550,7 +520,6 @@ impl SpsrAbt {
      * Field: a
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
         // bits 7..7
@@ -608,7 +576,6 @@ impl SpsrAbt {
      * Field: f
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t_extract(&self) -> u64 {
         // bits 5..5
@@ -667,7 +633,6 @@ impl SpsrAbt {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn m40_extract(&self) -> u64 {
         // bits 0..4
@@ -690,7 +655,6 @@ impl SpsrAbt {
     pub fn m40_write(val: u64) {
         Self::with_reg_val().m40_insert(val).write();
     }
-
 }
 
 impl Default for SpsrAbt {

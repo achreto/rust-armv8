@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Counter-timer Virtual Offset register (cntvoff_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Holds the 64-bit virtual offset. This is the offset between the physical count value visible in 
+ * Description: Holds the 64-bit virtual offset. This is the offset between the physical count value visible in
  * File:        AArch64-cntvoff_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Virtual Offset register value in memory
 pub struct CntvoffEl2(u64);
 
 /// struct implementation for accessing the fields of register cntvoff_el2
 impl CntvoffEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntvoffEl2 {
@@ -79,16 +74,13 @@ impl CntvoffEl2 {
         CntvoffEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntvoffEl2 {
+    pub fn with_reg_val() -> CntvoffEl2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         CntvoffEl2(curval)
     }
 
-
-    
     /// reading the Counter-timer Virtual Offset register (cntvoff_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CntvoffEl2 {
         return regval;
     }
 
-
     /// writing the Counter-timer Virtual Offset register (cntvoff_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CntvoffEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CntvoffEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CntvoffEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl CntvoffEl2 {
     pub fn val_write(val: u64) {
         Self::with_reg_val().val_insert(val).write();
     }
-
 }
 
 impl Default for CntvoffEl2 {

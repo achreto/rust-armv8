@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icv_pmr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Virtual Interrupt Priority Mask Register value in memory
 pub struct IcvPmrEl1(u64);
 
 /// struct implementation for accessing the fields of register icv_pmr_el1
 impl IcvPmrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IcvPmrEl1 {
@@ -79,16 +74,13 @@ impl IcvPmrEl1 {
         IcvPmrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IcvPmrEl1 {
+    pub fn with_reg_val() -> IcvPmrEl1 {
         let curval = Self::reg_rawrd() & 0xff;
         IcvPmrEl1(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Virtual Interrupt Priority Mask Register (icv_pmr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl IcvPmrEl1 {
         return regval;
     }
 
-
     /// writing the Interrupt Controller Virtual Interrupt Priority Mask Register (icv_pmr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl IcvPmrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl IcvPmrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl IcvPmrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: priority
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn priority_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl IcvPmrEl1 {
     pub fn priority_write(val: u64) {
         Self::with_reg_val().priority_insert(val).write();
     }
-
 }
 
 impl Default for IcvPmrEl1 {

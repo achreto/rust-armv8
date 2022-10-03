@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar4_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 4 value in memory
 pub struct IdIsar4El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar4_el1
 impl IdIsar4El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar4El1 {
@@ -79,16 +74,13 @@ impl IdIsar4El1 {
         IdIsar4El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar4El1 {
+    pub fn with_reg_val() -> IdIsar4El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdIsar4El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 4 (id_isar4_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar4El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar4El1 {
         self.0
     }
 
-
-    
     /*
      * Field: swp_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn swp_frac_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar4El1 {
     pub fn swp_frac_read() -> u64 {
         Self::with_reg_val().swp_frac_extract()
     }
-// no insert() method for field swp_frac
+    // no insert() method for field swp_frac
     /*
      * Field: psr_m
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn psr_m_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar4El1 {
     pub fn psr_m_read() -> u64 {
         Self::with_reg_val().psr_m_extract()
     }
-// no insert() method for field psr_m
+    // no insert() method for field psr_m
     /*
      * Field: synchprim_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn synchprim_frac_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar4El1 {
     pub fn synchprim_frac_read() -> u64 {
         Self::with_reg_val().synchprim_frac_extract()
     }
-// no insert() method for field synchprim_frac
+    // no insert() method for field synchprim_frac
     /*
      * Field: barrier
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn barrier_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar4El1 {
     pub fn barrier_read() -> u64 {
         Self::with_reg_val().barrier_extract()
     }
-// no insert() method for field barrier
+    // no insert() method for field barrier
     /*
      * Field: smc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn smc_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar4El1 {
     pub fn smc_read() -> u64 {
         Self::with_reg_val().smc_extract()
     }
-// no insert() method for field smc
+    // no insert() method for field smc
     /*
      * Field: writeback
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn writeback_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar4El1 {
     pub fn writeback_read() -> u64 {
         Self::with_reg_val().writeback_extract()
     }
-// no insert() method for field writeback
+    // no insert() method for field writeback
     /*
      * Field: withshifts
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn withshifts_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdIsar4El1 {
     pub fn withshifts_read() -> u64 {
         Self::with_reg_val().withshifts_extract()
     }
-// no insert() method for field withshifts
+    // no insert() method for field withshifts
     /*
      * Field: unpriv
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn unpriv_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdIsar4El1 {
     pub fn unpriv_read() -> u64 {
         Self::with_reg_val().unpriv_extract()
     }
-// no insert() method for field unpriv
+    // no insert() method for field unpriv
 }
 
 impl Default for IdIsar4El1 {

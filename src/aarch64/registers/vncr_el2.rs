@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Virtual Nested Control Register (vncr_el2)
  * Group:       Generic System Control
  * Type:        64-bit Register
- * Description: When 
+ * Description: When
  * File:        AArch64-vncr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtual Nested Control Register value in memory
 pub struct VncrEl2(u64);
 
 /// struct implementation for accessing the fields of register vncr_el2
 impl VncrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VncrEl2 {
@@ -79,16 +74,13 @@ impl VncrEl2 {
         VncrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VncrEl2 {
+    pub fn with_reg_val() -> VncrEl2 {
         let curval = Self::reg_rawrd() & 0x1ffffffffff000;
         VncrEl2(curval)
     }
 
-
-    
     /// reading the Virtual Nested Control Register (vncr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VncrEl2 {
         return regval;
     }
 
-
     /// writing the Virtual Nested Control Register (vncr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VncrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VncrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VncrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: baddr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn baddr_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl VncrEl2 {
     pub fn baddr_write(val: u64) {
         Self::with_reg_val().baddr_insert(val).write();
     }
-
 }
 
 impl Default for VncrEl2 {

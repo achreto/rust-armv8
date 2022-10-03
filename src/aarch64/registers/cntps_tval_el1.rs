@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cntps_tval_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Physical Secure Timer TimerValue register value in memory
 pub struct CntpsTvalEl1(u64);
 
 /// struct implementation for accessing the fields of register cntps_tval_el1
 impl CntpsTvalEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntpsTvalEl1 {
@@ -79,16 +74,13 @@ impl CntpsTvalEl1 {
         CntpsTvalEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntpsTvalEl1 {
+    pub fn with_reg_val() -> CntpsTvalEl1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         CntpsTvalEl1(curval)
     }
 
-
-    
     /// reading the Counter-timer Physical Secure Timer TimerValue register (cntps_tval_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CntpsTvalEl1 {
         return regval;
     }
 
-
     /// writing the Counter-timer Physical Secure Timer TimerValue register (cntps_tval_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CntpsTvalEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CntpsTvalEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CntpsTvalEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: timervalue
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn timervalue_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl CntpsTvalEl1 {
     pub fn timervalue_write(val: u64) {
         Self::with_reg_val().timervalue_insert(val).write();
     }
-
 }
 
 impl Default for CntpsTvalEl1 {

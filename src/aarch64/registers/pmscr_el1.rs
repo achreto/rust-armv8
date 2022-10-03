@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmscr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Statistical Profiling Control Register (EL1) value in memory
 pub struct PmscrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmscr_el1
 impl PmscrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmscrEl1 {
@@ -79,16 +74,13 @@ impl PmscrEl1 {
         PmscrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmscrEl1 {
+    pub fn with_reg_val() -> PmscrEl1 {
         let curval = Self::reg_rawrd() & 0xfb;
         PmscrEl1(curval)
     }
 
-
-    
     /// reading the Statistical Profiling Control Register (EL1) (pmscr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmscrEl1 {
         return regval;
     }
 
-
     /// writing the Statistical Profiling Control Register (EL1) (pmscr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmscrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmscrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmscrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: pct_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pct_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pct_2_extract(&self) -> u64 {
         // bits 6..7
@@ -202,7 +184,6 @@ impl PmscrEl1 {
      * Field: ts
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ts_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl PmscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pa_extract(&self) -> u64 {
         // bits 4..4
@@ -260,7 +240,6 @@ impl PmscrEl1 {
      * Field: cx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cx_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl PmscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e1spe_extract(&self) -> u64 {
         // bits 1..1
@@ -319,7 +297,6 @@ impl PmscrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e0spe_extract(&self) -> u64 {
         // bits 0..0
@@ -342,7 +319,6 @@ impl PmscrEl1 {
     pub fn e0spe_write(val: u64) {
         Self::with_reg_val().e0spe_insert(val).write();
     }
-
 }
 
 impl Default for PmscrEl1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-apiakeyhi_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Pointer Authentication Key A for Instruction (bits[127:64])  value in memory
 pub struct ApiakeyhiEl1(u64);
 
 /// struct implementation for accessing the fields of register apiakeyhi_el1
 impl ApiakeyhiEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ApiakeyhiEl1 {
@@ -79,16 +74,13 @@ impl ApiakeyhiEl1 {
         ApiakeyhiEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ApiakeyhiEl1 {
+    pub fn with_reg_val() -> ApiakeyhiEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         ApiakeyhiEl1(curval)
     }
 
-
-    
     /// reading the Pointer Authentication Key A for Instruction (bits[127:64])  (apiakeyhi_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl ApiakeyhiEl1 {
         return regval;
     }
 
-
     /// writing the Pointer Authentication Key A for Instruction (bits[127:64])  (apiakeyhi_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl ApiakeyhiEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl ApiakeyhiEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl ApiakeyhiEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl ApiakeyhiEl1 {
     pub fn val_write(val: u64) {
         Self::with_reg_val().val_insert(val).write();
     }
-
 }
 
 impl Default for ApiakeyhiEl1 {

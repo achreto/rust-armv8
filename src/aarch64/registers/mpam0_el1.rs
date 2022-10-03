@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    MPAM0 Register (EL1) (mpam0_el1)
  * Group:       Memory Partitioning and Monitoring registers
  * Type:        64-bit Register
- * Description: Holds information to generate MPAM labels for memory requests when executing at EL0. When EL2 is present and enabled, the MPAM virtualization option is present, 
+ * Description: Holds information to generate MPAM labels for memory requests when executing at EL0. When EL2 is present and enabled, the MPAM virtualization option is present,
  * File:        AArch64-mpam0_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the MPAM0 Register (EL1) value in memory
 pub struct Mpam0El1(u64);
 
 /// struct implementation for accessing the fields of register mpam0_el1
 impl Mpam0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mpam0El1 {
@@ -79,16 +74,13 @@ impl Mpam0El1 {
         Mpam0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mpam0El1 {
+    pub fn with_reg_val() -> Mpam0El1 {
         let curval = Self::reg_rawrd() & 0xffffffffffff;
         Mpam0El1(curval)
     }
 
-
-    
     /// reading the MPAM0 Register (EL1) (mpam0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Mpam0El1 {
         return regval;
     }
 
-
     /// writing the MPAM0 Register (EL1) (mpam0_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Mpam0El1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Mpam0El1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Mpam0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: pmg_d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmg_d_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Mpam0El1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmg_i_extract(&self) -> u64 {
         // bits 32..39
@@ -202,7 +184,6 @@ impl Mpam0El1 {
      * Field: partid_d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn partid_d_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Mpam0El1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn partid_i_extract(&self) -> u64 {
         // bits 0..15
@@ -255,7 +235,6 @@ impl Mpam0El1 {
     pub fn partid_i_write(val: u64) {
         Self::with_reg_val().partid_i_insert(val).write();
     }
-
 }
 
 impl Default for Mpam0El1 {

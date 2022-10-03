@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_pfr0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Processor Feature Register 0 value in memory
 pub struct IdPfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_pfr0_el1
 impl IdPfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdPfr0El1 {
@@ -79,16 +74,13 @@ impl IdPfr0El1 {
         IdPfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdPfr0El1 {
+    pub fn with_reg_val() -> IdPfr0El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdPfr0El1(curval)
     }
 
-
-    
     /// reading the AArch32 Processor Feature Register 0 (id_pfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdPfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdPfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: ras
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ras_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdPfr0El1 {
     pub fn ras_read() -> u64 {
         Self::with_reg_val().ras_extract()
     }
-// no insert() method for field ras
+    // no insert() method for field ras
     /*
      * Field: dit
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dit_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdPfr0El1 {
     pub fn dit_read() -> u64 {
         Self::with_reg_val().dit_extract()
     }
-// no insert() method for field dit
+    // no insert() method for field dit
     /*
      * Field: amu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amu_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdPfr0El1 {
     pub fn amu_read() -> u64 {
         Self::with_reg_val().amu_extract()
     }
-// no insert() method for field amu
+    // no insert() method for field amu
     /*
      * Field: csv2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn csv2_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdPfr0El1 {
     pub fn csv2_read() -> u64 {
         Self::with_reg_val().csv2_extract()
     }
-// no insert() method for field csv2
+    // no insert() method for field csv2
     /*
      * Field: state3
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn state3_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdPfr0El1 {
     pub fn state3_read() -> u64 {
         Self::with_reg_val().state3_extract()
     }
-// no insert() method for field state3
+    // no insert() method for field state3
     /*
      * Field: state2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn state2_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdPfr0El1 {
     pub fn state2_read() -> u64 {
         Self::with_reg_val().state2_extract()
     }
-// no insert() method for field state2
+    // no insert() method for field state2
     /*
      * Field: state1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn state1_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdPfr0El1 {
     pub fn state1_read() -> u64 {
         Self::with_reg_val().state1_extract()
     }
-// no insert() method for field state1
+    // no insert() method for field state1
     /*
      * Field: state0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn state0_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdPfr0El1 {
     pub fn state0_read() -> u64 {
         Self::with_reg_val().state0_extract()
     }
-// no insert() method for field state0
+    // no insert() method for field state0
 }
 
 impl Default for IdPfr0El1 {

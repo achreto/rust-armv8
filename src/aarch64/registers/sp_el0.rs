@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Stack Pointer (EL0) (sp_el0)
  * Group:       Special-purpose registers
  * Type:        64-bit Register
- * Description: Holds the stack pointer associated with EL0. At higher Exception levels, this is used as the current stack pointer when the value of 
+ * Description: Holds the stack pointer associated with EL0. At higher Exception levels, this is used as the current stack pointer when the value of
  * File:        AArch64-sp_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Stack Pointer (EL0) value in memory
 pub struct SpEl0(u64);
 
 /// struct implementation for accessing the fields of register sp_el0
 impl SpEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> SpEl0 {
@@ -79,16 +74,13 @@ impl SpEl0 {
         SpEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  SpEl0 {
+    pub fn with_reg_val() -> SpEl0 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         SpEl0(curval)
     }
 
-
-    
     /// reading the Stack Pointer (EL0) (sp_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl SpEl0 {
         return regval;
     }
 
-
     /// writing the Stack Pointer (EL0) (sp_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl SpEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl SpEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl SpEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl SpEl0 {
     pub fn val_write(val: u64) {
         Self::with_reg_val().val_insert(val).write();
     }
-
 }
 
 impl Default for SpEl0 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-vstcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtualization Secure Translation Control Register value in memory
 pub struct VstcrEl2(u64);
 
 /// struct implementation for accessing the fields of register vstcr_el2
 impl VstcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VstcrEl2 {
@@ -79,16 +74,13 @@ impl VstcrEl2 {
         VstcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VstcrEl2 {
+    pub fn with_reg_val() -> VstcrEl2 {
         let curval = Self::reg_rawrd() & 0x26000c0ff;
         VstcrEl2(curval)
     }
 
-
-    
     /// reading the Virtualization Secure Translation Control Register (vstcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VstcrEl2 {
         return regval;
     }
 
-
     /// writing the Virtualization Secure Translation Control Register (vstcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VstcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VstcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VstcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: sl2_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sl2_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl VstcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sa_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl VstcrEl2 {
      * Field: sw
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sw_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl VstcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tg0_extract(&self) -> u64 {
         // bits 14..15
@@ -260,7 +240,6 @@ impl VstcrEl2 {
      * Field: sl0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sl0_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl VstcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sl0_2_extract(&self) -> u64 {
         // bits 6..7
@@ -319,7 +297,6 @@ impl VstcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t0sz_extract(&self) -> u64 {
         // bits 0..5
@@ -342,7 +319,6 @@ impl VstcrEl2 {
     pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
-
 }
 
 impl Default for VstcrEl2 {

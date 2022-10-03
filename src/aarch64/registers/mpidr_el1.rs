@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mpidr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Multiprocessor Affinity Register value in memory
 pub struct MpidrEl1(u64);
 
 /// struct implementation for accessing the fields of register mpidr_el1
 impl MpidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MpidrEl1 {
@@ -79,16 +74,13 @@ impl MpidrEl1 {
         MpidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MpidrEl1 {
+    pub fn with_reg_val() -> MpidrEl1 {
         let curval = Self::reg_rawrd() & 0xff41ffffff;
         MpidrEl1(curval)
     }
 
-
-    
     /// reading the Multiprocessor Affinity Register (mpidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl MpidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl MpidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: aff3
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff3_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl MpidrEl1 {
     pub fn aff3_read() -> u64 {
         Self::with_reg_val().aff3_extract()
     }
-// no insert() method for field aff3
+    // no insert() method for field aff3
     /*
      * Field: u
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn u_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl MpidrEl1 {
     pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
-// no insert() method for field u
+    // no insert() method for field u
     /*
      * Field: mt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mt_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl MpidrEl1 {
     pub fn mt_read() -> u64 {
         Self::with_reg_val().mt_extract()
     }
-// no insert() method for field mt
+    // no insert() method for field mt
     /*
      * Field: aff2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff2_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl MpidrEl1 {
     pub fn aff2_read() -> u64 {
         Self::with_reg_val().aff2_extract()
     }
-// no insert() method for field aff2
+    // no insert() method for field aff2
     /*
      * Field: aff1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff1_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl MpidrEl1 {
     pub fn aff1_read() -> u64 {
         Self::with_reg_val().aff1_extract()
     }
-// no insert() method for field aff1
+    // no insert() method for field aff1
     /*
      * Field: aff0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aff0_extract(&self) -> u64 {
@@ -226,7 +208,7 @@ impl MpidrEl1 {
     pub fn aff0_read() -> u64 {
         Self::with_reg_val().aff0_extract()
     }
-// no insert() method for field aff0
+    // no insert() method for field aff0
 }
 
 impl Default for MpidrEl1 {

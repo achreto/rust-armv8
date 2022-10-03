@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-dspsr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Saved Program Status Register value in memory
 pub struct DspsrEl0(u64);
 
 /// struct implementation for accessing the fields of register dspsr_el0
 impl DspsrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DspsrEl0 {
@@ -79,16 +74,13 @@ impl DspsrEl0 {
         DspsrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  DspsrEl0 {
+    pub fn with_reg_val() -> DspsrEl0 {
         let curval = Self::reg_rawrd() & 0xf3f01fdf;
         DspsrEl0(curval)
     }
 
-
-    
     /// reading the Debug Saved Program Status Register (dspsr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl DspsrEl0 {
         return regval;
     }
 
-
     /// writing the Debug Saved Program Status Register (dspsr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl DspsrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl DspsrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl DspsrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: n
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn z_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl DspsrEl0 {
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn v_extract(&self) -> u64 {
         // bits 28..28
@@ -260,7 +240,6 @@ impl DspsrEl0 {
      * Field: tco_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tco_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dit_1_extract(&self) -> u64 {
         // bits 24..24
@@ -318,7 +296,6 @@ impl DspsrEl0 {
      * Field: uao_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn uao_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pan_1_extract(&self) -> u64 {
         // bits 22..22
@@ -376,7 +352,6 @@ impl DspsrEl0 {
      * Field: ss
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ss_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn il_extract(&self) -> u64 {
         // bits 20..20
@@ -434,7 +408,6 @@ impl DspsrEl0 {
      * Field: ssbs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ssbs_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn btype_1_extract(&self) -> u64 {
         // bits 10..11
@@ -492,7 +464,6 @@ impl DspsrEl0 {
      * Field: d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn d_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
         // bits 8..8
@@ -550,7 +520,6 @@ impl DspsrEl0 {
      * Field: i
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
         // bits 6..6
@@ -608,7 +576,6 @@ impl DspsrEl0 {
      * Field: m4
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn m4_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl DspsrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn m30_extract(&self) -> u64 {
         // bits 0..3
@@ -661,7 +627,6 @@ impl DspsrEl0 {
     pub fn m30_write(val: u64) {
         Self::with_reg_val().m30_insert(val).write();
     }
-
 }
 
 impl Default for DspsrEl0 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ich_hcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Hyp Control Register value in memory
 pub struct IchHcrEl2(u64);
 
 /// struct implementation for accessing the fields of register ich_hcr_el2
 impl IchHcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IchHcrEl2 {
@@ -79,16 +74,13 @@ impl IchHcrEl2 {
         IchHcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IchHcrEl2 {
+    pub fn with_reg_val() -> IchHcrEl2 {
         let curval = Self::reg_rawrd() & 0xf800fdff;
         IchHcrEl2(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Hyp Control Register (ich_hcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl IchHcrEl2 {
         return regval;
     }
 
-
     /// writing the Interrupt Controller Hyp Control Register (ich_hcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl IchHcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl IchHcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl IchHcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: eoicount
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn eoicount_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dvim_1_extract(&self) -> u64 {
         // bits 15..15
@@ -202,7 +184,6 @@ impl IchHcrEl2 {
      * Field: tdir
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tdir_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tsei_extract(&self) -> u64 {
         // bits 13..13
@@ -260,7 +240,6 @@ impl IchHcrEl2 {
      * Field: tall1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tall1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tall0_extract(&self) -> u64 {
         // bits 11..11
@@ -318,7 +296,6 @@ impl IchHcrEl2 {
      * Field: tc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tc_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vsgieoicount_1_extract(&self) -> u64 {
         // bits 8..8
@@ -376,7 +352,6 @@ impl IchHcrEl2 {
      * Field: vgrp1die
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp1die_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vgrp1eie_extract(&self) -> u64 {
         // bits 6..6
@@ -434,7 +408,6 @@ impl IchHcrEl2 {
      * Field: vgrp0die
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp0die_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vgrp0eie_extract(&self) -> u64 {
         // bits 4..4
@@ -492,7 +464,6 @@ impl IchHcrEl2 {
      * Field: npie
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn npie_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lrenpie_extract(&self) -> u64 {
         // bits 2..2
@@ -550,7 +520,6 @@ impl IchHcrEl2 {
      * Field: uie
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn uie_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl IchHcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn en_extract(&self) -> u64 {
         // bits 0..0
@@ -603,7 +571,6 @@ impl IchHcrEl2 {
     pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
-
 }
 
 impl Default for IchHcrEl2 {

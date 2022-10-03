@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 2 value in memory
 pub struct IdIsar2El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar2_el1
 impl IdIsar2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar2El1 {
@@ -79,16 +74,13 @@ impl IdIsar2El1 {
         IdIsar2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar2El1 {
+    pub fn with_reg_val() -> IdIsar2El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdIsar2El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 2 (id_isar2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: reversal
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn reversal_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar2El1 {
     pub fn reversal_read() -> u64 {
         Self::with_reg_val().reversal_extract()
     }
-// no insert() method for field reversal
+    // no insert() method for field reversal
     /*
      * Field: psr_ar
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn psr_ar_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar2El1 {
     pub fn psr_ar_read() -> u64 {
         Self::with_reg_val().psr_ar_extract()
     }
-// no insert() method for field psr_ar
+    // no insert() method for field psr_ar
     /*
      * Field: multu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn multu_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar2El1 {
     pub fn multu_read() -> u64 {
         Self::with_reg_val().multu_extract()
     }
-// no insert() method for field multu
+    // no insert() method for field multu
     /*
      * Field: mults
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mults_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar2El1 {
     pub fn mults_read() -> u64 {
         Self::with_reg_val().mults_extract()
     }
-// no insert() method for field mults
+    // no insert() method for field mults
     /*
      * Field: mult
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mult_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar2El1 {
     pub fn mult_read() -> u64 {
         Self::with_reg_val().mult_extract()
     }
-// no insert() method for field mult
+    // no insert() method for field mult
     /*
      * Field: multiaccessint
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn multiaccessint_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar2El1 {
     pub fn multiaccessint_read() -> u64 {
         Self::with_reg_val().multiaccessint_extract()
     }
-// no insert() method for field multiaccessint
+    // no insert() method for field multiaccessint
     /*
      * Field: memhint
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn memhint_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdIsar2El1 {
     pub fn memhint_read() -> u64 {
         Self::with_reg_val().memhint_extract()
     }
-// no insert() method for field memhint
+    // no insert() method for field memhint
     /*
      * Field: loadstore
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn loadstore_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdIsar2El1 {
     pub fn loadstore_read() -> u64 {
         Self::with_reg_val().loadstore_extract()
     }
-// no insert() method for field loadstore
+    // no insert() method for field loadstore
 }
 
 impl Default for IdIsar2El1 {

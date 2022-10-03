@@ -24,7 +24,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
@@ -48,6 +47,5 @@ pub mod predictor_maintenance;
 
 // TLB maintenance instructions
 pub mod tlb_maintenance;
-
 
 // end of file

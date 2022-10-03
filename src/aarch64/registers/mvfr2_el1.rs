@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mvfr2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Media and VFP Feature Register 2 value in memory
 pub struct Mvfr2El1(u64);
 
 /// struct implementation for accessing the fields of register mvfr2_el1
 impl Mvfr2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mvfr2El1 {
@@ -79,16 +74,13 @@ impl Mvfr2El1 {
         Mvfr2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mvfr2El1 {
+    pub fn with_reg_val() -> Mvfr2El1 {
         let curval = Self::reg_rawrd() & 0xff;
         Mvfr2El1(curval)
     }
 
-
-    
     /// reading the AArch32 Media and VFP Feature Register 2 (mvfr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Mvfr2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Mvfr2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: fpmisc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpmisc_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl Mvfr2El1 {
     pub fn fpmisc_read() -> u64 {
         Self::with_reg_val().fpmisc_extract()
     }
-// no insert() method for field fpmisc
+    // no insert() method for field fpmisc
     /*
      * Field: simdmisc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdmisc_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl Mvfr2El1 {
     pub fn simdmisc_read() -> u64 {
         Self::with_reg_val().simdmisc_extract()
     }
-// no insert() method for field simdmisc
+    // no insert() method for field simdmisc
 }
 
 impl Default for Mvfr2El1 {

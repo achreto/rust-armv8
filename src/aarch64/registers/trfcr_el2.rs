@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-trfcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Trace Filter Control Register (EL2) value in memory
 pub struct TrfcrEl2(u64);
 
 /// struct implementation for accessing the fields of register trfcr_el2
 impl TrfcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TrfcrEl2 {
@@ -79,16 +74,13 @@ impl TrfcrEl2 {
         TrfcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TrfcrEl2 {
+    pub fn with_reg_val() -> TrfcrEl2 {
         let curval = Self::reg_rawrd() & 0x6b;
         TrfcrEl2(curval)
     }
 
-
-    
     /// reading the Trace Filter Control Register (EL2) (trfcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TrfcrEl2 {
         return regval;
     }
 
-
     /// writing the Trace Filter Control Register (EL2) (trfcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TrfcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TrfcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TrfcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: ts
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ts_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl TrfcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn cx_extract(&self) -> u64 {
         // bits 3..3
@@ -202,7 +184,6 @@ impl TrfcrEl2 {
      * Field: e2tre
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e2tre_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl TrfcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e0htre_extract(&self) -> u64 {
         // bits 0..0
@@ -255,7 +235,6 @@ impl TrfcrEl2 {
     pub fn e0htre_write(val: u64) {
         Self::with_reg_val().e0htre_insert(val).write();
     }
-
 }
 
 impl Default for TrfcrEl2 {

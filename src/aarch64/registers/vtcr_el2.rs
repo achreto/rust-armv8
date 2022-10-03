@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-vtcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtualization Translation Control Register value in memory
 pub struct VtcrEl2(u64);
 
 /// struct implementation for accessing the fields of register vtcr_el2
 impl VtcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VtcrEl2 {
@@ -79,16 +74,13 @@ impl VtcrEl2 {
         VtcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VtcrEl2 {
+    pub fn with_reg_val() -> VtcrEl2 {
         let curval = Self::reg_rawrd() & 0x37e6fffff;
         VtcrEl2(curval)
     }
 
-
-    
     /// reading the Virtualization Translation Control Register (vtcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VtcrEl2 {
         return regval;
     }
 
-
     /// writing the Virtualization Translation Control Register (vtcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VtcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VtcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VtcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: sl2_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sl2_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ds_1_extract(&self) -> u64 {
         // bits 32..32
@@ -202,7 +184,6 @@ impl VtcrEl2 {
      * Field: nsa_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsa_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nsw_1_extract(&self) -> u64 {
         // bits 29..29
@@ -260,7 +240,6 @@ impl VtcrEl2 {
      * Field: hwu62_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu62_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu61_1_extract(&self) -> u64 {
         // bits 27..27
@@ -318,7 +296,6 @@ impl VtcrEl2 {
      * Field: hwu60_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu60_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu59_1_extract(&self) -> u64 {
         // bits 25..25
@@ -376,7 +352,6 @@ impl VtcrEl2 {
      * Field: hd_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hd_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ha_1_extract(&self) -> u64 {
         // bits 21..21
@@ -434,7 +408,6 @@ impl VtcrEl2 {
      * Field: vs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vs_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ps_extract(&self) -> u64 {
         // bits 16..18
@@ -492,7 +464,6 @@ impl VtcrEl2 {
      * Field: tg0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tg0_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sh0_extract(&self) -> u64 {
         // bits 12..13
@@ -550,7 +520,6 @@ impl VtcrEl2 {
      * Field: orgn0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn orgn0_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn irgn0_extract(&self) -> u64 {
         // bits 8..9
@@ -608,7 +576,6 @@ impl VtcrEl2 {
      * Field: sl0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sl0_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sl0_2_extract(&self) -> u64 {
         // bits 6..7
@@ -667,7 +633,6 @@ impl VtcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t0sz_extract(&self) -> u64 {
         // bits 0..5
@@ -690,7 +655,6 @@ impl VtcrEl2 {
     pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
-
 }
 
 impl Default for VtcrEl2 {

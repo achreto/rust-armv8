@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icc_sgi0r_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Software Generated Interrupt Group 0 Register value in memory
 pub struct IccSgi0rEl1(u64);
 
 /// struct implementation for accessing the fields of register icc_sgi0r_el1
 impl IccSgi0rEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccSgi0rEl1 {
@@ -81,7 +76,6 @@ impl IccSgi0rEl1 {
 
     // no current() method as it is write only
 
-    
     /// writing the Interrupt Controller Software Generated Interrupt Group 0 Register (icc_sgi0r_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -91,17 +85,15 @@ impl IccSgi0rEl1 {
         }
     }
 
-// register is not readable. not emitting read accessor
-
+    // register is not readable. not emitting read accessor
 
     // no read() method as it is write only
-    
+
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -113,14 +105,12 @@ impl IccSgi0rEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: aff3
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field aff3
+    // no extract() method for field aff3
     /// inserts the given value `val` into the field `aff3`
     pub fn aff3_insert(&mut self, val: u64) -> &mut Self {
         // bits 48..55
@@ -138,7 +128,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field rs
+    // no extract() method for field rs
     /// inserts the given value `val` into the field `rs`
     pub fn rs_insert(&mut self, val: u64) -> &mut Self {
         // bits 44..47
@@ -156,7 +146,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field irm
+    // no extract() method for field irm
     /// inserts the given value `val` into the field `irm`
     pub fn irm_insert(&mut self, val: u64) -> &mut Self {
         // bits 40..40
@@ -174,7 +164,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field aff2
+    // no extract() method for field aff2
     /// inserts the given value `val` into the field `aff2`
     pub fn aff2_insert(&mut self, val: u64) -> &mut Self {
         // bits 32..39
@@ -192,7 +182,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field intid
+    // no extract() method for field intid
     /// inserts the given value `val` into the field `intid`
     pub fn intid_insert(&mut self, val: u64) -> &mut Self {
         // bits 24..27
@@ -210,7 +200,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field aff1
+    // no extract() method for field aff1
     /// inserts the given value `val` into the field `aff1`
     pub fn aff1_insert(&mut self, val: u64) -> &mut Self {
         // bits 16..23
@@ -228,7 +218,7 @@ impl IccSgi0rEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field targetlist
+    // no extract() method for field targetlist
     /// inserts the given value `val` into the field `targetlist`
     pub fn targetlist_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..15
@@ -240,7 +230,6 @@ impl IccSgi0rEl1 {
     pub fn targetlist_write(&mut self, val: u64) {
         Self::default().targetlist_insert(val).write();
     }
-
 }
 
 impl Default for IccSgi0rEl1 {

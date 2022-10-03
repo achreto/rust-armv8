@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Architectural Feature Trap Register (EL3) (cptr_el3)
  * Group:       Security registers
  * Type:        64-bit Register
- * Description: Controls trapping to EL3 of accesses to 
+ * Description: Controls trapping to EL3 of accesses to
  * File:        AArch64-cptr_el3.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Architectural Feature Trap Register (EL3) value in memory
 pub struct CptrEl3(u64);
 
 /// struct implementation for accessing the fields of register cptr_el3
 impl CptrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CptrEl3 {
@@ -79,16 +74,13 @@ impl CptrEl3 {
         CptrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CptrEl3 {
+    pub fn with_reg_val() -> CptrEl3 {
         let curval = Self::reg_rawrd() & 0xc0100500;
         CptrEl3(curval)
     }
 
-
-    
     /// reading the Architectural Feature Trap Register (EL3) (cptr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CptrEl3 {
         return regval;
     }
 
-
     /// writing the Architectural Feature Trap Register (EL3) (cptr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CptrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CptrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CptrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: tcpac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tcpac_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl CptrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tam_1_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl CptrEl3 {
      * Field: tta
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tta_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl CptrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tfp_extract(&self) -> u64 {
         // bits 10..10
@@ -261,7 +241,6 @@ impl CptrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ez_1_extract(&self) -> u64 {
         // bits 8..8
@@ -284,7 +263,6 @@ impl CptrEl3 {
     pub fn ez_1_write(val: u64) {
         Self::with_reg_val().ez_1_insert(val).write();
     }
-
 }
 
 impl Default for CptrEl3 {

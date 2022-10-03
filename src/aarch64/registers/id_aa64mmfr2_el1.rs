@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64mmfr2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Memory Model Feature Register 2 value in memory
 pub struct IdAa64mmfr2El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64mmfr2_el1
 impl IdAa64mmfr2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64mmfr2El1 {
@@ -79,16 +74,13 @@ impl IdAa64mmfr2El1 {
         IdAa64mmfr2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64mmfr2El1 {
+    pub fn with_reg_val() -> IdAa64mmfr2El1 {
         let curval = Self::reg_rawrd() & 0xffff0fffffffffff;
         IdAa64mmfr2El1(curval)
     }
 
-
-    
     /// reading the AArch64 Memory Model Feature Register 2 (id_aa64mmfr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64mmfr2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64mmfr2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: e0pd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e0pd_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64mmfr2El1 {
     pub fn e0pd_read() -> u64 {
         Self::with_reg_val().e0pd_extract()
     }
-// no insert() method for field e0pd
+    // no insert() method for field e0pd
     /*
      * Field: evt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evt_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64mmfr2El1 {
     pub fn evt_read() -> u64 {
         Self::with_reg_val().evt_extract()
     }
-// no insert() method for field evt
+    // no insert() method for field evt
     /*
      * Field: bbm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bbm_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64mmfr2El1 {
     pub fn bbm_read() -> u64 {
         Self::with_reg_val().bbm_extract()
     }
-// no insert() method for field bbm
+    // no insert() method for field bbm
     /*
      * Field: ttl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ttl_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64mmfr2El1 {
     pub fn ttl_read() -> u64 {
         Self::with_reg_val().ttl_extract()
     }
-// no insert() method for field ttl
+    // no insert() method for field ttl
     /*
      * Field: fwb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fwb_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdAa64mmfr2El1 {
     pub fn fwb_read() -> u64 {
         Self::with_reg_val().fwb_extract()
     }
-// no insert() method for field fwb
+    // no insert() method for field fwb
     /*
      * Field: ids
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ids_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdAa64mmfr2El1 {
     pub fn ids_read() -> u64 {
         Self::with_reg_val().ids_extract()
     }
-// no insert() method for field ids
+    // no insert() method for field ids
     /*
      * Field: at
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn at_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdAa64mmfr2El1 {
     pub fn at_read() -> u64 {
         Self::with_reg_val().at_extract()
     }
-// no insert() method for field at
+    // no insert() method for field at
     /*
      * Field: st
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn st_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl IdAa64mmfr2El1 {
     pub fn st_read() -> u64 {
         Self::with_reg_val().st_extract()
     }
-// no insert() method for field st
+    // no insert() method for field st
     /*
      * Field: nv
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nv_extract(&self) -> u64 {
@@ -277,12 +256,11 @@ impl IdAa64mmfr2El1 {
     pub fn nv_read() -> u64 {
         Self::with_reg_val().nv_extract()
     }
-// no insert() method for field nv
+    // no insert() method for field nv
     /*
      * Field: ccidx
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ccidx_extract(&self) -> u64 {
@@ -294,12 +272,11 @@ impl IdAa64mmfr2El1 {
     pub fn ccidx_read() -> u64 {
         Self::with_reg_val().ccidx_extract()
     }
-// no insert() method for field ccidx
+    // no insert() method for field ccidx
     /*
      * Field: varange
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn varange_extract(&self) -> u64 {
@@ -311,12 +288,11 @@ impl IdAa64mmfr2El1 {
     pub fn varange_read() -> u64 {
         Self::with_reg_val().varange_extract()
     }
-// no insert() method for field varange
+    // no insert() method for field varange
     /*
      * Field: iesb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn iesb_extract(&self) -> u64 {
@@ -328,12 +304,11 @@ impl IdAa64mmfr2El1 {
     pub fn iesb_read() -> u64 {
         Self::with_reg_val().iesb_extract()
     }
-// no insert() method for field iesb
+    // no insert() method for field iesb
     /*
      * Field: lsm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lsm_extract(&self) -> u64 {
@@ -345,12 +320,11 @@ impl IdAa64mmfr2El1 {
     pub fn lsm_read() -> u64 {
         Self::with_reg_val().lsm_extract()
     }
-// no insert() method for field lsm
+    // no insert() method for field lsm
     /*
      * Field: uao
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn uao_extract(&self) -> u64 {
@@ -362,12 +336,11 @@ impl IdAa64mmfr2El1 {
     pub fn uao_read() -> u64 {
         Self::with_reg_val().uao_extract()
     }
-// no insert() method for field uao
+    // no insert() method for field uao
     /*
      * Field: cnp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cnp_extract(&self) -> u64 {
@@ -379,7 +352,7 @@ impl IdAa64mmfr2El1 {
     pub fn cnp_read() -> u64 {
         Self::with_reg_val().cnp_extract()
     }
-// no insert() method for field cnp
+    // no insert() method for field cnp
 }
 
 impl Default for IdAa64mmfr2El1 {

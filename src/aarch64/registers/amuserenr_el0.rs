@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-amuserenr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Activity Monitors User Enable Register value in memory
 pub struct AmuserenrEl0(u64);
 
 /// struct implementation for accessing the fields of register amuserenr_el0
 impl AmuserenrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AmuserenrEl0 {
@@ -79,16 +74,13 @@ impl AmuserenrEl0 {
         AmuserenrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  AmuserenrEl0 {
+    pub fn with_reg_val() -> AmuserenrEl0 {
         let curval = Self::reg_rawrd() & 0x1;
         AmuserenrEl0(curval)
     }
 
-
-    
     /// reading the Activity Monitors User Enable Register (amuserenr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl AmuserenrEl0 {
         return regval;
     }
 
-
     /// writing the Activity Monitors User Enable Register (amuserenr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl AmuserenrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl AmuserenrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl AmuserenrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: en
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn en_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl AmuserenrEl0 {
     pub fn en_write(val: u64) {
         Self::with_reg_val().en_insert(val).write();
     }
-
 }
 
 impl Default for AmuserenrEl0 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmsfcr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Sampling Filter Control Register value in memory
 pub struct PmsfcrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmsfcr_el1
 impl PmsfcrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmsfcrEl1 {
@@ -79,16 +74,13 @@ impl PmsfcrEl1 {
         PmsfcrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmsfcrEl1 {
+    pub fn with_reg_val() -> PmsfcrEl1 {
         let curval = Self::reg_rawrd() & 0x7000f;
         PmsfcrEl1(curval)
     }
 
-
-    
     /// reading the Sampling Filter Control Register (pmsfcr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmsfcrEl1 {
         return regval;
     }
 
-
     /// writing the Sampling Filter Control Register (pmsfcr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmsfcrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmsfcrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmsfcrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: st
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn st_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmsfcrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ld_extract(&self) -> u64 {
         // bits 17..17
@@ -202,7 +184,6 @@ impl PmsfcrEl1 {
      * Field: b
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn b_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl PmsfcrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fne_1_extract(&self) -> u64 {
         // bits 3..3
@@ -260,7 +240,6 @@ impl PmsfcrEl1 {
      * Field: fl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fl_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl PmsfcrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ft_extract(&self) -> u64 {
         // bits 1..1
@@ -319,7 +297,6 @@ impl PmsfcrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fe_extract(&self) -> u64 {
         // bits 0..0
@@ -342,7 +319,6 @@ impl PmsfcrEl1 {
     pub fn fe_write(val: u64) {
         Self::with_reg_val().fe_insert(val).write();
     }
-
 }
 
 impl Default for PmsfcrEl1 {

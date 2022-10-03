@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-hfgitr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor Fine-Grained Instruction Trap Register value in memory
 pub struct HfgitrEl2(u64);
 
 /// struct implementation for accessing the fields of register hfgitr_el2
 impl HfgitrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HfgitrEl2 {
@@ -79,16 +74,13 @@ impl HfgitrEl2 {
         HfgitrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HfgitrEl2 {
+    pub fn with_reg_val() -> HfgitrEl2 {
         let curval = Self::reg_rawrd() & 0x7fffffffffffff;
         HfgitrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor Fine-Grained Instruction Trap Register (hfgitr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HfgitrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor Fine-Grained Instruction Trap Register (hfgitr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HfgitrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HfgitrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HfgitrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: dccvac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dccvac_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn svc_el1_extract(&self) -> u64 {
         // bits 53..53
@@ -202,7 +184,6 @@ impl HfgitrEl2 {
      * Field: svc_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn svc_el0_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eret_extract(&self) -> u64 {
         // bits 51..51
@@ -260,7 +240,6 @@ impl HfgitrEl2 {
      * Field: cpprctx_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cpprctx_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dvprctx_1_extract(&self) -> u64 {
         // bits 49..49
@@ -318,7 +296,6 @@ impl HfgitrEl2 {
      * Field: cfprctx_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cfprctx_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaale1_extract(&self) -> u64 {
         // bits 47..47
@@ -376,7 +352,6 @@ impl HfgitrEl2 {
      * Field: tlbivale1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivale1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaae1_extract(&self) -> u64 {
         // bits 45..45
@@ -434,7 +408,6 @@ impl HfgitrEl2 {
      * Field: tlbiaside1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbiaside1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivae1_extract(&self) -> u64 {
         // bits 43..43
@@ -492,7 +464,6 @@ impl HfgitrEl2 {
      * Field: tlbivmalle1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivmalle1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaale1_1_extract(&self) -> u64 {
         // bits 41..41
@@ -550,7 +520,6 @@ impl HfgitrEl2 {
      * Field: tlbirvale1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvale1_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaae1_1_extract(&self) -> u64 {
         // bits 39..39
@@ -608,7 +576,6 @@ impl HfgitrEl2 {
      * Field: tlbirvae1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvae1_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaale1is_1_extract(&self) -> u64 {
         // bits 37..37
@@ -666,7 +632,6 @@ impl HfgitrEl2 {
      * Field: tlbirvale1is_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvale1is_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaae1is_1_extract(&self) -> u64 {
         // bits 35..35
@@ -724,7 +688,6 @@ impl HfgitrEl2 {
      * Field: tlbirvae1is_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvae1is_1_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaale1is_extract(&self) -> u64 {
         // bits 33..33
@@ -782,7 +744,6 @@ impl HfgitrEl2 {
      * Field: tlbivale1is
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivale1is_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaae1is_extract(&self) -> u64 {
         // bits 31..31
@@ -840,7 +800,6 @@ impl HfgitrEl2 {
      * Field: tlbiaside1is
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbiaside1is_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivae1is_extract(&self) -> u64 {
         // bits 29..29
@@ -898,7 +856,6 @@ impl HfgitrEl2 {
      * Field: tlbivmalle1is
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivmalle1is_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaale1os_1_extract(&self) -> u64 {
         // bits 27..27
@@ -956,7 +912,6 @@ impl HfgitrEl2 {
      * Field: tlbirvale1os_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvale1os_1_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbirvaae1os_1_extract(&self) -> u64 {
         // bits 25..25
@@ -1014,7 +968,6 @@ impl HfgitrEl2 {
      * Field: tlbirvae1os_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbirvae1os_1_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaale1os_1_extract(&self) -> u64 {
         // bits 23..23
@@ -1072,7 +1024,6 @@ impl HfgitrEl2 {
      * Field: tlbivale1os_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivale1os_1_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivaae1os_1_extract(&self) -> u64 {
         // bits 21..21
@@ -1130,7 +1080,6 @@ impl HfgitrEl2 {
      * Field: tlbiaside1os_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbiaside1os_1_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlbivae1os_1_extract(&self) -> u64 {
         // bits 19..19
@@ -1188,7 +1136,6 @@ impl HfgitrEl2 {
      * Field: tlbivmalle1os_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlbivmalle1os_1_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ats1e1wp_1_extract(&self) -> u64 {
         // bits 17..17
@@ -1246,7 +1192,6 @@ impl HfgitrEl2 {
      * Field: ats1e1rp_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ats1e1rp_1_extract(&self) -> u64 {
@@ -1276,7 +1221,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ats1e0w_extract(&self) -> u64 {
         // bits 15..15
@@ -1304,7 +1248,6 @@ impl HfgitrEl2 {
      * Field: ats1e0r
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ats1e0r_extract(&self) -> u64 {
@@ -1334,7 +1277,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ats1e1w_extract(&self) -> u64 {
         // bits 13..13
@@ -1362,7 +1304,6 @@ impl HfgitrEl2 {
      * Field: ats1e1r
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ats1e1r_extract(&self) -> u64 {
@@ -1392,7 +1333,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dczva_extract(&self) -> u64 {
         // bits 11..11
@@ -1420,7 +1360,6 @@ impl HfgitrEl2 {
      * Field: dccivac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dccivac_extract(&self) -> u64 {
@@ -1450,7 +1389,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dccvadp_1_extract(&self) -> u64 {
         // bits 9..9
@@ -1478,7 +1416,6 @@ impl HfgitrEl2 {
      * Field: dccvap
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dccvap_extract(&self) -> u64 {
@@ -1508,7 +1445,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dccvau_extract(&self) -> u64 {
         // bits 7..7
@@ -1536,7 +1472,6 @@ impl HfgitrEl2 {
      * Field: dccisw
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dccisw_extract(&self) -> u64 {
@@ -1566,7 +1501,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dccsw_extract(&self) -> u64 {
         // bits 5..5
@@ -1594,7 +1528,6 @@ impl HfgitrEl2 {
      * Field: dcisw
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dcisw_extract(&self) -> u64 {
@@ -1624,7 +1557,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dcivac_extract(&self) -> u64 {
         // bits 3..3
@@ -1652,7 +1584,6 @@ impl HfgitrEl2 {
      * Field: icivau
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn icivau_extract(&self) -> u64 {
@@ -1682,7 +1613,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn iciallu_extract(&self) -> u64 {
         // bits 1..1
@@ -1711,7 +1641,6 @@ impl HfgitrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn icialluis_extract(&self) -> u64 {
         // bits 0..0
@@ -1734,7 +1663,6 @@ impl HfgitrEl2 {
     pub fn icialluis_write(val: u64) {
         Self::with_reg_val().icialluis_insert(val).write();
     }
-
 }
 
 impl Default for HfgitrEl2 {

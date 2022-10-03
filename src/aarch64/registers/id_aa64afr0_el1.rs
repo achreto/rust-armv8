@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    AArch64 Auxiliary Feature Register 0 (id_aa64afr0_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Provides information about the 
+ * Description: Provides information about the
  * File:        AArch64-id_aa64afr0_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Auxiliary Feature Register 0 value in memory
 pub struct IdAa64afr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64afr0_el1
 impl IdAa64afr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64afr0El1 {
@@ -79,16 +74,13 @@ impl IdAa64afr0El1 {
         IdAa64afr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64afr0El1 {
+    pub fn with_reg_val() -> IdAa64afr0El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdAa64afr0El1(curval)
     }
 
-
-    
     /// reading the AArch64 Auxiliary Feature Register 0 (id_aa64afr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64afr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64afr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: implementation_defined_31_28
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_31_28_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_31_28_read() -> u64 {
         Self::with_reg_val().implementation_defined_31_28_extract()
     }
-// no insert() method for field implementation_defined_31_28
+    // no insert() method for field implementation_defined_31_28
     /*
      * Field: implementation_defined_27_24
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_27_24_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_27_24_read() -> u64 {
         Self::with_reg_val().implementation_defined_27_24_extract()
     }
-// no insert() method for field implementation_defined_27_24
+    // no insert() method for field implementation_defined_27_24
     /*
      * Field: implementation_defined_23_20
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_23_20_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_23_20_read() -> u64 {
         Self::with_reg_val().implementation_defined_23_20_extract()
     }
-// no insert() method for field implementation_defined_23_20
+    // no insert() method for field implementation_defined_23_20
     /*
      * Field: implementation_defined_19_16
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_19_16_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_19_16_read() -> u64 {
         Self::with_reg_val().implementation_defined_19_16_extract()
     }
-// no insert() method for field implementation_defined_19_16
+    // no insert() method for field implementation_defined_19_16
     /*
      * Field: implementation_defined_15_12
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_15_12_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_15_12_read() -> u64 {
         Self::with_reg_val().implementation_defined_15_12_extract()
     }
-// no insert() method for field implementation_defined_15_12
+    // no insert() method for field implementation_defined_15_12
     /*
      * Field: implementation_defined_11_8
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_11_8_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_11_8_read() -> u64 {
         Self::with_reg_val().implementation_defined_11_8_extract()
     }
-// no insert() method for field implementation_defined_11_8
+    // no insert() method for field implementation_defined_11_8
     /*
      * Field: implementation_defined_7_4
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_7_4_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_7_4_read() -> u64 {
         Self::with_reg_val().implementation_defined_7_4_extract()
     }
-// no insert() method for field implementation_defined_7_4
+    // no insert() method for field implementation_defined_7_4
     /*
      * Field: implementation_defined_3_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_3_0_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdAa64afr0El1 {
     pub fn implementation_defined_3_0_read() -> u64 {
         Self::with_reg_val().implementation_defined_3_0_extract()
     }
-// no insert() method for field implementation_defined_3_0
+    // no insert() method for field implementation_defined_3_0
 }
 
 impl Default for IdAa64afr0El1 {

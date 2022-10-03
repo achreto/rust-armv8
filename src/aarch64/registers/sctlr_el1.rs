@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-sctlr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the System Control Register (EL1) value in memory
 pub struct SctlrEl1(u64);
 
 /// struct implementation for accessing the fields of register sctlr_el1
 impl SctlrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> SctlrEl1 {
@@ -79,16 +74,13 @@ impl SctlrEl1 {
         SctlrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  SctlrEl1 {
+    pub fn with_reg_val() -> SctlrEl1 {
         let curval = Self::reg_rawrd() & 0x3c3fff8fffdffff;
         SctlrEl1(curval)
     }
 
-
-    
     /// reading the System Control Register (EL1) (sctlr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl SctlrEl1 {
         return regval;
     }
 
-
     /// writing the System Control Register (EL1) (sctlr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl SctlrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl SctlrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl SctlrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: epan_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn epan_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enals_1_extract(&self) -> u64 {
         // bits 56..56
@@ -202,7 +184,6 @@ impl SctlrEl1 {
      * Field: enas0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enas0_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enasr_1_extract(&self) -> u64 {
         // bits 54..54
@@ -260,7 +240,6 @@ impl SctlrEl1 {
      * Field: twedel_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twedel_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tweden_1_extract(&self) -> u64 {
         // bits 45..45
@@ -318,7 +296,6 @@ impl SctlrEl1 {
      * Field: dssbs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dssbs_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ata_1_extract(&self) -> u64 {
         // bits 43..43
@@ -376,7 +352,6 @@ impl SctlrEl1 {
      * Field: ata0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ata0_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tcf_1_extract(&self) -> u64 {
         // bits 40..41
@@ -434,7 +408,6 @@ impl SctlrEl1 {
      * Field: tcf0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tcf0_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn itfsb_1_extract(&self) -> u64 {
         // bits 37..37
@@ -492,7 +464,6 @@ impl SctlrEl1 {
      * Field: bt1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bt1_1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn bt0_1_extract(&self) -> u64 {
         // bits 35..35
@@ -550,7 +520,6 @@ impl SctlrEl1 {
      * Field: enia_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enia_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enib_1_extract(&self) -> u64 {
         // bits 30..30
@@ -608,7 +576,6 @@ impl SctlrEl1 {
      * Field: lsmaoe_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lsmaoe_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ntlsmd_1_extract(&self) -> u64 {
         // bits 28..28
@@ -666,7 +632,6 @@ impl SctlrEl1 {
      * Field: enda_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enda_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn uci_extract(&self) -> u64 {
         // bits 26..26
@@ -724,7 +688,6 @@ impl SctlrEl1 {
      * Field: ee
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ee_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e0e_extract(&self) -> u64 {
         // bits 24..24
@@ -782,7 +744,6 @@ impl SctlrEl1 {
      * Field: span_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn span_1_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eis_1_extract(&self) -> u64 {
         // bits 22..22
@@ -840,7 +800,6 @@ impl SctlrEl1 {
      * Field: iesb_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn iesb_1_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tscxt_1_extract(&self) -> u64 {
         // bits 20..20
@@ -898,7 +856,6 @@ impl SctlrEl1 {
      * Field: wxn
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn wxn_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ntwe_extract(&self) -> u64 {
         // bits 18..18
@@ -956,7 +912,6 @@ impl SctlrEl1 {
      * Field: ntwi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ntwi_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn uct_extract(&self) -> u64 {
         // bits 15..15
@@ -1014,7 +968,6 @@ impl SctlrEl1 {
      * Field: dze
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dze_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn endb_1_extract(&self) -> u64 {
         // bits 13..13
@@ -1072,7 +1024,6 @@ impl SctlrEl1 {
      * Field: i
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eos_1_extract(&self) -> u64 {
         // bits 11..11
@@ -1130,7 +1080,6 @@ impl SctlrEl1 {
      * Field: enrctx_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enrctx_1_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn uma_extract(&self) -> u64 {
         // bits 9..9
@@ -1188,7 +1136,6 @@ impl SctlrEl1 {
      * Field: sed_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sed_1_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn itd_1_extract(&self) -> u64 {
         // bits 7..7
@@ -1246,7 +1192,6 @@ impl SctlrEl1 {
      * Field: naa_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn naa_1_extract(&self) -> u64 {
@@ -1276,7 +1221,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn cp15ben_1_extract(&self) -> u64 {
         // bits 5..5
@@ -1304,7 +1248,6 @@ impl SctlrEl1 {
      * Field: sa0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sa0_extract(&self) -> u64 {
@@ -1334,7 +1277,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sa_extract(&self) -> u64 {
         // bits 3..3
@@ -1362,7 +1304,6 @@ impl SctlrEl1 {
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -1392,7 +1333,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
         // bits 1..1
@@ -1421,7 +1361,6 @@ impl SctlrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn m_extract(&self) -> u64 {
         // bits 0..0
@@ -1444,7 +1383,6 @@ impl SctlrEl1 {
     pub fn m_write(val: u64) {
         Self::with_reg_val().m_insert(val).write();
     }
-
 }
 
 impl Default for SctlrEl1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mpamvpm0_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the MPAM Virtual PARTID Mapping Register 0 value in memory
 pub struct Mpamvpm0El2(u64);
 
 /// struct implementation for accessing the fields of register mpamvpm0_el2
 impl Mpamvpm0El2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mpamvpm0El2 {
@@ -79,16 +74,13 @@ impl Mpamvpm0El2 {
         Mpamvpm0El2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mpamvpm0El2 {
+    pub fn with_reg_val() -> Mpamvpm0El2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         Mpamvpm0El2(curval)
     }
 
-
-    
     /// reading the MPAM Virtual PARTID Mapping Register 0 (mpamvpm0_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Mpamvpm0El2 {
         return regval;
     }
 
-
     /// writing the MPAM Virtual PARTID Mapping Register 0 (mpamvpm0_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Mpamvpm0El2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Mpamvpm0El2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Mpamvpm0El2 {
         self.0
     }
 
-
-    
     /*
      * Field: phypartid3
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn phypartid3_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Mpamvpm0El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn phypartid2_extract(&self) -> u64 {
         // bits 32..47
@@ -202,7 +184,6 @@ impl Mpamvpm0El2 {
      * Field: phypartid1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn phypartid1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Mpamvpm0El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn phypartid0_extract(&self) -> u64 {
         // bits 0..15
@@ -255,7 +235,6 @@ impl Mpamvpm0El2 {
     pub fn phypartid0_write(val: u64) {
         Self::with_reg_val().phypartid0_insert(val).write();
     }
-
 }
 
 impl Default for Mpamvpm0El2 {

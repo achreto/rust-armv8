@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Debug Authentication Status register (dbgauthstatus_el1)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Provides information about the state of the 
+ * Description: Provides information about the state of the
  * File:        AArch64-dbgauthstatus_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Authentication Status register value in memory
 pub struct DbgauthstatusEl1(u64);
 
 /// struct implementation for accessing the fields of register dbgauthstatus_el1
 impl DbgauthstatusEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DbgauthstatusEl1 {
@@ -79,16 +74,13 @@ impl DbgauthstatusEl1 {
         DbgauthstatusEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  DbgauthstatusEl1 {
+    pub fn with_reg_val() -> DbgauthstatusEl1 {
         let curval = Self::reg_rawrd() & 0xff;
         DbgauthstatusEl1(curval)
     }
 
-
-    
     /// reading the Debug Authentication Status register (dbgauthstatus_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl DbgauthstatusEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl DbgauthstatusEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: snid_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn snid_1_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl DbgauthstatusEl1 {
     pub fn snid_1_read() -> u64 {
         Self::with_reg_val().snid_1_extract()
     }
-// no insert() method for field snid_1
+    // no insert() method for field snid_1
     /*
      * Field: snid_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn snid_2_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl DbgauthstatusEl1 {
     pub fn snid_2_read() -> u64 {
         Self::with_reg_val().snid_2_extract()
     }
-// no insert() method for field snid_2
+    // no insert() method for field snid_2
     /*
      * Field: sid
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sid_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl DbgauthstatusEl1 {
     pub fn sid_read() -> u64 {
         Self::with_reg_val().sid_extract()
     }
-// no insert() method for field sid
+    // no insert() method for field sid
     /*
      * Field: nsnid_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsnid_1_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl DbgauthstatusEl1 {
     pub fn nsnid_1_read() -> u64 {
         Self::with_reg_val().nsnid_1_extract()
     }
-// no insert() method for field nsnid_1
+    // no insert() method for field nsnid_1
     /*
      * Field: nsnid_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsnid_2_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl DbgauthstatusEl1 {
     pub fn nsnid_2_read() -> u64 {
         Self::with_reg_val().nsnid_2_extract()
     }
-// no insert() method for field nsnid_2
+    // no insert() method for field nsnid_2
     /*
      * Field: nsid
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nsid_extract(&self) -> u64 {
@@ -226,7 +208,7 @@ impl DbgauthstatusEl1 {
     pub fn nsid_read() -> u64 {
         Self::with_reg_val().nsid_extract()
     }
-// no insert() method for field nsid
+    // no insert() method for field nsid
 }
 
 impl Default for DbgauthstatusEl1 {

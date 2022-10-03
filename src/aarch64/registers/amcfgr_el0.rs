@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-amcfgr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Activity Monitors Configuration Register value in memory
 pub struct AmcfgrEl0(u64);
 
 /// struct implementation for accessing the fields of register amcfgr_el0
 impl AmcfgrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AmcfgrEl0 {
@@ -79,16 +74,13 @@ impl AmcfgrEl0 {
         AmcfgrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  AmcfgrEl0 {
+    pub fn with_reg_val() -> AmcfgrEl0 {
         let curval = Self::reg_rawrd() & 0xf1003fff;
         AmcfgrEl0(curval)
     }
 
-
-    
     /// reading the Activity Monitors Configuration Register (amcfgr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl AmcfgrEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl AmcfgrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: ncg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ncg_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl AmcfgrEl0 {
     pub fn ncg_read() -> u64 {
         Self::with_reg_val().ncg_extract()
     }
-// no insert() method for field ncg
+    // no insert() method for field ncg
     /*
      * Field: hdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hdbg_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl AmcfgrEl0 {
     pub fn hdbg_read() -> u64 {
         Self::with_reg_val().hdbg_extract()
     }
-// no insert() method for field hdbg
+    // no insert() method for field hdbg
     /*
      * Field: size
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn size_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl AmcfgrEl0 {
     pub fn size_read() -> u64 {
         Self::with_reg_val().size_extract()
     }
-// no insert() method for field size
+    // no insert() method for field size
     /*
      * Field: n
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
@@ -192,7 +176,7 @@ impl AmcfgrEl0 {
     pub fn n_read() -> u64 {
         Self::with_reg_val().n_extract()
     }
-// no insert() method for field n
+    // no insert() method for field n
 }
 
 impl Default for AmcfgrEl0 {

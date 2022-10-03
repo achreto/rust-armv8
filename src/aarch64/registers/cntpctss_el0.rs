@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cntpctss_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Self-Synchronized Physical Count register value in memory
 pub struct CntpctssEl0(u64);
 
 /// struct implementation for accessing the fields of register cntpctss_el0
 impl CntpctssEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntpctssEl0 {
@@ -79,16 +74,13 @@ impl CntpctssEl0 {
         CntpctssEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntpctssEl0 {
+    pub fn with_reg_val() -> CntpctssEl0 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         CntpctssEl0(curval)
     }
 
-
-    
     /// reading the Counter-timer Self-Synchronized Physical Count register (cntpctss_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl CntpctssEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl CntpctssEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl CntpctssEl0 {
     pub fn val_read() -> u64 {
         Self::with_reg_val().val_extract()
     }
-// no insert() method for field val
+    // no insert() method for field val
 }
 
 impl Default for CntpctssEl0 {

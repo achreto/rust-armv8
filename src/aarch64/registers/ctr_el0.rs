@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ctr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Cache Type Register value in memory
 pub struct CtrEl0(u64);
 
 /// struct implementation for accessing the fields of register ctr_el0
 impl CtrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CtrEl0 {
@@ -79,16 +74,13 @@ impl CtrEl0 {
         CtrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CtrEl0 {
+    pub fn with_reg_val() -> CtrEl0 {
         let curval = Self::reg_rawrd() & 0x3f3fffc00f;
         CtrEl0(curval)
     }
 
-
-    
     /// reading the Cache Type Register (ctr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl CtrEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl CtrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: tminline_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tminline_1_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl CtrEl0 {
     pub fn tminline_1_read() -> u64 {
         Self::with_reg_val().tminline_1_extract()
     }
-// no insert() method for field tminline_1
+    // no insert() method for field tminline_1
     /*
      * Field: dic
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dic_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl CtrEl0 {
     pub fn dic_read() -> u64 {
         Self::with_reg_val().dic_extract()
     }
-// no insert() method for field dic
+    // no insert() method for field dic
     /*
      * Field: idc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn idc_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl CtrEl0 {
     pub fn idc_read() -> u64 {
         Self::with_reg_val().idc_extract()
     }
-// no insert() method for field idc
+    // no insert() method for field idc
     /*
      * Field: cwg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cwg_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl CtrEl0 {
     pub fn cwg_read() -> u64 {
         Self::with_reg_val().cwg_extract()
     }
-// no insert() method for field cwg
+    // no insert() method for field cwg
     /*
      * Field: erg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erg_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl CtrEl0 {
     pub fn erg_read() -> u64 {
         Self::with_reg_val().erg_extract()
     }
-// no insert() method for field erg
+    // no insert() method for field erg
     /*
      * Field: dminline
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dminline_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl CtrEl0 {
     pub fn dminline_read() -> u64 {
         Self::with_reg_val().dminline_extract()
     }
-// no insert() method for field dminline
+    // no insert() method for field dminline
     /*
      * Field: l1ip
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn l1ip_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl CtrEl0 {
     pub fn l1ip_read() -> u64 {
         Self::with_reg_val().l1ip_extract()
     }
-// no insert() method for field l1ip
+    // no insert() method for field l1ip
     /*
      * Field: iminline
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn iminline_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl CtrEl0 {
     pub fn iminline_read() -> u64 {
         Self::with_reg_val().iminline_extract()
     }
-// no insert() method for field iminline
+    // no insert() method for field iminline
 }
 
 impl Default for CtrEl0 {

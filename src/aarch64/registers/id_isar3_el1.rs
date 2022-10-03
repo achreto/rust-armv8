@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar3_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 3 value in memory
 pub struct IdIsar3El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar3_el1
 impl IdIsar3El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar3El1 {
@@ -79,16 +74,13 @@ impl IdIsar3El1 {
         IdIsar3El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar3El1 {
+    pub fn with_reg_val() -> IdIsar3El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdIsar3El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 3 (id_isar3_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar3El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar3El1 {
         self.0
     }
 
-
-    
     /*
      * Field: t32ee
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t32ee_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar3El1 {
     pub fn t32ee_read() -> u64 {
         Self::with_reg_val().t32ee_extract()
     }
-// no insert() method for field t32ee
+    // no insert() method for field t32ee
     /*
      * Field: truenop
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn truenop_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar3El1 {
     pub fn truenop_read() -> u64 {
         Self::with_reg_val().truenop_extract()
     }
-// no insert() method for field truenop
+    // no insert() method for field truenop
     /*
      * Field: t32copy
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn t32copy_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar3El1 {
     pub fn t32copy_read() -> u64 {
         Self::with_reg_val().t32copy_extract()
     }
-// no insert() method for field t32copy
+    // no insert() method for field t32copy
     /*
      * Field: tabbranch
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tabbranch_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar3El1 {
     pub fn tabbranch_read() -> u64 {
         Self::with_reg_val().tabbranch_extract()
     }
-// no insert() method for field tabbranch
+    // no insert() method for field tabbranch
     /*
      * Field: synchprim
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn synchprim_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar3El1 {
     pub fn synchprim_read() -> u64 {
         Self::with_reg_val().synchprim_extract()
     }
-// no insert() method for field synchprim
+    // no insert() method for field synchprim
     /*
      * Field: svc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn svc_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar3El1 {
     pub fn svc_read() -> u64 {
         Self::with_reg_val().svc_extract()
     }
-// no insert() method for field svc
+    // no insert() method for field svc
     /*
      * Field: simd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simd_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdIsar3El1 {
     pub fn simd_read() -> u64 {
         Self::with_reg_val().simd_extract()
     }
-// no insert() method for field simd
+    // no insert() method for field simd
     /*
      * Field: saturate
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn saturate_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdIsar3El1 {
     pub fn saturate_read() -> u64 {
         Self::with_reg_val().saturate_extract()
     }
-// no insert() method for field saturate
+    // no insert() method for field saturate
 }
 
 impl Default for IdIsar3El1 {

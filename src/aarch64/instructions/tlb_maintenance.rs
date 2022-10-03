@@ -24,7 +24,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 /**************************************************************************************************
  *
  * !!!! WARNING: THIS FILE IS AUTO GENERATED. ANY CHANGES MAY BE OVERWRITTEN !!!!
@@ -38,14 +37,11 @@
  *************************************************************************************************/
 use core::arch::asm;
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL1
 #[inline(always)]
@@ -55,14 +51,11 @@ pub fn tlbi_alle1_tlbi_alle1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL1, Inner Shareable
 #[inline(always)]
@@ -72,14 +65,11 @@ pub fn tlbi_alle1is_tlbi_alle1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL1, Outer Shareable
 #[inline(always)]
@@ -89,14 +79,11 @@ pub fn tlbi_alle1os_tlbi_alle1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL2
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL2
 #[inline(always)]
@@ -106,14 +93,11 @@ pub fn tlbi_alle2_tlbi_alle2nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL2, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL2, Inner Shareable
 #[inline(always)]
@@ -123,14 +107,11 @@ pub fn tlbi_alle2is_tlbi_alle2isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL2, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL2, Outer Shareable
 #[inline(always)]
@@ -140,14 +121,11 @@ pub fn tlbi_alle2os_tlbi_alle2osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL3
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL3
 #[inline(always)]
@@ -157,14 +135,11 @@ pub fn tlbi_alle3_tlbi_alle3nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL3, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL3, Inner Shareable
 #[inline(always)]
@@ -174,14 +149,11 @@ pub fn tlbi_alle3is_tlbi_alle3isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate All, EL3, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate All, EL3, Outer Shareable
 #[inline(always)]
@@ -191,14 +163,11 @@ pub fn tlbi_alle3os_tlbi_alle3osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by ASID, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by ASID, EL1
 #[inline(always)]
@@ -208,14 +177,11 @@ pub fn tlbi_aside1_tlbi_aside1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by ASID, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by ASID, EL1, Inner Shareable
 #[inline(always)]
@@ -225,14 +191,11 @@ pub fn tlbi_aside1is_tlbi_aside1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by ASID, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by ASID, EL1, Outer Shareable
 #[inline(always)]
@@ -242,14 +205,11 @@ pub fn tlbi_aside1os_tlbi_aside1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1
 #[inline(always)]
@@ -259,14 +219,11 @@ pub fn tlbi_ipas2e1_tlbi_ipas2e1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
 #[inline(always)]
@@ -276,14 +233,11 @@ pub fn tlbi_ipas2e1is_tlbi_ipas2e1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
 #[inline(always)]
@@ -293,14 +247,11 @@ pub fn tlbi_ipas2e1os_tlbi_ipas2e1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
 #[inline(always)]
@@ -310,14 +261,11 @@ pub fn tlbi_ipas2le1_tlbi_ipas2le1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
 #[inline(always)]
@@ -327,14 +275,11 @@ pub fn tlbi_ipas2le1is_tlbi_ipas2le1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
 #[inline(always)]
@@ -344,14 +289,11 @@ pub fn tlbi_ipas2le1os_tlbi_ipas2le1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1
 #[inline(always)]
@@ -361,14 +303,11 @@ pub fn tlbi_ripas2e1_tlbi_ripas2e1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Inner Shareable
 #[inline(always)]
@@ -378,14 +317,11 @@ pub fn tlbi_ripas2e1is_tlbi_ripas2e1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, EL1, Outer Shareable
 #[inline(always)]
@@ -395,14 +331,11 @@ pub fn tlbi_ripas2e1os_tlbi_ripas2e1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1
 #[inline(always)]
@@ -412,14 +345,11 @@ pub fn tlbi_ripas2le1_tlbi_ripas2le1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Inner Shareable
 #[inline(always)]
@@ -429,14 +359,11 @@ pub fn tlbi_ripas2le1is_tlbi_ripas2le1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by Intermediate Physical Address, Stage 2, Last level, EL1, Outer Shareable
 #[inline(always)]
@@ -446,14 +373,11 @@ pub fn tlbi_ripas2le1os_tlbi_ripas2le1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, EL1
 #[inline(always)]
@@ -463,14 +387,11 @@ pub fn tlbi_rvaae1_tlbi_rvaae1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, EL1, Inner Shareable
 #[inline(always)]
@@ -480,14 +401,11 @@ pub fn tlbi_rvaae1is_tlbi_rvaae1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, EL1, Outer Shareable
 #[inline(always)]
@@ -497,14 +415,11 @@ pub fn tlbi_rvaae1os_tlbi_rvaae1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, Last level, EL1
 #[inline(always)]
@@ -514,14 +429,11 @@ pub fn tlbi_rvaale1_tlbi_rvaale1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
 #[inline(always)]
@@ -531,14 +443,11 @@ pub fn tlbi_rvaale1is_tlbi_rvaale1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
 #[inline(always)]
@@ -548,14 +457,11 @@ pub fn tlbi_rvaale1os_tlbi_rvaale1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL1
 #[inline(always)]
@@ -565,14 +471,11 @@ pub fn tlbi_rvae1_tlbi_rvae1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL1, Inner Shareable
 #[inline(always)]
@@ -582,14 +485,11 @@ pub fn tlbi_rvae1is_tlbi_rvae1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL1, Outer Shareable
 #[inline(always)]
@@ -599,14 +499,11 @@ pub fn tlbi_rvae1os_tlbi_rvae1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL2
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL2
 #[inline(always)]
@@ -616,14 +513,11 @@ pub fn tlbi_rvae2_tlbi_rvae2nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL2, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL2, Inner Shareable
 #[inline(always)]
@@ -633,14 +527,11 @@ pub fn tlbi_rvae2is_tlbi_rvae2isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL2, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL2, Outer Shareable
 #[inline(always)]
@@ -650,14 +541,11 @@ pub fn tlbi_rvae2os_tlbi_rvae2osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL3
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL3
 #[inline(always)]
@@ -667,14 +555,11 @@ pub fn tlbi_rvae3_tlbi_rvae3nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL3, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL3, Inner Shareable
 #[inline(always)]
@@ -684,14 +569,11 @@ pub fn tlbi_rvae3is_tlbi_rvae3isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, EL3, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, EL3, Outer Shareable
 #[inline(always)]
@@ -701,14 +583,11 @@ pub fn tlbi_rvae3os_tlbi_rvae3osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL1
 #[inline(always)]
@@ -718,14 +597,11 @@ pub fn tlbi_rvale1_tlbi_rvale1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL1, Inner Shareable
 #[inline(always)]
@@ -735,14 +611,11 @@ pub fn tlbi_rvale1is_tlbi_rvale1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL1, Outer Shareable
 #[inline(always)]
@@ -752,14 +625,11 @@ pub fn tlbi_rvale1os_tlbi_rvale1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL2
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL2
 #[inline(always)]
@@ -769,14 +639,11 @@ pub fn tlbi_rvale2_tlbi_rvale2nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL2, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL2, Inner Shareable
 #[inline(always)]
@@ -786,14 +653,11 @@ pub fn tlbi_rvale2is_tlbi_rvale2isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL2, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL2, Outer Shareable
 #[inline(always)]
@@ -803,14 +667,11 @@ pub fn tlbi_rvale2os_tlbi_rvale2osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL3
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL3
 #[inline(always)]
@@ -820,14 +681,11 @@ pub fn tlbi_rvale3_tlbi_rvale3nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL3, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL3, Inner Shareable
 #[inline(always)]
@@ -837,14 +695,11 @@ pub fn tlbi_rvale3is_tlbi_rvale3isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Range Invalidate by VA, Last level, EL3, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Range Invalidate by VA, Last level, EL3, Outer Shareable
 #[inline(always)]
@@ -854,14 +709,11 @@ pub fn tlbi_rvale3os_tlbi_rvale3osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, EL1
 #[inline(always)]
@@ -871,14 +723,11 @@ pub fn tlbi_vaae1_tlbi_vaae1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, EL1, Inner Shareable
 #[inline(always)]
@@ -888,14 +737,11 @@ pub fn tlbi_vaae1is_tlbi_vaae1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, EL1, Outer Shareable
 #[inline(always)]
@@ -905,14 +751,11 @@ pub fn tlbi_vaae1os_tlbi_vaae1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, Last level, EL1
 #[inline(always)]
@@ -922,14 +765,11 @@ pub fn tlbi_vaale1_tlbi_vaale1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, Last Level, EL1, Inner Shareable
 #[inline(always)]
@@ -939,14 +779,11 @@ pub fn tlbi_vaale1is_tlbi_vaale1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, All ASID, Last Level, EL1, Outer Shareable
 #[inline(always)]
@@ -956,14 +793,11 @@ pub fn tlbi_vaale1os_tlbi_vaale1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL1
 #[inline(always)]
@@ -973,14 +807,11 @@ pub fn tlbi_vae1_tlbi_vae1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL1, Inner Shareable
 #[inline(always)]
@@ -990,14 +821,11 @@ pub fn tlbi_vae1is_tlbi_vae1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL1, Outer Shareable
 #[inline(always)]
@@ -1007,14 +835,11 @@ pub fn tlbi_vae1os_tlbi_vae1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL2
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL2
 #[inline(always)]
@@ -1024,14 +849,11 @@ pub fn tlbi_vae2_tlbi_vae2nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL2, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL2, Inner Shareable
 #[inline(always)]
@@ -1041,14 +863,11 @@ pub fn tlbi_vae2is_tlbi_vae2isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL2, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL2, Outer Shareable
 #[inline(always)]
@@ -1058,14 +877,11 @@ pub fn tlbi_vae2os_tlbi_vae2osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL3
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL3
 #[inline(always)]
@@ -1075,14 +891,11 @@ pub fn tlbi_vae3_tlbi_vae3nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL3, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL3, Inner Shareable
 #[inline(always)]
@@ -1092,14 +905,11 @@ pub fn tlbi_vae3is_tlbi_vae3isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, EL3, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, EL3, Outer Shareable
 #[inline(always)]
@@ -1109,14 +919,11 @@ pub fn tlbi_vae3os_tlbi_vae3osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL1
 #[inline(always)]
@@ -1126,14 +933,11 @@ pub fn tlbi_vale1_tlbi_vale1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL1, Inner Shareable
 #[inline(always)]
@@ -1143,14 +947,11 @@ pub fn tlbi_vale1is_tlbi_vale1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL1, Outer Shareable
 #[inline(always)]
@@ -1160,14 +961,11 @@ pub fn tlbi_vale1os_tlbi_vale1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL2
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL2
 #[inline(always)]
@@ -1177,14 +975,11 @@ pub fn tlbi_vale2_tlbi_vale2nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL2, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL2, Inner Shareable
 #[inline(always)]
@@ -1194,14 +989,11 @@ pub fn tlbi_vale2is_tlbi_vale2isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL2, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL2, Outer Shareable
 #[inline(always)]
@@ -1211,14 +1003,11 @@ pub fn tlbi_vale2os_tlbi_vale2osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL3
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL3
 #[inline(always)]
@@ -1228,14 +1017,11 @@ pub fn tlbi_vale3_tlbi_vale3nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL3, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL3, Inner Shareable
 #[inline(always)]
@@ -1245,14 +1031,11 @@ pub fn tlbi_vale3is_tlbi_vale3isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VA, Last level, EL3, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VA, Last level, EL3, Outer Shareable
 #[inline(always)]
@@ -1262,14 +1045,11 @@ pub fn tlbi_vale3os_tlbi_vale3osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at stage 1, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at stage 1, EL1
 #[inline(always)]
@@ -1279,14 +1059,11 @@ pub fn tlbi_vmalle1_tlbi_vmalle1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at stage 1, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at stage 1, EL1, Inner Shareable
 #[inline(always)]
@@ -1296,14 +1073,11 @@ pub fn tlbi_vmalle1is_tlbi_vmalle1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at stage 1, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at stage 1, EL1, Outer Shareable
 #[inline(always)]
@@ -1313,14 +1087,11 @@ pub fn tlbi_vmalle1os_tlbi_vmalle1osnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at Stage 1 and 2, EL1
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1
 #[inline(always)]
@@ -1330,14 +1101,11 @@ pub fn tlbi_vmalls12e1_tlbi_vmalls12e1nxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Inner Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Inner Shareable
 #[inline(always)]
@@ -1347,14 +1115,11 @@ pub fn tlbi_vmalls12e1is_tlbi_vmalls12e1isnxs() {
     }
 }
 
-
 /*
  * ================================================================================================
  * TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Outer Shareable
  * ================================================================================================
  */
-
-
 
 /// TLB Invalidate by VMID, All at Stage 1 and 2, EL1, Outer Shareable
 #[inline(always)]

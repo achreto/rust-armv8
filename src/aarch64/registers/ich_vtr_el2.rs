@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ich_vtr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller VGIC Type Register value in memory
 pub struct IchVtrEl2(u64);
 
 /// struct implementation for accessing the fields of register ich_vtr_el2
 impl IchVtrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IchVtrEl2 {
@@ -79,16 +74,13 @@ impl IchVtrEl2 {
         IchVtrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IchVtrEl2 {
+    pub fn with_reg_val() -> IchVtrEl2 {
         let curval = Self::reg_rawrd() & 0xfffc001f;
         IchVtrEl2(curval)
     }
 
-
-    
     /// reading the Interrupt Controller VGIC Type Register (ich_vtr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IchVtrEl2 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IchVtrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: pribits
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pribits_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IchVtrEl2 {
     pub fn pribits_read() -> u64 {
         Self::with_reg_val().pribits_extract()
     }
-// no insert() method for field pribits
+    // no insert() method for field pribits
     /*
      * Field: prebits
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn prebits_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IchVtrEl2 {
     pub fn prebits_read() -> u64 {
         Self::with_reg_val().prebits_extract()
     }
-// no insert() method for field prebits
+    // no insert() method for field prebits
     /*
      * Field: idbits
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn idbits_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IchVtrEl2 {
     pub fn idbits_read() -> u64 {
         Self::with_reg_val().idbits_extract()
     }
-// no insert() method for field idbits
+    // no insert() method for field idbits
     /*
      * Field: seis
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn seis_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IchVtrEl2 {
     pub fn seis_read() -> u64 {
         Self::with_reg_val().seis_extract()
     }
-// no insert() method for field seis
+    // no insert() method for field seis
     /*
      * Field: a3v
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn a3v_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IchVtrEl2 {
     pub fn a3v_read() -> u64 {
         Self::with_reg_val().a3v_extract()
     }
-// no insert() method for field a3v
+    // no insert() method for field a3v
     /*
      * Field: nv4
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nv4_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IchVtrEl2 {
     pub fn nv4_read() -> u64 {
         Self::with_reg_val().nv4_extract()
     }
-// no insert() method for field nv4
+    // no insert() method for field nv4
     /*
      * Field: tds
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tds_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IchVtrEl2 {
     pub fn tds_read() -> u64 {
         Self::with_reg_val().tds_extract()
     }
-// no insert() method for field tds
+    // no insert() method for field tds
     /*
      * Field: dvim
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dvim_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl IchVtrEl2 {
     pub fn dvim_read() -> u64 {
         Self::with_reg_val().dvim_extract()
     }
-// no insert() method for field dvim
+    // no insert() method for field dvim
     /*
      * Field: listregs
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn listregs_extract(&self) -> u64 {
@@ -277,7 +256,7 @@ impl IchVtrEl2 {
     pub fn listregs_read() -> u64 {
         Self::with_reg_val().listregs_extract()
     }
-// no insert() method for field listregs
+    // no insert() method for field listregs
 }
 
 impl Default for IchVtrEl2 {

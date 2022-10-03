@@ -302,6 +302,11 @@ impl L1Descriptor {
             block.get_paddr()
         }
     }
+
+    /// obtains the descriptor as an u64
+    pub fn as_u64(&self) -> u64 {
+        self.0
+    }
 }
 
 impl Default for L1Descriptor {

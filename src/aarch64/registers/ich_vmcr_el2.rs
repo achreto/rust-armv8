@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ich_vmcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Virtual Machine Control Register value in memory
 pub struct IchVmcrEl2(u64);
 
 /// struct implementation for accessing the fields of register ich_vmcr_el2
 impl IchVmcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IchVmcrEl2 {
@@ -79,16 +74,13 @@ impl IchVmcrEl2 {
         IchVmcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IchVmcrEl2 {
+    pub fn with_reg_val() -> IchVmcrEl2 {
         let curval = Self::reg_rawrd() & 0xfffc021f;
         IchVmcrEl2(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Virtual Machine Control Register (ich_vmcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl IchVmcrEl2 {
         return regval;
     }
 
-
     /// writing the Interrupt Controller Virtual Machine Control Register (ich_vmcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl IchVmcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl IchVmcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl IchVmcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: vpmr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vpmr_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl IchVmcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vbpr0_extract(&self) -> u64 {
         // bits 21..23
@@ -202,7 +184,6 @@ impl IchVmcrEl2 {
      * Field: vbpr1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vbpr1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl IchVmcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn veoim_extract(&self) -> u64 {
         // bits 9..9
@@ -260,7 +240,6 @@ impl IchVmcrEl2 {
      * Field: vcbpr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vcbpr_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl IchVmcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vfiqen_extract(&self) -> u64 {
         // bits 3..3
@@ -318,7 +296,6 @@ impl IchVmcrEl2 {
      * Field: vackctl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vackctl_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl IchVmcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn veng1_extract(&self) -> u64 {
         // bits 1..1
@@ -377,7 +353,6 @@ impl IchVmcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn veng0_extract(&self) -> u64 {
         // bits 0..0
@@ -400,7 +375,6 @@ impl IchVmcrEl2 {
     pub fn veng0_write(val: u64) {
         Self::with_reg_val().veng0_insert(val).write();
     }
-
 }
 
 impl Default for IchVmcrEl2 {

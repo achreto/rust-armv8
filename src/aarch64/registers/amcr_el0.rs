@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-amcr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Activity Monitors Control Register value in memory
 pub struct AmcrEl0(u64);
 
 /// struct implementation for accessing the fields of register amcr_el0
 impl AmcrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AmcrEl0 {
@@ -79,16 +74,13 @@ impl AmcrEl0 {
         AmcrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  AmcrEl0 {
+    pub fn with_reg_val() -> AmcrEl0 {
         let curval = Self::reg_rawrd() & 0x20400;
         AmcrEl0(curval)
     }
 
-
-    
     /// reading the Activity Monitors Control Register (amcr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl AmcrEl0 {
         return regval;
     }
 
-
     /// writing the Activity Monitors Control Register (amcr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl AmcrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl AmcrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl AmcrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: cg1rz_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cg1rz_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl AmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hdbg_extract(&self) -> u64 {
         // bits 10..10
@@ -197,7 +179,6 @@ impl AmcrEl0 {
     pub fn hdbg_write(val: u64) {
         Self::with_reg_val().hdbg_insert(val).write();
     }
-
 }
 
 impl Default for AmcrEl0 {

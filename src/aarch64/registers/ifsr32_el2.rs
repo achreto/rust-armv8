@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Instruction Fault Status Register (EL2) (ifsr32_el2)
  * Group:       Exception and fault handling registers
  * Type:        64-bit Register
- * Description: Allows access to the AArch32 
+ * Description: Allows access to the AArch32
  * File:        AArch64-ifsr32_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Instruction Fault Status Register (EL2) value in memory
 pub struct Ifsr32El2(u64);
 
 /// struct implementation for accessing the fields of register ifsr32_el2
 impl Ifsr32El2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Ifsr32El2 {
@@ -79,16 +74,13 @@ impl Ifsr32El2 {
         Ifsr32El2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Ifsr32El2 {
+    pub fn with_reg_val() -> Ifsr32El2 {
         let curval = Self::reg_rawrd() & 0x1123f;
         Ifsr32El2(curval)
     }
 
-
-    
     /// reading the Instruction Fault Status Register (EL2) (ifsr32_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Ifsr32El2 {
         return regval;
     }
 
-
     /// writing the Instruction Fault Status Register (EL2) (ifsr32_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Ifsr32El2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Ifsr32El2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Ifsr32El2 {
         self.0
     }
 
-
-    
     /*
      * Field: fnv
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fnv_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Ifsr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ext_extract(&self) -> u64 {
         // bits 12..12
@@ -202,7 +184,6 @@ impl Ifsr32El2 {
      * Field: lpae
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lpae_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Ifsr32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn status_extract(&self) -> u64 {
         // bits 0..5
@@ -255,7 +235,6 @@ impl Ifsr32El2 {
     pub fn status_write(val: u64) {
         Self::with_reg_val().status_insert(val).write();
     }
-
 }
 
 impl Default for Ifsr32El2 {

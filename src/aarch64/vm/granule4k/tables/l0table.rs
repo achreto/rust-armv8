@@ -102,6 +102,11 @@ impl L0Descriptor {
         self.0.set_bits(12..=47, pt.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
+
+    /// obtains the descriptor as an u64
+    pub fn as_u64(&self) -> u64 {
+        self.0
+    }
 }
 
 table_next_level_attributes_impl!(L0Descriptor);
@@ -111,7 +116,6 @@ impl Default for L0Descriptor {
         L0Descriptor::new()
     }
 }
-
 
 // #[repr(transparent)]
 #[repr(align(4096))]
@@ -143,7 +147,10 @@ impl L0Table {
                 self.0[idx] = entry;
             }
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L0_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L0_TABLE_ENTRIES
+            );
         }
     }
 
@@ -166,7 +173,10 @@ impl L0Table {
         if idx < L0_TABLE_ENTRIES {
             &self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L0_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L0_TABLE_ENTRIES
+            );
         }
     }
 
@@ -181,7 +191,10 @@ impl L0Table {
         if idx < L0_TABLE_ENTRIES {
             &mut self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L0_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L0_TABLE_ENTRIES
+            );
         }
     }
 
@@ -208,4 +221,3 @@ impl From<&L0Table> for PAddr {
         PAddr::from(VAddr::from(num))
     }
 }
-

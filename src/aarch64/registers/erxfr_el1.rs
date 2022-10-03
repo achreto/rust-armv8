@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Selected Error Record Feature Register (erxfr_el1)
  * Group:       RAS registers
  * Type:        64-bit Register
- * Description: Accesses 
+ * Description: Accesses
  * File:        AArch64-erxfr_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Selected Error Record Feature Register value in memory
 pub struct ErxfrEl1(u64);
 
 /// struct implementation for accessing the fields of register erxfr_el1
 impl ErxfrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ErxfrEl1 {
@@ -79,16 +74,13 @@ impl ErxfrEl1 {
         ErxfrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ErxfrEl1 {
+    pub fn with_reg_val() -> ErxfrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         ErxfrEl1(curval)
     }
 
-
-    
     /// reading the Selected Error Record Feature Register (erxfr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl ErxfrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl ErxfrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl ErxfrEl1 {
     pub fn val_read() -> u64 {
         Self::with_reg_val().val_extract()
     }
-// no insert() method for field val
+    // no insert() method for field val
 }
 
 impl Default for ErxfrEl1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    OS Lock Data Transfer Register, Transmit (osdtrtx_el1)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Used for save/restore of 
+ * Description: Used for save/restore of
  * File:        AArch64-osdtrtx_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the OS Lock Data Transfer Register, Transmit value in memory
 pub struct OsdtrtxEl1(u64);
 
 /// struct implementation for accessing the fields of register osdtrtx_el1
 impl OsdtrtxEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> OsdtrtxEl1 {
@@ -79,16 +74,13 @@ impl OsdtrtxEl1 {
         OsdtrtxEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  OsdtrtxEl1 {
+    pub fn with_reg_val() -> OsdtrtxEl1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         OsdtrtxEl1(curval)
     }
 
-
-    
     /// reading the OS Lock Data Transfer Register, Transmit (osdtrtx_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl OsdtrtxEl1 {
         return regval;
     }
 
-
     /// writing the OS Lock Data Transfer Register, Transmit (osdtrtx_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl OsdtrtxEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl OsdtrtxEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl OsdtrtxEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: none_31_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn none_31_0_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl OsdtrtxEl1 {
     pub fn none_31_0_write(val: u64) {
         Self::with_reg_val().none_31_0_insert(val).write();
     }
-
 }
 
 impl Default for OsdtrtxEl1 {

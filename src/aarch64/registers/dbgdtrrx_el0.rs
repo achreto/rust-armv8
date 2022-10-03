@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Debug Data Transfer Register, Receive (dbgdtrrx_el0)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Transfers data from an external debugger to the PE. For example, it is used by a debugger transferring commands and data to a debug target. See 
+ * Description: Transfers data from an external debugger to the PE. For example, it is used by a debugger transferring commands and data to a debug target. See
  * File:        AArch64-dbgdtrrx_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Data Transfer Register, Receive value in memory
 pub struct DbgdtrrxEl0(u64);
 
 /// struct implementation for accessing the fields of register dbgdtrrx_el0
 impl DbgdtrrxEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DbgdtrrxEl0 {
@@ -79,16 +74,13 @@ impl DbgdtrrxEl0 {
         DbgdtrrxEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  DbgdtrrxEl0 {
+    pub fn with_reg_val() -> DbgdtrrxEl0 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         DbgdtrrxEl0(curval)
     }
 
-
-    
     /// reading the Debug Data Transfer Register, Receive (dbgdtrrx_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl DbgdtrrxEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl DbgdtrrxEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: none_31_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn none_31_0_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl DbgdtrrxEl0 {
     pub fn none_31_0_read() -> u64 {
         Self::with_reg_val().none_31_0_extract()
     }
-// no insert() method for field none_31_0
+    // no insert() method for field none_31_0
 }
 
 impl Default for DbgdtrrxEl0 {

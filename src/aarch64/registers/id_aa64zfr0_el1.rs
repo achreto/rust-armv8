@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    SVE Feature ID register 0 (id_aa64zfr0_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Provides additional information about the implemented features of the AArch64 Scalable Vector Extension, when the 
+ * Description: Provides additional information about the implemented features of the AArch64 Scalable Vector Extension, when the
  * File:        AArch64-id_aa64zfr0_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the SVE Feature ID register 0 value in memory
 pub struct IdAa64zfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64zfr0_el1
 impl IdAa64zfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64zfr0El1 {
@@ -79,16 +74,13 @@ impl IdAa64zfr0El1 {
         IdAa64zfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64zfr0El1 {
+    pub fn with_reg_val() -> IdAa64zfr0El1 {
         let curval = Self::reg_rawrd() & 0xff0f00000f0000f;
         IdAa64zfr0El1(curval)
     }
 
-
-    
     /// reading the SVE Feature ID register 0 (id_aa64zfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64zfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64zfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: f64mm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn f64mm_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64zfr0El1 {
     pub fn f64mm_read() -> u64 {
         Self::with_reg_val().f64mm_extract()
     }
-// no insert() method for field f64mm
+    // no insert() method for field f64mm
     /*
      * Field: f32mm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn f32mm_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64zfr0El1 {
     pub fn f32mm_read() -> u64 {
         Self::with_reg_val().f32mm_extract()
     }
-// no insert() method for field f32mm
+    // no insert() method for field f32mm
     /*
      * Field: i8mm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i8mm_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64zfr0El1 {
     pub fn i8mm_read() -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
-// no insert() method for field i8mm
+    // no insert() method for field i8mm
     /*
      * Field: bf16
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bf16_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64zfr0El1 {
     pub fn bf16_read() -> u64 {
         Self::with_reg_val().bf16_extract()
     }
-// no insert() method for field bf16
+    // no insert() method for field bf16
     /*
      * Field: svever
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn svever_extract(&self) -> u64 {
@@ -209,7 +192,7 @@ impl IdAa64zfr0El1 {
     pub fn svever_read() -> u64 {
         Self::with_reg_val().svever_extract()
     }
-// no insert() method for field svever
+    // no insert() method for field svever
 }
 
 impl Default for IdAa64zfr0El1 {

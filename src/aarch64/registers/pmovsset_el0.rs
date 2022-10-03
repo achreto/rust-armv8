@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Performance Monitors Overflow Flag Status Set register (pmovsset_el0)
  * Group:       Performance Monitors registers
  * Type:        64-bit Register
- * Description: Sets the state of the overflow bit for the Cycle Count Register, 
+ * Description: Sets the state of the overflow bit for the Cycle Count Register,
  * File:        AArch64-pmovsset_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Performance Monitors Overflow Flag Status Set register value in memory
 pub struct PmovssetEl0(u64);
 
 /// struct implementation for accessing the fields of register pmovsset_el0
 impl PmovssetEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmovssetEl0 {
@@ -79,16 +74,13 @@ impl PmovssetEl0 {
         PmovssetEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmovssetEl0 {
+    pub fn with_reg_val() -> PmovssetEl0 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         PmovssetEl0(curval)
     }
 
-
-    
     /// reading the Performance Monitors Overflow Flag Status Set register (pmovsset_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmovssetEl0 {
         return regval;
     }
 
-
     /// writing the Performance Monitors Overflow Flag Status Set register (pmovsset_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmovssetEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmovssetEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmovssetEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmovssetEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pn_extract(&self) -> u64 {
         // bits 0..30
@@ -197,7 +179,6 @@ impl PmovssetEl0 {
     pub fn pn_write(val: u64) {
         Self::with_reg_val().pn_insert(val).write();
     }
-
 }
 
 impl Default for PmovssetEl0 {

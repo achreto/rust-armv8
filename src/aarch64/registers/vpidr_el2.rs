@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Virtualization Processor ID Register (vpidr_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Holds the value of the Virtualization Processor ID. This is the value returned by EL1 reads of 
+ * Description: Holds the value of the Virtualization Processor ID. This is the value returned by EL1 reads of
  * File:        AArch64-vpidr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtualization Processor ID Register value in memory
 pub struct VpidrEl2(u64);
 
 /// struct implementation for accessing the fields of register vpidr_el2
 impl VpidrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VpidrEl2 {
@@ -79,16 +74,13 @@ impl VpidrEl2 {
         VpidrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VpidrEl2 {
+    pub fn with_reg_val() -> VpidrEl2 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         VpidrEl2(curval)
     }
 
-
-    
     /// reading the Virtualization Processor ID Register (vpidr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VpidrEl2 {
         return regval;
     }
 
-
     /// writing the Virtualization Processor ID Register (vpidr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VpidrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VpidrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VpidrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: implementer
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementer_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl VpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn variant_extract(&self) -> u64 {
         // bits 20..23
@@ -202,7 +184,6 @@ impl VpidrEl2 {
      * Field: architecture
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn architecture_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl VpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn partnum_extract(&self) -> u64 {
         // bits 4..15
@@ -261,7 +241,6 @@ impl VpidrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn revision_extract(&self) -> u64 {
         // bits 0..3
@@ -284,7 +263,6 @@ impl VpidrEl2 {
     pub fn revision_write(val: u64) {
         Self::with_reg_val().revision_insert(val).write();
     }
-
 }
 
 impl Default for VpidrEl2 {

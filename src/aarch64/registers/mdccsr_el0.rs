@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mdccsr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Monitor DCC Status Register value in memory
 pub struct MdccsrEl0(u64);
 
 /// struct implementation for accessing the fields of register mdccsr_el0
 impl MdccsrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdccsrEl0 {
@@ -79,16 +74,13 @@ impl MdccsrEl0 {
         MdccsrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MdccsrEl0 {
+    pub fn with_reg_val() -> MdccsrEl0 {
         let curval = Self::reg_rawrd() & 0x60000000;
         MdccsrEl0(curval)
     }
 
-
-    
     /// reading the Monitor DCC Status Register (mdccsr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl MdccsrEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl MdccsrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: rxfull
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rxfull_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl MdccsrEl0 {
     pub fn rxfull_read() -> u64 {
         Self::with_reg_val().rxfull_extract()
     }
-// no insert() method for field rxfull
+    // no insert() method for field rxfull
     /*
      * Field: txfull
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn txfull_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl MdccsrEl0 {
     pub fn txfull_read() -> u64 {
         Self::with_reg_val().txfull_extract()
     }
-// no insert() method for field txfull
+    // no insert() method for field txfull
 }
 
 impl Default for MdccsrEl0 {

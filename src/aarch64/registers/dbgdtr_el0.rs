@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-dbgdtr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Data Transfer Register, half-duplex value in memory
 pub struct DbgdtrEl0(u64);
 
 /// struct implementation for accessing the fields of register dbgdtr_el0
 impl DbgdtrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DbgdtrEl0 {
@@ -79,16 +74,13 @@ impl DbgdtrEl0 {
         DbgdtrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  DbgdtrEl0 {
+    pub fn with_reg_val() -> DbgdtrEl0 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         DbgdtrEl0(curval)
     }
 
-
-    
     /// reading the Debug Data Transfer Register, half-duplex (dbgdtr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl DbgdtrEl0 {
         return regval;
     }
 
-
     /// writing the Debug Data Transfer Register, half-duplex (dbgdtr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl DbgdtrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl DbgdtrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl DbgdtrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: highword
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn highword_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl DbgdtrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lowword_extract(&self) -> u64 {
         // bits 0..31
@@ -197,7 +179,6 @@ impl DbgdtrEl0 {
     pub fn lowword_write(val: u64) {
         Self::with_reg_val().lowword_insert(val).write();
     }
-
 }
 
 impl Default for DbgdtrEl0 {

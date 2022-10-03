@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Debug Data Transfer Register, Transmit (dbgdtrtx_el0)
  * Group:       Debug registers
  * Type:        64-bit Register
- * Description: Transfers data from the PE to an external debugger. For example, it is used by a debug target to transfer data to the debugger. See 
+ * Description: Transfers data from the PE to an external debugger. For example, it is used by a debug target to transfer data to the debugger. See
  * File:        AArch64-dbgdtrtx_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Debug Data Transfer Register, Transmit value in memory
 pub struct DbgdtrtxEl0(u64);
 
 /// struct implementation for accessing the fields of register dbgdtrtx_el0
 impl DbgdtrtxEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> DbgdtrtxEl0 {
@@ -81,7 +76,6 @@ impl DbgdtrtxEl0 {
 
     // no current() method as it is write only
 
-    
     /// writing the Debug Data Transfer Register, Transmit (dbgdtrtx_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -91,17 +85,15 @@ impl DbgdtrtxEl0 {
         }
     }
 
-// register is not readable. not emitting read accessor
-
+    // register is not readable. not emitting read accessor
 
     // no read() method as it is write only
-    
+
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -113,14 +105,12 @@ impl DbgdtrtxEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: none_31_0
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field none_31_0
+    // no extract() method for field none_31_0
     /// inserts the given value `val` into the field `none_31_0`
     pub fn none_31_0_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..31
@@ -132,7 +122,6 @@ impl DbgdtrtxEl0 {
     pub fn none_31_0_write(&mut self, val: u64) {
         Self::default().none_31_0_insert(val).write();
     }
-
 }
 
 impl Default for DbgdtrtxEl0 {

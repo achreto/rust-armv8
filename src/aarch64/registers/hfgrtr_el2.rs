@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Hypervisor Fine-Grained Read Trap Register (hfgrtr_el2)
  * Group:       A group mapping that does not have a known primary
  * Type:        64-bit Register
- * Description: Provides controls for traps of 
+ * Description: Provides controls for traps of
  * File:        AArch64-hfgrtr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor Fine-Grained Read Trap Register value in memory
 pub struct HfgrtrEl2(u64);
 
 /// struct implementation for accessing the fields of register hfgrtr_el2
 impl HfgrtrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HfgrtrEl2 {
@@ -79,16 +74,13 @@ impl HfgrtrEl2 {
         HfgrtrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HfgrtrEl2 {
+    pub fn with_reg_val() -> HfgrtrEl2 {
         let curval = Self::reg_rawrd() & 0x7ffffffffffff;
         HfgrtrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor Fine-Grained Read Trap Register (hfgrtr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HfgrtrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor Fine-Grained Read Trap Register (hfgrtr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HfgrtrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HfgrtrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HfgrtrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: naccdata_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn naccdata_el1_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn erxaddr_el1_1_extract(&self) -> u64 {
         // bits 49..49
@@ -202,7 +184,6 @@ impl HfgrtrEl2 {
      * Field: erxpfgcdn_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erxpfgcdn_el1_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn erxpfgctl_el1_1_extract(&self) -> u64 {
         // bits 47..47
@@ -260,7 +240,6 @@ impl HfgrtrEl2 {
      * Field: erxpfgf_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erxpfgf_el1_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn erxmiscn_el1_1_extract(&self) -> u64 {
         // bits 45..45
@@ -318,7 +296,6 @@ impl HfgrtrEl2 {
      * Field: erxstatus_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erxstatus_el1_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn erxctlr_el1_1_extract(&self) -> u64 {
         // bits 43..43
@@ -376,7 +352,6 @@ impl HfgrtrEl2 {
      * Field: erxfr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erxfr_el1_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn errselr_el1_1_extract(&self) -> u64 {
         // bits 41..41
@@ -434,7 +408,6 @@ impl HfgrtrEl2 {
      * Field: erridr_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn erridr_el1_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn icc_igrpenn_el1_1_extract(&self) -> u64 {
         // bits 39..39
@@ -492,7 +464,6 @@ impl HfgrtrEl2 {
      * Field: vbar_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vbar_el1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ttbr1_el1_extract(&self) -> u64 {
         // bits 37..37
@@ -550,7 +520,6 @@ impl HfgrtrEl2 {
      * Field: ttbr0_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ttbr0_el1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tpidr_el0_extract(&self) -> u64 {
         // bits 35..35
@@ -608,7 +576,6 @@ impl HfgrtrEl2 {
      * Field: tpidrro_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tpidrro_el0_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tpidr_el1_extract(&self) -> u64 {
         // bits 33..33
@@ -666,7 +632,6 @@ impl HfgrtrEl2 {
      * Field: tcr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tcr_el1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn scxtnum_el0_1_extract(&self) -> u64 {
         // bits 31..31
@@ -724,7 +688,6 @@ impl HfgrtrEl2 {
      * Field: scxtnum_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn scxtnum_el1_1_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sctlr_el1_extract(&self) -> u64 {
         // bits 29..29
@@ -782,7 +744,6 @@ impl HfgrtrEl2 {
      * Field: revidr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn revidr_el1_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn par_el1_extract(&self) -> u64 {
         // bits 27..27
@@ -840,7 +800,6 @@ impl HfgrtrEl2 {
      * Field: mpidr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mpidr_el1_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn midr_el1_extract(&self) -> u64 {
         // bits 25..25
@@ -898,7 +856,6 @@ impl HfgrtrEl2 {
      * Field: mair_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mair_el1_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lorsa_el1_1_extract(&self) -> u64 {
         // bits 23..23
@@ -956,7 +912,6 @@ impl HfgrtrEl2 {
      * Field: lorn_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lorn_el1_1_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lorid_el1_1_extract(&self) -> u64 {
         // bits 21..21
@@ -1014,7 +968,6 @@ impl HfgrtrEl2 {
      * Field: lorea_el1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lorea_el1_1_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lorc_el1_1_extract(&self) -> u64 {
         // bits 19..19
@@ -1072,7 +1024,6 @@ impl HfgrtrEl2 {
      * Field: isr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn isr_el1_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn far_el1_extract(&self) -> u64 {
         // bits 17..17
@@ -1130,7 +1080,6 @@ impl HfgrtrEl2 {
      * Field: esr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn esr_el1_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dczid_el0_extract(&self) -> u64 {
         // bits 15..15
@@ -1188,7 +1136,6 @@ impl HfgrtrEl2 {
      * Field: ctr_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ctr_el0_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn csselr_el1_extract(&self) -> u64 {
         // bits 13..13
@@ -1246,7 +1192,6 @@ impl HfgrtrEl2 {
      * Field: cpacr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cpacr_el1_extract(&self) -> u64 {
@@ -1276,7 +1221,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn contextidr_el1_extract(&self) -> u64 {
         // bits 11..11
@@ -1304,7 +1248,6 @@ impl HfgrtrEl2 {
      * Field: clidr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn clidr_el1_extract(&self) -> u64 {
@@ -1334,7 +1277,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ccsidr_el1_extract(&self) -> u64 {
         // bits 9..9
@@ -1362,7 +1304,6 @@ impl HfgrtrEl2 {
      * Field: apibkey_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn apibkey_1_extract(&self) -> u64 {
@@ -1392,7 +1333,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn apiakey_1_extract(&self) -> u64 {
         // bits 7..7
@@ -1420,7 +1360,6 @@ impl HfgrtrEl2 {
      * Field: apgakey_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn apgakey_1_extract(&self) -> u64 {
@@ -1450,7 +1389,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn apdbkey_1_extract(&self) -> u64 {
         // bits 5..5
@@ -1478,7 +1416,6 @@ impl HfgrtrEl2 {
      * Field: apdakey_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn apdakey_1_extract(&self) -> u64 {
@@ -1508,7 +1445,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amair_el1_extract(&self) -> u64 {
         // bits 3..3
@@ -1536,7 +1472,6 @@ impl HfgrtrEl2 {
      * Field: aidr_el1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn aidr_el1_extract(&self) -> u64 {
@@ -1566,7 +1501,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn afsr1_el1_extract(&self) -> u64 {
         // bits 1..1
@@ -1595,7 +1529,6 @@ impl HfgrtrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn afsr0_el1_extract(&self) -> u64 {
         // bits 0..0
@@ -1618,7 +1551,6 @@ impl HfgrtrEl2 {
     pub fn afsr0_el1_write(val: u64) {
         Self::with_reg_val().afsr0_el1_insert(val).write();
     }
-
 }
 
 impl Default for HfgrtrEl2 {

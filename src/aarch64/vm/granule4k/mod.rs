@@ -41,8 +41,8 @@ pub use tables::{L2Descriptor, L2DescriptorBlock, L2DescriptorTable, L2Table};
 pub use tables::{L3Descriptor, L3Table};
 pub use vaddr::VAddr;
 
-use crate::aarch64::vm::KERNEL_OFFSET;
 use crate::aarch64::registers::TcrEl1;
+use crate::aarch64::vm::KERNEL_OFFSET;
 
 /// A type wrapping a base page with a 4 KiB buffer.
 pub struct Page([u8; BASE_PAGE_SIZE]);
@@ -86,17 +86,4 @@ pub fn configure_el1() {
     unsafe {
         KERNEL_OFFSET = 0xffff_0000_0000_0000;
     }
-
-
-    // /* Configure the kernel page tables for EL1. */
-    // configure_ttbr1(core_data->page_table_root);
-
-    // /* Enable EL0/1 translation. */
-    // configure_sctlr();
-
-    // /* configure spsr */
-    // configure_spsr(el);
-
-    // /* configure EL 1 traps*/
-    // configure_el1_traps();
 }

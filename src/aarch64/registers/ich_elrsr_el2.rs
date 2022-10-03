@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ich_elrsr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Empty List Register Status Register value in memory
 pub struct IchElrsrEl2(u64);
 
 /// struct implementation for accessing the fields of register ich_elrsr_el2
 impl IchElrsrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IchElrsrEl2 {
@@ -79,16 +74,13 @@ impl IchElrsrEl2 {
         IchElrsrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IchElrsrEl2 {
+    pub fn with_reg_val() -> IchElrsrEl2 {
         let curval = Self::reg_rawrd() & 0xffff;
         IchElrsrEl2(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Empty List Register Status Register (ich_elrsr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IchElrsrEl2 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IchElrsrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: statusn
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn statusn_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl IchElrsrEl2 {
     pub fn statusn_read() -> u64 {
         Self::with_reg_val().statusn_extract()
     }
-// no insert() method for field statusn
+    // no insert() method for field statusn
 }
 
 impl Default for IchElrsrEl2 {

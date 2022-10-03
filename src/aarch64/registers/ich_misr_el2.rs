@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-ich_misr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Maintenance Interrupt State Register value in memory
 pub struct IchMisrEl2(u64);
 
 /// struct implementation for accessing the fields of register ich_misr_el2
 impl IchMisrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IchMisrEl2 {
@@ -79,16 +74,13 @@ impl IchMisrEl2 {
         IchMisrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IchMisrEl2 {
+    pub fn with_reg_val() -> IchMisrEl2 {
         let curval = Self::reg_rawrd() & 0xff;
         IchMisrEl2(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Maintenance Interrupt State Register (ich_misr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IchMisrEl2 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IchMisrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: vgrp1d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp1d_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IchMisrEl2 {
     pub fn vgrp1d_read() -> u64 {
         Self::with_reg_val().vgrp1d_extract()
     }
-// no insert() method for field vgrp1d
+    // no insert() method for field vgrp1d
     /*
      * Field: vgrp1e
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp1e_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IchMisrEl2 {
     pub fn vgrp1e_read() -> u64 {
         Self::with_reg_val().vgrp1e_extract()
     }
-// no insert() method for field vgrp1e
+    // no insert() method for field vgrp1e
     /*
      * Field: vgrp0d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp0d_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IchMisrEl2 {
     pub fn vgrp0d_read() -> u64 {
         Self::with_reg_val().vgrp0d_extract()
     }
-// no insert() method for field vgrp0d
+    // no insert() method for field vgrp0d
     /*
      * Field: vgrp0e
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vgrp0e_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IchMisrEl2 {
     pub fn vgrp0e_read() -> u64 {
         Self::with_reg_val().vgrp0e_extract()
     }
-// no insert() method for field vgrp0e
+    // no insert() method for field vgrp0e
     /*
      * Field: np
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn np_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IchMisrEl2 {
     pub fn np_read() -> u64 {
         Self::with_reg_val().np_extract()
     }
-// no insert() method for field np
+    // no insert() method for field np
     /*
      * Field: lrenp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lrenp_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IchMisrEl2 {
     pub fn lrenp_read() -> u64 {
         Self::with_reg_val().lrenp_extract()
     }
-// no insert() method for field lrenp
+    // no insert() method for field lrenp
     /*
      * Field: u
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn u_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IchMisrEl2 {
     pub fn u_read() -> u64 {
         Self::with_reg_val().u_extract()
     }
-// no insert() method for field u
+    // no insert() method for field u
     /*
      * Field: eoi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn eoi_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IchMisrEl2 {
     pub fn eoi_read() -> u64 {
         Self::with_reg_val().eoi_extract()
     }
-// no insert() method for field eoi
+    // no insert() method for field eoi
 }
 
 impl Default for IchMisrEl2 {

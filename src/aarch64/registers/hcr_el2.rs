@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-hcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Hypervisor Configuration Register value in memory
 pub struct HcrEl2(u64);
 
 /// struct implementation for accessing the fields of register hcr_el2
 impl HcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> HcrEl2 {
@@ -79,16 +74,13 @@ impl HcrEl2 {
         HcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  HcrEl2 {
+    pub fn with_reg_val() -> HcrEl2 {
         let curval = Self::reg_rawrd() & 0xfffeff7fffffffff;
         HcrEl2(curval)
     }
 
-
-    
     /// reading the Hypervisor Configuration Register (hcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl HcrEl2 {
         return regval;
     }
 
-
     /// writing the Hypervisor Configuration Register (hcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl HcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl HcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl HcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: twedel_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twedel_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tweden_1_extract(&self) -> u64 {
         // bits 59..59
@@ -202,7 +184,6 @@ impl HcrEl2 {
      * Field: tid5_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tid5_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dct_1_extract(&self) -> u64 {
         // bits 57..57
@@ -260,7 +240,6 @@ impl HcrEl2 {
      * Field: ata_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ata_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ttlbos_1_extract(&self) -> u64 {
         // bits 55..55
@@ -318,7 +296,6 @@ impl HcrEl2 {
      * Field: ttlbis_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ttlbis_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enscxt_1_extract(&self) -> u64 {
         // bits 53..53
@@ -376,7 +352,6 @@ impl HcrEl2 {
      * Field: tocu_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tocu_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amvoffen_1_extract(&self) -> u64 {
         // bits 51..51
@@ -434,7 +408,6 @@ impl HcrEl2 {
      * Field: ticab_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ticab_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tid4_1_extract(&self) -> u64 {
         // bits 49..49
@@ -492,7 +464,6 @@ impl HcrEl2 {
      * Field: fien_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fien_1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fwb_1_extract(&self) -> u64 {
         // bits 46..46
@@ -550,7 +520,6 @@ impl HcrEl2 {
      * Field: nv2_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nv2_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn at_1_extract(&self) -> u64 {
         // bits 44..44
@@ -608,7 +576,6 @@ impl HcrEl2 {
      * Field: nv1_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nv1_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nv1_2_extract(&self) -> u64 {
         // bits 43..43
@@ -666,7 +632,6 @@ impl HcrEl2 {
      * Field: nv_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nv_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nv_2_extract(&self) -> u64 {
         // bits 42..42
@@ -724,7 +688,6 @@ impl HcrEl2 {
      * Field: api_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn api_1_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn apk_1_extract(&self) -> u64 {
         // bits 40..40
@@ -782,7 +744,6 @@ impl HcrEl2 {
      * Field: miocnce
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn miocnce_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tea_1_extract(&self) -> u64 {
         // bits 37..37
@@ -840,7 +800,6 @@ impl HcrEl2 {
      * Field: terr_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn terr_1_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tlor_1_extract(&self) -> u64 {
         // bits 35..35
@@ -898,7 +856,6 @@ impl HcrEl2 {
      * Field: e2h_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e2h_1_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn id_extract(&self) -> u64 {
         // bits 33..33
@@ -956,7 +912,6 @@ impl HcrEl2 {
      * Field: cd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cd_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn rw_1_extract(&self) -> u64 {
         // bits 31..31
@@ -1014,7 +968,6 @@ impl HcrEl2 {
      * Field: trvm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn trvm_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hcd_1_extract(&self) -> u64 {
         // bits 29..29
@@ -1072,7 +1024,6 @@ impl HcrEl2 {
      * Field: tdz
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tdz_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tge_extract(&self) -> u64 {
         // bits 27..27
@@ -1130,7 +1080,6 @@ impl HcrEl2 {
      * Field: tvm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tvm_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ttlb_extract(&self) -> u64 {
         // bits 25..25
@@ -1188,7 +1136,6 @@ impl HcrEl2 {
      * Field: tpu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tpu_extract(&self) -> u64 {
@@ -1218,7 +1165,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tpcp_1_extract(&self) -> u64 {
         // bits 23..23
@@ -1246,7 +1192,6 @@ impl HcrEl2 {
      * Field: tpc_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tpc_2_extract(&self) -> u64 {
@@ -1276,7 +1221,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tsw_extract(&self) -> u64 {
         // bits 22..22
@@ -1304,7 +1248,6 @@ impl HcrEl2 {
      * Field: tacr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tacr_extract(&self) -> u64 {
@@ -1334,7 +1277,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tidcp_extract(&self) -> u64 {
         // bits 20..20
@@ -1362,7 +1304,6 @@ impl HcrEl2 {
      * Field: tsc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tsc_extract(&self) -> u64 {
@@ -1392,7 +1333,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tid3_extract(&self) -> u64 {
         // bits 18..18
@@ -1420,7 +1360,6 @@ impl HcrEl2 {
      * Field: tid2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tid2_extract(&self) -> u64 {
@@ -1450,7 +1389,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tid1_extract(&self) -> u64 {
         // bits 16..16
@@ -1478,7 +1416,6 @@ impl HcrEl2 {
      * Field: tid0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tid0_1_extract(&self) -> u64 {
@@ -1508,7 +1445,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn twe_extract(&self) -> u64 {
         // bits 14..14
@@ -1536,7 +1472,6 @@ impl HcrEl2 {
      * Field: twi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twi_extract(&self) -> u64 {
@@ -1566,7 +1501,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dc_extract(&self) -> u64 {
         // bits 12..12
@@ -1594,7 +1528,6 @@ impl HcrEl2 {
      * Field: bsu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bsu_extract(&self) -> u64 {
@@ -1624,7 +1557,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fb_extract(&self) -> u64 {
         // bits 9..9
@@ -1652,7 +1584,6 @@ impl HcrEl2 {
      * Field: vse
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vse_extract(&self) -> u64 {
@@ -1682,7 +1613,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vi_extract(&self) -> u64 {
         // bits 7..7
@@ -1710,7 +1640,6 @@ impl HcrEl2 {
      * Field: vf
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vf_extract(&self) -> u64 {
@@ -1740,7 +1669,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amo_extract(&self) -> u64 {
         // bits 5..5
@@ -1768,7 +1696,6 @@ impl HcrEl2 {
      * Field: imo
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn imo_extract(&self) -> u64 {
@@ -1798,7 +1725,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fmo_extract(&self) -> u64 {
         // bits 3..3
@@ -1826,7 +1752,6 @@ impl HcrEl2 {
      * Field: ptw
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ptw_extract(&self) -> u64 {
@@ -1856,7 +1781,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn swio_extract(&self) -> u64 {
         // bits 1..1
@@ -1885,7 +1809,6 @@ impl HcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn vm_extract(&self) -> u64 {
         // bits 0..0
@@ -1908,7 +1831,6 @@ impl HcrEl2 {
     pub fn vm_write(val: u64) {
         Self::with_reg_val().vm_insert(val).write();
     }
-
 }
 
 impl Default for HcrEl2 {

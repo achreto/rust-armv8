@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Counter-timer Kernel Control register (cntkctl_el1)
  * Group:       Generic Timer registers
  * Type:        64-bit Register
- * Description: When 
+ * Description: When
  * File:        AArch64-cntkctl_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Kernel Control register value in memory
 pub struct CntkctlEl1(u64);
 
 /// struct implementation for accessing the fields of register cntkctl_el1
 impl CntkctlEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntkctlEl1 {
@@ -79,16 +74,13 @@ impl CntkctlEl1 {
         CntkctlEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntkctlEl1 {
+    pub fn with_reg_val() -> CntkctlEl1 {
         let curval = Self::reg_rawrd() & 0x203ff;
         CntkctlEl1(curval)
     }
 
-
-    
     /// reading the Counter-timer Kernel Control register (cntkctl_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CntkctlEl1 {
         return regval;
     }
 
-
     /// writing the Counter-timer Kernel Control register (cntkctl_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CntkctlEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CntkctlEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CntkctlEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: evntis_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evntis_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl CntkctlEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0pten_extract(&self) -> u64 {
         // bits 9..9
@@ -202,7 +184,6 @@ impl CntkctlEl1 {
      * Field: el0vten
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el0vten_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl CntkctlEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn evnti_extract(&self) -> u64 {
         // bits 4..7
@@ -260,7 +240,6 @@ impl CntkctlEl1 {
      * Field: evntdir
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn evntdir_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl CntkctlEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn evnten_extract(&self) -> u64 {
         // bits 2..2
@@ -318,7 +296,6 @@ impl CntkctlEl1 {
      * Field: el0vcten
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el0vcten_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl CntkctlEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn el0pcten_extract(&self) -> u64 {
         // bits 0..0
@@ -371,7 +347,6 @@ impl CntkctlEl1 {
     pub fn el0pcten_write(val: u64) {
         Self::with_reg_val().el0pcten_insert(val).write();
     }
-
 }
 
 impl Default for CntkctlEl1 {

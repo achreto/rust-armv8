@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_mmfr2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Memory Model Feature Register 2 value in memory
 pub struct IdMmfr2El1(u64);
 
 /// struct implementation for accessing the fields of register id_mmfr2_el1
 impl IdMmfr2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdMmfr2El1 {
@@ -79,16 +74,13 @@ impl IdMmfr2El1 {
         IdMmfr2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdMmfr2El1 {
+    pub fn with_reg_val() -> IdMmfr2El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdMmfr2El1(curval)
     }
 
-
-    
     /// reading the AArch32 Memory Model Feature Register 2 (id_mmfr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdMmfr2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdMmfr2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: hwaccflg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwaccflg_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdMmfr2El1 {
     pub fn hwaccflg_read() -> u64 {
         Self::with_reg_val().hwaccflg_extract()
     }
-// no insert() method for field hwaccflg
+    // no insert() method for field hwaccflg
     /*
      * Field: wfistall
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn wfistall_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdMmfr2El1 {
     pub fn wfistall_read() -> u64 {
         Self::with_reg_val().wfistall_extract()
     }
-// no insert() method for field wfistall
+    // no insert() method for field wfistall
     /*
      * Field: membarr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn membarr_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdMmfr2El1 {
     pub fn membarr_read() -> u64 {
         Self::with_reg_val().membarr_extract()
     }
-// no insert() method for field membarr
+    // no insert() method for field membarr
     /*
      * Field: unitlb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn unitlb_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdMmfr2El1 {
     pub fn unitlb_read() -> u64 {
         Self::with_reg_val().unitlb_extract()
     }
-// no insert() method for field unitlb
+    // no insert() method for field unitlb
     /*
      * Field: hvdtlb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hvdtlb_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdMmfr2El1 {
     pub fn hvdtlb_read() -> u64 {
         Self::with_reg_val().hvdtlb_extract()
     }
-// no insert() method for field hvdtlb
+    // no insert() method for field hvdtlb
     /*
      * Field: l1hvdrng
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn l1hvdrng_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdMmfr2El1 {
     pub fn l1hvdrng_read() -> u64 {
         Self::with_reg_val().l1hvdrng_extract()
     }
-// no insert() method for field l1hvdrng
+    // no insert() method for field l1hvdrng
     /*
      * Field: l1hvdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn l1hvdbg_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdMmfr2El1 {
     pub fn l1hvdbg_read() -> u64 {
         Self::with_reg_val().l1hvdbg_extract()
     }
-// no insert() method for field l1hvdbg
+    // no insert() method for field l1hvdbg
     /*
      * Field: l1hvdfg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn l1hvdfg_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdMmfr2El1 {
     pub fn l1hvdfg_read() -> u64 {
         Self::with_reg_val().l1hvdfg_extract()
     }
-// no insert() method for field l1hvdfg
+    // no insert() method for field l1hvdfg
 }
 
 impl Default for IdMmfr2El1 {

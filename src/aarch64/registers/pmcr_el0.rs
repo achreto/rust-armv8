@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmcr_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Performance Monitors Control Register value in memory
 pub struct PmcrEl0(u64);
 
 /// struct implementation for accessing the fields of register pmcr_el0
 impl PmcrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmcrEl0 {
@@ -79,16 +74,13 @@ impl PmcrEl0 {
         PmcrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmcrEl0 {
+    pub fn with_reg_val() -> PmcrEl0 {
         let curval = Self::reg_rawrd() & 0x1fffffaff;
         PmcrEl0(curval)
     }
 
-
-    
     /// reading the Performance Monitors Control Register (pmcr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmcrEl0 {
         return regval;
     }
 
-
     /// writing the Performance Monitors Control Register (pmcr_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmcrEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmcrEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmcrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: fzs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fzs_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn imp_1_extract(&self) -> u64 {
         // bits 24..31
@@ -202,7 +184,6 @@ impl PmcrEl0 {
      * Field: idcode_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn idcode_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn n_extract(&self) -> u64 {
         // bits 11..15
@@ -260,7 +240,6 @@ impl PmcrEl0 {
      * Field: fzo_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fzo_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn lp_1_extract(&self) -> u64 {
         // bits 7..7
@@ -318,7 +296,6 @@ impl PmcrEl0 {
      * Field: lc_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lc_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dp_1_extract(&self) -> u64 {
         // bits 5..5
@@ -376,7 +352,6 @@ impl PmcrEl0 {
      * Field: x_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn x_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn d_1_extract(&self) -> u64 {
         // bits 3..3
@@ -434,7 +408,6 @@ impl PmcrEl0 {
      * Field: c
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn c_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn p_extract(&self) -> u64 {
         // bits 1..1
@@ -493,7 +465,6 @@ impl PmcrEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e_extract(&self) -> u64 {
         // bits 0..0
@@ -516,7 +487,6 @@ impl PmcrEl0 {
     pub fn e_write(val: u64) {
         Self::with_reg_val().e_insert(val).write();
     }
-
 }
 
 impl Default for PmcrEl0 {

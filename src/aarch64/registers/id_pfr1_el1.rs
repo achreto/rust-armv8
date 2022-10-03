@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_pfr1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Processor Feature Register 1 value in memory
 pub struct IdPfr1El1(u64);
 
 /// struct implementation for accessing the fields of register id_pfr1_el1
 impl IdPfr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdPfr1El1 {
@@ -79,16 +74,13 @@ impl IdPfr1El1 {
         IdPfr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdPfr1El1 {
+    pub fn with_reg_val() -> IdPfr1El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdPfr1El1(curval)
     }
 
-
-    
     /// reading the AArch32 Processor Feature Register 1 (id_pfr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdPfr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdPfr1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: gic
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn gic_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdPfr1El1 {
     pub fn gic_read() -> u64 {
         Self::with_reg_val().gic_extract()
     }
-// no insert() method for field gic
+    // no insert() method for field gic
     /*
      * Field: virt_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn virt_frac_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdPfr1El1 {
     pub fn virt_frac_read() -> u64 {
         Self::with_reg_val().virt_frac_extract()
     }
-// no insert() method for field virt_frac
+    // no insert() method for field virt_frac
     /*
      * Field: sec_frac
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sec_frac_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdPfr1El1 {
     pub fn sec_frac_read() -> u64 {
         Self::with_reg_val().sec_frac_extract()
     }
-// no insert() method for field sec_frac
+    // no insert() method for field sec_frac
     /*
      * Field: gentimer
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn gentimer_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdPfr1El1 {
     pub fn gentimer_read() -> u64 {
         Self::with_reg_val().gentimer_extract()
     }
-// no insert() method for field gentimer
+    // no insert() method for field gentimer
     /*
      * Field: virtualization
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn virtualization_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdPfr1El1 {
     pub fn virtualization_read() -> u64 {
         Self::with_reg_val().virtualization_extract()
     }
-// no insert() method for field virtualization
+    // no insert() method for field virtualization
     /*
      * Field: mprogmod
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mprogmod_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdPfr1El1 {
     pub fn mprogmod_read() -> u64 {
         Self::with_reg_val().mprogmod_extract()
     }
-// no insert() method for field mprogmod
+    // no insert() method for field mprogmod
     /*
      * Field: security
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn security_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdPfr1El1 {
     pub fn security_read() -> u64 {
         Self::with_reg_val().security_extract()
     }
-// no insert() method for field security
+    // no insert() method for field security
     /*
      * Field: progmod
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn progmod_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdPfr1El1 {
     pub fn progmod_read() -> u64 {
         Self::with_reg_val().progmod_extract()
     }
-// no insert() method for field progmod
+    // no insert() method for field progmod
 }
 
 impl Default for IdPfr1El1 {

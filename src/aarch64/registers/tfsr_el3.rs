@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-tfsr_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Tag Fault Status Register (EL3) value in memory
 pub struct TfsrEl3(u64);
 
 /// struct implementation for accessing the fields of register tfsr_el3
 impl TfsrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TfsrEl3 {
@@ -79,16 +74,13 @@ impl TfsrEl3 {
         TfsrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TfsrEl3 {
+    pub fn with_reg_val() -> TfsrEl3 {
         let curval = Self::reg_rawrd() & 0x1;
         TfsrEl3(curval)
     }
 
-
-    
     /// reading the Tag Fault Status Register (EL3) (tfsr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TfsrEl3 {
         return regval;
     }
 
-
     /// writing the Tag Fault Status Register (EL3) (tfsr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TfsrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TfsrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TfsrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: tf0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tf0_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl TfsrEl3 {
     pub fn tf0_write(val: u64) {
         Self::with_reg_val().tf0_insert(val).write();
     }
-
 }
 
 impl Default for TfsrEl3 {

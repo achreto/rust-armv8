@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    AArch64 Auxiliary Feature Register 1 (id_aa64afr1_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: Reserved for future expansion of information about the 
+ * Description: Reserved for future expansion of information about the
  * File:        AArch64-id_aa64afr1_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Auxiliary Feature Register 1 value in memory
 pub struct IdAa64afr1El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64afr1_el1
 impl IdAa64afr1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64afr1El1 {
@@ -79,16 +74,13 @@ impl IdAa64afr1El1 {
         IdAa64afr1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64afr1El1 {
+    pub fn with_reg_val() -> IdAa64afr1El1 {
         let curval = Self::reg_rawrd() & 0x0;
         IdAa64afr1El1(curval)
     }
 
-
-    
     /// reading the AArch64 Auxiliary Feature Register 1 (id_aa64afr1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64afr1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -122,9 +112,6 @@ impl IdAa64afr1El1 {
     pub fn get_raw(&self) -> u64 {
         self.0
     }
-
-
-    
 }
 
 impl Default for IdAa64afr1El1 {

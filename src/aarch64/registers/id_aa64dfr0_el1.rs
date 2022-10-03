@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64dfr0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Debug Feature Register 0 value in memory
 pub struct IdAa64dfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64dfr0_el1
 impl IdAa64dfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64dfr0El1 {
@@ -79,16 +74,13 @@ impl IdAa64dfr0El1 {
         IdAa64dfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64dfr0El1 {
+    pub fn with_reg_val() -> IdAa64dfr0El1 {
         let curval = Self::reg_rawrd() & 0xf0ffff0f0ffff;
         IdAa64dfr0El1(curval)
     }
 
-
-    
     /// reading the AArch64 Debug Feature Register 0 (id_aa64dfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64dfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64dfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: mtpmu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mtpmu_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64dfr0El1 {
     pub fn mtpmu_read() -> u64 {
         Self::with_reg_val().mtpmu_extract()
     }
-// no insert() method for field mtpmu
+    // no insert() method for field mtpmu
     /*
      * Field: tracefilt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tracefilt_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdAa64dfr0El1 {
     pub fn tracefilt_read() -> u64 {
         Self::with_reg_val().tracefilt_extract()
     }
-// no insert() method for field tracefilt
+    // no insert() method for field tracefilt
     /*
      * Field: doublelock
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn doublelock_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdAa64dfr0El1 {
     pub fn doublelock_read() -> u64 {
         Self::with_reg_val().doublelock_extract()
     }
-// no insert() method for field doublelock
+    // no insert() method for field doublelock
     /*
      * Field: pmsver
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmsver_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdAa64dfr0El1 {
     pub fn pmsver_read() -> u64 {
         Self::with_reg_val().pmsver_extract()
     }
-// no insert() method for field pmsver
+    // no insert() method for field pmsver
     /*
      * Field: ctx_cmps
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ctx_cmps_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdAa64dfr0El1 {
     pub fn ctx_cmps_read() -> u64 {
         Self::with_reg_val().ctx_cmps_extract()
     }
-// no insert() method for field ctx_cmps
+    // no insert() method for field ctx_cmps
     /*
      * Field: wrps
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn wrps_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdAa64dfr0El1 {
     pub fn wrps_read() -> u64 {
         Self::with_reg_val().wrps_extract()
     }
-// no insert() method for field wrps
+    // no insert() method for field wrps
     /*
      * Field: brps
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn brps_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdAa64dfr0El1 {
     pub fn brps_read() -> u64 {
         Self::with_reg_val().brps_extract()
     }
-// no insert() method for field brps
+    // no insert() method for field brps
     /*
      * Field: pmuver
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pmuver_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl IdAa64dfr0El1 {
     pub fn pmuver_read() -> u64 {
         Self::with_reg_val().pmuver_extract()
     }
-// no insert() method for field pmuver
+    // no insert() method for field pmuver
     /*
      * Field: tracever
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tracever_extract(&self) -> u64 {
@@ -277,12 +256,11 @@ impl IdAa64dfr0El1 {
     pub fn tracever_read() -> u64 {
         Self::with_reg_val().tracever_extract()
     }
-// no insert() method for field tracever
+    // no insert() method for field tracever
     /*
      * Field: debugver
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn debugver_extract(&self) -> u64 {
@@ -294,7 +272,7 @@ impl IdAa64dfr0El1 {
     pub fn debugver_read() -> u64 {
         Self::with_reg_val().debugver_extract()
     }
-// no insert() method for field debugver
+    // no insert() method for field debugver
 }
 
 impl Default for IdAa64dfr0El1 {

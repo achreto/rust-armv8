@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-currentel.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Current Exception Level value in memory
 pub struct Currentel(u64);
 
 /// struct implementation for accessing the fields of register currentel
 impl Currentel {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Currentel {
@@ -79,16 +74,13 @@ impl Currentel {
         Currentel(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Currentel {
+    pub fn with_reg_val() -> Currentel {
         let curval = Self::reg_rawrd() & 0xc;
         Currentel(curval)
     }
 
-
-    
     /// reading the Current Exception Level (currentel) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Currentel {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Currentel {
         self.0
     }
 
-
-    
     /*
      * Field: el
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn el_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl Currentel {
     pub fn el_read() -> u64 {
         Self::with_reg_val().el_extract()
     }
-// no insert() method for field el
+    // no insert() method for field el
 }
 
 impl Default for Currentel {

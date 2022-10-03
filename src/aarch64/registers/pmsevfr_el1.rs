@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmsevfr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Sampling Event Filter Register value in memory
 pub struct PmsevfrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmsevfr_el1
 impl PmsevfrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmsevfrEl1 {
@@ -79,16 +74,13 @@ impl PmsevfrEl1 {
         PmsevfrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmsevfrEl1 {
+    pub fn with_reg_val() -> PmsevfrEl1 {
         let curval = Self::reg_rawrd() & 0xffff0000ff06f8ea;
         PmsevfrEl1(curval)
     }
 
-
-    
     /// reading the Sampling Event Filter Register (pmsevfr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl PmsevfrEl1 {
         return regval;
     }
 
-
     /// writing the Sampling Event Filter Register (pmsevfr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl PmsevfrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl PmsevfrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl PmsevfrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: ex
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ex_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e63_63_63_extract(&self) -> u64 {
         // bits 63..63
@@ -202,7 +184,6 @@ impl PmsevfrEl1 {
      * Field: e62_62_62
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e62_62_62_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e61_61_61_extract(&self) -> u64 {
         // bits 61..61
@@ -260,7 +240,6 @@ impl PmsevfrEl1 {
      * Field: e60_60_60
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e60_60_60_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e59_59_59_extract(&self) -> u64 {
         // bits 59..59
@@ -318,7 +296,6 @@ impl PmsevfrEl1 {
      * Field: e58_58_58
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e58_58_58_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e57_57_57_extract(&self) -> u64 {
         // bits 57..57
@@ -376,7 +352,6 @@ impl PmsevfrEl1 {
      * Field: e56_56_56
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e56_56_56_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e55_55_55_extract(&self) -> u64 {
         // bits 55..55
@@ -434,7 +408,6 @@ impl PmsevfrEl1 {
      * Field: e54_54_54
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e54_54_54_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e53_53_53_extract(&self) -> u64 {
         // bits 53..53
@@ -492,7 +464,6 @@ impl PmsevfrEl1 {
      * Field: e52_52_52
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e52_52_52_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e51_51_51_extract(&self) -> u64 {
         // bits 51..51
@@ -550,7 +520,6 @@ impl PmsevfrEl1 {
      * Field: e50_50_50
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e50_50_50_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e49_49_49_extract(&self) -> u64 {
         // bits 49..49
@@ -608,7 +576,6 @@ impl PmsevfrEl1 {
      * Field: e48_48_48
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e48_48_48_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e31_31_31_extract(&self) -> u64 {
         // bits 31..31
@@ -666,7 +632,6 @@ impl PmsevfrEl1 {
      * Field: e30_30_30
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e30_30_30_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e29_29_29_extract(&self) -> u64 {
         // bits 29..29
@@ -724,7 +688,6 @@ impl PmsevfrEl1 {
      * Field: e28_28_28
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e28_28_28_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e27_27_27_extract(&self) -> u64 {
         // bits 27..27
@@ -782,7 +744,6 @@ impl PmsevfrEl1 {
      * Field: e26_26_26
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e26_26_26_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e25_25_25_extract(&self) -> u64 {
         // bits 25..25
@@ -840,7 +800,6 @@ impl PmsevfrEl1 {
      * Field: e24_24_24
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e24_24_24_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e18_1_extract(&self) -> u64 {
         // bits 18..18
@@ -898,7 +856,6 @@ impl PmsevfrEl1 {
      * Field: e17_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e17_1_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e15_15_15_extract(&self) -> u64 {
         // bits 15..15
@@ -956,7 +912,6 @@ impl PmsevfrEl1 {
      * Field: e14_14_14
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e14_14_14_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e13_13_13_extract(&self) -> u64 {
         // bits 13..13
@@ -1014,7 +968,6 @@ impl PmsevfrEl1 {
      * Field: e12_12_12
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e12_12_12_extract(&self) -> u64 {
@@ -1044,7 +997,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e11_1_extract(&self) -> u64 {
         // bits 11..11
@@ -1072,7 +1024,6 @@ impl PmsevfrEl1 {
      * Field: e7
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e7_extract(&self) -> u64 {
@@ -1102,7 +1053,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e6_1_extract(&self) -> u64 {
         // bits 6..6
@@ -1130,7 +1080,6 @@ impl PmsevfrEl1 {
      * Field: e5
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn e5_extract(&self) -> u64 {
@@ -1160,7 +1109,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e3_extract(&self) -> u64 {
         // bits 3..3
@@ -1189,7 +1137,6 @@ impl PmsevfrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e1_1_extract(&self) -> u64 {
         // bits 1..1
@@ -1212,7 +1159,6 @@ impl PmsevfrEl1 {
     pub fn e1_1_write(val: u64) {
         Self::with_reg_val().e1_1_insert(val).write();
     }
-
 }
 
 impl Default for PmsevfrEl1 {

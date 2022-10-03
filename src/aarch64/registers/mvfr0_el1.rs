@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mvfr0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Media and VFP Feature Register 0 value in memory
 pub struct Mvfr0El1(u64);
 
 /// struct implementation for accessing the fields of register mvfr0_el1
 impl Mvfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Mvfr0El1 {
@@ -79,16 +74,13 @@ impl Mvfr0El1 {
         Mvfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Mvfr0El1 {
+    pub fn with_reg_val() -> Mvfr0El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         Mvfr0El1(curval)
     }
 
-
-    
     /// reading the AArch32 Media and VFP Feature Register 0 (mvfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Mvfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Mvfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: fpround
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpround_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl Mvfr0El1 {
     pub fn fpround_read() -> u64 {
         Self::with_reg_val().fpround_extract()
     }
-// no insert() method for field fpround
+    // no insert() method for field fpround
     /*
      * Field: fpshvec
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpshvec_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl Mvfr0El1 {
     pub fn fpshvec_read() -> u64 {
         Self::with_reg_val().fpshvec_extract()
     }
-// no insert() method for field fpshvec
+    // no insert() method for field fpshvec
     /*
      * Field: fpsqrt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpsqrt_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl Mvfr0El1 {
     pub fn fpsqrt_read() -> u64 {
         Self::with_reg_val().fpsqrt_extract()
     }
-// no insert() method for field fpsqrt
+    // no insert() method for field fpsqrt
     /*
      * Field: fpdivide
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpdivide_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl Mvfr0El1 {
     pub fn fpdivide_read() -> u64 {
         Self::with_reg_val().fpdivide_extract()
     }
-// no insert() method for field fpdivide
+    // no insert() method for field fpdivide
     /*
      * Field: fptrap
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fptrap_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl Mvfr0El1 {
     pub fn fptrap_read() -> u64 {
         Self::with_reg_val().fptrap_extract()
     }
-// no insert() method for field fptrap
+    // no insert() method for field fptrap
     /*
      * Field: fpdp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpdp_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl Mvfr0El1 {
     pub fn fpdp_read() -> u64 {
         Self::with_reg_val().fpdp_extract()
     }
-// no insert() method for field fpdp
+    // no insert() method for field fpdp
     /*
      * Field: fpsp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fpsp_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl Mvfr0El1 {
     pub fn fpsp_read() -> u64 {
         Self::with_reg_val().fpsp_extract()
     }
-// no insert() method for field fpsp
+    // no insert() method for field fpsp
     /*
      * Field: simdreg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn simdreg_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl Mvfr0El1 {
     pub fn simdreg_read() -> u64 {
         Self::with_reg_val().simdreg_extract()
     }
-// no insert() method for field simdreg
+    // no insert() method for field simdreg
 }
 
 impl Default for Mvfr0El1 {

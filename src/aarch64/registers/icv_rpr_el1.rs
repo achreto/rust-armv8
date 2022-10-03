@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icv_rpr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Virtual Running Priority Register value in memory
 pub struct IcvRprEl1(u64);
 
 /// struct implementation for accessing the fields of register icv_rpr_el1
 impl IcvRprEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IcvRprEl1 {
@@ -79,16 +74,13 @@ impl IcvRprEl1 {
         IcvRprEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IcvRprEl1 {
+    pub fn with_reg_val() -> IcvRprEl1 {
         let curval = Self::reg_rawrd() & 0xff;
         IcvRprEl1(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Virtual Running Priority Register (icv_rpr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IcvRprEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IcvRprEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: priority
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn priority_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl IcvRprEl1 {
     pub fn priority_read() -> u64 {
         Self::with_reg_val().priority_extract()
     }
-// no insert() method for field priority
+    // no insert() method for field priority
 }
 
 impl Default for IcvRprEl1 {

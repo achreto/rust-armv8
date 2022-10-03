@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Activity Monitors Counter Group 1 Identification Register (amcg1idr_el0)
  * Group:       Activity Monitors registers
  * Type:        64-bit Register
- * Description: Defines which auxiliary counters are implemented, and which of them have a corresponding virtual offset register, 
+ * Description: Defines which auxiliary counters are implemented, and which of them have a corresponding virtual offset register,
  * File:        AArch64-amcg1idr_el0.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Activity Monitors Counter Group 1 Identification Register value in memory
 pub struct Amcg1idrEl0(u64);
 
 /// struct implementation for accessing the fields of register amcg1idr_el0
 impl Amcg1idrEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Amcg1idrEl0 {
@@ -79,16 +74,13 @@ impl Amcg1idrEl0 {
         Amcg1idrEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Amcg1idrEl0 {
+    pub fn with_reg_val() -> Amcg1idrEl0 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         Amcg1idrEl0(curval)
     }
 
-
-    
     /// reading the Activity Monitors Counter Group 1 Identification Register (amcg1idr_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Amcg1idrEl0 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Amcg1idrEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: amevcntoff1n_el2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntoff1n_el2_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl Amcg1idrEl0 {
     pub fn amevcntoff1n_el2_read() -> u64 {
         Self::with_reg_val().amevcntoff1n_el2_extract()
     }
-// no insert() method for field amevcntoff1n_el2
+    // no insert() method for field amevcntoff1n_el2
     /*
      * Field: amevcntr1n_el0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn amevcntr1n_el0_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl Amcg1idrEl0 {
     pub fn amevcntr1n_el0_read() -> u64 {
         Self::with_reg_val().amevcntr1n_el0_extract()
     }
-// no insert() method for field amevcntr1n_el0
+    // no insert() method for field amevcntr1n_el0
 }
 
 impl Default for Amcg1idrEl0 {

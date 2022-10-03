@@ -96,6 +96,11 @@ impl L3Descriptor {
         self.0.set_bits(12..=47, frame.as_u64() >> BASE_PAGE_SHIFT);
         self
     }
+
+    /// obtains the descriptor as an u64
+    pub fn as_u64(&self) -> u64 {
+        self.0
+    }
 }
 
 // attribute implementation
@@ -138,7 +143,10 @@ impl L3Table {
                 self.0[idx] = entry;
             }
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L3_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L3_TABLE_ENTRIES
+            );
         }
     }
 
@@ -161,7 +169,10 @@ impl L3Table {
         if idx < L3_TABLE_ENTRIES {
             &self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L3_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L3_TABLE_ENTRIES
+            );
         }
     }
 
@@ -176,7 +187,10 @@ impl L3Table {
         if idx < L3_TABLE_ENTRIES {
             &mut self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L3_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L3_TABLE_ENTRIES
+            );
         }
     }
 

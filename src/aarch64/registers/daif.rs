@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-daif.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Mask Bits value in memory
 pub struct Daif(u64);
 
 /// struct implementation for accessing the fields of register daif
 impl Daif {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Daif {
@@ -79,16 +74,13 @@ impl Daif {
         Daif(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Daif {
+    pub fn with_reg_val() -> Daif {
         let curval = Self::reg_rawrd() & 0x3c0;
         Daif(curval)
     }
 
-
-    
     /// reading the Interrupt Mask Bits (daif) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Daif {
         return regval;
     }
 
-
     /// writing the Interrupt Mask Bits (daif) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Daif {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Daif {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Daif {
         self.0
     }
 
-
-    
     /*
      * Field: d
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn d_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Daif {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
         // bits 8..8
@@ -202,7 +184,6 @@ impl Daif {
      * Field: i
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Daif {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn f_extract(&self) -> u64 {
         // bits 6..6
@@ -255,7 +235,6 @@ impl Daif {
     pub fn f_write(val: u64) {
         Self::with_reg_val().f_insert(val).write();
     }
-
 }
 
 impl Default for Daif {

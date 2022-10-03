@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Auxiliary ID Register (aidr_el1)
  * Group:       IMPLEMENTATION DEFINED
  * Type:        64-bit Register
- * Description: Provides 
+ * Description: Provides
  * File:        AArch64-aidr_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Auxiliary ID Register value in memory
 pub struct AidrEl1(u64);
 
 /// struct implementation for accessing the fields of register aidr_el1
 impl AidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> AidrEl1 {
@@ -79,16 +74,13 @@ impl AidrEl1 {
         AidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  AidrEl1 {
+    pub fn with_reg_val() -> AidrEl1 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         AidrEl1(curval)
     }
 
-
-    
     /// reading the Auxiliary ID Register (aidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl AidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl AidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: implementation_defined_63_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_63_0_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl AidrEl1 {
     pub fn implementation_defined_63_0_read() -> u64 {
         Self::with_reg_val().implementation_defined_63_0_extract()
     }
-// no insert() method for field implementation_defined_63_0
+    // no insert() method for field implementation_defined_63_0
 }
 
 impl Default for AidrEl1 {

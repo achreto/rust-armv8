@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-clidr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Cache Level ID Register value in memory
 pub struct ClidrEl1(u64);
 
 /// struct implementation for accessing the fields of register clidr_el1
 impl ClidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ClidrEl1 {
@@ -79,16 +74,13 @@ impl ClidrEl1 {
         ClidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ClidrEl1 {
+    pub fn with_reg_val() -> ClidrEl1 {
         let curval = Self::reg_rawrd() & 0x7fffffffffff;
         ClidrEl1(curval)
     }
 
-
-    
     /// reading the Cache Level ID Register (clidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl ClidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl ClidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: ttypen_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ttypen_1_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl ClidrEl1 {
     pub fn ttypen_1_read() -> u64 {
         Self::with_reg_val().ttypen_1_extract()
     }
-// no insert() method for field ttypen_1
+    // no insert() method for field ttypen_1
     /*
      * Field: icb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn icb_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl ClidrEl1 {
     pub fn icb_read() -> u64 {
         Self::with_reg_val().icb_extract()
     }
-// no insert() method for field icb
+    // no insert() method for field icb
     /*
      * Field: louu
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn louu_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl ClidrEl1 {
     pub fn louu_read() -> u64 {
         Self::with_reg_val().louu_extract()
     }
-// no insert() method for field louu
+    // no insert() method for field louu
     /*
      * Field: loc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn loc_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl ClidrEl1 {
     pub fn loc_read() -> u64 {
         Self::with_reg_val().loc_extract()
     }
-// no insert() method for field loc
+    // no insert() method for field loc
     /*
      * Field: louis
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn louis_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl ClidrEl1 {
     pub fn louis_read() -> u64 {
         Self::with_reg_val().louis_extract()
     }
-// no insert() method for field louis
+    // no insert() method for field louis
     /*
      * Field: ctypen
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ctypen_extract(&self) -> u64 {
@@ -226,7 +208,7 @@ impl ClidrEl1 {
     pub fn ctypen_read() -> u64 {
         Self::with_reg_val().ctypen_extract()
     }
-// no insert() method for field ctypen
+    // no insert() method for field ctypen
 }
 
 impl Default for ClidrEl1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Floating-Point Exception Control register (fpexc32_el2)
  * Group:       Floating-point registers
  * Type:        64-bit Register
- * Description: Allows access to the AArch32 register 
+ * Description: Allows access to the AArch32 register
  * File:        AArch64-fpexc32_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Floating-Point Exception Control register value in memory
 pub struct Fpexc32El2(u64);
 
 /// struct implementation for accessing the fields of register fpexc32_el2
 impl Fpexc32El2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Fpexc32El2 {
@@ -79,16 +74,13 @@ impl Fpexc32El2 {
         Fpexc32El2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Fpexc32El2 {
+    pub fn with_reg_val() -> Fpexc32El2 {
         let curval = Self::reg_rawrd() & 0xfc00079f;
         Fpexc32El2(curval)
     }
 
-
-    
     /// reading the Floating-Point Exception Control register (fpexc32_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl Fpexc32El2 {
         return regval;
     }
 
-
     /// writing the Floating-Point Exception Control register (fpexc32_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl Fpexc32El2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl Fpexc32El2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl Fpexc32El2 {
         self.0
     }
 
-
-    
     /*
      * Field: ex
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ex_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn en_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl Fpexc32El2 {
      * Field: dex
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dex_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fp2v_extract(&self) -> u64 {
         // bits 28..28
@@ -260,7 +240,6 @@ impl Fpexc32El2 {
      * Field: vv
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vv_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tfv_extract(&self) -> u64 {
         // bits 26..26
@@ -318,7 +296,6 @@ impl Fpexc32El2 {
      * Field: vecitr
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn vecitr_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn idf_extract(&self) -> u64 {
         // bits 7..7
@@ -376,7 +352,6 @@ impl Fpexc32El2 {
      * Field: ixf
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ixf_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn uff_extract(&self) -> u64 {
         // bits 3..3
@@ -434,7 +408,6 @@ impl Fpexc32El2 {
      * Field: off
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn off_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn dzf_extract(&self) -> u64 {
         // bits 1..1
@@ -493,7 +465,6 @@ impl Fpexc32El2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn iof_extract(&self) -> u64 {
         // bits 0..0
@@ -516,7 +487,6 @@ impl Fpexc32El2 {
     pub fn iof_write(val: u64) {
         Self::with_reg_val().iof_insert(val).write();
     }
-
 }
 
 impl Default for Fpexc32El2 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Current Cache Size ID Register 2 (ccsidr2_el1)
  * Group:       Identification registers
  * Type:        64-bit Register
- * Description: When 
+ * Description: When
  * File:        AArch64-ccsidr2_el1.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Current Cache Size ID Register 2 value in memory
 pub struct Ccsidr2El1(u64);
 
 /// struct implementation for accessing the fields of register ccsidr2_el1
 impl Ccsidr2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> Ccsidr2El1 {
@@ -79,16 +74,13 @@ impl Ccsidr2El1 {
         Ccsidr2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  Ccsidr2El1 {
+    pub fn with_reg_val() -> Ccsidr2El1 {
         let curval = Self::reg_rawrd() & 0xffffff;
         Ccsidr2El1(curval)
     }
 
-
-    
     /// reading the Current Cache Size ID Register 2 (ccsidr2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl Ccsidr2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl Ccsidr2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: numsets
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn numsets_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl Ccsidr2El1 {
     pub fn numsets_read() -> u64 {
         Self::with_reg_val().numsets_extract()
     }
-// no insert() method for field numsets
+    // no insert() method for field numsets
 }
 
 impl Default for Ccsidr2El1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-cntv_ctl_el0.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Counter-timer Virtual Timer Control register value in memory
 pub struct CntvCtlEl0(u64);
 
 /// struct implementation for accessing the fields of register cntv_ctl_el0
 impl CntvCtlEl0 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> CntvCtlEl0 {
@@ -79,16 +74,13 @@ impl CntvCtlEl0 {
         CntvCtlEl0(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  CntvCtlEl0 {
+    pub fn with_reg_val() -> CntvCtlEl0 {
         let curval = Self::reg_rawrd() & 0x7;
         CntvCtlEl0(curval)
     }
 
-
-    
     /// reading the Counter-timer Virtual Timer Control register (cntv_ctl_el0) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl CntvCtlEl0 {
         return regval;
     }
 
-
     /// writing the Counter-timer Virtual Timer Control register (cntv_ctl_el0) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl CntvCtlEl0 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl CntvCtlEl0 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl CntvCtlEl0 {
         self.0
     }
 
-
-    
     /*
      * Field: istatus
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn istatus_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl CntvCtlEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn imask_extract(&self) -> u64 {
         // bits 1..1
@@ -203,7 +185,6 @@ impl CntvCtlEl0 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enable_extract(&self) -> u64 {
         // bits 0..0
@@ -226,7 +207,6 @@ impl CntvCtlEl0 {
     pub fn enable_write(val: u64) {
         Self::with_reg_val().enable_insert(val).write();
     }
-
 }
 
 impl Default for CntvCtlEl0 {

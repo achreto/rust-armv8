@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 1 value in memory
 pub struct IdIsar1El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar1_el1
 impl IdIsar1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar1El1 {
@@ -79,16 +74,13 @@ impl IdIsar1El1 {
         IdIsar1El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar1El1 {
+    pub fn with_reg_val() -> IdIsar1El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdIsar1El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 1 (id_isar1_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar1El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: jazelle
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn jazelle_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar1El1 {
     pub fn jazelle_read() -> u64 {
         Self::with_reg_val().jazelle_extract()
     }
-// no insert() method for field jazelle
+    // no insert() method for field jazelle
     /*
      * Field: interwork
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn interwork_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar1El1 {
     pub fn interwork_read() -> u64 {
         Self::with_reg_val().interwork_extract()
     }
-// no insert() method for field interwork
+    // no insert() method for field interwork
     /*
      * Field: immediate
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn immediate_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar1El1 {
     pub fn immediate_read() -> u64 {
         Self::with_reg_val().immediate_extract()
     }
-// no insert() method for field immediate
+    // no insert() method for field immediate
     /*
      * Field: ifthen
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ifthen_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar1El1 {
     pub fn ifthen_read() -> u64 {
         Self::with_reg_val().ifthen_extract()
     }
-// no insert() method for field ifthen
+    // no insert() method for field ifthen
     /*
      * Field: extend
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn extend_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar1El1 {
     pub fn extend_read() -> u64 {
         Self::with_reg_val().extend_extract()
     }
-// no insert() method for field extend
+    // no insert() method for field extend
     /*
      * Field: except_ar
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn except_ar_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar1El1 {
     pub fn except_ar_read() -> u64 {
         Self::with_reg_val().except_ar_extract()
     }
-// no insert() method for field except_ar
+    // no insert() method for field except_ar
     /*
      * Field: except
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn except_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdIsar1El1 {
     pub fn except_read() -> u64 {
         Self::with_reg_val().except_extract()
     }
-// no insert() method for field except
+    // no insert() method for field except
     /*
      * Field: endian
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn endian_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdIsar1El1 {
     pub fn endian_read() -> u64 {
         Self::with_reg_val().endian_extract()
     }
-// no insert() method for field endian
+    // no insert() method for field endian
 }
 
 impl Default for IdIsar1El1 {

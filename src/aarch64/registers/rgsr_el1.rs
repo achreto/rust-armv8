@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-rgsr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Random Allocation Tag Seed Register. value in memory
 pub struct RgsrEl1(u64);
 
 /// struct implementation for accessing the fields of register rgsr_el1
 impl RgsrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> RgsrEl1 {
@@ -79,16 +74,13 @@ impl RgsrEl1 {
         RgsrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  RgsrEl1 {
+    pub fn with_reg_val() -> RgsrEl1 {
         let curval = Self::reg_rawrd() & 0xffff0f;
         RgsrEl1(curval)
     }
 
-
-    
     /// reading the Random Allocation Tag Seed Register. (rgsr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl RgsrEl1 {
         return regval;
     }
 
-
     /// writing the Random Allocation Tag Seed Register. (rgsr_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl RgsrEl1 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl RgsrEl1 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl RgsrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: seed
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn seed_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl RgsrEl1 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tag_extract(&self) -> u64 {
         // bits 0..3
@@ -197,7 +179,6 @@ impl RgsrEl1 {
     pub fn tag_write(val: u64) {
         Self::with_reg_val().tag_insert(val).write();
     }
-
 }
 
 impl Default for RgsrEl1 {

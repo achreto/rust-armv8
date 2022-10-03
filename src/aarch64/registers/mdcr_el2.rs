@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-mdcr_el2.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Monitor Debug Configuration Register (EL2) value in memory
 pub struct MdcrEl2(u64);
 
 /// struct implementation for accessing the fields of register mdcr_el2
 impl MdcrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> MdcrEl2 {
@@ -79,16 +74,13 @@ impl MdcrEl2 {
         MdcrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  MdcrEl2 {
+    pub fn with_reg_val() -> MdcrEl2 {
         let curval = Self::reg_rawrd() & 0x103c8a7fff;
         MdcrEl2(curval)
     }
 
-
-    
     /// reading the Monitor Debug Configuration Register (EL2) (mdcr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl MdcrEl2 {
         return regval;
     }
 
-
     /// writing the Monitor Debug Configuration Register (EL2) (mdcr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl MdcrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl MdcrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl MdcrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: hpmfzs_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hpmfzs_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpmfzo_1_extract(&self) -> u64 {
         // bits 29..29
@@ -202,7 +184,6 @@ impl MdcrEl2 {
      * Field: mtpme_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mtpme_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tdcc_1_extract(&self) -> u64 {
         // bits 27..27
@@ -260,7 +240,6 @@ impl MdcrEl2 {
      * Field: hlp_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hlp_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hccd_1_extract(&self) -> u64 {
         // bits 23..23
@@ -318,7 +296,6 @@ impl MdcrEl2 {
      * Field: ttrf_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ttrf_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpmd_1_extract(&self) -> u64 {
         // bits 17..17
@@ -376,7 +352,6 @@ impl MdcrEl2 {
      * Field: tpms_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tpms_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn e2pb_1_extract(&self) -> u64 {
         // bits 12..13
@@ -434,7 +408,6 @@ impl MdcrEl2 {
      * Field: tdra
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tdra_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tdosa_1_extract(&self) -> u64 {
         // bits 10..10
@@ -492,7 +464,6 @@ impl MdcrEl2 {
      * Field: tdosa_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tdosa_2_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tda_extract(&self) -> u64 {
         // bits 9..9
@@ -550,7 +520,6 @@ impl MdcrEl2 {
      * Field: tde
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tde_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpme_1_extract(&self) -> u64 {
         // bits 7..7
@@ -608,7 +576,6 @@ impl MdcrEl2 {
      * Field: tpm_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tpm_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tpmcr_1_extract(&self) -> u64 {
         // bits 5..5
@@ -667,7 +633,6 @@ impl MdcrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpmn_1_extract(&self) -> u64 {
         // bits 0..4
@@ -690,7 +655,6 @@ impl MdcrEl2 {
     pub fn hpmn_1_write(val: u64) {
         Self::with_reg_val().hpmn_1_insert(val).write();
     }
-
 }
 
 impl Default for MdcrEl2 {

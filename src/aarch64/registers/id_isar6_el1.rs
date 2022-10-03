@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_isar6_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Instruction Set Attribute Register 6 value in memory
 pub struct IdIsar6El1(u64);
 
 /// struct implementation for accessing the fields of register id_isar6_el1
 impl IdIsar6El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdIsar6El1 {
@@ -79,16 +74,13 @@ impl IdIsar6El1 {
         IdIsar6El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdIsar6El1 {
+    pub fn with_reg_val() -> IdIsar6El1 {
         let curval = Self::reg_rawrd() & 0xfffffff;
         IdIsar6El1(curval)
     }
 
-
-    
     /// reading the AArch32 Instruction Set Attribute Register 6 (id_isar6_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdIsar6El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdIsar6El1 {
         self.0
     }
 
-
-    
     /*
      * Field: i8mm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn i8mm_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdIsar6El1 {
     pub fn i8mm_read() -> u64 {
         Self::with_reg_val().i8mm_extract()
     }
-// no insert() method for field i8mm
+    // no insert() method for field i8mm
     /*
      * Field: bf16
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn bf16_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdIsar6El1 {
     pub fn bf16_read() -> u64 {
         Self::with_reg_val().bf16_extract()
     }
-// no insert() method for field bf16
+    // no insert() method for field bf16
     /*
      * Field: specres
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn specres_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdIsar6El1 {
     pub fn specres_read() -> u64 {
         Self::with_reg_val().specres_extract()
     }
-// no insert() method for field specres
+    // no insert() method for field specres
     /*
      * Field: sb
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sb_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdIsar6El1 {
     pub fn sb_read() -> u64 {
         Self::with_reg_val().sb_extract()
     }
-// no insert() method for field sb
+    // no insert() method for field sb
     /*
      * Field: fhm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fhm_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdIsar6El1 {
     pub fn fhm_read() -> u64 {
         Self::with_reg_val().fhm_extract()
     }
-// no insert() method for field fhm
+    // no insert() method for field fhm
     /*
      * Field: dp
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn dp_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdIsar6El1 {
     pub fn dp_read() -> u64 {
         Self::with_reg_val().dp_extract()
     }
-// no insert() method for field dp
+    // no insert() method for field dp
     /*
      * Field: jscvt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn jscvt_extract(&self) -> u64 {
@@ -243,7 +224,7 @@ impl IdIsar6El1 {
     pub fn jscvt_read() -> u64 {
         Self::with_reg_val().jscvt_extract()
     }
-// no insert() method for field jscvt
+    // no insert() method for field jscvt
 }
 
 impl Default for IdIsar6El1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icc_eoir1_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller End Of Interrupt Register 1 value in memory
 pub struct IccEoir1El1(u64);
 
 /// struct implementation for accessing the fields of register icc_eoir1_el1
 impl IccEoir1El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccEoir1El1 {
@@ -81,7 +76,6 @@ impl IccEoir1El1 {
 
     // no current() method as it is write only
 
-    
     /// writing the Interrupt Controller End Of Interrupt Register 1 (icc_eoir1_el1) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -91,17 +85,15 @@ impl IccEoir1El1 {
         }
     }
 
-// register is not readable. not emitting read accessor
-
+    // register is not readable. not emitting read accessor
 
     // no read() method as it is write only
-    
+
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -113,14 +105,12 @@ impl IccEoir1El1 {
         self.0
     }
 
-
-    
     /*
      * Field: intid
      * --------------------------------------------------------------------------------------------
      */
 
-// no extract() method for field intid
+    // no extract() method for field intid
     /// inserts the given value `val` into the field `intid`
     pub fn intid_insert(&mut self, val: u64) -> &mut Self {
         // bits 0..23
@@ -132,7 +122,6 @@ impl IccEoir1El1 {
     pub fn intid_write(&mut self, val: u64) {
         Self::default().intid_insert(val).write();
     }
-
 }
 
 impl Default for IccEoir1El1 {

@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-pmsidr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Sampling Profiling ID Register value in memory
 pub struct PmsidrEl1(u64);
 
 /// struct implementation for accessing the fields of register pmsidr_el1
 impl PmsidrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> PmsidrEl1 {
@@ -79,16 +74,13 @@ impl PmsidrEl1 {
         PmsidrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  PmsidrEl1 {
+    pub fn with_reg_val() -> PmsidrEl1 {
         let curval = Self::reg_rawrd() & 0xffff7f;
         PmsidrEl1(curval)
     }
 
-
-    
     /// reading the Sampling Profiling ID Register (pmsidr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl PmsidrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl PmsidrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: format_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn format_1_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl PmsidrEl1 {
     pub fn format_1_read() -> u64 {
         Self::with_reg_val().format_1_extract()
     }
-// no insert() method for field format_1
+    // no insert() method for field format_1
     /*
      * Field: countsize
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn countsize_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl PmsidrEl1 {
     pub fn countsize_read() -> u64 {
         Self::with_reg_val().countsize_extract()
     }
-// no insert() method for field countsize
+    // no insert() method for field countsize
     /*
      * Field: maxsize
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn maxsize_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl PmsidrEl1 {
     pub fn maxsize_read() -> u64 {
         Self::with_reg_val().maxsize_extract()
     }
-// no insert() method for field maxsize
+    // no insert() method for field maxsize
     /*
      * Field: interval
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn interval_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl PmsidrEl1 {
     pub fn interval_read() -> u64 {
         Self::with_reg_val().interval_extract()
     }
-// no insert() method for field interval
+    // no insert() method for field interval
     /*
      * Field: fne
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fne_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl PmsidrEl1 {
     pub fn fne_read() -> u64 {
         Self::with_reg_val().fne_extract()
     }
-// no insert() method for field fne
+    // no insert() method for field fne
     /*
      * Field: ernd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ernd_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl PmsidrEl1 {
     pub fn ernd_read() -> u64 {
         Self::with_reg_val().ernd_extract()
     }
-// no insert() method for field ernd
+    // no insert() method for field ernd
     /*
      * Field: lds
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn lds_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl PmsidrEl1 {
     pub fn lds_read() -> u64 {
         Self::with_reg_val().lds_extract()
     }
-// no insert() method for field lds
+    // no insert() method for field lds
     /*
      * Field: archinst
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn archinst_extract(&self) -> u64 {
@@ -260,12 +240,11 @@ impl PmsidrEl1 {
     pub fn archinst_read() -> u64 {
         Self::with_reg_val().archinst_extract()
     }
-// no insert() method for field archinst
+    // no insert() method for field archinst
     /*
      * Field: fl
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fl_extract(&self) -> u64 {
@@ -277,12 +256,11 @@ impl PmsidrEl1 {
     pub fn fl_read() -> u64 {
         Self::with_reg_val().fl_extract()
     }
-// no insert() method for field fl
+    // no insert() method for field fl
     /*
      * Field: ft
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ft_extract(&self) -> u64 {
@@ -294,12 +272,11 @@ impl PmsidrEl1 {
     pub fn ft_read() -> u64 {
         Self::with_reg_val().ft_extract()
     }
-// no insert() method for field ft
+    // no insert() method for field ft
     /*
      * Field: fe
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fe_extract(&self) -> u64 {
@@ -311,7 +288,7 @@ impl PmsidrEl1 {
     pub fn fe_read() -> u64 {
         Self::with_reg_val().fe_extract()
     }
-// no insert() method for field fe
+    // no insert() method for field fe
 }
 
 impl Default for PmsidrEl1 {

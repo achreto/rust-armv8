@@ -302,6 +302,11 @@ impl L2Descriptor {
             block.get_paddr()
         }
     }
+
+    /// obtains the descriptor as an u64
+    pub fn as_u64(&self) -> u64 {
+        self.0
+    }
 }
 
 impl Default for L2Descriptor {
@@ -352,7 +357,10 @@ impl L2Table {
                 self.0[idx] = entry;
             }
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L2_TABLE_ENTRIES
+            );
         }
     }
 
@@ -375,7 +383,10 @@ impl L2Table {
         if idx < L2_TABLE_ENTRIES {
             &self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L2_TABLE_ENTRIES
+            );
         }
     }
 
@@ -390,7 +401,10 @@ impl L2Table {
         if idx < L2_TABLE_ENTRIES {
             &mut self.0[idx]
         } else {
-            panic!("table index {} out of supported range {}..{}", idx, 0, L2_TABLE_ENTRIES);
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L2_TABLE_ENTRIES
+            );
         }
     }
 

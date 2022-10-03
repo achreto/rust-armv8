@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Reset Vector Base Address Register (if EL3 not implemented) (rvbar_el2)
  * Group:       Reset management registers
  * Type:        64-bit Register
- * Description: If EL2 is the highest Exception level implemented, contains the 
+ * Description: If EL2 is the highest Exception level implemented, contains the
  * File:        AArch64-rvbar_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Reset Vector Base Address Register (if EL3 not implemented) value in memory
 pub struct RvbarEl2(u64);
 
 /// struct implementation for accessing the fields of register rvbar_el2
 impl RvbarEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> RvbarEl2 {
@@ -79,16 +74,13 @@ impl RvbarEl2 {
         RvbarEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  RvbarEl2 {
+    pub fn with_reg_val() -> RvbarEl2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         RvbarEl2(curval)
     }
 
-
-    
     /// reading the Reset Vector Base Address Register (if EL3 not implemented) (rvbar_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl RvbarEl2 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl RvbarEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -141,7 +128,7 @@ impl RvbarEl2 {
     pub fn val_read() -> u64 {
         Self::with_reg_val().val_extract()
     }
-// no insert() method for field val
+    // no insert() method for field val
 }
 
 impl Default for RvbarEl2 {

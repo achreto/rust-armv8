@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-oslsr_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the OS Lock Status Register value in memory
 pub struct OslsrEl1(u64);
 
 /// struct implementation for accessing the fields of register oslsr_el1
 impl OslsrEl1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> OslsrEl1 {
@@ -79,16 +74,13 @@ impl OslsrEl1 {
         OslsrEl1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  OslsrEl1 {
+    pub fn with_reg_val() -> OslsrEl1 {
         let curval = Self::reg_rawrd() & 0xf;
         OslsrEl1(curval)
     }
 
-
-    
     /// reading the OS Lock Status Register (oslsr_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl OslsrEl1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl OslsrEl1 {
         self.0
     }
 
-
-    
     /*
      * Field: oslm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn oslm_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl OslsrEl1 {
     pub fn oslm_read() -> u64 {
         Self::with_reg_val().oslm_extract()
     }
-// no insert() method for field oslm
+    // no insert() method for field oslm
     /*
      * Field: ntt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ntt_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl OslsrEl1 {
     pub fn ntt_read() -> u64 {
         Self::with_reg_val().ntt_extract()
     }
-// no insert() method for field ntt
+    // no insert() method for field ntt
     /*
      * Field: oslk
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn oslk_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl OslsrEl1 {
     pub fn oslk_read() -> u64 {
         Self::with_reg_val().oslk_extract()
     }
-// no insert() method for field oslk
+    // no insert() method for field oslk
     /*
      * Field: oslm_0_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn oslm_0_0_extract(&self) -> u64 {
@@ -192,7 +176,7 @@ impl OslsrEl1 {
     pub fn oslm_0_0_read() -> u64 {
         Self::with_reg_val().oslm_0_0_extract()
     }
-// no insert() method for field oslm_0_0
+    // no insert() method for field oslm_0_0
 }
 
 impl Default for OslsrEl1 {

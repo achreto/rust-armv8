@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Virtual Deferred Interrupt Status Register (vdisr_el2)
  * Group:       RAS registers
  * Type:        64-bit Register
- * Description: Records that a virtual SError interrupt has been consumed by an 
+ * Description: Records that a virtual SError interrupt has been consumed by an
  * File:        AArch64-vdisr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Virtual Deferred Interrupt Status Register value in memory
 pub struct VdisrEl2(u64);
 
 /// struct implementation for accessing the fields of register vdisr_el2
 impl VdisrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> VdisrEl2 {
@@ -79,16 +74,13 @@ impl VdisrEl2 {
         VdisrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  VdisrEl2 {
+    pub fn with_reg_val() -> VdisrEl2 {
         let curval = Self::reg_rawrd() & 0x81ffffff;
         VdisrEl2(curval)
     }
 
-
-    
     /// reading the Virtual Deferred Interrupt Status Register (vdisr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl VdisrEl2 {
         return regval;
     }
 
-
     /// writing the Virtual Deferred Interrupt Status Register (vdisr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl VdisrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl VdisrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl VdisrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: a
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn a_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl VdisrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ids_extract(&self) -> u64 {
         // bits 24..24
@@ -203,7 +185,6 @@ impl VdisrEl2 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn iss_extract(&self) -> u64 {
         // bits 0..23
@@ -226,7 +207,6 @@ impl VdisrEl2 {
     pub fn iss_write(val: u64) {
         Self::with_reg_val().iss_insert(val).write();
     }
-
 }
 
 impl Default for VdisrEl2 {

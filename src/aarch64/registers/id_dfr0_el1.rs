@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_dfr0_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch32 Debug Feature Register 0 value in memory
 pub struct IdDfr0El1(u64);
 
 /// struct implementation for accessing the fields of register id_dfr0_el1
 impl IdDfr0El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdDfr0El1 {
@@ -79,16 +74,13 @@ impl IdDfr0El1 {
         IdDfr0El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdDfr0El1 {
+    pub fn with_reg_val() -> IdDfr0El1 {
         let curval = Self::reg_rawrd() & 0xffffffff;
         IdDfr0El1(curval)
     }
 
-
-    
     /// reading the AArch32 Debug Feature Register 0 (id_dfr0_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdDfr0El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdDfr0El1 {
         self.0
     }
 
-
-    
     /*
      * Field: tracefilt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tracefilt_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdDfr0El1 {
     pub fn tracefilt_read() -> u64 {
         Self::with_reg_val().tracefilt_extract()
     }
-// no insert() method for field tracefilt
+    // no insert() method for field tracefilt
     /*
      * Field: perfmon
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn perfmon_extract(&self) -> u64 {
@@ -158,12 +144,11 @@ impl IdDfr0El1 {
     pub fn perfmon_read() -> u64 {
         Self::with_reg_val().perfmon_extract()
     }
-// no insert() method for field perfmon
+    // no insert() method for field perfmon
     /*
      * Field: mprofdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mprofdbg_extract(&self) -> u64 {
@@ -175,12 +160,11 @@ impl IdDfr0El1 {
     pub fn mprofdbg_read() -> u64 {
         Self::with_reg_val().mprofdbg_extract()
     }
-// no insert() method for field mprofdbg
+    // no insert() method for field mprofdbg
     /*
      * Field: mmaptrc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mmaptrc_extract(&self) -> u64 {
@@ -192,12 +176,11 @@ impl IdDfr0El1 {
     pub fn mmaptrc_read() -> u64 {
         Self::with_reg_val().mmaptrc_extract()
     }
-// no insert() method for field mmaptrc
+    // no insert() method for field mmaptrc
     /*
      * Field: coptrc
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn coptrc_extract(&self) -> u64 {
@@ -209,12 +192,11 @@ impl IdDfr0El1 {
     pub fn coptrc_read() -> u64 {
         Self::with_reg_val().coptrc_extract()
     }
-// no insert() method for field coptrc
+    // no insert() method for field coptrc
     /*
      * Field: mmapdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn mmapdbg_extract(&self) -> u64 {
@@ -226,12 +208,11 @@ impl IdDfr0El1 {
     pub fn mmapdbg_read() -> u64 {
         Self::with_reg_val().mmapdbg_extract()
     }
-// no insert() method for field mmapdbg
+    // no insert() method for field mmapdbg
     /*
      * Field: copsdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn copsdbg_extract(&self) -> u64 {
@@ -243,12 +224,11 @@ impl IdDfr0El1 {
     pub fn copsdbg_read() -> u64 {
         Self::with_reg_val().copsdbg_extract()
     }
-// no insert() method for field copsdbg
+    // no insert() method for field copsdbg
     /*
      * Field: copdbg
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn copdbg_extract(&self) -> u64 {
@@ -260,7 +240,7 @@ impl IdDfr0El1 {
     pub fn copdbg_read() -> u64 {
         Self::with_reg_val().copdbg_extract()
     }
-// no insert() method for field copdbg
+    // no insert() method for field copdbg
 }
 
 impl Default for IdDfr0El1 {

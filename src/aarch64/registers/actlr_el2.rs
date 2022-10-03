@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -48,10 +47,9 @@ use bit_field::BitField;
  * Register:    Auxiliary Control Register (EL2) (actlr_el2)
  * Group:       Virtualization registers
  * Type:        64-bit Register
- * Description: Provides 
+ * Description: Provides
  * File:        AArch64-actlr_el2.xml
  */
-
 
 /*
  * ================================================================================================
@@ -59,14 +57,11 @@ use bit_field::BitField;
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Auxiliary Control Register (EL2) value in memory
 pub struct ActlrEl2(u64);
 
 /// struct implementation for accessing the fields of register actlr_el2
 impl ActlrEl2 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ActlrEl2 {
@@ -79,16 +74,13 @@ impl ActlrEl2 {
         ActlrEl2(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ActlrEl2 {
+    pub fn with_reg_val() -> ActlrEl2 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         ActlrEl2(curval)
     }
 
-
-    
     /// reading the Auxiliary Control Register (EL2) (actlr_el2) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl ActlrEl2 {
         return regval;
     }
 
-
     /// writing the Auxiliary Control Register (EL2) (actlr_el2) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl ActlrEl2 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl ActlrEl2 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl ActlrEl2 {
         self.0
     }
 
-
-    
     /*
      * Field: implementation_defined_63_0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn implementation_defined_63_0_extract(&self) -> u64 {
@@ -166,9 +149,10 @@ impl ActlrEl2 {
 
     /// reads the register, updates the `implementation_defined_63_0` field, and writes the updated value
     pub fn implementation_defined_63_0_write(val: u64) {
-        Self::with_reg_val().implementation_defined_63_0_insert(val).write();
+        Self::with_reg_val()
+            .implementation_defined_63_0_insert(val)
+            .write();
     }
-
 }
 
 impl Default for ActlrEl2 {

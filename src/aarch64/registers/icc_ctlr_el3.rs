@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-icc_ctlr_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Interrupt Controller Control Register (EL3) value in memory
 pub struct IccCtlrEl3(u64);
 
 /// struct implementation for accessing the fields of register icc_ctlr_el3
 impl IccCtlrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IccCtlrEl3 {
@@ -79,16 +74,13 @@ impl IccCtlrEl3 {
         IccCtlrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IccCtlrEl3 {
+    pub fn with_reg_val() -> IccCtlrEl3 {
         let curval = Self::reg_rawrd() & 0xeff7f;
         IccCtlrEl3(curval)
     }
 
-
-    
     /// reading the Interrupt Controller Control Register (EL3) (icc_ctlr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl IccCtlrEl3 {
         return regval;
     }
 
-
     /// writing the Interrupt Controller Control Register (EL3) (icc_ctlr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl IccCtlrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl IccCtlrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl IccCtlrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: extrange
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn extrange_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn rss_extract(&self) -> u64 {
         // bits 18..18
@@ -202,7 +184,6 @@ impl IccCtlrEl3 {
      * Field: nds
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn nds_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn a3v_extract(&self) -> u64 {
         // bits 15..15
@@ -260,7 +240,6 @@ impl IccCtlrEl3 {
      * Field: seis
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn seis_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn idbits_extract(&self) -> u64 {
         // bits 11..13
@@ -318,7 +296,6 @@ impl IccCtlrEl3 {
      * Field: pribits
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn pribits_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn pmhe_extract(&self) -> u64 {
         // bits 6..6
@@ -376,7 +352,6 @@ impl IccCtlrEl3 {
      * Field: rm
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rm_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eoimode_el1ns_extract(&self) -> u64 {
         // bits 4..4
@@ -434,7 +408,6 @@ impl IccCtlrEl3 {
      * Field: eoimode_el1s
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn eoimode_el1s_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eoimode_el3_extract(&self) -> u64 {
         // bits 2..2
@@ -492,7 +464,6 @@ impl IccCtlrEl3 {
      * Field: cbpr_el1ns
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn cbpr_el1ns_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl IccCtlrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn cbpr_el1s_extract(&self) -> u64 {
         // bits 0..0
@@ -545,7 +515,6 @@ impl IccCtlrEl3 {
     pub fn cbpr_el1s_write(val: u64) {
         Self::with_reg_val().cbpr_el1s_insert(val).write();
     }
-
 }
 
 impl Default for IccCtlrEl3 {

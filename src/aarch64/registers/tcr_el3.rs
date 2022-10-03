@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-tcr_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Translation Control Register (EL3) value in memory
 pub struct TcrEl3(u64);
 
 /// struct implementation for accessing the fields of register tcr_el3
 impl TcrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TcrEl3 {
@@ -79,16 +74,13 @@ impl TcrEl3 {
         TcrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TcrEl3 {
+    pub fn with_reg_val() -> TcrEl3 {
         let curval = Self::reg_rawrd() & 0x17f77ff3f;
         TcrEl3(curval)
     }
 
-
-    
     /// reading the Translation Control Register (EL3) (tcr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TcrEl3 {
         return regval;
     }
 
-
     /// writing the Translation Control Register (EL3) (tcr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TcrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TcrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TcrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: ds_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ds_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tcma_1_extract(&self) -> u64 {
         // bits 30..30
@@ -202,7 +184,6 @@ impl TcrEl3 {
      * Field: tbid_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tbid_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu62_1_extract(&self) -> u64 {
         // bits 28..28
@@ -260,7 +240,6 @@ impl TcrEl3 {
      * Field: hwu61_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu61_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hwu60_1_extract(&self) -> u64 {
         // bits 26..26
@@ -318,7 +296,6 @@ impl TcrEl3 {
      * Field: hwu59_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hwu59_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hpd_1_extract(&self) -> u64 {
         // bits 24..24
@@ -376,7 +352,6 @@ impl TcrEl3 {
      * Field: hd_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hd_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ha_1_extract(&self) -> u64 {
         // bits 21..21
@@ -434,7 +408,6 @@ impl TcrEl3 {
      * Field: tbi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tbi_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ps_extract(&self) -> u64 {
         // bits 16..18
@@ -492,7 +464,6 @@ impl TcrEl3 {
      * Field: tg0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tg0_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sh0_extract(&self) -> u64 {
         // bits 12..13
@@ -550,7 +520,6 @@ impl TcrEl3 {
      * Field: orgn0
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn orgn0_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn irgn0_extract(&self) -> u64 {
         // bits 8..9
@@ -609,7 +577,6 @@ impl TcrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn t0sz_extract(&self) -> u64 {
         // bits 0..5
@@ -632,7 +599,6 @@ impl TcrEl3 {
     pub fn t0sz_write(val: u64) {
         Self::with_reg_val().t0sz_insert(val).write();
     }
-
 }
 
 impl Default for TcrEl3 {

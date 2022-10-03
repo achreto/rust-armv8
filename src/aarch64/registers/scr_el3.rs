@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-scr_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the Secure Configuration Register value in memory
 pub struct ScrEl3(u64);
 
 /// struct implementation for accessing the fields of register scr_el3
 impl ScrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> ScrEl3 {
@@ -79,16 +74,13 @@ impl ScrEl3 {
         ScrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  ScrEl3 {
+    pub fn with_reg_val() -> ScrEl3 {
         let curval = Self::reg_rawrd() & 0x7bfe3fff8f;
         ScrEl3(curval)
     }
 
-
-    
     /// reading the Secure Configuration Register (scr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl ScrEl3 {
         return regval;
     }
 
-
     /// writing the Secure Configuration Register (scr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl ScrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl ScrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl ScrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: hxen_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn hxen_1_extract(&self) -> u64 {
@@ -174,7 +157,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn aden_1_extract(&self) -> u64 {
         // bits 37..37
@@ -202,7 +184,6 @@ impl ScrEl3 {
      * Field: enas0_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn enas0_1_extract(&self) -> u64 {
@@ -232,7 +213,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn amvoffen_1_extract(&self) -> u64 {
         // bits 35..35
@@ -260,7 +240,6 @@ impl ScrEl3 {
      * Field: twedel_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twedel_1_extract(&self) -> u64 {
@@ -290,7 +269,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn tweden_1_extract(&self) -> u64 {
         // bits 29..29
@@ -318,7 +296,6 @@ impl ScrEl3 {
      * Field: ecven_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ecven_1_extract(&self) -> u64 {
@@ -348,7 +325,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn fgten_1_extract(&self) -> u64 {
         // bits 27..27
@@ -376,7 +352,6 @@ impl ScrEl3 {
      * Field: ata_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ata_1_extract(&self) -> u64 {
@@ -406,7 +381,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn enscxt_1_extract(&self) -> u64 {
         // bits 25..25
@@ -434,7 +408,6 @@ impl ScrEl3 {
      * Field: fien_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fien_1_extract(&self) -> u64 {
@@ -464,7 +437,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn nmea_1_extract(&self) -> u64 {
         // bits 20..20
@@ -492,7 +464,6 @@ impl ScrEl3 {
      * Field: ease_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn ease_1_extract(&self) -> u64 {
@@ -522,7 +493,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn eel2_1_extract(&self) -> u64 {
         // bits 18..18
@@ -550,7 +520,6 @@ impl ScrEl3 {
      * Field: api_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn api_1_extract(&self) -> u64 {
@@ -580,7 +549,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn api_2_extract(&self) -> u64 {
         // bits 17..17
@@ -608,7 +576,6 @@ impl ScrEl3 {
      * Field: apk_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn apk_1_extract(&self) -> u64 {
@@ -638,7 +605,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn terr_1_extract(&self) -> u64 {
         // bits 15..15
@@ -666,7 +632,6 @@ impl ScrEl3 {
      * Field: tlor_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn tlor_1_extract(&self) -> u64 {
@@ -696,7 +661,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn twe_extract(&self) -> u64 {
         // bits 13..13
@@ -724,7 +688,6 @@ impl ScrEl3 {
      * Field: twi
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn twi_extract(&self) -> u64 {
@@ -754,7 +717,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn st_extract(&self) -> u64 {
         // bits 11..11
@@ -782,7 +744,6 @@ impl ScrEl3 {
      * Field: rw_1
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rw_1_extract(&self) -> u64 {
@@ -812,7 +773,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn sif_1_extract(&self) -> u64 {
         // bits 9..9
@@ -840,7 +800,6 @@ impl ScrEl3 {
      * Field: sif_2
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn sif_2_extract(&self) -> u64 {
@@ -870,7 +829,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn hce_extract(&self) -> u64 {
         // bits 8..8
@@ -898,7 +856,6 @@ impl ScrEl3 {
      * Field: smd
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn smd_extract(&self) -> u64 {
@@ -928,7 +885,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ea_extract(&self) -> u64 {
         // bits 3..3
@@ -956,7 +912,6 @@ impl ScrEl3 {
      * Field: fiq
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn fiq_extract(&self) -> u64 {
@@ -986,7 +941,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn irq_extract(&self) -> u64 {
         // bits 1..1
@@ -1015,7 +969,6 @@ impl ScrEl3 {
      * --------------------------------------------------------------------------------------------
      */
 
-
     /// extracts field val from current value
     pub fn ns_extract(&self) -> u64 {
         // bits 0..0
@@ -1038,7 +991,6 @@ impl ScrEl3 {
     pub fn ns_write(val: u64) {
         Self::with_reg_val().ns_insert(val).write();
     }
-
 }
 
 impl Default for ScrEl3 {

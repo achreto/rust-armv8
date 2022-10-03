@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-id_aa64isar2_el1.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the AArch64 Instruction Set Attribute Register 2 value in memory
 pub struct IdAa64isar2El1(u64);
 
 /// struct implementation for accessing the fields of register id_aa64isar2_el1
 impl IdAa64isar2El1 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> IdAa64isar2El1 {
@@ -79,16 +74,13 @@ impl IdAa64isar2El1 {
         IdAa64isar2El1(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  IdAa64isar2El1 {
+    pub fn with_reg_val() -> IdAa64isar2El1 {
         let curval = Self::reg_rawrd() & 0xff;
         IdAa64isar2El1(curval)
     }
 
-
-    
     /// reading the AArch64 Instruction Set Attribute Register 2 (id_aa64isar2_el1) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,10 +92,8 @@ impl IdAa64isar2El1 {
         return regval;
     }
 
-// register is not writable. not emitting write accessor
+    // register is not writable. not emitting write accessor
 
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -123,13 +113,10 @@ impl IdAa64isar2El1 {
         self.0
     }
 
-
-    
     /*
      * Field: rpres
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn rpres_extract(&self) -> u64 {
@@ -141,12 +128,11 @@ impl IdAa64isar2El1 {
     pub fn rpres_read() -> u64 {
         Self::with_reg_val().rpres_extract()
     }
-// no insert() method for field rpres
+    // no insert() method for field rpres
     /*
      * Field: wfxt
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn wfxt_extract(&self) -> u64 {
@@ -158,7 +144,7 @@ impl IdAa64isar2El1 {
     pub fn wfxt_read() -> u64 {
         Self::with_reg_val().wfxt_extract()
     }
-// no insert() method for field wfxt
+    // no insert() method for field wfxt
 }
 
 impl Default for IdAa64isar2El1 {

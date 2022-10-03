@@ -24,9 +24,8 @@
  * SPDX-License-Identifier: MIT
  */
 
-use core::arch::asm;
 use bit_field::BitField;
-
+use core::arch::asm;
 
 /**************************************************************************************************
  *
@@ -52,21 +51,17 @@ use bit_field::BitField;
  * File:        AArch64-tpidr_el3.xml
  */
 
-
 /*
  * ================================================================================================
  * Data Structure Definitions
  * ================================================================================================
  */
 
-
-
 /// struct holding a copy of the EL3 Software Thread ID Register value in memory
 pub struct TpidrEl3(u64);
 
 /// struct implementation for accessing the fields of register tpidr_el3
 impl TpidrEl3 {
-
     /// creates a new default value
     #[inline(always)]
     pub fn new() -> TpidrEl3 {
@@ -79,16 +74,13 @@ impl TpidrEl3 {
         TpidrEl3(self.0)
     }
 
-    
     /// inserts field val into current value
     #[inline(always)]
-    pub fn with_reg_val() ->  TpidrEl3 {
+    pub fn with_reg_val() -> TpidrEl3 {
         let curval = Self::reg_rawrd() & 0xffffffffffffffff;
         TpidrEl3(curval)
     }
 
-
-    
     /// reading the EL3 Software Thread ID Register (tpidr_el3) register
     #[inline(always)]
     fn reg_rawrd() -> u64 {
@@ -100,7 +92,6 @@ impl TpidrEl3 {
         return regval;
     }
 
-
     /// writing the EL3 Software Thread ID Register (tpidr_el3) register
     #[inline(always)]
     fn reg_rawwr(val: u64) {
@@ -110,9 +101,6 @@ impl TpidrEl3 {
         }
     }
 
-
-
-    
     /// updates the stored value with the current register value
     #[inline(always)]
     pub fn read(&mut self) -> &mut Self {
@@ -120,13 +108,11 @@ impl TpidrEl3 {
         self
     }
 
-    
     /// writes the current value to the register
     #[inline(always)]
     pub fn write(&self) {
         Self::reg_rawwr(self.0)
     }
-
 
     // sets the value of the struct
     //pub fn set(&mut self, newval: u64) {
@@ -138,13 +124,10 @@ impl TpidrEl3 {
         self.0
     }
 
-
-    
     /*
      * Field: val
      * --------------------------------------------------------------------------------------------
      */
-
 
     /// extracts field val from current value
     pub fn val_extract(&self) -> u64 {
@@ -168,7 +151,6 @@ impl TpidrEl3 {
     pub fn val_write(val: u64) {
         Self::with_reg_val().val_insert(val).write();
     }
-
 }
 
 impl Default for TpidrEl3 {
