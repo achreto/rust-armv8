@@ -158,13 +158,13 @@ impl L1DescriptorBlock {
 
     /// obtains the physical address of the entry
     pub fn get_paddr(&self) -> PAddr {
-        PAddr::from(self.0.get_bits(21..=47) << LARGE_PAGE_SHIFT)
+        PAddr::from(self.0.get_bits(30..=47) << HUGE_PAGE_SHIFT)
     }
 
     /// obtains the physical address of the entry
     pub fn get_frame(&self) -> Option<PAddr> {
         if self.is_valid() {
-            Some(PAddr::from(self.0.get_bits(21..=47) << LARGE_PAGE_SHIFT))
+            Some(PAddr::from(self.0.get_bits(30..=47) << HUGE_PAGE_SHIFT))
         } else {
             None
         }
@@ -172,8 +172,8 @@ impl L1DescriptorBlock {
 
     // sets the frame address of the entry
     pub fn frame(&mut self, frame: PAddr) -> &mut Self {
-        assert!(frame % LARGE_PAGE_SIZE == 0);
-        self.0.set_bits(21..=47, frame.as_u64() >> LARGE_PAGE_SHIFT);
+        assert!(frame % HUGE_PAGE_SIZE == 0);
+        self.0.set_bits(30..=47, frame.as_u64() >> HUGE_PAGE_SHIFT);
         self
     }
 }
