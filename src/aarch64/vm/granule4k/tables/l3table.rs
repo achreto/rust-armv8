@@ -165,7 +165,29 @@ impl L3Table {
     /// # Panics
     ///
     /// The function panics if the entry is out of bounds
-    pub fn entry(&self, idx: usize) -> &L3Descriptor {
+    pub fn entry(&self, idx: usize) -> L3Descriptor {
+        if idx < L3_TABLE_ENTRIES {
+            self.0[idx]
+        } else {
+            panic!(
+                "table index {} out of supported range {}..{}",
+                idx, 0, L3_TABLE_ENTRIES
+            );
+        }
+    }
+
+    /// obtains the entry based on the vaddr
+    pub fn entry_at_vaddr(&self, vaddr: VAddr) -> L3Descriptor {
+        let idx = Self::index(vaddr);
+        self.entry(idx)
+    }
+
+    /// obtains a reference to the entry with the given index
+    ///
+    /// # Panics
+    ///
+    /// The function panics if the entry is out of bounds
+    pub fn entry_as_ref(&self, idx: usize) -> &L3Descriptor {
         if idx < L3_TABLE_ENTRIES {
             &self.0[idx]
         } else {
@@ -177,13 +199,13 @@ impl L3Table {
     }
 
     /// obtains the entry based on the vaddr
-    pub fn entry_at_vaddr(&self, vaddr: VAddr) -> &L3Descriptor {
+    pub fn entry_at_vaddr_as_ref(&self, vaddr: VAddr) -> &L3Descriptor {
         let idx = Self::index(vaddr);
-        self.entry(idx)
+        self.entry_as_ref(idx)
     }
 
     /// obtains a mutable reference to the entry with the given idnex
-    pub fn entry_mut(&mut self, idx: usize) -> &mut L3Descriptor {
+    pub fn entry_as_mut_ref(&mut self, idx: usize) -> &mut L3Descriptor {
         if idx < L3_TABLE_ENTRIES {
             &mut self.0[idx]
         } else {
@@ -195,9 +217,9 @@ impl L3Table {
     }
 
     /// obtains a mutable reference to the entry based on the vaddr
-    pub fn entry_at_vaddr_mut(&mut self, vaddr: VAddr) -> &mut L3Descriptor {
+    pub fn entry_at_vaddr_as_mut_ref(&mut self, vaddr: VAddr) -> &mut L3Descriptor {
         let idx = Self::index(vaddr);
-        self.entry_mut(idx)
+        self.entry_as_mut_ref(idx)
     }
 
     /// calculates the index of the entry based on the vaddr
