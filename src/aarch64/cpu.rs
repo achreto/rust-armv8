@@ -1,3 +1,4 @@
+
 // MIT License
 //
 // Copyright (c) 2022 Reto Achermann
@@ -20,7 +21,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-pub mod instructions;
-pub mod registers;
-pub mod vm;
-pub mod cpu;
+use core::arch::asm;
+
+pub fn sp() -> u64 {
+    let mut spval: u64 = 0;
+    unsafe {
+        asm!("mov {spval}, sp\n\t", spval  = out(reg) spval);
+    }
+    return spval;
+}
+
+pub fn fp() -> u64 {
+    let mut fpval: u64 = 0;
+    unsafe {
+        asm!("mov {fpval}, x29\n\t", fpval  = out(reg) fpval);
+    }
+    return fpval;
+}
+
+pub fn lr() -> u64 {
+    let mut lrval: u64 = 0;
+    unsafe {
+        asm!("mov {lrval}, x30\n\t",  lrval = out(reg) lrval);
+    }
+    return lrval;
+}
+
+
