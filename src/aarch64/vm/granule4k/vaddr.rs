@@ -412,7 +412,7 @@ impl Hash for VAddr {
 }
 
 #[cfg(feature = "unstable")]
-impl Step for PAddr {
+impl Step for VAddr {
     fn steps_between(start: &Self, end: &Self) -> Option<usize> {
         <u64 as Step>::steps_between(&start.0, &end.0)
     }
