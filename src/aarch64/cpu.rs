@@ -1,4 +1,3 @@
-
 // MIT License
 //
 // Copyright (c) 2022 Reto Achermann
@@ -46,5 +45,3 @@ pub fn lr() -> u64 {
     }
     return lrval;
 }
-
-
