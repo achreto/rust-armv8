@@ -23,10 +23,10 @@
 use core::convert::{From, Into};
 use core::fmt;
 use core::hash::{Hash, Hasher};
-use core::marker::Copy;
-use core::ops;
 #[cfg(feature = "unstable")]
 use core::iter::Step;
+use core::marker::Copy;
+use core::ops;
 
 use super::consts::{BASE_PAGE_SIZE, HUGE_PAGE_SIZE, LARGE_PAGE_SIZE, PADDR_MAX};
 use crate::aarch64::vm::granule4k::VAddr;

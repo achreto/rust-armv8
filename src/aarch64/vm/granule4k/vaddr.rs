@@ -23,10 +23,10 @@
 use core::convert::{From, Into};
 use core::fmt;
 use core::hash::{Hash, Hasher};
-use core::marker::Copy;
-use core::ops;
 #[cfg(feature = "unstable")]
 use core::iter::Step;
+use core::marker::Copy;
+use core::ops;
 
 use super::consts::{BASE_PAGE_SIZE, HUGE_PAGE_SIZE, LARGE_PAGE_SIZE};
 use crate::aarch64::vm::granule4k::VADDR_MAX;
@@ -417,9 +417,9 @@ impl Step for VAddr {
         <u64 as Step>::steps_between(&start.0, &end.0)
     }
     fn forward_checked(start: Self, count: usize) -> Option<Self> {
-        <u64 as Step>::forward_checked(start.0, count).map(|v| PAddr(v))
+        <u64 as Step>::forward_checked(start.0, count).map(|v| VAddr(v))
     }
     fn backward_checked(start: Self, count: usize) -> Option<Self> {
-        <u64 as Step>::backward_checked(start.0, count).map(|v| PAddr(v))
+        <u64 as Step>::backward_checked(start.0, count).map(|v| VAddr(v))
     }
 }
