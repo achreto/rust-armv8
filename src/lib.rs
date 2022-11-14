@@ -22,6 +22,7 @@
 
 #![cfg(any(target_arch = "aarch32", target_arch = "aarch64"))]
 #![no_std]
+#![cfg_attr(feature = "unstable", feature(step_trait))]
 
 pub mod aarch32;
 pub mod aarch64;

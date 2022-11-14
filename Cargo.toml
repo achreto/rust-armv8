@@ -15,8 +15,8 @@ license = "MIT"
 edition = '2018'
 
 
-[dependencies]
-bit_field = "0.10.1"
-
 [features]
 unstable = []
+
+[dependencies]
+bit_field = "0.10.1"
